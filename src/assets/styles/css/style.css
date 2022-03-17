@@ -64,9 +64,9 @@ Theme URI: http://www.htmlbeans.com/html/botanical/
 46	 contactForm
 
 ---------------------------------------------------------*/
-html {
+/* html {
   background-color: #343a40;
-}
+} */
 
 body {
   -ms-overlfow-style: scrollbar;
