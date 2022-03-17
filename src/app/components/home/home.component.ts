@@ -8,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   constructor() { }
-
+  Readmore = false;
+  longText = `This is long paragraph text containseverall words continued. An example for implementingdynamicallyy limit long text`;
   ngOnInit(): void {
   }
+  GoToLearnMore(){
 
+  }
 }

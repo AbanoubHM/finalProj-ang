@@ -98,7 +98,7 @@
                 <h2 class="headingII fwEbold playfair position-relative mb-6 pb-5"> <br> choose us ?</h2>
                 <p class="mb-xl-14 mb-lg-10">Lorem ipsum is simply dummy text of the printing and typesetting industry,
                     lorem ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer
-                    took a galley ... <a href="javascript:void(0);" class="btnMore"><i>Learn More</i></a></p>
+                    took a galley ... {{(Readmore) ? longText : longText | slice:0:50}} <span *ngIf="!Readmore">...</span> <a href="javascript:void(0);"  *ngIf="!Readmore" (click)="Readmore=true"  class="btnMore"><i>Learn More</i></a></p>
                 <!-- chooseList -->
                 <ul class="list-unstyled chooseList">
                     <li class="d-flex justify-content-start mb-xl-7 mb-lg-5 mb-3">
