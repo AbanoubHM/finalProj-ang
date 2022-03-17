@@ -64,9 +64,9 @@ Theme URI: http://www.htmlbeans.com/html/botanical/
 46	 contactForm
 
 ---------------------------------------------------------*/
-html {
+/* html {
   background-color: #343a40;
-}
+} */
 
 body {
   -ms-overlfow-style: scrollbar;
@@ -164,7 +164,7 @@ a {
 }
 
 .headingII:before {
-  content: '';
+  content: "";
   position: absolute;
   top: auto;
   right: auto;
@@ -261,7 +261,7 @@ a {
 }
 
 .introBlock h1:before {
-  content: '';
+  content: "";
   position: absolute;
   top: auto;
   right: auto;
@@ -290,7 +290,7 @@ a {
 }
 
 .introBlock .title:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 2px;
   right: auto;
@@ -409,7 +409,7 @@ a {
 }
 
 .bannerBlockHolder .title:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 2px;
   right: auto;
@@ -535,7 +535,7 @@ a {
 }
 
 .heroBlockHolder .title:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: auto;
@@ -801,7 +801,7 @@ a {
 }
 
 .comming-timer .countdown-row .countdown-section:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: -14px;
@@ -877,7 +877,7 @@ a {
 }
 
 .dealSlider .slick-dots button:before {
-  content: '';
+  content: "";
   position: absolute;
   top: -5px;
   right: auto;
@@ -958,7 +958,8 @@ a {
   font-style: italic;
 }
 
-.quotationBlock q:after, .quotationBlock q:before {
+.quotationBlock q:after,
+.quotationBlock q:before {
   display: none;
 }
 
@@ -1076,7 +1077,7 @@ a {
 }
 
 .testimonailSlider .slick-dots button:before {
-  content: '';
+  content: "";
   position: absolute;
   top: -5px;
   right: auto;
@@ -1198,7 +1199,7 @@ a {
 }
 
 .discoverSecHolder .title:before {
-  content: '';
+  content: "";
   position: absolute;
   top: auto;
   right: 0;
@@ -1582,7 +1583,7 @@ a {
 }
 
 .productTextHolder .sizeList [type="checkbox"] + .fake-input:before {
-  content: '';
+  content: "";
   width: 10px;
   height: 6px;
   position: absolute;
@@ -1603,7 +1604,7 @@ a {
 
 .productTextHolder .sizeList input:disabled + .fake-input,
 .productTextHolder .sizeList input:disabled ~ .fake-label {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .productTextHolder .colorList {
@@ -1667,7 +1668,7 @@ a {
   left: 19px;
   background: none;
   border: none;
-  font-family: 'Font Awesome 5 Free';
+  font-family: "Font Awesome 5 Free";
   font-weight: 900;
   margin: 0;
   text-indent: 0;
@@ -1721,7 +1722,7 @@ a {
 }
 
 .tabSetList a:after {
-  content: '';
+  content: "";
   position: absolute;
   top: auto;
   right: 0;
@@ -1878,7 +1879,7 @@ a {
   left: 19px;
   background: none;
   border: none;
-  font-family: 'Font Awesome 5 Free';
+  font-family: "Font Awesome 5 Free";
   font-weight: 900;
   margin: 0;
   text-indent: 0;
@@ -1970,7 +1971,7 @@ a {
 }
 
 .abtSecHolder h2:before {
-  content: '';
+  content: "";
   position: absolute;
   top: auto;
   right: auto;
@@ -2034,7 +2035,7 @@ a {
 }
 
 .teamBlock .imgWrap:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -2061,11 +2062,16 @@ a {
   transform: translate(-50%, -50%);
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: opacity 0.35s linear, visibility 0.35s linear, -webkit-transform 0.35s linear;
-  transition: opacity 0.35s linear, visibility 0.35s linear, -webkit-transform 0.35s linear;
-  -o-transition: opacity 0.35s linear, visibility 0.35s linear, transform 0.35s linear;
-  transition: opacity 0.35s linear, visibility 0.35s linear, transform 0.35s linear;
-  transition: opacity 0.35s linear, visibility 0.35s linear, transform 0.35s linear, -webkit-transform 0.35s linear;
+  -webkit-transition: opacity 0.35s linear, visibility 0.35s linear,
+    -webkit-transform 0.35s linear;
+  transition: opacity 0.35s linear, visibility 0.35s linear,
+    -webkit-transform 0.35s linear;
+  -o-transition: opacity 0.35s linear, visibility 0.35s linear,
+    transform 0.35s linear;
+  transition: opacity 0.35s linear, visibility 0.35s linear,
+    transform 0.35s linear;
+  transition: opacity 0.35s linear, visibility 0.35s linear,
+    transform 0.35s linear, -webkit-transform 0.35s linear;
 }
 
 .teamBlock .socialNetworks li {
@@ -2563,7 +2569,7 @@ a {
 }
 
 .pageNav2 .navbar-nav a:after {
-  content: '';
+  content: "";
   position: absolute;
   top: auto;
   right: 0;
