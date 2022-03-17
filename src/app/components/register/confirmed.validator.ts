@@ -1,24 +1,11 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 
-export function matchValidator(
-    matchTo: string, 
-    reverse?: boolean
-  ): ValidatorFn {
-    return (control: AbstractControl): 
-    ValidationErrors | null => {
-      if (control.parent && reverse) {
-        const c = (control.parent?.controls as any)[matchTo] as AbstractControl;
-        if (c) {
-          c.updateValueAndValidity();
-        }
+export function matchValidator(control:AbstractControl){
+    const p1 = control.get('password');
+    const p2 = control.get('confirm_password');
+    if(p1?.pristine||p2?.pristine){
         return null;
-      }
-      return !!control.parent &&
-        !!control.parent.value &&
-        control.value === 
-        (control.parent?.controls as any)[matchTo].value
-        ? null
-        : { matching: true };
-    };
-  }
+    }
+    return p1 && p2 && p1.value !== p2.value ? {'mismatch':true}:null;
+}

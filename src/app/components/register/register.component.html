@@ -32,6 +32,9 @@
                     {{validation.message}}
                 </mat-error>
             </mat-error>
+            <mat-error *ngIf="registerForm.errors?.['mismatch']">
+                Password must match.
+            </mat-error>
         </mat-form-field>
 
         <br>

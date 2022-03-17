@@ -19,9 +19,9 @@ export class RegisterComponent implements OnInit {
     email:['',[Validators.required,Validators.email]],
     phone:['',[Validators.required,Validators.minLength(10),Validators.maxLength(11)]],
     password:['',[Validators.required,Validators.minLength(6)]],
-    confirm_password:['',Validators.required,matchValidator('password')]
+    confirm_password:['',Validators.required]
     
-  }
+  },{validator:[matchValidator]}
   )
   account_validation_messages = {
     'username': [
@@ -36,7 +36,6 @@ export class RegisterComponent implements OnInit {
     ],
     'confirm_password': [
       { type: 'required', message: 'Confirm password is required' },
-      { type: 'matching', message: 'Password mismatch' }
     ],
     'password': [
       { type: 'required', message: 'Password is required' },
