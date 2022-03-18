@@ -32,8 +32,9 @@
                 <mat-error class="error-message" *ngIf="ff['confirm_password'].hasError('required') ">
                     Confirm password is required
                 </mat-error>
-                <mat-error class="error-message" *ngIf="registerForm.errors?.['mismatch']">
-                    mismatch
+
+                <mat-error class="error-message" *ngIf="ff['confirm_password'].hasError('matching')">
+                    Password mismatch
                 </mat-error>
             </mat-error>
         </mat-form-field>

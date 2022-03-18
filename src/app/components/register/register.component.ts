@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms';
-import { matchValidator } from './confirmed.validator';
+import { match } from './confirmed.validator';
 
 
 
@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
     confirm_password:['',Validators.required],
     password:['',[Validators.required,Validators.minLength(6)]]  
   },{
-    validator:[matchValidator]
+    validator:[match('password','confirm_password')]
   })
   account_validation_messages = {
     'username': [
