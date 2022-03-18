@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
+
+import { CartsComponent } from './components/carts/carts.component';
+
 import { RegisterComponent } from './components/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -20,6 +23,7 @@ import { ContactComponent } from './components/contact/contact.component';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
+    CartsComponent,
     RegisterComponent,
     ProductsComponent,
     AboutComponent,
