@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  readMore = false;
+  longText = `This is long paragraph text containseverall words continued. An example for implementingdynamicallyy limit long text`;
   constructor() { }
-
+ 
   ngOnInit(): void {
   }
+  GoToLearnMore(){
 
+  }
+  
 }
