@@ -18,11 +18,11 @@ export class RegisterComponent implements OnInit {
     username:['',[Validators.required,Validators.pattern('^[a-zA-Z]+$'),Validators.minLength(5),Validators.maxLength(25)]],
     email:['',[Validators.required,Validators.email]],
     phone:['',[Validators.required,Validators.minLength(10),Validators.maxLength(11)]],
-    password:['',[Validators.required,Validators.minLength(6)]],
-    confirm_password:['',Validators.required]
-    
-  },{validator:[matchValidator]}
-  )
+    confirm_password:['',Validators.required],
+    password:['',[Validators.required,Validators.minLength(6)]]  
+  },{
+    validator:[matchValidator]
+  })
   account_validation_messages = {
     'username': [
       { type: 'required', message: 'Username is required' },
@@ -53,7 +53,10 @@ export class RegisterComponent implements OnInit {
   get ff(){
     return this.registerForm.controls;
   }
-  
+  submitForm(){
+    console.log(this.registerForm);
+    
+  }
 }
 
 
