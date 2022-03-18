@@ -1,0 +1,71 @@
+<div class="container">
+    <form method="post" [formGroup]="registerForm">
+        <br>
+        <mat-form-field class="mb-3" appearance="fill">
+            <mat-label>User Name</mat-label>
+            <input matInput formControlName="username" placeholder="User Name">
+            <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-error *ngFor="let validation of account_validation_messages.username">
+                <mat-error class="error-message" *ngIf="ff['username'].hasError(validation.type)">
+                    {{validation.message}}
+                </mat-error>
+            </mat-error>
+        </mat-form-field>
+
+        <br>
+
+
+        <mat-form-field class="mr-3 mb-3" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password" placeholder="Enter a password">
+            <mat-error *ngFor="let validation of account_validation_messages.password">
+                <mat-error class="error-message" *ngIf="ff['password'].hasError(validation.type)">
+                    {{validation.message}}
+                </mat-error>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Confirm Password</mat-label>
+            <input type="password" matInput formControlName="confirm_password" placeholder="Repeat Password">
+
+            <mat-error>
+                <mat-error class="error-message" *ngIf="ff['confirm_password'].hasError('required') ">
+                    Confirm password is required
+                </mat-error>
+
+                <mat-error class="error-message" *ngIf="ff['confirm_password'].hasError('matching')">
+                    Password mismatch
+                </mat-error>
+            </mat-error>
+        </mat-form-field>
+
+        <br>
+        <mat-form-field class="mb-3" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+            <mat-error *ngFor="let validation of account_validation_messages.email">
+                <mat-error class="error-message" *ngIf="ff['email'].hasError(validation.type) ">
+                    {{validation.message}}
+                </mat-error>
+            </mat-error>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="mb-3" appearance="fill">
+            <mat-label>Phone</mat-label>
+            <span matPrefix>+20 &nbsp;</span>
+            <input type="tel" matInput formControlName="phone" placeholder="123-456-7890">
+            <mat-icon matSuffix>smartphone</mat-icon>
+            <mat-error *ngFor="let validation of account_validation_messages.phone">
+                <mat-error class="error-message" *ngIf="ff['phone'].hasError(validation.type)">
+                    {{validation.message}}
+                </mat-error>
+            </mat-error>
+        </mat-form-field>
+
+        <br>
+
+        <button (click)="submitForm()" mat-raised-button>Submit</button>
+
+    </form>
+</div>
