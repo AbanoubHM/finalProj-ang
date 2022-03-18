@@ -1,129 +1,85 @@
-<!DOCTYPE html>
+<!-- <!doctype html>
 <html lang="en">
-<head>
-	<title>Contact V3</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="/images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/css/util.css">
-	<link rel="stylesheet" type="text/css" href="/css/main.css">
-<!--===============================================================================================-->
-</head>
-<body>
+  <head>
+  	<title>Contact Form 08</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<div class="bg-contact3" style="background-image: url('images/bg-01.jpg');">
-		<div class="container-contact3">
-			<div class="wrap-contact3">
-				<form class="contact3-form validate-form">
-					<span class="contact3-form-title">
-						Contact Us
-					</span>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 
-					<div class="wrap-contact3-form-radio">
-						<div class="contact3-form-radio m-r-42">
-							<input class="input-radio3" id="radio1" type="radio" name="choice" value="say-hi" checked="checked">
-							<label class="label-radio3" for="radio1">
-								Say Hi
-							</label>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="/css/style.css">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Contact Form #08</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-10">
+					<div class="wrapper img" style="background-image: url(images/img.jpg);">
+						<div class="row">
+							<div class="col-md-9 col-lg-7">
+								<div class="contact-wrap w-100 p-md-5 p-4">
+									<h3 class="mb-4">Get in touch with us</h3>
+									<div id="form-message-warning" class="mb-4"></div>
+				      		<div id="form-message-success" class="mb-4">
+				            Your message was sent, thank you!
+				      		</div>
+									<form method="POST" id="contactForm" name="contactForm" class="contactForm">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="label" for="name">Full Name</label>
+													<input type="text" class="form-control" name="name" id="name" placeholder="Name">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="label" for="email">Email Address</label>
+													<input type="email" class="form-control" name="email" id="email" placeholder="Email">
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<label class="label" for="subject">Subject</label>
+													<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<label class="label" for="#">Message</label>
+													<textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message"></textarea>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<input type="submit" value="Send Message" class="btn btn-primary">
+													<div class="submitting"></div>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
 						</div>
-
-						<div class="contact3-form-radio">
-							<input class="input-radio3" id="radio2" type="radio" name="choice" value="get-quote">
-							<label class="label-radio3" for="radio2">
-								Get a Quote
-							</label>
-						</div>
 					</div>
-
-					<div class="wrap-input3 validate-input" data-validate="Name is required">
-						<input class="input3" type="text" name="name" placeholder="Your Name">
-						<span class="focus-input3"></span>
-					</div>
-
-					<div class="wrap-input3 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input3" type="text" name="email" placeholder="Your Email">
-						<span class="focus-input3"></span>
-					</div>
-
-					<div class="wrap-input3 input3-select">
-						<div>
-							<select class="selection-2" name="service">
-								<option>Needed Services</option>
-								<option>eCommerce Bussiness</option>
-								<option>UI/UX Design</option>
-								<option>Online Services</option>
-							</select>
-						</div>
-						<span class="focus-input3"></span>
-					</div>
-
-					<div class="wrap-input3 input3-select">
-						<div>
-							<select class="selection-2" name="budget">
-								<option>Budget</option>
-								<option>1500 $</option>
-								<option>2000 $</option>
-								<option>3000 $</option>
-							</select>
-						</div>
-						<span class="focus-input3"></span>
-					</div>
-
-					<div class="wrap-input3 validate-input" data-validate = "Message is required">
-						<textarea class="input3" name="message" placeholder="Your Message"></textarea>
-						<span class="focus-input3"></span>
-					</div>
-
-					<div class="container-contact3-form-btn">
-						<button class="contact3-form-btn">
-							Submit
-						</button>
-					</div>
-				</form>
+				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
+	<script src="/js/jquery.min.js"></script>
+  <script src="/js/popper.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/jquery.validate.min.js"></script>
+  <script src="/js/main.js"></script>
 
-	<div id="dropDownSelect1"></div>
-
-<!--===============================================================================================-->
-	<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="/vendor/bootstrap/js/popper.js"></script>
-	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="/vendor/select2/select2.min.js"></script>
-	<script>
-		$(".selection-2").select2({
-			minimumResultsForSearch: 20,
-			dropdownParent: $('#dropDownSelect1')
-		});
-	</script>
-<!--===============================================================================================-->
-	<script src="/js/main.js"></script>
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-23581568-13');
-</script>
-
-</body>
+	</body>
 </html>
+ -->
