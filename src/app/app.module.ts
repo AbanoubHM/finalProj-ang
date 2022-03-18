@@ -14,8 +14,13 @@ import { RegisterComponent } from './components/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './components/products/products.component';
+
 import { LoginComponent } from './components/login/login.component';
 import { ErrorComponent } from './components/error/error.component';
+
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +32,10 @@ import { ErrorComponent } from './components/error/error.component';
     RegisterComponent,
     ProductsComponent,
     LoginComponent,
-    ErrorComponent
+    ErrorComponent,
+    AboutComponent,
+    ContactComponent
+
   ],
   imports: [
     BrowserModule,
