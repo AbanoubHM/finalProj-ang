@@ -1,3 +1,4 @@
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ErrorComponent } from './components/error/error.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
 
   {path:'contact' , component:ContactComponent},
+  {path:'details',component:ProductDetailsComponent},
   {path:'**',component:ErrorComponent}
 
 

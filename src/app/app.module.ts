@@ -20,6 +20,7 @@ import { ErrorComponent } from './components/error/error.component';
 
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ContactComponent } from './components/contact/contact.component';
     LoginComponent,
     ErrorComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    ProductDetailsComponent
 
   ],
   imports: [

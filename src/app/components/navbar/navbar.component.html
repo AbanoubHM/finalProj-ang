@@ -6,7 +6,8 @@
             <div class="col-6 col-sm-2">
                 <!-- mainLogo -->
                 <div class="logo">
-                    <a style="text-decoration: none;" routerLink=""><img src="assets/styles/images/logo.png" alt="Botanical" class="img-fluid"></a>
+                    <a style="text-decoration: none;" routerLink=""><img src="assets/styles/images/logo.png"
+                            alt="Botanical" class="img-fluid"></a>
                 </div>
             </div>
             <div class="col-6 col-sm-7 col-lg-8 static-block">
@@ -27,29 +28,41 @@
                                     <a style="text-decoration: none;" class="dropdown-toggle d-block" role="button"
                                         routerLink="/home">home</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a style="text-decoration: none;" class="d-block" routerLink="/products">Products</a>
+                                <li class="nav-item dropdown">
+                                    <a style="text-decoration: none;" class="dropdown-toggle d-block" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">products</a>
+                                    <ul class="list-unstyled text-capitalize dropdown-menu mt-0 py-0">
+                                        <li class="d-block mx-0"><a style="text-decoration: none;"
+                                                routerLink="products">Product list</a></li>
+                                        <li class="d-block mx-0"><a style="text-decoration: none;"
+                                                routerLink="details">Product Details</a></li>
+                                    </ul>
                                 </li>
+
                                 <li class="nav-item">
-                                    <a style="text-decoration: none;" class="d-block"routerLink="/about">About</a>
+                                    <a style="text-decoration: none;" class="d-block" routerLink="/about">About</a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a style="text-decoration: none;" class="dropdown-toggle d-block" role="button" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">Log in</a>
+                                    <a style="text-decoration: none;" class="dropdown-toggle d-block" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Log in</a>
                                     <ul class="list-unstyled text-capitalize dropdown-menu mt-0 py-0">
-                                        <li class="d-block mx-0"><a style="text-decoration: none;" routerLink="register">Register</a></li>
-                                        <li class="d-block mx-0"><a style="text-decoration: none;" routerLink="login">Login</a></li>
+                                        <li class="d-block mx-0"><a style="text-decoration: none;"
+                                                routerLink="register">Register</a></li>
+                                        <li class="d-block mx-0"><a style="text-decoration: none;"
+                                                routerLink="login">Login</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a style="text-decoration: none;" class="dropdown-toggle d-block" role="button" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">Pages</a>
+                                    <a style="text-decoration: none;" class="dropdown-toggle d-block" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
                                     <ul class="list-unstyled text-capitalize dropdown-menu mt-0 py-0">
-                                        <li class="d-block mx-0"><a style="text-decoration: none;" routerLink="/cart">Cart Page</a></li>
+                                        <li class="d-block mx-0"><a style="text-decoration: none;"
+                                                routerLink="/cart">Cart Page</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a style="text-decoration: none;" style="text-decoration: none;" class="d-block" routerLink="/contact" >contact</a>
+                                    <a style="text-decoration: none;" style="text-decoration: none;" class="d-block"
+                                        routerLink="/contact">contact</a>
                                 </li>
                             </ul>
                         </div>
