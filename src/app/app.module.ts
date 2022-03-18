@@ -11,6 +11,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './components/products/products.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ProductsComponent } from './components/products/products.component';
     FooterComponent,
     HomeComponent,
     RegisterComponent,
-    ProductsComponent
+    ProductsComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
