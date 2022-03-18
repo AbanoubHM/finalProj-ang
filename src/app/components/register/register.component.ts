@@ -12,42 +12,21 @@ import { match } from './confirmed.validator';
 })
 export class RegisterComponent implements OnInit {
 
-  
+  maxDate?:Date
   constructor(private fb:FormBuilder) { }
   registerForm:FormGroup=this.fb.group({
     username:['',[Validators.required,Validators.pattern('^[a-zA-Z]+$'),Validators.minLength(5),Validators.maxLength(25)]],
     email:['',[Validators.required,Validators.email]],
     phone:['',[Validators.required,Validators.minLength(10),Validators.maxLength(11)]],
     confirm_password:['',Validators.required],
-    password:['',[Validators.required,Validators.minLength(6)]]  
+    password:['',[Validators.required,Validators.minLength(6)]],
+    birthdate:['',Validators.required]
   },{
     validator:[match('password','confirm_password')]
   })
-  account_validation_messages = {
-    'username': [
-      { type: 'required', message: 'Username is required' },
-      { type: 'minlength', message: 'Username must be at least 5 characters long' },
-      { type: 'maxlength', message: 'Username cannot be more than 25 characters long' },
-      { type: 'pattern', message: 'Your username must contain only letters' },
-    ],
-    'email': [
-      { type: 'required', message: 'Email is required' },
-      { type: 'email', message: 'Enter a valid email' }
-    ],
-    'confirm_password': [
-      { type: 'required', message: 'Confirm password is required' },
-    ],
-    'password': [
-      { type: 'required', message: 'Password is required' },
-      { type: 'minlength', message: 'Password must be at least 6 characters long' },
-    ],
-    'phone': [
-      { type: 'required', message: 'Phone number is required' },
-      { type: 'minlength', message: 'Invalid Phone Number' },
-      { type: 'maxlength', message: 'Invalid Phone Number' }
-
-    ]}
   ngOnInit(): void {
+    const currentYear = new Date().getFullYear();
+    this.maxDate = new Date(currentYear - 14, 0, 1);
   }
 
   get ff(){
@@ -57,6 +36,31 @@ export class RegisterComponent implements OnInit {
     console.log(this.registerForm);
     
   }
+  register_validation_messages = {
+    'username': [
+      { type: 'required', message: 'Username is required' },
+      { type: 'minlength', message: 'Username must be at least 5 characters long' },
+      { type: 'maxlength', message: 'Username cannot be more than 25 characters long' },
+      { type: 'pattern', message: 'Your username must contain only letters' }
+    ],
+    'email': [
+      { type: 'required', message: 'Email is required' },
+      { type: 'email', message: 'Enter a valid email' }
+    ],
+    'confirm_password': [
+      { type: 'required', message: 'Confirm password is required' },
+      { type: 'matching', message: 'Password mismatch'}
+    ],
+    'password': [
+      { type: 'required', message: 'Password is required' },
+      { type: 'minlength', message: 'Password must be at least 6 characters long' }
+    ],
+    'phone': [
+      { type: 'required', message: 'Phone number is required' },
+      { type: 'minlength', message: 'Invalid Phone Number' },
+      { type: 'maxlength', message: 'Invalid Phone Number' }
+
+    ]}
 }
 
 
