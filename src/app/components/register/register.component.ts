@@ -20,7 +20,8 @@ export class RegisterComponent implements OnInit {
     phone:['',[Validators.required,Validators.minLength(10),Validators.maxLength(11)]],
     confirm_password:['',Validators.required],
     password:['',[Validators.required,Validators.minLength(6)]],
-    birthdate:['',Validators.required]
+    birthdate:['',Validators.required],
+    address:['']
   },{
     validator:[match('password','confirm_password')]
   })

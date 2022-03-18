@@ -1,1 +1,21 @@
-<p>login works!</p>
+<div class="container">
+    <form method="post" [formGroup]="loginForm">
+        <br>
+        <mat-form-field class="mb-3" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+            <mat-error class="error-message" *ngIf="ff['email'].hasError('email') ">
+                Invail E-mail format
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="mr-3 mb-3" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password" placeholder="Enter your password">
+
+        </mat-form-field>
+        <br>
+        <button class="mb-3" (click)="submitForm()" mat-raised-button>Log in</button>
+
+    </form>
+</div>

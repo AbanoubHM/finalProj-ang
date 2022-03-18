@@ -14,6 +14,16 @@
 
         <br>
 
+        <mat-form-field class="mb-3" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+            <mat-error *ngFor="let validation of register_validation_messages.email">
+                <mat-error class="error-message" *ngIf="ff['email'].hasError(validation.type) ">
+                    {{validation.message}}
+                </mat-error>
+            </mat-error>
+        </mat-form-field>
+        <br>
 
         <mat-form-field class="mr-3 mb-3" appearance="fill">
             <mat-label>Password</mat-label>
@@ -37,13 +47,8 @@
 
         <br>
         <mat-form-field class="mb-3" appearance="fill">
-            <mat-label>Email</mat-label>
-            <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
-            <mat-error *ngFor="let validation of register_validation_messages.email">
-                <mat-error class="error-message" *ngIf="ff['email'].hasError(validation.type) ">
-                    {{validation.message}}
-                </mat-error>
-            </mat-error>
+            <mat-label>Address</mat-label>
+            <textarea matInput formControlName="address" placeholder="Ex. 100 Main St"></textarea>
         </mat-form-field>
         <br>
 
@@ -73,7 +78,7 @@
         <br>
 
 
-        <button (click)="submitForm()" mat-raised-button>Submit</button>
+        <button (click)="submitForm()" mat-raised-button>Register</button>
 
     </form>
 </div>
