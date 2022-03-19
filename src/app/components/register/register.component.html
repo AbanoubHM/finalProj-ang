@@ -1,7 +1,7 @@
-<div class="container d-flex justify-content-start w-25"   style="margin-top: 40px; background-image: url(assets/styles/images/contactus.jpg); background-size: cover;" >
+<div class="container d-flex justify-content-start w-75"  style="background-image: url(assets/styles/images/5360844.jpg); background-repeat: no-repeat; background-size: 65% 80%;  background-position: right center; margin-top: 70px;">
 <div class="row">
 <div class="wrapper img" >
-    <form method="post" [formGroup]="registerForm" >
+    <form method="post" [formGroup]="registerForm" class="w-50">
         
         <mat-form-field class="mb-3" appearance="outline">
             <mat-label>User Name</mat-label>
@@ -73,14 +73,9 @@
                 </mat-error>
             </mat-error>
         </mat-form-field>
-
-       
-
-
         <button (click)="submitForm()" mat-raised-button>Register</button>
 
     </form>
 </div>
-
 </div>
 </div>
