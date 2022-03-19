@@ -1,8 +1,11 @@
-<div class="container ">
 
-    <form method="post" [formGroup]="registerForm">
-        <br>
-        <mat-form-field class="mb-2" appearance="fill">
+<div class="container d-flex justify-content-start w-75"  style="background-image: url(assets/styles/images/5360844.jpg); background-repeat: no-repeat; background-size: 65% 80%;  background-position: right center; margin-top: 70px;">
+<div class="row">
+<div class="wrapper img" >
+    <form method="post" [formGroup]="registerForm" class="w-50">
+        
+        <mat-form-field class="mb-3" appearance="outline">
+
             <mat-label>User Name</mat-label>
             <input matInput formControlName="username" placeholder="User Name">
             <mat-icon matSuffix>person</mat-icon>
@@ -13,9 +16,9 @@
             </mat-error>
         </mat-form-field>
 
-        <br>
 
-        <mat-form-field class="mb-2" appearance="fill">
+        <mat-form-field class="mb-1" appearance="outline">
+
             <mat-label>Email</mat-label>
             <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
             <mat-icon matSuffix>alternate_email</mat-icon>
@@ -26,9 +29,11 @@
                 </mat-error>
             </mat-error>
         </mat-form-field>
-        <br>
+        
 
-        <mat-form-field class="mr-3 mb-2" appearance="fill">
+
+        <mat-form-field class="mr-3 mb-3" appearance="outline">
+
             <mat-label>Password</mat-label>
             <input type="password" matInput formControlName="password" placeholder="Enter a password">
             <mat-icon matSuffix>key</mat-icon>
@@ -38,7 +43,7 @@
                 </mat-error>
             </mat-error>
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
             <mat-label>Confirm Password</mat-label>
             <input type="password" matInput formControlName="confirm_password" placeholder="Repeat Password">
 
@@ -50,15 +55,18 @@
 
         </mat-form-field>
 
-        <br>
-        <mat-form-field class="mb-2" appearance="fill">
+
+        <mat-form-field class="mb-3" appearance="outline">
+
             <mat-label>Address</mat-label>
             <textarea matInput formControlName="address" placeholder="Ex. 100 Main St"></textarea>
             <mat-icon matSuffix>person_pin_circle</mat-icon>
         </mat-form-field>
-        <br>
+      
 
-        <mat-form-field class="mb-2" appearance="fill">
+
+        <mat-form-field class="mb-3" appearance="outline">
+
             <mat-label>Birthdate</mat-label>
             <input matInput formControlName="birthdate" [max]="maxDate" [matDatepicker]="picker">
             <mat-datepicker-toggle matSuffix [for]="picker">
@@ -70,9 +78,11 @@
                 Birthdate is Required
             </mat-error>
         </mat-form-field>
-        <br>
+   
 
-        <mat-form-field class="mb-2" appearance="fill">
+
+        <mat-form-field class="mb-3" appearance="outline">
+
             <mat-label>Phone</mat-label>
             <span matPrefix>+20 &nbsp;</span>
             <input type="tel" matInput formControlName="phone" placeholder="123-456-7890">
@@ -83,11 +93,9 @@
                 </mat-error>
             </mat-error>
         </mat-form-field>
-
-        <br>
-
-
         <button (click)="submitForm()" mat-raised-button>Register</button>
 
     </form>
+</div>
+</div>
 </div>
