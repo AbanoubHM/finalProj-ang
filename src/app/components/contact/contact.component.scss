@@ -2,19 +2,6 @@ mat-form-field {
   width: 100%;
 }
 
-article,
-aside,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-nav,
-section {
-  display: block;
-}
-
 .ftco-section {
   padding: 7em 0;
 }
@@ -23,39 +10,4 @@ section {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-}
-
-.wrapper {
-  width: 100%;
-  overflow: hidden;
-  border-radius: 5px;
-}
-
-#contactForm .error {
-  color: red;
-  font-size: 12px;
-}
-
-#form-message-warning,
-#form-message-success {
-  display: none;
-}
-
-#form-message-warning {
-  color: red;
-}
-
-#form-message-success {
-  color: #28a745;
-  font-size: 18px;
-  font-weight: 500;
-}
-
-.submitting {
-  float: left;
-  width: 100%;
-  padding: 10px 0;
-  display: none;
-  font-size: 16px;
-  font-weight: 500;
 }

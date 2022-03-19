@@ -7,10 +7,7 @@
 						<div class="col-md-9 col-lg-7">
 							<div class="contact-wrap w-100 p-md-5 p-4">
 								<h3 class="mb-4">Get in touch with us</h3>
-								<div id="form-message-warning" class="mb-4"></div>
-								<div id="form-message-success" class="mb-4">
-									Your message was sent, thank you!
-								</div>
+
 								<form id="contactForm" name="contactForm" [formGroup]="contactForm" class="contactForm">
 									<div class="row">
 										<div class="col-md-6">
@@ -58,11 +55,10 @@
 										</div>
 										<div class="col-md-12">
 											<div class="form-group ">
-												<button class="justify-content-center" (click)="send()"
-													mat-raised-button>Send
+												<button class="mt-2" (click)="send()" mat-raised-button>Send
 													Message</button>
 
-												<div class="submitting"></div>
+
 											</div>
 										</div>
 									</div>
@@ -75,6 +71,3 @@
 		</div>
 	</div>
 </section>
-
-
-<script src="assets/styles/js/main.js"></script>
