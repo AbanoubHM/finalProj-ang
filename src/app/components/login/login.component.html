@@ -1,10 +1,10 @@
-<div class="container" style="background-image: url(assets/styles/images/contactus.jpg);" >
+<div class="container  d-flex justify-content-center w-50" style="background-image: url(assets/styles/images/contactus.jpg);" >
     <div class="row">
 <div class="wrapper img" >
 
     <form method="post" [formGroup]="loginForm">
         <br>
-        <mat-form-field class="mb-3" appearance="fill">
+        <mat-form-field class="mb-3" appearance="outline">
             <mat-label>Email</mat-label>
             <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
             <mat-error class="error-message" *ngIf="ff['email'].hasError('email') ">
@@ -12,7 +12,7 @@
             </mat-error>
         </mat-form-field>
         <br>
-        <mat-form-field class="mr-3 mb-3" appearance="fill">
+        <mat-form-field class="mr-3 mb-3" appearance="outline">
             <mat-label>Password</mat-label>
             <input type="password" matInput formControlName="password" placeholder="Enter your password">
 
