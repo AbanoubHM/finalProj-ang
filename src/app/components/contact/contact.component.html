@@ -2,21 +2,18 @@
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-10">
-				<div class="wrapper img" style="background-image: url(assets/styles/images/contactus.jpg);">
+				<div class="wrapper img" style="background-image: url(assets/styles/images/pexels-photo-210647.jpeg);">
 					<div class="row">
 						<div class="col-md-9 col-lg-7">
 							<div class="contact-wrap w-100 p-md-5 p-4">
 								<h3 class="mb-4">Get in touch with us</h3>
-
 								<form id="contactForm" name="contactForm" [formGroup]="contactForm" class="contactForm">
 									<div class="row">
 										<div class="col-md-6">
-
 											<mat-form-field appearance="outline">
 												<mat-label>Full Name</mat-label>
 												<input matInput formControlName="fullname" placeholder="Full Name">
 											</mat-form-field>
-
 										</div>
 										<div class="col-md-6">
 											<mat-form-field appearance="outline">
@@ -50,15 +47,12 @@
 													*ngIf="ff['message'].hasError('required') ">
 													messsage is required
 												</mat-error>
-
 											</mat-form-field>
 										</div>
 										<div class="col-md-12">
 											<div class="form-group ">
 												<button class="mt-2" (click)="send()" mat-raised-button>Send
 													Message</button>
-
-
 											</div>
 										</div>
 									</div>
