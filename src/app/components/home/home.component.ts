@@ -6,14 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+ 
+  
   longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
   from Japan.`;
-  constructor() { }
+  constructor() { 
+   
+  }
  
   ngOnInit(): void {
   }
-  GoToLearnMore(){
 
-  }
-  
 }
+  
+
