@@ -1,25 +1,301 @@
 <main>
-    <section class="chooseUs-sec container pt-xl-22 pt-lg-20 pt-md-16 pt-10 pb-xl-12 pb-md-7 pb-2">
-       
-        <div class="row w-75" style="margin: 0 auto;">
 
-            <div class="content">
-                <div fxLayout="row wrap" fxLayoutGap="16px grid">
-                    <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of [1,2,3]">
-                        <mat-card class="mat-elevation-z4">
-                            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-                            <mat-card-content>
-                                <p>
-                                    The Himalayas is a mountain range in Asia.
-                                </p>
-                            </mat-card-content>
-                        </mat-card>
-                    </div>
-                </div>
-            </div>
+
+
+  <section class="chooseUs-sec container pt-xl-22 pt-lg-20 pt-md-16 pt-10 pb-xl-12 pb-md-7 pb-2">
+    <div class="row" style="margin: 20px">
+      <div class="col-md-4 col-xs-12 col-sm-12">
+        <div class="card bg-light" style="width: 18rem;height: 280px;">
+          <i class='icon-heart d-block' style='font-size:90px; text-align: center; padding: 20px;'></i>
+          <div class="card-body">
+            <h5 class="card-title">find something you love</h5>
+            <p class="card-text">Our marketplace is a world of vintage and handmade goods</p>
+          </div>
+          </div>
         </div>
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="card bg-light" style="width: 18rem;">
+            <i class='icon icon-gift' style='font-size:90px; text-align: center; padding: 20px;'></i>
+            <div class="card-body">
+              <h5 class="card-title">Meet talented artisans</h5>
+              <p class="card-text">It is fairy dust and wanderlust that guide our hands to create what our hearts desire.
+              </p>
+            </div>
+          </div>
 
-    </section>
+        </div>
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="card bg-light" style="width: 18rem; height: 280px">
+            <i class='icon icon-recycle' style='font-size:90px; text-align: center; padding: 20px;'></i>
+            <div class="card-body">
+              <h5 class="card-title">Return &amp; exchange</h5>
+              <p class="card-text">Free return within 3 days</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+   </section>
+<!-- products -->
+   <section class="chooseUs-sec container pt-xl-22 pt-lg-20 pt-md-16 pt-10 pb-xl-12 pb-md-7 pb-2">
+       <div class="row">
+
+
+        <mat-tab-group mat-align-tabs="start">
+            <mat-tab label="FEATURED">
+
+
+                <div class="content">
+                    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+                      <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of [1,2,3,4,5,6,7,8,9]">
+                        <mat-card class="mat-elevation-z4" >
+                          <mat-card-header>
+                            <mat-card-title>Mountains {{num}}</mat-card-title>
+                          </mat-card-header>
+                          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+                          <mat-card-content>
+                            <p>
+                              The Himalayas is a mountain range in Asia.
+                            </p>
+                          </mat-card-content>
+                          <mat-card-actions>
+                            <button mat-button>LIKE</button>
+                            <button mat-button>SHARE</button>
+                          </mat-card-actions>
+                        </mat-card>
+                      </div>
+                    </div>
+                    </div>
+
+            </mat-tab>
+
+
+
+            <mat-tab label="TRENDING">
+
+
+                <div class="content">
+                    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+                      <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of [1,2,3,4,5,6,7,8,9]">
+                        <mat-card class="mat-elevation-z4" >
+                          <mat-card-header>
+                            <mat-card-title>Mountains {{num}}</mat-card-title>
+                          </mat-card-header>
+                          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+                          <mat-card-content>
+                            <p>
+                              The Himalayas is a mountain range in Asia.
+                            </p>
+                          </mat-card-content>
+                          <mat-card-actions>
+                            <button mat-button>LIKE</button>
+                            <button mat-button>SHARE</button>
+                          </mat-card-actions>
+                        </mat-card>
+                      </div>
+                    </div>
+                    </div>
+
+
+            </mat-tab>
+
+
+
+            <mat-tab label="BESTSELLERS">
+                <div class="content">
+                    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+                      <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of [1,2,3,4,5,6,7,8,9]">
+                        <mat-card class="mat-elevation-z4" >
+                          <mat-card-header>
+                            <mat-card-title>Mountains {{num}}</mat-card-title>
+                          </mat-card-header>
+                          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+                          <mat-card-content>
+                            <p>
+                              The Himalayas is a mountain range in Asia.
+                            </p>
+                          </mat-card-content>
+                          <mat-card-actions>
+                            <button mat-button>LIKE</button>
+                            <button mat-button>SHARE</button>
+                          </mat-card-actions>
+                        </mat-card>
+                      </div>
+                    </div>
+                    </div>
+
+
+            </mat-tab>
+          </mat-tab-group>
+
+
+
+
+           </div>
+
+   </section>
+
+
+
+
+
+
+
+    <figure class="text-center">
+      <blockquote class="blockquote">
+        <p class="mb-0">Start Selling Today</p>
+
+      </blockquote>
+      <figcaption class="blockquote-footer">
+        Thousands of Customers Around The Globe Are Waiting
+        to See What You Have in Stock
+      </figcaption>
+    </figure>
+    <div class="container my-3 ">
+      <div class="col-md-12 text-center">
+        <button type="button" class="btn btn-success">Become a vendor</button>
+      </div>
+    </div>
+
+  
+
+  <!-- Services Start -->
+
+  <div class="container-fluid bg-light pt-5">
+    <div class="container py-5">
+      <div class="d-flex flex-column text-center mb-5">
+        <h1 class="display-4 m-0"><span class="text-primary">Product Categories On Focus</span> </h1>
+      </div>
+
+      <div class="row pb-3 ">
+        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+          <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+            <img src="assets/styles/images/home photo/img04.jpg" class="card-img-top" alt="...">
+            <a class="text-uppercase font-weight-bold" href="">Celebrations</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+          <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+            <img src="assets/styles/images/home photo/img09.jpg" class="card-img-top" alt="...">
+            <a class="text-uppercase font-weight-bold" href="">Home And Living</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+          <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+            <img src="assets/styles/images/home photo/img07.jpg" class="card-img-top" alt="...">
+            <a class="text-uppercase font-weight-bold" href="">Kids And Baby</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+          <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+            <img src="assets/styles/images/home photo/img02.jpg" class="card-img-top" alt="...">
+            <a class="text-uppercase font-weight-bold" href="">Art</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+          <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+            <img src="assets/styles/images/home photo/img57.jpg" class="card-img-top" alt="...">
+            <a class="text-uppercase font-weight-bold" href="">Bracelet</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+          <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+            <img src="assets/styles/images/home photo/img06.jpg" class="card-img-top" alt="...">
+            <a class="text-uppercase font-weight-bold" href="">Charms</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+          <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+            <img src="assets/styles/images/home photo/img54.jpg" class="card-img-top" alt="...">
+            <a class="text-uppercase font-weight-bold" href="">Wooden</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+          <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+            <img src="assets/styles/images/home photo/img53.jpg" class="card-img-top" alt="...">
+            <a class="text-uppercase font-weight-bold" href="">Materials And Tools</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+          <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+            <img src="assets/styles/images/home photo/img10.jpg" class="card-img-top" alt="...">
+            <a class="text-uppercase font-weight-bold" href="">Clothing</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+          <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+            <img src="assets/styles/images/home photo/img11.jpg" class="card-img-top" alt="...">
+            <a class="text-uppercase font-weight-bold" href="">Shoes</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+          <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+            <img src="assets/styles/images/home photo/img03.jpg" class="card-img-top" alt="...">
+            <a class="text-uppercase font-weight-bold" href="">Bags</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+          <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+            <img src="assets/styles/images/home photo/img12.jpg" class="card-img-top" alt="...">
+            <a class="text-uppercase font-weight-bold" href="">Carpets And Furniture</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+          <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+            <img src="assets/styles/images/home photo/img13.jpg" class="card-img-top" alt="...">
+            <a class="text-uppercase font-weight-bold" href="">Neckalces</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+          <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+            <img src="assets/styles/images/home photo/img47.jpg" class="card-img-top" alt="...">
+            <a class="text-uppercase font-weight-bold" href="">Earrings</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+          <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+            <img src="assets/styles/images/home photo/img16.jpg" class="card-img-top" alt="...">
+            <a class="text-uppercase font-weight-bold" href="">Paintings</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+          <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+            <img src="assets/styles/images/home photo/img53.jpg" class="card-img-top" alt="...">
+            <a class="text-uppercase font-weight-bold" href="">Oil Paintings</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+          <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+            <img src="assets/styles/images/home photo/img11.jpg" class="card-img-top" alt="...">
+            <a class="text-uppercase font-weight-bold" href="">Acrylic Paintings</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+          <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+            <img src="assets/styles/images/home photo/img04.jpg" class="card-img-top" alt="...">
+            <a class="text-uppercase font-weight-bold" href="">Mobile And Keychains</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+          <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+            <img src="assets/styles/images/home photo/img03.jpg" class="card-img-top" alt="...">
+            <a class="text-uppercase font-weight-bold" href="">Hats And Caps</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+          <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+            <img src="assets/styles/images/home photo/img10.jpg" class="card-img-top" alt="...">
+            <a class="text-uppercase font-weight-bold" href="">Scarves</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- featureSec -->
+
     <section
     class="featureSec container-fluid overflow-hidden pt-xl-12 pt-lg-10 pt-md-80 pt-5 pb-xl-10 pb-lg-4 pb-md-2 px-xl-14 px-lg-7">
     <!-- mainHeader -->
