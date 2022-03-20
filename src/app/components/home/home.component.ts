@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  readMore = false;
-  longText = `This is long paragraph text containseverall words continued. An example for implementingdynamicallyy limit long text`;
+  longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
+  from Japan.`;
   constructor() { }
  
   ngOnInit(): void {
