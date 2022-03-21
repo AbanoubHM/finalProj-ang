@@ -21,7 +21,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
-import { HttpClient } from '@angular/common/http';
+
+import { MatSliderModule } from '@angular/material/slider';
+import { MatTabsModule } from '@angular/material/tabs';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -47,7 +51,15 @@ import { HttpClient } from '@angular/common/http';
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
+
     FormsModule
+
+    MatSliderModule,
+    MatTabsModule,
+    FlexLayoutModule,
+    MatToolbarModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
