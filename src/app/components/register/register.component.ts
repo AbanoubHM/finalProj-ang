@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   registerForm:FormGroup=this.fb.group({
     username:['',[Validators.required,Validators.pattern('^[a-zA-Z]+$'),Validators.minLength(5),Validators.maxLength(25)]],
     email:['',[Validators.required,Validators.email]],
-    phone:['',[Validators.required,Validators.minLength(10),Validators.maxLength(11)]],
+    phone:['',[Validators.required,Validators.minLength(10),Validators.maxLength(11),Validators.pattern('^[0-9]+$')]],
     confirm_password:['',Validators.required],
     password:['',[Validators.required,Validators.minLength(6)]],
     birthdate:['',Validators.required],
@@ -59,7 +59,8 @@ export class RegisterComponent implements OnInit {
     'phone': [
       { type: 'required', message: 'Phone number is required' },
       { type: 'minlength', message: 'Invalid Phone Number' },
-      { type: 'maxlength', message: 'Invalid Phone Number' }
+      { type: 'maxlength', message: 'Invalid Phone Number' },
+      { type: 'pattern', message: 'Only numbers allowed' }
 
     ]}
 }

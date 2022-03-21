@@ -12,15 +12,16 @@ import { CartsComponent } from './components/carts/carts.component';
 
 import { RegisterComponent } from './components/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './components/products/products.component';
 
 import { LoginComponent } from './components/login/login.component';
 import { ErrorComponent } from './components/error/error.component';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { HttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -41,10 +42,12 @@ import { ProductDetailsComponent } from './components/product-details/product-de
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

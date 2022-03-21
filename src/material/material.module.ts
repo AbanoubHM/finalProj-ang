@@ -7,6 +7,11 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatRippleModule} from '@angular/material/core';
+
 
 
 const MaterialComponents=[
@@ -16,7 +21,11 @@ const MaterialComponents=[
   MatIconModule,
   MatCardModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatBadgeModule,
+  MatProgressSpinnerModule,
+  MatSnackBarModule,
+  MatRippleModule
 ]
 
 @NgModule({
