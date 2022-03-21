@@ -1,52 +1,57 @@
 <main>
-
-
-
   <section class="chooseUs-sec container pt-xl-22 pt-lg-20 pt-md-16 pt-10 pb-xl-12 pb-md-7 pb-2">
-    <div class="row" style="margin: 20px">
-      <div class="col-md-4 col-xs-12 col-sm-12">
-        <div class="card bg-light" style="width: 18rem;height: 280px;">
-          <i class='icon-heart d-block' style='font-size:90px; text-align: center; padding: 20px;'></i>
-          <div class="card-body">
-            <h5 class="card-title">find something you love</h5>
-            <p class="card-text">Our marketplace is a world of vintage and handmade goods</p>
-          </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-xs-12 col-sm-12">
-          <div class="card bg-light" style="width: 18rem;">
-            <i class='icon icon-gift' style='font-size:90px; text-align: center; padding: 20px;'></i>
-            <div class="card-body">
-              <h5 class="card-title">Meet talented artisans</h5>
-              <p class="card-text">It is fairy dust and wanderlust that guide our hands to create what our hearts desire.
-              </p>
+    <!-- contactListBlock -->
+    <div class="contactListBlock container overflow-hidden pt-xl-8 pt-lg-10 pt-md-8 pt-4 pb-xl-12 pb-lg-10 pb-md-4 pb-1">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-lg-3 mb-4 mb-lg-0">
+          <!-- contactListColumn -->
+          <div class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-6 px-md-3 px-3 d-flex">
+            <span class="icon icon-van"></span>
+            <div class="alignLeft pl-2">
+              <strong class="headingV fwEbold d-block mb-1">Free shipping order</strong>
+              <p class="m-0">On orders over $100</p>
             </div>
           </div>
-
         </div>
-        <div class="col-md-4 col-xs-12 col-sm-12">
-          <div class="card bg-light" style="width: 18rem; height: 280px">
-            <i class='icon icon-recycle' style='font-size:90px; text-align: center; padding: 20px;'></i>
-            <div class="card-body">
-              <h5 class="card-title">Return &amp; exchange</h5>
-              <p class="card-text">Free return within 3 days</p>
+        <div class="col-12 col-sm-6 col-lg-3 mb-4 mb-lg-0">
+          <!-- contactListColumn -->
+          <div class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-6 px-md-3 px-3 d-flex">
+            <span class="icon icon-gift"></span>
+            <div class="alignLeft pl-2">
+              <strong class="headingV fwEbold d-block mb-1">Special gift card</strong>
+              <p class="m-0">The perfect gift idea</p>
             </div>
           </div>
-
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3 mb-4 mb-lg-0">
+          <!-- contactListColumn -->
+          <div class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-4 px-md-2 px-3 d-flex">
+            <span class="icon icon-recycle"></span>
+            <div class="alignLeft pl-2">
+              <strong class="headingV fwEbold d-block mb-1">Return &amp; exchange</strong>
+              <p class="m-0">Free return within 3 days</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3 mb-4 mb-lg-0">
+          <!-- contactListColumn -->
+          <div class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-6 px-md-3 px-3 d-flex">
+            <span class="icon icon-call"></span>
+            <div class="alignLeft pl-2">
+              <strong class="headingV fwEbold d-block mb-1">Support 24 / 7</strong>
+              <p class="m-0">Customer support</p>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+ </section>
 
-
-   </section>
 <!-- products -->
    <section class="chooseUs-sec container pt-xl-22 pt-lg-20 pt-md-16 pt-10 pb-xl-12 pb-md-7 pb-2">
        <div class="row">
-
-     
-        <mat-tab-group mat-align-tabs="start">
+        <!-- <mat-tab-group mat-align-tabs="start">
             <mat-tab label="FEATURED">
-
-
                 <div class="content">
                     <div fxLayout="row wrap" fxLayoutGap="16px grid" >
                       <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of [1,2,3,4,5,6,7,8,9]">
@@ -68,12 +73,8 @@
                       </div>
                     </div>
                     </div>
-
             </mat-tab>
-
             <mat-tab label="TRENDING">
-
-
                 <div class="content">
                     <div fxLayout="row wrap" fxLayoutGap="16px grid">
                       <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of [1,2,3,4,5,6,7,8,9]">
@@ -95,12 +96,7 @@
                       </div>
                     </div>
                     </div>
-
-
             </mat-tab>
-
-
-
             <mat-tab label="BESTSELLERS">
                 <div class="content">
                     <div fxLayout="row wrap" fxLayoutGap="16px grid">
@@ -123,21 +119,28 @@
                       </div>
                     </div>
                     </div>
-
-
             </mat-tab>
-          </mat-tab-group>
-
-           </div>
-
-   </section>
+          </mat-tab-group> -->
+          <table>
+            <th>ID</th>
+            <th>Title</th>
+            <th>price</th>
+            <th>Description</th>
+            <tr *ngFor="let item of prodlist">
+              <td>{{item.id}}</td>
+              <td>{{item.title}}</td>
+              <td>{{item.price}}</td>
+              <td>{{item.description}}</td>
+            </tr>
+          </table>
+    </div>
+  </section>
 
 
 
     <figure class="text-center">
       <blockquote class="blockquote">
         <p class="mb-0">Start Selling Today</p>
-
       </blockquote>
       <figcaption class="blockquote-footer">
         Thousands of Customers Around The Globe Are Waiting
@@ -151,9 +154,7 @@
     </div>
 
 
-
   <!-- Services Start -->
-
   <div class="container-fluid bg-light pt-5">
     <div class="container py-5">
       <div class="d-flex flex-column text-center mb-5">
@@ -461,7 +462,6 @@
                                     <span class="price d-block fwEbold"><del>75.00 $</del>60.50 $</span>
                                     <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block"
                                         style="margin-top: 20px;">HOT</span>
-
                                 </div>
                             </div>
                         </div>
@@ -1142,52 +1142,7 @@
 
 
 
-    <!-- contactListBlock -->
-    <div
-        class="contactListBlock container overflow-hidden pt-xl-8 pt-lg-10 pt-md-8 pt-4 pb-xl-12 pb-lg-10 pb-md-4 pb-1">
-        <div class="row">
-            <div class="col-12 col-sm-6 col-lg-3 mb-4 mb-lg-0">
-                <!-- contactListColumn -->
-                <div class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-6 px-md-3 px-3 d-flex">
-                    <span class="icon icon-van"></span>
-                    <div class="alignLeft pl-2">
-                        <strong class="headingV fwEbold d-block mb-1">Free shipping order</strong>
-                        <p class="m-0">On orders over $100</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3 mb-4 mb-lg-0">
-                <!-- contactListColumn -->
-                <div class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-6 px-md-3 px-3 d-flex">
-                    <span class="icon icon-gift"></span>
-                    <div class="alignLeft pl-2">
-                        <strong class="headingV fwEbold d-block mb-1">Special gift card</strong>
-                        <p class="m-0">The perfect gift idea</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3 mb-4 mb-lg-0">
-                <!-- contactListColumn -->
-                <div class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-4 px-md-2 px-3 d-flex">
-                    <span class="icon icon-recycle"></span>
-                    <div class="alignLeft pl-2">
-                        <strong class="headingV fwEbold d-block mb-1">Return &amp; exchange</strong>
-                        <p class="m-0">Free return within 3 days</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3 mb-4 mb-lg-0">
-                <!-- contactListColumn -->
-                <div class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-6 px-md-3 px-3 d-flex">
-                    <span class="icon icon-call"></span>
-                    <div class="alignLeft pl-2">
-                        <strong class="headingV fwEbold d-block mb-1">Support 24 / 7</strong>
-                        <p class="m-0">Customer support</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!-- productOfferSec -->
     <div class="productOfferSec container overflow-hidden py-xl-12 py-lg-10 py-md-8 py-5">
         <div class="row">

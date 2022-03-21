@@ -17,12 +17,12 @@ import { ProductsComponent } from './components/products/products.component';
 
 import { LoginComponent } from './components/login/login.component';
 import { ErrorComponent } from './components/error/error.component';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { MatSliderModule } from '@angular/material/slider';
-import { MatTabsModule } from '@angular/material/tabs'; 
+import { MatTabsModule } from '@angular/material/tabs';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
@@ -51,7 +51,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSliderModule,
     MatTabsModule,
     FlexLayoutModule,
-    MatToolbarModule
+    MatToolbarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
