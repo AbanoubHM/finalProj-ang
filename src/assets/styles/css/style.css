@@ -1633,14 +1633,14 @@ a {
   background: #9a2f81;
 }
 
-.productTextHolder .jcf-number {
+.productTextHolder .jcf-numberr {
   overflow: hidden;
   width: 100%;
   height: 50px;
   margin: 0 0 20px;
 }
 
-.productTextHolder .jcf-number input {
+.productTextHolder .jcf-numberr input {
   font-size: 18px;
   line-height: 20px;
   color: #707070;
@@ -1651,8 +1651,8 @@ a {
   border: 1px solid #5ba515;
 }
 
-.productTextHolder .jcf-number .jcf-btn-inc,
-.productTextHolder .jcf-number .jcf-btn-dec {
+.productTextHolder .jcf-numberr .jcf-btn-inc,
+.productTextHolder .jcf-numberr .jcf-btn-dec {
   width: 50px;
   height: 50px;
   background: none;
@@ -1662,8 +1662,8 @@ a {
   text-indent: -9999px;
 }
 
-.productTextHolder .jcf-number .jcf-btn-inc:before,
-.productTextHolder .jcf-number .jcf-btn-dec:before {
+.productTextHolder .jcf-numberr .jcf-btn-inc:before,
+.productTextHolder .jcf-numberr .jcf-btn-dec:before {
   top: 18px;
   left: 19px;
   background: none;
@@ -1674,22 +1674,22 @@ a {
   text-indent: 0;
 }
 
-.productTextHolder .jcf-number .jcf-btn-dec {
+.productTextHolder .jcf-numberr .jcf-btn-dec {
   left: 0;
   border-right: 1px solid #5ba515;
 }
 
-.productTextHolder .jcf-number .jcf-btn-dec:before {
+.productTextHolder .jcf-numberr .jcf-btn-dec:before {
   content: "\f068";
   display: block;
 }
 
-.productTextHolder .jcf-number .jcf-btn-inc {
+.productTextHolder .jcf-numberr .jcf-btn-inc {
   right: 0;
   border-left: 1px solid #5ba515;
 }
 
-.productTextHolder .jcf-number .jcf-btn-inc:before {
+.productTextHolder .jcf-numberr .jcf-btn-inc:before {
   content: "\f067";
   display: block;
 }
@@ -1846,13 +1846,13 @@ a {
   letter-spacing: 1px;
 }
 
-.cartHolder .cartTable .jcf-number {
+.cartHolder .cartTable .jcf-numberr {
   overflow: hidden;
   height: 50px;
   margin: 0 20px 0 0;
 }
 
-.cartHolder .cartTable .jcf-number input {
+.cartHolder .cartTable .jcf-numberr input {
   font-size: 20px;
   line-height: 22px;
   color: #707070;
@@ -1862,8 +1862,8 @@ a {
   border: 1px solid #e1e1e1;
 }
 
-.cartHolder .cartTable .jcf-number .jcf-btn-inc,
-.cartHolder .cartTable .jcf-number .jcf-btn-dec {
+.cartHolder .cartTable .jcf-numberr .jcf-btn-inc,
+.cartHolder .cartTable .jcf-numberr .jcf-btn-dec {
   width: 50px;
   height: 50px;
   background: none;
@@ -1873,8 +1873,8 @@ a {
   text-indent: -9999px;
 }
 
-.cartHolder .cartTable .jcf-number .jcf-btn-inc:before,
-.cartHolder .cartTable .jcf-number .jcf-btn-dec:before {
+.cartHolder .cartTable .jcf-numberr .jcf-btn-inc:before,
+.cartHolder .cartTable .jcf-numberr .jcf-btn-dec:before {
   top: 18px;
   left: 19px;
   background: none;
@@ -1885,31 +1885,31 @@ a {
   text-indent: 0;
 }
 
-.cartHolder .cartTable .jcf-number .jcf-btn-dec {
+.cartHolder .cartTable .jcf-numberr .jcf-btn-dec {
   left: 0;
   border-right: 1px solid #e1e1e1;
 }
 
-.cartHolder .cartTable .jcf-number .jcf-btn-dec:before {
+.cartHolder .cartTable .jcf-numberr .jcf-btn-dec:before {
   content: "\f068";
   display: block;
 }
 
-.cartHolder .cartTable .jcf-number .jcf-btn-dec:hover:before {
+.cartHolder .cartTable .jcf-numberr .jcf-btn-dec:hover:before {
   color: #fff;
 }
 
-.cartHolder .cartTable .jcf-number .jcf-btn-inc {
+.cartHolder .cartTable .jcf-numberr .jcf-btn-inc {
   right: 0;
   border-left: 1px solid #e1e1e1;
 }
 
-.cartHolder .cartTable .jcf-number .jcf-btn-inc:before {
+.cartHolder .cartTable .jcf-numberr .jcf-btn-inc:before {
   content: "\f067";
   display: block;
 }
 
-.cartHolder .cartTable .jcf-number .jcf-btn-inc:hover:before {
+.cartHolder .cartTable .jcf-numberr .jcf-btn-inc:hover:before {
   color: #fff;
 }
 

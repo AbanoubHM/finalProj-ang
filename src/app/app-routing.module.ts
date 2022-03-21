@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
 
   {path:'contact' , component:ContactComponent},
-  {path:'details',component:ProductDetailsComponent},
+  {path:'products/:id',component:ProductDetailsComponent},
   {path:'**',component:ErrorComponent}
 
 

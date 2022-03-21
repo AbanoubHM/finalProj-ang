@@ -12,7 +12,7 @@ import { CartsComponent } from './components/carts/carts.component';
 
 import { RegisterComponent } from './components/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './components/products/products.component';
 
 import { LoginComponent } from './components/login/login.component';
@@ -21,10 +21,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTabsModule } from '@angular/material/tabs';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 @NgModule({
   declarations: [
@@ -44,15 +46,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
+
+    FormsModule
+
     MatSliderModule,
     MatTabsModule,
     FlexLayoutModule,
     MatToolbarModule,
     HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

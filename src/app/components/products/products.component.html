@@ -1,11 +1,11 @@
-<section class=" d-flex w-100 " style="background-image: url(assets/styles/images/vase-with-tulip-desk.jpg);">
+<section class="introBannerHolder bgCover d-flex w-100 " style="background-image: url(assets/styles/images/b-bg7.jpg);">
 
     <div class="container">
         <div class="row">
-            <div class="col-12 pt-lg-23 pt-md-15 pt-sm-10 pt-6 text-center">
+            <div class="col-12 pt-lg-23 pt-md-15 pt-sm-10 pt-5 text-center">
                 <h1 class="headingIV fwEbold playfair mb-4">Shop</h1>
                 <ul class="list-unstyled breadCrumbs d-flex justify-content-center">
-                    <li class="mr-2"><a style="text-decoration: none;" href="home.html">Home</a></li>
+                    <li class="mr-2"><a style="text-decoration: none;" routerLink="">Home</a></li>
                     <li class="mr-2">/</li>
                     <li class="active">Shop</li>
                 </ul>
@@ -23,264 +23,104 @@
                 <!-- show-head -->
                 <header class="show-head d-flex flex-wrap justify-content-between mb-7">
                     <ul class="list-unstyled viewFilterLinks d-flex flex-nowrap align-items-center">
-                        <li class="mr-2"><a style="text-decoration: none;" href="javascript:void(0);" class="active"><i class="fas fa-th-large"></i></a></li>
-                        <li class="mr-2"><a href="javascript:void(0);"><i class="fas fa-list"></i></a></li>
-                        <li class="mr-2">Showing 1–9 of 24 results</li>
+                        <li (click)="toggleGrid()" class="mr-2"><a style="text-decoration: none;" class="active"><i
+                                    class="fas fa-th-large"></i></a></li>
+                        <li (click)="toggleList()" class="mr-2"><a><i class="fas fa-list"></i></a></li>
+                        <li class="mr-2">Showing {{numberOfProducts}} results</li>
                     </ul>
                     <!-- sortGroup -->
                     <div class="sortGroup">
                         <div class="d-flex flex-nowrap align-items-center">
                             <strong class="groupTitle mr-2">Sort by:</strong>
                             <div class="dropdown">
-                                <button class="dropdown-toggle buttonReset" type="button" id="sortGroup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Default sorting</button>
+                                <button class="dropdown-toggle buttonReset" type="button" id="sortGroup"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Default
+                                    sorting</button>
                                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="sortGroup">
-                                    <li><a style="text-decoration: none;" href="javascript:void(0);">Default Order</a></li>
-                                    <li><a style="text-decoration: none;" href="javascript:void(0);">Default Order</a></li>
-                                    <li><a style="text-decoration: none;" href="javascript:void(0);">Default Order</a></li>
-                                    <li><a style="text-decoration: none;" href="javascript:void(0);">Default Order</a></li>
+                                    <li><a style="text-decoration: none;">Default Order</a></li>
+                                    <li><a style="text-decoration: none;">Default Order</a></li>
+                                    <li><a style="text-decoration: none;">Default Order</a></li>
+                                    <li><a style="text-decoration: none;">Default Order</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </header>
-                <div class="row">
-                    <!-- featureCol -->
-                    <div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-                        <div class="border" style="margin-top: 20px;">
-                            <div class="imgHolder position-relative w-100 overflow-hidden">
-                                <img src="assets/styles/images/home photo/img09.jpg" alt="image description" class="img-fluid w-100">
-                                <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-heart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-cart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-eye d-block"></a></li>
-                                    <li class="overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-                                </ul>
-                            </div>
-                            <div class="text-center py-5 px-4">
-                                <span class="title d-block mb-2"><a style="text-decoration: none;" href="shop-detail.html">Pellentesque aliquet</a></span>
-                                <span class="price d-block fwEbold"><del>80.50 $</del>68.00 $</span>
-                                <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block" style="margin-top: 20px;">HOT</span>
 
-                            </div>
-                        </div>
+
+<!-- Grid  -->
+                <div *ngIf="listToggle" class="row">
+
+                    <div style="text-align: center; " *ngIf="!postList" class="col-12 col-sm-6 col-lg-4 featureCol mb-7 justify-content-center">
+                        <mat-spinner></mat-spinner>
                     </div>
-                    <!-- featureCol -->
-                    <div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-                        <div class="border"style="margin-top: 20px;">
+
+                    <div class="col-12 col-sm-6 col-lg-4 featureCol mb-7" *ngFor="let item of postList">
+                        <div matRipple class="border" style="margin-top: 20px; cursor: pointer;">
                             <div class="imgHolder position-relative w-100 overflow-hidden">
-                                <img src="assets/styles/images/home photo/img05.jpg" alt="image description" class="img-fluid w-100">
+
+
+                                <div style="min-height:200px; overflow:hidden; max-height:250px;" class="text-center">
+                                    <img  (click)="getProdDetails(item.prodectId)" style="min-width:200px; overflow:hidden; max-height:250px;" [src]="item.image">
+                                </div>
+
                                 <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-heart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-cart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-eye d-block"></a></li>
-                                    <li class="overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-arrow d-block"></a></li>
+                                    <li class="mr-2 overflow-hidden"><button mat-mini-fab color="primary">
+                                            <mat-icon>favorite_border</mat-icon>
+                                        </button></li>
+                                    <li class="mr-2 overflow-hidden"><button (click)=addtocart(item) mat-mini-fab
+                                            color="primary">
+                                            <mat-icon>add_shopping_cart</mat-icon>
+                                        </button>
+                                    </li>
+                                    <li class="mr-2 overflow-hidden"><button (click)="getProdDetails(item.prodectId)"
+                                            mat-mini-fab color="primary">
+                                            <mat-icon>visibility</mat-icon>
+                                        </button>
+                                    </li>
+
                                 </ul>
                             </div>
-                            <div class="text-center py-5 px-4">
-                                <span class="title d-block mb-2"><a href="shop-detail.html">Pellentesque aliquet</a></span>
-                                <span class="price d-block fwEbold">58.00 $</span>
-                            </div>
-                        </div>
+                            <div (click)="getProdDetails(item.prodectId)" class="text-center py-3 px-4">
+                                <span class="title d-block mb-2"><a style="text-decoration: none;"
+                                       >{{item.name}}</a></span>
+                                <span class="price d-block fwEbold"><del>{{item.price*1.1 | number:'1.2-2'}}
+                                        $</del>{{item.price}} $</span>
+                                    </div>
+                                </div>
+                                <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block"
+                                    style="margin-top: 20px;"> &nbsp; HOT</span>
                     </div>
-                    <!-- featureCol -->
-                    <div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-                        <div class="border" style="margin-top: 20px;">
-                            <div class="imgHolder position-relative w-100 overflow-hidden">
-                                <img src="assets/styles/images/home photo/img04.jpg" alt="image description" class="img-fluid w-100">
-                                <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-                                    <li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-heart d-block" style="text-decoration: none;"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-cart d-block" style="text-decoration: none;"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a href="javascript:void(0);" style="text-decoration: none;" class="icon-eye d-block"></a></li>
-                                    <li class="overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-                                </ul>
-                            </div>
-                            <div class="text-center py-5 px-4">
-                                <span class="title d-block mb-2"><a href="shop-detail.html">Pellentesque aliquet</a></span>
-                                <span class="price d-block fwEbold">60.00 $</span>
-                                <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block" style="margin-top: 20px;">HOT</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- featureCol -->
-                    <div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-                        <div class="border" style="margin-top: 20px;">
-                            <div class="imgHolder position-relative w-100 overflow-hidden">
-                                <img src="assets/styles/images/home photo/img06.jpg" alt="image description" class="img-fluid w-100">
-                                <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-heart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-cart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-eye d-block"></a></li>
-                                    <li class="overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-                                </ul>
-                            </div>
-                            <div class="text-center py-5 px-4">
-                                <span class="title d-block mb-2"><a style="text-decoration: none;" href="shop-detail.html">Pellentesque aliquet</a></span>
-                                <span class="price d-block fwEbold"><del>80.50 $</del>68.00 $</span>
-                                <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block" style="margin-top: 20px;">Sale</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- featureCol -->
-                    <div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-                        <div class="border" style="margin-top: 20px;">
-                            <div class="imgHolder position-relative w-100 overflow-hidden">
-                                <img src="assets/styles/images/home photo/img07.jpg" alt="image description" class="img-fluid w-100">
-                                <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-heart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-cart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-eye d-block"></a></li>
-                                    <li class="overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-                                </ul>
-                            </div>
-                            <div class="text-center py-5 px-4">
-                                <span class="title d-block mb-2"><a href="shop-detail.html">Pellentesque aliquet</a></span>
-                                <span class="price d-block fwEbold">58.00 $</span>
-                                <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block" style="margin-top: 20px;">Sale</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- featureCol -->
-                    <div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-                        <div class="border" style="margin-top: 20px;">
-                            <div class="imgHolder position-relative w-100 overflow-hidden">
-                                <img src="assets/styles/images/home photo/img16.jpg" alt="image description" class="img-fluid w-100">
-                                <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-heart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-cart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-eye d-block"></a></li>
-                                    <li class="overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-                                </ul>
-                            </div>
-                            <div class="text-center py-5 px-4">
-                                <span class="title d-block mb-2"><a style="text-decoration: none;" href="shop-detail.html">Pellentesque aliquet</a></span>
-                                <span class="price d-block fwEbold">60.00 $</span>
-                                <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block" style="margin-top: 20px;">HOT</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- featureCol -->
-                    <div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-                        <div class="border" style="margin-top: 20px;">
-                            <div class="imgHolder position-relative w-100 overflow-hidden">
-                                <img src="assets/styles/images/home photo/img47.jpg" alt="image description" class="img-fluid w-100">
-                                <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-heart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-cart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-eye d-block"></a></li>
-                                    <li class="overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-                                </ul>
-                            </div>
-                            <div class="text-center py-5 px-4">
-                                <span class="title d-block mb-2"><a href="shop-detail.html">Pellentesque aliquet</a></span>
-                                <span class="price d-block fwEbold">68.00 $</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- featureCol -->
-                    <div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-                        <div class="border" style="margin-top: 20px;">
-                            <div class="imgHolder position-relative w-100 overflow-hidden">
-                                <img src="assets/styles/images/home photo/img10.jpg" alt="image description" class="img-fluid w-100">
-                                <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-heart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-cart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-eye d-block"></a></li>
-                                    <li class="overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-                                </ul>
-                            </div>
-                            <div class="text-center py-5 px-4">
-                                <span class="title d-block mb-2"><a style="text-decoration: none;" href="shop-detail.html">Pellentesque aliquet</a></span>
-                                <span class="price d-block fwEbold">58.00 $</span>
-                                <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block" style="margin-top: 20px;">Hot</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- featureCol -->
-                    <div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-                        <div class="border" style="margin-top: 20px;">
-                            <div class="imgHolder position-relative w-100 overflow-hidden">
-                                <img src="assets/styles/images/home photo/img11.jpg" alt="image description" class="img-fluid w-100">
-                                <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-heart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-cart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-eye d-block"></a></li>
-                                    <li class="overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-                                </ul>
-                            </div>
-                            <div class="text-center py-5 px-4">
-                                <span class="title d-block mb-2"><a style="text-decoration: none;" href="shop-detail.html">Pellentesque aliquet</a></span>
-                                <span class="price d-block fwEbold"><del>80.50 $</del>68.00 $</span>
-                                <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block" style="margin-top: 20px;">Sale</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- featureCol -->
-                    <div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-                        <div class="border" style="margin-top: 20px;">
-                            <div class="imgHolder position-relative w-100 overflow-hidden">
-                                <img src="assets/styles/images/home photo/img14.jpg" alt="image description" class="img-fluid w-100">
-                                <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-heart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-cart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-eye d-block"></a></li>
-                                    <li class="overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-                                </ul>
-                            </div>
-                            <div class="text-center py-5 px-4">
-                                <span class="title d-block mb-2"><a style="text-decoration: none;" href="shop-detail.html">Pellentesque aliquet</a></span>
-                                <span class="price d-block fwEbold"><del>80.50 $</del>68.00 $</span>
-                                <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block" style="margin-top: 20px;">Sale</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- featureCol -->
-                    <div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-                        <div class="border" style="margin-top: 20px;">
-                            <div class="imgHolder position-relative w-100 overflow-hidden">
-                                <img src="assets/styles/images/home photo/img12.jpg" alt="image description" class="img-fluid w-100">
-                                <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-heart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-cart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-eye d-block"></a></li>
-                                    <li class="overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-                                </ul>
-                            </div>
-                            <div class="text-center py-5 px-4">
-                                <span class="title d-block mb-2"><a style="text-decoration: none;" href="shop-detail.html">Pellentesque aliquet</a></span>
-                                <span class="price d-block fwEbold">58.00 $</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- featureCol -->
-                    <div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-                        <div class="border" style="margin-top: 20px;">
-                            <div class="imgHolder position-relative w-100 overflow-hidden">
-                                <img src="assets/styles/images/home photo/img52.jpg" alt="image description" class="img-fluid w-100">
-                                <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-heart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-cart d-block"></a></li>
-                                    <li class="mr-2 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-eye d-block"></a></li>
-                                    <li class="overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-                                </ul>
-                            </div>
-                            <div class="text-center py-5 px-4">
-                                <span class="title d-block mb-2"><a style="text-decoration: none;" href="shop-detail.html">Pellentesque aliquet</a></span>
-                                <span class="price d-block fwEbold">58.00 $</span>
-                                <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block" style="margin-top: 20px;">Hot</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 pt-3 mb-lg-0 mb-md-6 mb-3">
-                        <!-- pagination -->
-                        <ul class="list-unstyled pagination d-flex justify-content-center align-items-end">
-                            <li><a style="text-decoration: none;" href="javascript:void(0);"><i class="fas fa-chevron-left"></i></a></li>
-                            <li class="active"><a style="text-decoration: none;" href="javascript:void(0);">1</a></li>
-                            <li><a style="text-decoration: none;" href="javascript:void(0);">2</a></li>
-                            <li>...</li>
-                            <li><a style="text-decoration: none;" href="javascript:void(0);"><i class="fas fa-chevron-right"></i></a></li>
-                        </ul>
-                    </div>
+
                 </div>
+<!-- List  -->
+<div *ngIf="!listToggle" >
+<div class="card mb-3" *ngFor="let i of postList" >
+    <div class="row no-gutters" >
+      <div class="col-md-4">
+        <img  (click)="getProdDetails(i.prodectId)" [src]="i.image" >
+    </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{i.name}}</h5>
+          <p class="card-text x">{{i.desce}}</p>
+         
+             <div class="py-3 px-4">
+
+                <span class="price d-block fwEbold"><del>{{i.price*1.1 | number:'1.2-2'}}$</del> {{i.price}} $</span>
+                <button (click)=addtocart(i) mat-mini-fab
+                    color="primary">
+                    <mat-icon>add_shopping_cart</mat-icon>
+                </button>
+                        </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
             </article>
         </div>
         <div class="col-12 col-lg-3 order-lg-1">
@@ -290,20 +130,27 @@
                 <section class="widget overflow-hidden mb-9">
                     <form action="javascript:void(0);" class="searchForm position-relative border">
                         <fieldset>
-                            <input style="box-shadow: 0 0 0 ;" type="search" class="form-control" placeholder="Search product...">
+                            <input style="box-shadow: 0 0 0 ;" type="search" class="form-control"
+                                placeholder="Search product...">
                             <button class="position-absolute"><i class="icon-search"></i></button>
                         </fieldset>
                     </form>
                 </section>
                 <!-- widget -->
                 <section class="widget overflow-hidden mb-9">
-                    <h3 class="headingVII fwEbold text-uppercase mb-5 " style="margin-top: 40px;">PRODUCT CATEGORIES</h3>
+                    <h3 class="headingVII fwEbold text-uppercase mb-5 " style="margin-top: 40px;">PRODUCT CATEGORIES
+                    </h3>
                     <ul class="list-unstyled categoryList mb-0" style="margin-top: 20px;">
-                        <li class="mb-4 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);">Dried <span class="num border float-right">6</span></a></li>
-                        <li class="mb-4 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);">Vegetables <span class="num border float-right">8</span></a></li>
-                        <li class="mb-4 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);">Fruits <span class="num border float-right">9</span></a></li>
-                        <li class="mb-4 overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);">Juice <span class="num border float-right">6</span></a></li>
-                        <li class="overflow-hidden"><a style="text-decoration: none;" href="javascript:void(0);">Uncategorized <span class="num border float-right">1</span></a></li>
+                        <li class="mb-4 overflow-hidden"><a style="text-decoration: none;">Dried <span
+                                    class="num border float-right">6</span></a></li>
+                        <li class="mb-4 overflow-hidden"><a style="text-decoration: none;">Vegetables <span
+                                    class="num border float-right">8</span></a></li>
+                        <li class="mb-4 overflow-hidden"><a style="text-decoration: none;">Fruits <span
+                                    class="num border float-right">9</span></a></li>
+                        <li class="mb-4 overflow-hidden"><a style="text-decoration: none;">Juice <span
+                                    class="num border float-right">6</span></a></li>
+                        <li class="overflow-hidden"><a style="text-decoration: none;">Uncategorized <span
+                                    class="num border float-right">1</span></a></li>
                     </ul>
                 </section>
                 <!-- widget -->
@@ -312,145 +159,18 @@
                     <!-- filter ranger form -->
                     <form action="javascript:void(0);" class="filter-ranger-form">
                         <div id="slider-range"></div>
+
                         <input type="hidden" id="amount1" name="amount1">
                         <input type="hidden" id="amount2" name="amount2">
                         <div class="get-results-wrap d-flex align-items-center justify-content-between">
-                            <button type="button" class="btn btnTheme btn-shop fwEbold md-round px-3 pt-1 pb-2 text-uppercase">Filter</button>
+                            <button mat-flat-button color="primary">Filter</button>
                             <p id="amount" class="mb-0"></p>
                         </div>
                     </form>
                 </section>
-                <!-- widget -->
-                <section class="widget mb-9">
-                    <h3 class="headingVII fwEbold text-uppercase mb-6" style="margin-top: 40px; margin-bottom: 15px;" >top rate</h3>
-                    <ul class="list-unstyled recentListHolder mb-0 overflow-hidden">
-                        <li class="mb-6 d-flex flex-nowrap">
-                            <div class="alignleft">
-                                <a style="text-decoration: none;" href="shop-detail.html"><img src="assets/styles/images/home photo/img53.jpg" alt="image description" class="img-fluid"></a>
-                            </div>
-                            <div class="description-wrap pl-1">
-                                <h4 class="headingVII mb-1"><a style="text-decoration: none;" href="shop-detail.html">Vitamin C face wash</a></h4>
-                                <strong class="price fwEbold d-block;">21.00 $</strong>
-                            </div>
-                        </li>
-                        <li class="mb-6 d-flex flex-nowrap">
-                            <div class="alignleft">
-                                <a style="text-decoration: none;" href="shop-detail.html"><img src="assets/styles/images/home photo/img54.jpg" alt="image description" class="img-fluid"></a>
-                            </div>
-                            <div class="description-wrap pl-1">
-                                <h4 class="headingVII mb-1"><a style="text-decoration: none;" href="shop-detail.html">Organic vegetables</a></h4>
-                                <strong class="price fwEbold d-block;">21.00 $</strong>
-                            </div>
-                        </li>
-                        <li class="mb-6 d-flex flex-nowrap">
-                            <div class="alignleft">
-                                <a style="text-decoration: none;" href="shop-detail.html"><img src="assets/styles/images/home photo/img55.jpg" alt="image description" class="img-fluid"></a>
-                            </div>
-                            <div class="description-wrap pl-1">
-                                <h4 class="headingVII mb-1"><a style="text-decoration: none;" href="shop-detail.html">Organic cabbage</a></h4>
-                                <strong class="price fwEbold d-block;">21.00 $</strong>
-                            </div>
-                        </li>
-                        <li class="mb-6 d-flex flex-nowrap">
-                            <div class="alignleft">
-                                <a style="text-decoration: none;" href="shop-detail.html"><img src="assets/styles/images/home photo/img56.jpg" alt="image description" class="img-fluid"></a>
-                            </div>
-                            <div class="description-wrap pl-1">
-                                <h4 class="headingVII mb-1"><a style="text-decoration: none;" href="shop-detail.html">Organic vegetables</a></h4>
-                                <strong class="price fwEbold d-block;">21.00 $</strong>
-                            </div>
-                        </li>
-                        <li class="d-flex flex-nowrap">
-                            <div class="alignleft">
-                                <a style="text-decoration: none;" href="shop-detail.html"><img src="assets/styles/images/home photo/img57.jpg" alt="image description" class="img-fluid"></a>
-                            </div>
-                            <div class="description-wrap pl-1">
-                                <h4 class="headingVII mb-1"><a style="text-decoration: none;" href="shop-detail.html">Vitamin C face wash</a></h4>
-                                <strong class="price fwEbold d-block;">21.00 $</strong>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
-                <!-- widget -->
-                <!-- <section class="widget mb-9">
-                    <h3 class="headingVII fwEbold text-uppercase mb-5">product tags</h3>
-                    <ul class="list-unstyled tagNavList d-flex flex-wrap mb-0">
-                        <li class="text-center"><a style="text-decoration: none;" href="javascript:void(0);" class="md-round d-block">Plant</a></li>
-                        <li class="text-center"><a style="text-decoration: none;" href="javascript:void(0);" class="md-round d-block">Floor</a></li>
-                        <li class="text-center"><a style="text-decoration: none;" href="javascript:void(0);" class="md-round d-block">Indoor</a></li>
-                        <li class="text-center"><a style="text-decoration: none;" href="javascript:void(0);" class="md-round d-block">Green</a></li>
-                        <li class="text-center"><a style="text-decoration: none;" href="javascript:void(0);" class="md-round d-block">Healthy</a></li>
-                        <li class="text-center"><a style="text-decoration: none;" href="javascript:void(0);" class="md-round d-block">Cactus</a></li>
-                        <li class="text-center"><a style="text-decoration: none;" href="javascript:void(0);" class="md-round d-block">House plant</a></li>
-                        <li class="text-center"><a style="text-decoration: none;" href="javascript:void(0);" class="md-round d-block">Office tree</a></li>
-                    </ul>
-                </section> -->
+
+
             </aside>
         </div>
     </div>
 </div>
-<!-- <div class="container mb-lg-24 mb-md-16 mb-10">
-
-    <section class="subscribeSecBlock bgCover col-12 pt-lg-24 pb-lg-12 pt-md-16 pb-md-8 py-10" style="background-image: url(http://placehold.it/1170x465)">
-        <header class="col-12 mainHeader mb-9 text-center">
-            <h1 class="headingIV playfair fwEblod mb-4">Subscribe Our Newsletter</h1>
-            <span class="headerBorder d-block mb-5"><img src="assets/styles/images/home photo/img78.png" alt="Header Border" class="img-fluid img-bdr"></span>
-            <p class="mb-6">Enter Your email address to join our mailing list and keep yourself update</p>
-        </header>
-        <form class="emailForm1 mx-auto overflow-hidden d-flex flex-wrap">
-            <input type="email" class="form-control px-4 border-0" placeholder="Enter your mail...">
-            <button type="submit" class="btn btnTheme btnShop fwEbold text-white py-3 px-4 py-md-3 px-md-4">Shop Now <i class="fas fa-arrow-right ml-2"></i></button>
-        </form>
-    </section>
-</div> -->
-<!-- footerHolder -->
-<!-- <aside class="footerHolder overflow-hidden bg-lightGray pt-xl-23 pb-xl-8 pt-lg-10 pb-lg-8 pt-md-12 pb-md-8 pt-10">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-sm-6 col-lg-4 mb-lg-0 mb-4">
-                <h3 class="headingVI fwEbold text-uppercase mb-7">Contact Us</h3>
-                <ul class="list-unstyled footerContactList mb-3">
-                    <li class="mb-3 d-flex flex-nowrap pr-xl-20 pr-0"><span class="icon icon-place mr-3"></span> <address class="fwEbold m-0">Address: London Oxford Street, 012 United Kingdom.</address></li>
-                    <li class="mb-3 d-flex flex-nowrap"><span class="icon icon-phone mr-3"></span> <span class="leftAlign">Phone : <a href="javascript:void(0);">(+032) 3456 7890</a></span></li>
-                    <li class="email d-flex flex-nowrap"><span class="icon icon-email mr-2"></span> <span class="leftAlign">Email:  <a href="javascript:void(0);">Botanicalstore@gmail.com</a></span></li>
-                </ul>
-                <ul class="list-unstyled followSocailNetwork d-flex flex-nowrap">
-                    <li class="fwEbold mr-xl-11 mr-md-8 mr-3">Follow  us:</li>
-                    <li class="mr-xl-6 mr-md-5 mr-2"><a href="javascript:void(0);" class="fab fa-facebook-f"></a></li>
-                    <li class="mr-xl-6 mr-md-5 mr-2"><a href="javascript:void(0);" class="fab fa-twitter"></a></li>
-                    <li class="mr-xl-6 mr-md-5 mr-2"><a href="javascript:void(0);" class="fab fa-pinterest"></a></li>
-                    <li class="mr-2"><a href="javascript:void(0);" class="fab fa-google-plus-g"></a></li>
-                </ul>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3 pl-xl-14 mb-lg-0 mb-4">
-                <h3 class="headingVI fwEbold text-uppercase mb-6">Information</h3>
-                <ul class="list-unstyled footerNavList">
-                    <li class="mb-1"><a href="javascript:void(0);">New Products</a></li>
-                    <li class="mb-2"><a href="javascript:void(0);">Top Sellers</a></li>
-                    <li class="mb-2"><a href="javascript:void(0);">Our Blog</a></li>
-                    <li class="mb-2"><a href="javascript:void(0);">About Our Shop</a></li>
-                    <li><a href="javascript:void(0);">Privacy policy</a></li>
-                </ul>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3 pl-xl-12 mb-lg-0 mb-4">
-                <h3 class="headingVI fwEbold text-uppercase mb-7">My Account</h3>
-                <ul class="list-unstyled footerNavList">
-                    <li class="mb-1"><a href="javascript:void(0);">My account</a></li>
-                    <li class="mb-2"><a href="javascript:void(0);">Discount</a></li>
-                    <li class="mb-2"><a href="javascript:void(0);">Orders history</a></li>
-                    <li><a href="javascript:void(0);">Personal information</a></li>
-                </ul>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-2 pl-xl-18 mb-lg-0 mb-4">
-                <h3 class="headingVI fwEbold text-uppercase mb-5">PRODUCTS</h3>
-                <ul class="list-unstyled footerNavList">
-                    <li class="mb-2"><a href="javascript:void(0);">Delivery</a></li>
-                    <li class="mb-2"><a href="javascript:void(0);">Legal notice</a></li>
-                    <li class="mb-2"><a href="javascript:void(0);">Prices drop</a></li>
-                    <li class="mb-2"><a href="javascript:void(0);">New products</a></li>
-                    <li><a href="javascript:void(0);">Best sales</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</aside> -->

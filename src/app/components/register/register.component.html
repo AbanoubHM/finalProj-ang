@@ -1,101 +1,108 @@
+<div>
+    <div class="container d-flex justify-content-start w-75">
+        <div class="row">
+            <div class="wrapper img">
+                <img class="col-md-6  col-sm-12" style="float: right; " alt="" src="assets/styles/images/5360844.jpg" />
+                <form method="post" [formGroup]="registerForm" class="col-md-6 col-sm-12">
 
-<div class="container d-flex justify-content-start w-75"  style="background-image: url(assets/styles/images/5360844.jpg); background-repeat: no-repeat; background-size: 65% 80%;  background-position: right center; margin-top: 70px;">
-<div class="row">
-<div class="wrapper img" >
-    <form method="post" [formGroup]="registerForm" class="w-50">
-        
-        <mat-form-field class="mb-3" appearance="outline">
+                    <mat-form-field class="mb-3" appearance="outline">
 
-            <mat-label>User Name</mat-label>
-            <input matInput formControlName="username" placeholder="User Name">
-            <mat-icon matSuffix>person</mat-icon>
-            <mat-error *ngFor="let validation of register_validation_messages.username">
-                <mat-error class="error-message" *ngIf="ff['username'].hasError(validation.type)">
-                    {{validation.message}}
-                </mat-error>
-            </mat-error>
-        </mat-form-field>
-
-
-        <mat-form-field class="mb-1" appearance="outline">
-
-            <mat-label>Email</mat-label>
-            <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
-            <mat-icon matSuffix>alternate_email</mat-icon>
-
-            <mat-error *ngFor="let validation of register_validation_messages.email">
-                <mat-error class="error-message" *ngIf="ff['email'].hasError(validation.type) ">
-                    {{validation.message}}
-                </mat-error>
-            </mat-error>
-        </mat-form-field>
-        
+                        <mat-label>User Name</mat-label>
+                        <input matInput formControlName="username" placeholder="User Name">
+                        <mat-icon matSuffix>person</mat-icon>
+                        <mat-error *ngFor="let validation of register_validation_messages.username">
+                            <mat-error class="error-message" *ngIf="ff['username'].hasError(validation.type)">
+                                {{validation.message}}
+                            </mat-error>
+                        </mat-error>
+                    </mat-form-field>
 
 
-        <mat-form-field class="mr-3 mb-3" appearance="outline">
+                    <mat-form-field class="mb-1" appearance="outline">
 
-            <mat-label>Password</mat-label>
-            <input type="password" matInput formControlName="password" placeholder="Enter a password">
-            <mat-icon matSuffix>key</mat-icon>
-            <mat-error *ngFor="let validation of register_validation_messages.password">
-                <mat-error class="error-message" *ngIf="ff['password'].hasError(validation.type)">
-                    {{validation.message}}
-                </mat-error>
-            </mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>Confirm Password</mat-label>
-            <input type="password" matInput formControlName="confirm_password" placeholder="Repeat Password">
+                        <mat-label>Email</mat-label>
+                        <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+                        <mat-icon matSuffix>alternate_email</mat-icon>
 
-            <mat-error *ngFor="let validation of register_validation_messages.confirm_password">
-                <mat-error class="error-message" *ngIf="ff['confirm_password'].hasError(validation.type)">
-                    {{validation.message}}
-                </mat-error>
-            </mat-error>
-
-        </mat-form-field>
+                        <mat-error *ngFor="let validation of register_validation_messages.email">
+                            <mat-error class="error-message" *ngIf="ff['email'].hasError(validation.type) ">
+                                {{validation.message}}
+                            </mat-error>
+                        </mat-error>
+                    </mat-form-field>
 
 
-        <mat-form-field class="mb-3" appearance="outline">
 
-            <mat-label>Address</mat-label>
-            <textarea matInput formControlName="address" placeholder="Ex. 100 Main St"></textarea>
-            <mat-icon matSuffix>person_pin_circle</mat-icon>
-        </mat-form-field>
-      
+                    <mat-form-field style="width: 45%;" class="mr-3 mb-3" appearance="outline">
+
+                        <mat-label>Password</mat-label>
+                        <input type="password" matInput formControlName="password" placeholder="Enter a password">
+                        <mat-icon matSuffix>key</mat-icon>
+                        <mat-error *ngFor="let validation of register_validation_messages.password">
+                            <mat-error class="error-message" *ngIf="ff['password'].hasError(validation.type)">
+                                {{validation.message}}
+                            </mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field style="width: 45%; float: right;" appearance="outline">
+                        <mat-label>Confirm Password</mat-label>
+                        <input type="password" matInput formControlName="confirm_password"
+                            placeholder="Repeat Password">
+
+                        <mat-error *ngFor="let validation of register_validation_messages.confirm_password">
+                            <mat-error class="error-message" *ngIf="ff['confirm_password'].hasError(validation.type)">
+                                {{validation.message}}
+                            </mat-error>
+                        </mat-error>
+
+                    </mat-form-field>
 
 
-        <mat-form-field class="mb-3" appearance="outline">
+                    <mat-form-field class="mb-3" appearance="outline">
 
-            <mat-label>Birthdate</mat-label>
-            <input matInput formControlName="birthdate" [max]="maxDate" [matDatepicker]="picker">
-            <mat-datepicker-toggle matSuffix [for]="picker">
-                <mat-icon matDatepickerToggleIcon>cake</mat-icon>
-
-            </mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-            <mat-error class="error-message" *ngIf="ff['birthdate'].hasError('required')">
-                Birthdate is Required
-            </mat-error>
-        </mat-form-field>
-   
+                        <mat-label>Address</mat-label>
+                        <textarea matInput formControlName="address" placeholder="Ex. 100 Main St"></textarea>
+                        <mat-icon matSuffix>person_pin_circle</mat-icon>
+                    </mat-form-field>
 
 
-        <mat-form-field class="mb-3" appearance="outline">
 
-            <mat-label>Phone</mat-label>
-            <span matPrefix>+20 &nbsp;</span>
-            <input type="tel" matInput formControlName="phone" placeholder="123-456-7890">
-            <mat-icon matSuffix>phone</mat-icon>
-            <mat-error *ngFor="let validation of register_validation_messages.phone">
-                <mat-error class="error-message" *ngIf="ff['phone'].hasError(validation.type)">
-                    {{validation.message}}
-                </mat-error>
-            </mat-error>
-        </mat-form-field>
-        <button (click)="submitForm()" mat-raised-button>Register</button>
+                    <mat-form-field class="mb-3" appearance="outline">
 
-    </form>
-</div>
-</div>
+                        <mat-label>Birthdate</mat-label>
+                        <input matInput formControlName="birthdate" [max]="maxDate" [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker">
+                            <mat-icon matDatepickerToggleIcon>cake</mat-icon>
+
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error class="error-message" *ngIf="ff['birthdate'].hasError('required')">
+                            Birthdate is Required
+                        </mat-error>
+                    </mat-form-field>
+
+
+
+                    <mat-form-field class="mb-3" appearance="outline">
+
+                        <mat-label>Phone</mat-label>
+                        <span matPrefix>+20 &nbsp;</span>
+                        <input type="tel" matInput formControlName="phone" placeholder="123-456-7890">
+                        <mat-icon matSuffix>phone</mat-icon>
+                        <mat-error *ngFor="let validation of register_validation_messages.phone">
+                            <mat-error class="error-message" *ngIf="ff['phone'].hasError(validation.type)">
+                                {{validation.message}}
+                            </mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                    <button style="width: 10em; border-radius: 20px !important;" (click)="submitForm()" color="primary"
+                        mat-raised-button>Register</button>
+
+                </form>
+                <div class="col-6"
+                    style="background-image: url(assets/styles/images/5360844.jpg); background-repeat: no-repeat; background-size: 65% 80%;  background-position: right center; margin-top: 70px;">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
