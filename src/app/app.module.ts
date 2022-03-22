@@ -18,6 +18,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FavoriteComponent } from './components/favorite/favorite.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ErrorComponent,
     AboutComponent,
     ContactComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    FavoriteComponent
 
   ],
   imports: [

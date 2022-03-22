@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/Service/cart.service';
+import { FavoriteService } from 'src/app/Service/favorite.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,15 +9,20 @@ import { CartService } from 'src/app/Service/cart.service';
 })
 export class NavbarComponent implements OnInit {
  public totalItem : number =0;
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService , private FavoriteService : FavoriteService) { }
   hidden = true;
   ngOnInit(): void {
     this.cartService.getProducts().
-    subscribe(res=>{
-      this.totalItem = res.length;
-      if(this.totalItem>0){this.hidden=false}else{this.hidden=true}
-    })
+      subscribe(res => {
+        this.totalItem = res.length;
+        if (this.totalItem > 0) { this.hidden = false } else { this.hidden = true }
+      });
+      this.FavoriteService.getProducts().
+      subscribe(res => {
+        this.totalItem = res.length;
+        if (this.totalItem > 0) { this.hidden = false } else { this.hidden = true }
+      });
   }
 
-  
+
 }

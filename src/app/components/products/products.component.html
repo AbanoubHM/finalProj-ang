@@ -65,7 +65,7 @@
                                 </div>
 
                                 <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-                                    <li class="mr-2 overflow-hidden"><button mat-mini-fab color="primary">
+                                    <li class="mr-2 overflow-hidden"><button (click)=addtofavorite(item) mat-mini-fab color="primary">
                                             <mat-icon>favorite_border</mat-icon>
                                         </button></li>
                                     <li class="mr-2 overflow-hidden"><button (click)=addtocart(item) mat-mini-fab
@@ -104,7 +104,7 @@
         <div class="card-body">
           <h5 class="card-title">{{i.name}}</h5>
           <p class="card-text x">{{i.desce}}</p>
-         
+
              <div class="py-3 px-4">
 
                 <span class="price d-block fwEbold"><del>{{i.price*1.1 | number:'1.2-2'}}$</del> {{i.price}} $</span>

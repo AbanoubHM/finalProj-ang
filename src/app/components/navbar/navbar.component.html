@@ -62,15 +62,18 @@
                             <mat-icon>person_add_alt</mat-icon>
                         </button>
                     </li>
+                    <li class="nav-item"><button routerLink="favorite" class=" position-relative" mat-icon-button
+                      color="primary" aria-label="Example icon-button with a heart icon">
+                      <mat-icon matBadge="{{totalItem}}" [matBadgeHidden]="hidden" matBadgeColor="accent">
+                        favorite</mat-icon>
+                  </button>
+                   </li>
                     <li class="nav-item"><button routerLink="cart" class=" position-relative" mat-icon-button
                             color="primary" aria-label="Example icon-button with a heart icon">
                             <mat-icon matBadge="{{totalItem}}" [matBadgeHidden]="hidden" matBadgeColor="accent">
                                 shopping_cart</mat-icon>
                         </button>
-
                     </li>
-
-
                 </ul>
             </div>
         </div>
