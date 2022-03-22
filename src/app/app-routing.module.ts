@@ -10,6 +10,7 @@ import { CartsComponent } from './components/carts/carts.component';
 import { ProductsComponent } from './components/products/products.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'cart',component:CartsComponent},
+  {path:'logout',component:LogoutComponent},
 
   { path: 'products', component: ProductsComponent },
   { path: 'about', component: AboutComponent },

@@ -39,8 +39,12 @@
 
 
                                 <li class="nav-item">
-                                    <a style="text-decoration: none;" style="text-decoration: none;" class="d-block"
+                                    <a style="text-decoration: none;"  class="d-block"
                                         routerLink="contact">contact</a>
+                                </li>
+                                <li class="nav-item" *ngIf="islogged">
+                                    <a style="text-decoration: none;"  class="d-block"
+                                        routerLink="/logout">Logout</a>
                                 </li>
                             </ul>
                         </div>
@@ -54,7 +58,7 @@
                 <ul class="nav nav-tabs   pt-3 justify-content-end border-bottom-0">
                     <li class="nav-item"><button routerLink="login" class=" position-relative" mat-icon-button
                             color="primary" aria-label="Example icon-button with a heart icon">
-                            <mat-icon>login</mat-icon>
+                            <mat-icon  *ngIf="!islogged">login</mat-icon>
                         </button>
                     </li>
                     <li class="nav-item"><button routerLink="register" class=" position-relative" mat-icon-button

@@ -18,8 +18,13 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDividerModule} from '@angular/material/divider'
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { LogoutComponent } from './components/logout/logout.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +38,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ErrorComponent,
     AboutComponent,
     ContactComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ToolbarComponent,
+    LogoutComponent
 
   ],
   imports: [
@@ -44,7 +51,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatToolbarModule,
+    MatDividerModule,
+    MatIconModule,
+    MatButtonModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

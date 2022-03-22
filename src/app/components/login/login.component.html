@@ -1,4 +1,4 @@
-<div class="container   d-flex justify-content-start w-75">
+<div *ngIf="loginForm" class="container  d-flex justify-content-start w-75">
     <div class="row">
         <div class="wrapper img">
             <img class="col-md-6  col-sm-12" style="float: right;" alt="" src="assets/styles/images/3180764.jpg" />
@@ -7,7 +7,7 @@
                 <mat-form-field class="mb-3" appearance="outline">
                     <mat-label>Email</mat-label>
                     <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
-                    <mat-error class="error-message" *ngIf="ff['email'].hasError('email') ">
+                    <mat-error class="error-message">
                         Invail E-mail format
                     </mat-error>
                 </mat-form-field>
@@ -18,7 +18,8 @@
 
                 </mat-form-field>
                 <br>
-                <button style="width: 10em; border-radius: 20px !important;" class="mb-3" (click)="submitForm()"
+                <!-- *ngIf="ff['email'].hasError('email') " -->
+                <button style="width: 10em; border-radius: 20px !important;" [disabled]="loginForm.invalid" class="mb-3" (click)="submitForm()"
                     color="primary" mat-raised-button>Log
                     in &nbsp; <mat-icon matSuffix>login</mat-icon></button>
 
