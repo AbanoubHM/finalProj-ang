@@ -11,24 +11,35 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DashComponent } from './components/dash/dash.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 
 
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'cart', component: CartsComponent },
-  { path: 'logout', component: LogoutComponent },
-  { path: 'favorite', component: FavoriteComponent },
+
+  {path:'',component:HomeComponent},
+  {path:'home' , component:HomeComponent},
+  {path:'login',component:LoginComponent},
+  {path:'register',component:RegisterComponent},
+  {path:'cart',component:CartsComponent},
+
+  {path:'logout',component:LogoutComponent},
+  {path:'dashboard' , component:DashboardComponent},
+  {path:'favorite' , component:FavoriteComponent},
+
   { path: 'products', component: ProductsComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent },
+  {path:'dash',component:DashComponent},
+  {path:'contact' , component:ContactComponent},
   { path: 'products/:id', component: ProductDetailsComponent },
+  {path:'orders' , component:OrdersComponent},
   { path: '**', component: ErrorComponent }
+
+
 
 
 ];
