@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PublishProduct } from 'src/app/Models/Ipublish';
 import { GategoryService } from 'src/app/Service/gategory.service';
-
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,14 +10,19 @@ import { GategoryService } from 'src/app/Service/gategory.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private gategory : GategoryService) { }
-  showFiller = false;
-  public gat : any = [];
+  post: any;
+  address: string = '';
+  username: string = '';
+  constructor(/*private gategory : GategoryService*/) { }
+
+   gat : PublishProduct[] = [];
 
   ngOnInit(): void {
-    this.gategory.getAllPosts().subscribe(res=>{
-      this.gat = res;
-    })
+
+    // this.gategory.getAllGatogaries()
+    // .subscribe(res=>{
+    //   this.gat = res;
+    // })
 
   }
 

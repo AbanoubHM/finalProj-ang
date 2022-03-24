@@ -18,44 +18,54 @@
 
 
 
-
+<!--
 
 
   <div class="cartHolder container pt-xl-21 pb-xl-24 py-lg-20 py-md-16 py-10">
       <div class="row">
-          <!-- table-responsive -->
+
           <div class="col-12 table-responsive mb-xl-22 mb-lg-20 mb-md-16 mb-10">
-              <!-- cartTable -->
+
               <table class="table cartTable">
                   <thead>
                       <tr>
-                          <th scope="col" class="text-uppercase fwEbold border-top-0">No.</th>
-                          <th scope="col" class="text-uppercase fwEbold border-top-0">Product</th>
-                          <th scope="col" class="text-uppercase fwEbold border-top-0">Image</th>
-                          <th scope="col" class="text-uppercase fwEbold border-top-0">price</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">id</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">name</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">desc</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">imgage</th>
                       </tr>
                   </thead>
 
                   <tbody>
                       <tr class="align-items-center" *ngFor="let item of gat; let i = index">
-                          <td>{{i+1}}</td>
-                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.Id}}</td>
-                          <td class="d-flex align-items-center border-top-0 border-bottom px-0 py-6">
-                              <div class="imgHolder"><img src="{{item.name}}" alt="image description"
-                                      class="img-fluid"></div>
-                          </td>
+
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.ID}}</td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.name}}</td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.description}}</td>
                           <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.imageurl}}</td>
-                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">
 
-                              <button mat-icon-button color="warn" >
-                                  <mat-icon>delete_forever</mat-icon>
-                              </button>
 
-                          </td>
                       </tr>
 
                   </tbody>
               </table>
           </div>
       </div>
-  </div>
+  </div> -->
+
+
+<!-- 
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+            <label class="float-left">firstName</label>
+            <input type="text" formControlName="firstName" class="form-control" />
+     </div>
+     <div class="form-group">
+            <label class="float-left">lastName</label>
+            <input type="text" formControlName="lastName" class="form-control" />
+     </div>
+     <div class="form-group">
+            <label class="float-left">email</label>
+            <input type="text" formControlName="email" class="form-control" />
+     </div>
+  </form> -->
