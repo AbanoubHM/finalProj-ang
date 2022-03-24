@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GategoryService } from 'src/app/Service/gategory.service';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -7,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private gategory : GategoryService) { }
   showFiller = false;
+  public gat : any = [];
 
   ngOnInit(): void {
+    this.gategory.getAllPosts().subscribe(res=>{
+      this.gat = res;
+    })
+
   }
 
 }
