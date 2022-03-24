@@ -14,6 +14,9 @@ import { ContactComponent } from './components/contact/contact.component';
 import { LogoutComponent } from './components/logout/logout.component';
 
 import { FavoriteComponent } from './components/favorite/favorite.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DashComponent } from './components/dash/dash.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 
 
@@ -27,15 +30,17 @@ const routes: Routes = [
   {path:'cart',component:CartsComponent},
 
   {path:'logout',component:LogoutComponent},
-
+  {path:'dashboard' , component:DashboardComponent},
   {path:'favorite' , component:FavoriteComponent},
 
   { path: 'products', component: ProductsComponent },
   { path: 'about', component: AboutComponent },
-
+  {path:'dash',component:DashComponent},
   {path:'contact' , component:ContactComponent},
-  {path:'products/:id',component:ProductDetailsComponent},
-  {path:'**',component:ErrorComponent}
+  { path: 'products/:id', component: ProductDetailsComponent },
+  {path:'orders' , component:OrdersComponent},
+  { path: '**', component: ErrorComponent }
+
 
 
 ];

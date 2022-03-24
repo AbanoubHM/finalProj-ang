@@ -5,7 +5,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/Service/cart.service';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { FavoriteService } from 'src/app/Service/favorite.service';
-
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -17,7 +16,7 @@ export class ProductsComponent implements OnInit {
   errMsg:string=''
   listToggle:boolean=true;
   numberOfProducts: number = 0;
-  
+
   constructor(private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private FavoriteService : FavoriteService, private snakeBar: MatSnackBar) { }
 
 

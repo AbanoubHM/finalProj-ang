@@ -14,6 +14,7 @@ import {MatRippleModule} from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 
@@ -31,7 +32,8 @@ const MaterialComponents=[
   MatRippleModule,
   MatSliderModule,
   MatToolbarModule,
-  MatTabsModule
+  MatTabsModule,
+  MatSidenavModule
 
 ]
 
