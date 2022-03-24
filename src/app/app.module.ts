@@ -28,8 +28,9 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { LogoutComponent } from './components/logout/logout.component'
 
 import { FavoriteComponent } from './components/favorite/favorite.component';
-import {AuthModule} from '@auth0/auth0-angular';
+// import {AuthModule} from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
+
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { environment as env } from '../environments/environment';
     ProductDetailsComponent,
     ToolbarComponent,
     LogoutComponent,
-    FavoriteComponent
+    FavoriteComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -64,9 +66,9 @@ import { environment as env } from '../environments/environment';
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
-    AuthModule.forRoot({
-      ...env.auth,
-    })
+    // AuthModule.forRoot({
+    //   ...env.auth,
+    // })
   ],
   providers: [],
   bootstrap: [AppComponent]

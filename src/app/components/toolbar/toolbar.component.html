@@ -1,28 +1,46 @@
-<mat-toolbar fxLayout="row" color="primary">
-    <span fxFlex>HandMade</span>
-    <button mat-button *ngFor="let item of menuItems" 
-        [fxShow]="item.showOnDesktop" 
-        [fxShow.xs]="item.showOnMobile"
-        [fxShow.sm]="item.showOnTablet">
-        <mat-icon class="mr">{{item.icon}}</mat-icon>
-        {{item.label}}
-    </button>
-    <ng-container>
-        <button mat-icon-button [matMenuTriggerFor]="dropMenu">
-            <mat-icon>more_vert</mat-icon>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" (click)="ToggleNavbar()" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-        <mat-menu #dropMenu="matMenu">
-            <ng-container *ngFor="let item of menuItems">
-                <div [fxShow]="!item.showOnDesktop" 
-                     [fxShow.sm]="!item.showOnTablet" 
-                     [fxShow.xs]="!item.showOnMobile">
-                    <button mat-menu-item>
-                        <mat-icon class="mr">{{item.icon}}</mat-icon>
-                        {{item.label}}
-                    </button>
-                    <mat-divider></mat-divider>
-                </div>
-            </ng-container>
-        </mat-menu>
-    </ng-container>
-</mat-toolbar>
+        <div class="collapse navbar-collapse" [class.show]="isOpen" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/products">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/orders">Orders</a>
+                </li>
+                <li class="nav-item" matBadge="{{totalItem}}" [matBadgeHidden]="hidden">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/carts">Carts</a>
+                </li>
+                <li class="nav-item"  matBadge="{{totalfavortit}}" [matBadgeHidden]="hidden1" >
+                    <a class="nav-link" routerLinkActive="active" routerLink="/favorite">Favorite</a>
+                </li>
+                <li class="nav-item" *ngIf="islogged">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/logout">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/register">Sign Up</a>
+                </li>
+                <li class="nav-item"  *ngIf="!islogged">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/login">Login</a>
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+
+</nav>
