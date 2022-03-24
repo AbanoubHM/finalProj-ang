@@ -1,8 +1,8 @@
 export class Order {
-  id: number;
-  date: string;
-  name: string;
-  status: string;
-  orderTotal: number;
-  paymentMode: string;
+  id: number| undefined;
+  date: string | undefined;
+  name: string| undefined;
+  status: string | undefined;
+  orderTotal: number | undefined;
+  paymentMode: string | undefined;
 }

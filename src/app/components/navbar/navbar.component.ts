@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { CartService } from 'src/app/Service/cart.service';
 
 import { UserService } from 'src/app/Service/user.service';
 
 import { FavoriteService } from 'src/app/Service/favorite.service';
+import { DOCUMENT } from '@angular/common';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +19,8 @@ export class NavbarComponent implements OnInit {
   public totalItem: number = 0;
   public totalfavortit: number = 0;
 
-  constructor(private cartService: CartService , private FavoriteService : FavoriteService,private User:UserService) { }
+  constructor(public Auth:AuthService, private cartService: CartService , private FavoriteService : FavoriteService,private User:UserService , public auth: AuthService,
+    @Inject(DOCUMENT) private doc: Document) { }
  
   hidden = true;
   hidden1 = true;
@@ -39,5 +42,7 @@ export class NavbarComponent implements OnInit {
       });
   }
 
-
+  loginWithRedirect(){
+    this.Auth.loginWithRedirect();
+    }
 }
