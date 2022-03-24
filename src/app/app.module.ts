@@ -27,6 +27,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { LogoutComponent } from './components/logout/logout.component'
 import { NgChartsModule } from 'ng2-charts';
 import { FavoriteComponent } from './components/favorite/favorite.component';
+
 import { DashboardComponent } from './components/dashboard/dashboard.component';import { DashbordNavComponent } from './components/dashbord-nav/dashbord-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -47,6 +48,9 @@ import { OrdersComponent } from './components/orders/orders.component';
 
 const routes: Routes = [{ path: 'dashboard', component: DashComponent }];
 
+import { environment as env } from '../environments/environment';
+
+
 
 @NgModule({
   exports: [RouterModule],
@@ -63,9 +67,9 @@ const routes: Routes = [{ path: 'dashboard', component: DashComponent }];
     AboutComponent,
     ContactComponent,
     ProductDetailsComponent,
-
     ToolbarComponent,
     LogoutComponent,
+
 
     FavoriteComponent,
     DashboardComponent,
@@ -74,6 +78,7 @@ const routes: Routes = [{ path: 'dashboard', component: DashComponent }];
     CardComponent,
 OrdersTableComponent,
 OrdersComponent
+
 
   ],
   imports: [
@@ -90,13 +95,17 @@ OrdersComponent
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
+
     NgChartsModule,
     LayoutModule,
     MatSidenavModule,
     MatListModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
     // [RouterModule.forRoot(routes)MatTableModuleMatPaginatorModuleMatSortModule]
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
