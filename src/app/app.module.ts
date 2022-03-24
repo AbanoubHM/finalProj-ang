@@ -27,7 +27,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { LogoutComponent } from './components/logout/logout.component'
 import { FavoriteComponent } from './components/favorite/favorite.component';
 
-// import {AuthModule} from '@auth0/auth0-angular';
+ import {AuthModule} from '@auth0/auth0-angular';
 
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';import { DashbordNavComponent } from './components/dashbord-nav/dashbord-nav.component';
@@ -101,14 +101,15 @@ OrdersComponent
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
-    // AuthModule.forRoot({
-    //   ...env.auth,
-    // })    
     LayoutModule,
     MatSidenavModule,
     MatListModule,
     MatGridListModule,
     MatCardModule,
+    AuthModule.forRoot({
+      ...env.auth,
+    })    
+    
     // [RouterModule.forRoot(routes)MatTableModuleMatPaginatorModuleMatSortModule]
   ],
   providers: [],
