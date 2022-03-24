@@ -1,29 +1,64 @@
 <form #userForm="ngForm"(ngSubmit)="(userForm.value)" >
   <div class="row">
     <div class="col-md-6 mb-3">
-      <label for="firstName">First name</label>
-      <input type="text" ngModel name="firstName" #firstName="ngModel"class="form-control" id="firstName" placeholder="" value="" required>
-      <div class="alert alert-danger"*ngIf=" firstName.touched && !firstName.valid" >
-         First Name is required.
+      <label for="Title">Title</label>
+      <input type="text" ngModel name="Title" #Title="ngModel"class="form-control" id="Title" placeholder="" value="" required>
+      <div class="alert alert-danger"*ngIf=" Title.touched && !Title.valid" >
+        the title of your product is required
+            </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="Description">Description</label>
+      <input type="text" ngModel name="Description" #Description="ngModel"class="form-control" id="Description" placeholder="" value="" required>
+      <div class="alert alert-danger"*ngIf=" Description.touched && !Description.valid" >
+        the Description of your product is required
       </div>
     </div>
     <div class="col-md-6 mb-3">
-      <label for="lastName">Last name</label>
-      <input type="text" ngModel name="lastName" #lastName="ngModel"class="form-control" id="lastName" placeholder="" value="" required>
-      <div class="alert alert-danger"*ngIf=" lastName.touched && !lastName.valid" >
-         Last Name is required.
+      <label for="image">product image</label>
+      <input type="file" ngModel name="image" #image="ngModel"class="form-control" id="image" placeholder="" value="" accept="image/png, image/gif, image/jpeg , image/jpg" required>
+      <div class="alert alert-danger"*ngIf=" image.touched && !image.valid" >
+        your must put iamge for your product
       </div>
     </div>
-  </div>
-
-
-  <div class="mb-3">
-    <label for="email">Email <span class="text-muted">(Optional)</span></label>
-    <input type="email" class="form-control" id="email" placeholder="you@example.com">
-    <div class="invalid-feedback">
-      Please enter a valid email address for shipping updates.
+    <div class="col-md-6 mb-3">
+      <label for="price">price</label>
+      <input type="text" ngModel name="price" #price="ngModel"class="form-control" id="price" placeholder="" value="" required>
+      <div class="alert alert-danger"*ngIf=" price.touched && !price.valid" >
+        your product must have price
+      </div>
     </div>
+    <div class="col-md-6 mb-3">
+      <label for="qty">quantity</label>
+      <input type="number" ngModel name="qty" #qty="ngModel"class="form-control" id="qty" placeholder="" value="" >
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label for="category"  class="col-md-6 mb-3">category for your product:</label>
+
+      <select name="category" id="cars" >
+        <option value="SHIRT">SHIRT</option>
+        <option value="HAT">HAT</option>
+        <option value="SHOES">SHOES</option>
+        <option value="MILTON">MILTON</option>
+      </select>
+
+      <!-- <label for="category">category for your product</label>
+      <input type="text" ngModel name="price" #price="ngModel"class="form-control" id="price" placeholder="" value="" required>
+      <div class="alert alert-danger"*ngIf=" price.touched && !price.valid" >
+        your product must have price
+      </div> -->
+    </div>
+    <div class="container my-3 ">
+      <div class="col-md-12 text-center">
+        <button class="btn btn-primary " type="submit" [disabled]="userForm.invalid">Purchase Product(s)</button>
+      </div>
+    </div>
+
   </div>
+
+
+<!--
 
   <div class="mb-3">
     <label for="address">Address</label>
@@ -117,6 +152,6 @@
       </div>
     </div>
   </div>
-  <hr class="mb-4">
-  <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="userForm.invalid">Purchase Product(s)</button>
+  <hr class="mb-4"> -->
+
 </form>
