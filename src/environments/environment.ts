@@ -1,13 +1,13 @@
 
 // import { from } from "rxjs";
-import {domain, clientId} from '../../auth_config.json'
+// import {domain, clientId} from '../auth_config.json'
 export const environment = {
   production: false,
-  auth:{
-    domain,
-    clientId,
-    redirectUri:window.location.origin
-  }
+  // auth:{
+  //   domain,
+  //   // clientId,
+  //   redirectUri:window.location.origin
+  // }
 };
 
 

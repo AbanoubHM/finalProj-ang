@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input } from '@angular/core';
 
 @Component({
   selector: 'app-orders',
@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class OrdersComponent implements OnInit {
 
   constructor() { }
-
   ngOnInit(): void {
   }
 
