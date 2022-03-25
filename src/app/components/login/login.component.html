@@ -19,9 +19,9 @@
                 </mat-form-field>
                 <br>
                 <!-- *ngIf="ff['email'].hasError('email') " -->
-                <button style="width: 10em; border-radius: 20px !important;" class="mb-3"  (click)="submitForm()"
-                color="primary" mat-raised-button>Log
-                in &nbsp; <mat-icon matSuffix>login</mat-icon></button>
+                <button style="width: 10em; border-radius: 20px !important;" class="mb-3" (click)="submitForm()"
+                    #tooltip="matTooltip" matTooltip="Log in" color="primary" mat-raised-button>Log
+                    in &nbsp; <mat-icon matSuffix>login</mat-icon></button>
 
             </form>
         </div>
