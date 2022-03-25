@@ -1,10 +1,10 @@
 <form #userForm="ngForm"(ngSubmit)="(userForm.value)" >
   <div class="row">
     <div class="col-md-6 mb-3">
-      <label for="Title">Title</label>
-      <input type="text" ngModel name="Title" #Title="ngModel"class="form-control" id="Title" placeholder="" value="" required>
-      <div class="alert alert-danger"*ngIf=" Title.touched && !Title.valid" >
-        the title of your product is required
+      <label for="Name">Name</label>
+      <input type="text" ngModel name="Name" #Name="ngModel"class="form-control" id="Name" placeholder="" value="" required>
+      <div class="alert alert-danger"*ngIf=" Name.touched && !Name.valid" >
+        the Name of your product is required
             </div>
     </div>
     <div class="col-md-6 mb-3">
@@ -23,38 +23,43 @@
     </div>
     <div class="col-md-6 mb-3">
       <label for="price">price</label>
-      <input type="text" ngModel name="price" #price="ngModel"class="form-control" id="price" placeholder="" value="" required>
+      <input type="number" ngModel name="price" #price="ngModel"class="form-control" id="price" placeholder="" value="" required>
       <div class="alert alert-danger"*ngIf=" price.touched && !price.valid" >
         your product must have price
       </div>
     </div>
-    <div class="col-md-6 mb-3">
-      <label for="qty">quantity</label>
-      <input type="number" ngModel name="qty" #qty="ngModel"class="form-control" id="qty" placeholder="" value="" >
-    </div>
 
     <div class="col-md-6 mb-3">
-      <label for="category"  class="col-md-6 mb-3">category for your product:</label>
-
-      <select name="category" id="cars" >
-        <option value="SHIRT">SHIRT</option>
-        <option value="HAT">HAT</option>
-        <option value="SHOES">SHOES</option>
-        <option value="MILTON">MILTON</option>
-      </select>
-
-      <!-- <label for="category">category for your product</label>
-      <input type="text" ngModel name="price" #price="ngModel"class="form-control" id="price" placeholder="" value="" required>
-      <div class="alert alert-danger"*ngIf=" price.touched && !price.valid" >
-        your product must have price
+      <label for="SaleValue">SaleValue</label>
+      <input type="number" ngModel name="SaleValue" #SaleValue="ngModel"class="form-control" id="price" placeholder="" value="" >
+      <!-- <div class="alert alert-danger"*ngIf=" SaleValue.touched && !SaleValue.valid" >
+                you must tell us how many day It will Belong
       </div> -->
     </div>
-    <div class="container my-3 ">
-      <div class="col-md-12 text-center">
-        <button class="btn btn-primary " type="submit" [disabled]="userForm.invalid">Purchase Product(s)</button>
+
+    <div class="col-md-6 mb-3">
+      <label for="qty">Quantity</label>
+      <input type="number" ngModel name="qty" #qty="ngModel"class="form-control" id="qty" placeholder="" value="" >
+
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="PreparationDays">PreparationDays</label>
+      <input type="number" ngModel name="PreparationDays" #PreparationDays="ngModel"class="form-control" id="qty" placeholder="" value=""  required>
+         <div class="alert alert-danger"*ngIf=" PreparationDays.touched && !PreparationDays.valid" >
+                you must tell us how many day It will Belong
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="gty">Category</label>
+      <input type="number" ngModel name="gty" #gty="ngModel"class="form-control" id="gty" placeholder="" value=""  required>
+         <div class="alert alert-danger"*ngIf=" gty.touched && !gty.valid" >
+                you must know what is your gategory for your product
       </div>
     </div>
 
+    <div>
+    <button class="btn btn-primary " type="submit" [disabled]="userForm.invalid"> submit</button>
+  </div>
   </div>
 
 
