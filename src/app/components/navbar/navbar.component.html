@@ -1,31 +1,30 @@
+<!-- <header id="header" class="position-relative">
 
-
-<header id="header" class="position-relative">
-
-    <!-- headerHolder -->
+   
     <div class="headerHolder container  pb-lg-7 py-4">
         <div class="row">
 
             <div class="col-3 col-sm-2">
-                <!-- mainLogo -->
+              
                 <div class="logo">
-                    <a style="text-decoration: none;" routerLink=""><img src="assets/styles/images/logo.png"
+                    <a style="text-decoration: none;" routerLink=""><img src="/assets/styles/images/handmadelogo.jpg"
                             alt="Botanical" class="img-fluid"></a>
                 </div>
-            </div>
-            <div class="col-6 col-sm-4 col-lg-6 static-block">
+            </div> -->
+<!-- <div class="col-6 col-sm-4 col-lg-6 static-block"> -->
 
-                <!-- mainHolder -->
-                <div class="mainHolder  pt-4 justify-content-center">
-                    <!-- pageNav2 -->
-                    <nav class="navbar navbar-expand-lg navbar-light p-0 pageNav2 position-static">
+<!-- mainHolder -->
+<!-- <div class="mainHolder  pt-4 justify-content-center"> -->
+<!-- pageNav2 -->
+<!-- <nav class="navbar navbar-expand-lg navbar-light p-0 pageNav2 position-static">
                         <button type="button" class="navbar-toggle collapsed position-relative" data-toggle="collapse"
                             data-target="#navbarNav" aria-expanded="false">
                             <mat-icon>menu</mat-icon>
                         </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav mx-auto text-uppercase d-inline-block">
-                                <li class="nav-item active dropdown">
+                    </nav> -->
+
+<!-- <ul class="navbar-nav mx-auto text-uppercase d-inline-block"> -->
+<!-- <li class="nav-item active dropdown">
                                     <a style="text-decoration: none;" class="dropdown-toggle d-block" role="button"
                                         routerLink="">home</a>
                                 </li>
@@ -43,45 +42,94 @@
                                 <li class="nav-item">
                                     <a style="text-decoration: none;"  class="d-block"
                                         routerLink="contact">contact</a>
-                                </li>
-                                <li class="nav-item" *ngIf="islogged">
+                                </li> -->
+<!-- <li class="nav-item" *ngIf="islogged">
                                     <a style="text-decoration: none;"  class="d-block"
                                         routerLink="/logout">Logout</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
+                                </li> -->
+<!-- </ul> -->
+<!-- </div> -->
+<!-- </nav> -->
+<!-- </div> -->
+<!-- </div> -->
+<header id="header" class="position-relative">
+
+    <!-- headerHolder -->
+    <div class="headerHolder container  pb-lg-7 py-4">
+        <div class="row">
+
+            <div class="">
+                <!-- mainLogo -->
+                <div class="logo">
+                    <a style="text-decoration: none;" routerLink=""><img src="/assets/styles/images/handmadelogo.jpg"
+                            alt="Botanical" class="img-fluid"></a>
                 </div>
             </div>
-            <div class="col-sm-4   col-lg-4">
+            <div class="">
                 <!-- wishListII -->
+                <nav class="navbar navbar-expand-lg navbar-light p-0 pageNav2 position-static">
+                    <button type="button" class="navbar-toggle collapsed position-relative" data-toggle="collapse"
+                        data-target="#navbarNav" aria-expanded="false">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="nav nav-tabs   pt-3 justify-content-end border-bottom-0">
+                            <li class="nav-item active dropdown">
+                                <a style="text-decoration: none;" class="dropdown-toggle d-block" role="button"
+                                    routerLink="">home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a style="text-decoration: none;" class="dropdown-toggle d-block" role="button"
+                                    data-toggle="dropdown" routerLink="products" aria-haspopup="true"
+                                    aria-expanded="false">products</a>
+
+                            </li>
+                            <li class="nav-item">
+                                <a style="text-decoration: none;" class="d-block" routerLink="about">About</a>
+                            </li>
 
 
-                <ul class="nav nav-tabs   pt-3 justify-content-end border-bottom-0">
-                    <li class="nav-item"><button routerLink="login" class=" position-relative" mat-icon-button
-                            color="primary" aria-label="Example icon-button with a heart icon">
-                            <mat-icon  *ngIf="!islogged">login</mat-icon>
-                        </button>
-                    </li>
-                    <li class="nav-item"><button routerLink="register" class=" position-relative" mat-icon-button
-                            color="primary" aria-label="Example icon-button with a heart icon">
-                            <mat-icon>person_add_alt</mat-icon>
-                        </button>
-                    </li>
-                    <li class="nav-item"><button routerLink="favorite" class=" position-relative" mat-icon-button
-                      color="primary" aria-label="Example icon-button with a heart icon">
-                      <mat-icon matBadge="{{totalfavortit}}" [matBadgeHidden]="hidden1" matBadgeColor="accent">
-                        favorite</mat-icon>
-                  </button>
-                   </li>
-                    <li class="nav-item"><button routerLink="cart" class=" position-relative" mat-icon-button
-                            color="primary" aria-label="Example icon-button with a heart icon">
-                            <mat-icon matBadge="{{totalItem}}" [matBadgeHidden]="hidden" matBadgeColor="accent">
-                                shopping_cart</mat-icon>
-                        </button>
-                    </li>
-                </ul>
+                            <li class="nav-item">
+                                <a style="text-decoration: none;" class="d-block" routerLink="contact">contact</a>
+                            </li>
+                            <li *ngIf="islogged" class="nav-item"><button routerLink="logout" class=" position-relative"
+                                    mat-icon-button color="primary" #tooltip="matTooltip" matTooltip="Logout"
+                                    aria-label="Example icon-button with a heart icon">
+                                    <mat-icon>logout</mat-icon>
+                                </button>
+                            </li>
+                            <li *ngIf="!islogged" class="nav-item"><button routerLink="login" class=" position-relative"
+                                    mat-icon-button color="primary" #tooltip="matTooltip" matTooltip="Login"
+                                    aria-label="Example icon-button with a heart icon">
+                                    <mat-icon>login</mat-icon>
+                                </button>
+                            </li>
+                            <li class="nav-item"><button routerLink="register" class=" position-relative"
+                                    mat-icon-button color="primary" #tooltip="matTooltip" matTooltip="Register"
+                                    aria-label="Example icon-button with a heart icon">
+                                    <mat-icon>person_add_alt</mat-icon>
+                                </button>
+                            </li>
+                            <li class="nav-item"><button routerLink="favorite" class=" position-relative"
+                                    mat-icon-button color="primary" #tooltip="matTooltip" matTooltip="Add To Favorite"
+                                    aria-label="Example icon-button with a heart icon">
+                                    <mat-icon matBadge="{{totalfavortit}}" [matBadgeHidden]="hidden1"
+                                        matBadgeColor="accent">
+                                        favorite</mat-icon>
+                                </button>
+                            </li>
+                            <li class="nav-item"><button routerLink="cart" class=" position-relative" mat-icon-button
+                                    color="primary" #tooltip="matTooltip" matTooltip="Add To Cart"
+                                    aria-label="Example icon-button with a heart icon">
+                                    <mat-icon matBadge="{{totalItem}}" [matBadgeHidden]="hidden" matBadgeColor="accent">
+                                        shopping_cart</mat-icon>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
         </div>
     </div>
+
 </header>

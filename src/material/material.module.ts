@@ -14,6 +14,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 const MaterialComponents = [
@@ -32,7 +33,8 @@ const MaterialComponents = [
   MatToolbarModule,
 
   MatTabsModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatTooltipModule
 
 
 ]
