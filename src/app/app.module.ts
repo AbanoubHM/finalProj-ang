@@ -56,6 +56,8 @@ import { LoginButtonComponent } from './components/login-button/login-button.com
 import { NavToLoginComponent } from './components/nav-to-login/nav-to-login.component';
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { MystoreComponent } from './components/mystore/mystore.component';
+import { CustomersComponent } from './customers/customers.component';
 
 
 
@@ -90,7 +92,9 @@ OrdersComponent,
 LoginButtonComponent,
 NavToLoginComponent,
 LogoutButtonComponent,
-LoadingComponent
+LoadingComponent,
+MystoreComponent,
+CustomersComponent
 
 
 
