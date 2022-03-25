@@ -18,9 +18,7 @@ public productList = new BehaviorSubject<any>([])
   addtoCart(product : any){
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
-
     this.getTotalPrice();
-
   }
   getTotalPrice() : number{
     let grandTotal = 0;

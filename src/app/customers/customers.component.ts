@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { CartService } from '../Service/cart.service';
+import { CustomersService } from '../Service/customers.service';
 
 @Component({
   selector: 'app-customers',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cutom: CustomersService) { }
+  public products : any = [];
 
   ngOnInit(): void {
+    this.cutom.getProducts()
+    .subscribe(res=>{
+      this.products = res;
+    })
   }
 
 }

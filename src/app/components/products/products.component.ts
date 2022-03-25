@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/Service/cart.service';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { FavoriteService } from 'src/app/Service/favorite.service';
+import { CustomersService } from 'src/app/Service/customers.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -17,7 +18,7 @@ export class ProductsComponent implements OnInit {
   listToggle:boolean=true;
   numberOfProducts: number = 0;
 
-  constructor(private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private FavoriteService : FavoriteService, private snakeBar: MatSnackBar) { }
+  constructor( private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private FavoriteService : FavoriteService, private snakeBar: MatSnackBar) { }
 
 
 
@@ -41,7 +42,8 @@ export class ProductsComponent implements OnInit {
 
 addtocart(item: any){
   this.cartService.addtoCart(item)
-this.snakeBar.open("Added","", {duration:1000, panelClass:["bg-success","text-center"]})
+  this.custom.addtocustomers(item)
+  this.snakeBar.open("Added","", {duration:1000, panelClass:["bg-success","text-center"]})
   }
 
 

@@ -16,7 +16,7 @@ import { IStore } from '../Models/Istore';
 })
 export class OrdersComponent implements OnInit {
   editAddressForm?: FormGroup;
-  postList?: IStore[];
+  postList?: PublishProduct[];
   public storelist: any;
   errMsg: string = '';
   numberOfstores: number = 0;

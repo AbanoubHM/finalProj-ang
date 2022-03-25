@@ -1,1 +1,34 @@
-<p>customers works!</p>
+
+
+  <div class="cartHolder container pt-xl-21 pb-xl-24 py-lg-20 py-md-16 py-10">
+      <div class="row">
+          <!-- table-responsive -->
+          <div class="col-12 table-responsive mb-xl-22 mb-lg-20 mb-md-16 mb-10">
+              <!-- cartTable -->
+              <table class="table cartTable">
+                  <thead>
+                      <tr>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">No.</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">Product</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">Image</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">price</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">Delete</th>
+                      </tr>
+                  </thead>
+
+                  <tbody>
+                      <tr class="align-items-center" *ngFor="let item of products; let i = index">
+                          <td>{{i+1}}</td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.name}}</td>
+                          <td class="d-flex align-items-center border-top-0 border-bottom px-0 py-6">
+                              <div class="imgHolder"><img src="{{item.image}}" alt="image description"
+                                      class="img-fluid"></div>
+                          </td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.price|currency}}</td>
+                      </tr>
+
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
