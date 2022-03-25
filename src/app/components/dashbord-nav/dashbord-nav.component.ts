@@ -19,6 +19,6 @@ export class DashbordNavComponent {
   constructor(private breakpointObserver: BreakpointObserver) {}
 // nav.component.ts
 
-menuItems = ['dash', 'sales', 'orders', 'customers', 'products'];
+menuItems = ['MyProfile', 'AddProduct', 'customers', 'MyStore'];
 
 }

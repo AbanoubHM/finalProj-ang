@@ -14,6 +14,8 @@ import { FavoriteComponent } from './components/favorite/favorite.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DashComponent } from './components/dash/dash.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { MystoreComponent } from './components/mystore/mystore.component';
+import { CustomersComponent } from './customers/customers.component';
 
 
 
@@ -33,10 +35,12 @@ const routes: Routes = [
 
   { path: 'products', component: ProductsComponent },
   { path: 'about', component: AboutComponent },
-  {path:'dash',component:DashComponent},
+  {path:'MyProfile',component:DashComponent},
   {path:'contact' , component:ContactComponent},
   { path: 'products/:id', component: ProductDetailsComponent },
-  {path:'orders' , component:OrdersComponent},
+  { path: 'MyStore', component: MystoreComponent },
+  {path:'customers' , component:CustomersComponent},
+  {path:'AddProduct' , component:OrdersComponent},
   { path: '**', component: ErrorComponent }
 
 
