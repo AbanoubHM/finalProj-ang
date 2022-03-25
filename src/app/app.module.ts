@@ -52,6 +52,10 @@ const routes: Routes = [{ path: 'dashboard', component: DashComponent }];
 
 
 import { environment as env } from '../environments/environment';
+import { LoginButtonComponent } from './components/login-button/login-button.component';
+import { NavToLoginComponent } from './components/nav-to-login/nav-to-login.component';
+import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 
 
@@ -82,7 +86,11 @@ import { environment as env } from '../environments/environment';
     DashComponent,
     CardComponent,
 OrdersTableComponent,
-OrdersComponent
+OrdersComponent,
+LoginButtonComponent,
+NavToLoginComponent,
+LogoutButtonComponent,
+LoadingComponent
 
 
 
