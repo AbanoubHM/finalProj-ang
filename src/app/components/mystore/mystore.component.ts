@@ -9,6 +9,9 @@ export class MystoreComponent implements OnInit {
   public stores : any = [];
 
   constructor(private publshstor : PublishstoreService) { }
+
+
+
   ngOnInit(): void {
     this.publshstor.getstores()
     .subscribe(res=>{
