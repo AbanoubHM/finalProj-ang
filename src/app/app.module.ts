@@ -30,7 +30,8 @@ import { FavoriteComponent } from './components/favorite/favorite.component';
  import {AuthModule} from '@auth0/auth0-angular';
 
 
-import { DashboardComponent } from './components/dashboard/dashboard.component';import { DashbordNavComponent } from './components/dashbord-nav/dashbord-nav.component';
+
+import { DashbordNavComponent } from './components/dashbord-nav/dashbord-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -84,7 +85,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 
 
     FavoriteComponent,
-    DashboardComponent,
+
     DashbordNavComponent,
     DashComponent,
     CardComponent,
@@ -122,8 +123,8 @@ ProfileComponent
     MatCardModule,
     AuthModule.forRoot({
       ...env.auth,
-    })    
-    
+    })
+
     // [RouterModule.forRoot(routes)MatTableModuleMatPaginatorModuleMatSortModule]
   ],
   providers: [],
