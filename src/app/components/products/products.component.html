@@ -21,7 +21,7 @@
             <!-- content -->
             <article id="content">
                 <!-- show-head -->
-                <header class="show-head d-flex flex-wrap justify-content-between mb-7">
+                <header class="show-head d-flex flex-wrap justify-content-between  mb-7">
                     <ul class="list-unstyled viewFilterLinks d-flex flex-nowrap align-items-center">
                         <li (click)="toggleGrid()" class="mr-2"><a style="text-decoration: none;" class="active"><i
                                     class="fas fa-th-large"></i></a></li>
@@ -49,18 +49,19 @@
 
 
 <!-- Grid  -->
+                <div class="container">
                 <div *ngIf="listToggle" class="row">
 
-                    <div style="text-align: center; " *ngIf="!postList" class="col-12 col-sm-6 col-lg-4 featureCol mb-7 justify-content-center">
+                    <div style="text-align: center; " *ngIf="!postList" class="col-md-4">
                         <mat-spinner></mat-spinner>
                     </div>
 
-                    <div class="col-12 col-sm-6 col-lg-4 featureCol mb-7" *ngFor="let item of postList">
-                        <div matRipple class="border" style="margin-top: 20px; cursor: pointer;">
-                            <div class="imgHolder position-relative w-100 overflow-hidden">
+                    <div class="col-md-4" *ngFor="let item of postList"> <!-- featureCol -->
+                        <div matRipple class="border col-md-12" style="margin-top: 20px; cursor: pointer;">
+                            <div class="imgHolder position-relative w-100 overflow-hidden ">
 
 
-                                <div style="min-height:200px; overflow:hidden; max-height:250px;" class="text-center">
+                                <div  style="min-height:200px; max-height:250px;" class="text-center ">
                                     <img  (click)="getProdDetails(item.prodectId)" style="min-width:200px; overflow:hidden; max-height:250px;" [src]="item.image">
                                 </div>
 
@@ -88,11 +89,11 @@
                                         $</del>{{item.price}} $</span>
                                     </div>
                                 </div>
-                                <!-- <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block"
-                                    style="margin-top: 20px;"> &nbsp; HOT</span> -->
+
                     </div>
 
                 </div>
+              </div>
 <!-- List  -->
 <div *ngIf="!listToggle" >
 <div class="card mb-3" *ngFor="let i of postList" >
@@ -154,20 +155,6 @@
                     </ul>
                 </section>
                 <!-- widget -->
-                <section class="widget mb-9">
-                    <h3 class="headingVII fwEbold text-uppercase mb-6" style="margin-top: 40px;">Filter by price</h3>
-                    <!-- filter ranger form -->
-                    <form action="javascript:void(0);" class="filter-ranger-form">
-                        <div id="slider-range"></div>
-
-                        <input type="hidden" id="amount1" name="amount1">
-                        <input type="hidden" id="amount2" name="amount2">
-                        <div class="get-results-wrap d-flex align-items-center justify-content-between">
-                            <button mat-flat-button color="primary">Filter</button>
-                            <p id="amount" class="mb-0"></p>
-                        </div>
-                    </form>
-                </section>
 
 
             </aside>
