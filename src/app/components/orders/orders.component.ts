@@ -1,13 +1,5 @@
 import { Component, OnInit , Input } from '@angular/core';
-import { GategoryService } from 'src/app/Service/gategory.service';
-import { PublishProduct } from 'src/app/Models/Ipublish';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
-import { PublishstoreService } from 'src/app/Service/publishstore.service';
-import { StoreService } from 'src/app/Service/store.service';
-import { IStore } from '../Models/Istore';
+import { FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-orders',
@@ -15,49 +7,47 @@ import { IStore } from '../Models/Istore';
   styleUrls: ['./orders.component.scss']
 })
 export class OrdersComponent implements OnInit {
-  editAddressForm?: FormGroup;
-  postList?: PublishProduct[];
-  public storelist: any;
-  errMsg: string = '';
-  numberOfstores: number = 0;
-  listToggle:boolean=true;
-  constructor(private formBuilder: FormBuilder ,private activatedRoute:ActivatedRoute,private storeserv:StoreService,private router:Router ,private publishstore: PublishstoreService ,private snakeBar: MatSnackBar) {}
+  maxDate?:Date
+  constructor(private fb:FormBuilder) { }
+  registerForm:FormGroup=this.fb.group({
+    Name:['',[Validators.required,Validators.pattern('^[a-zA-Z]+$'),Validators.minLength(5),Validators.maxLength(25)]],
+    Description:['',[Validators.required,Validators.required]],
+    image:['',[Validators.required,Validators.required]],
+    confirm_password:['',Validators.required],
+    password:['',[Validators.required,Validators.minLength(6)]],
+    birthdate:['',Validators.required],
+    address:['']
+  })
   ngOnInit(): void {
-    this.storeserv.getAllVendorStore().subscribe(postData=>{
-      this.postList=postData
-      console.log(this.postList)
-      this.postList.forEach(element => {
-        this.numberOfstores++;
-      });
-    },
-    error=>{
-      this.errMsg=error
-    })
-
+    const currentYear = new Date().getFullYear();
+    this.maxDate = new Date(currentYear - 14, 0, 1);
   }
 
-  getstoreDetails(id:number){
-    this.router.navigate([id],{relativeTo:this.activatedRoute})
+  get ff(){
+    return this.registerForm.controls;
+  }
+  submitForm(){
+    console.log(this.registerForm);
 
   }
+  register_validation_messages = {
+    'Name': [
+      { type: 'required', message: 'your ptoduct Name is required' }
+    ],
+    'Description': [
+      { type: 'required', message: 'Description of your product is required' }
+    ],
+    'password': [
+      { type: 'required', message: 'Password is required' },
+      { type: 'minlength', message: 'Password must be at least 6 characters long' }
+    ],
+    'phone': [
+      { type: 'required', message: 'Phone number is required' },
+      { type: 'minlength', message: 'Invalid Phone Number' },
+      { type: 'maxlength', message: 'Invalid Phone Number' },
+      { type: 'pattern', message: 'Only numbers allowed' }
 
-
-  addtostore(item: any){
-    this.publishstore.addtostore(item)
-  this.snakeBar.open("Added to your store","", {duration:1000, panelClass:["bg-success","text-center"]})
-    }
-
-
-    toggleList(){
-      this.listToggle=false
-    }
-    toggleGrid(){
-      this.listToggle=true
-    }
-
-
-
-
+    ]}
 
 
 
