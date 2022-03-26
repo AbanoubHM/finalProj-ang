@@ -2,36 +2,11 @@
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container">
              <!-- <app-navbar></app-navbar>  -->
+             <app-navbar *ngIf="(auth.isAuthenticated$|async)"></app-navbar>
             <app-login-button *ngIf="(auth.isAuthenticated$|async)===false"></app-login-button>
             <app-logout-button *ngIf="(auth.isAuthenticated$|async)"></app-logout-button>
+           
         </div>
-        <ul class="navbar-nav d-md-none justify-content-between" *ngIf="auth.user$ | async as user"
-            style="min-height: 170px;">
-            <li class="nav-item">
-                <span class="user-info">
-                    <!-- Profile image should be set to the profile picture from the id token -->
-                    <img alt="Profile picture" class="nav-user-profile d-inline-block rounded-circle mr-3"
-                        style="width: 75px;" [src]="user.picture" />
-                    <!-- Show the user's full name from the id token here -->
-                    <!-- <h6 class="d-inline-block">{{ user.name }}</h6> -->
-                </span>
-            </li>
-            <li>
-                <span class="mr-3" class="material-icons">
-                    person
-                </span>
-                <a routerLink="/profile">Profile</a>
-            </li>
-
-            <li>
-                <span class="mr-3" class="material-icons">
-                    person
-                </span>
-                <!-- -->
-                <button class="btn btn-link p-0" id="qsLogoutBtn" (click)="logout()"  >
-                    Log out
-                </button>
-            </li>
-        </ul>
+       
     </nav>
 </div>
