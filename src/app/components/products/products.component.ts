@@ -17,7 +17,7 @@ export class ProductsComponent implements OnInit {
   errMsg:string=''
   listToggle:boolean=true;
   numberOfProducts: number = 0;
-
+  shows: boolean = false;
   constructor( private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private FavoriteService : FavoriteService, private snakeBar: MatSnackBar) { }
 
 
@@ -45,6 +45,7 @@ addtocart(item: any){
   this.custom.addtocustomers(item)
   this.snakeBar.open("Added","", {duration:1000, panelClass:["bg-success","text-center"]})
   }
+
 
 
 
