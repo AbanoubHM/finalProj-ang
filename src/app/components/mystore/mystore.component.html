@@ -1,3 +1,79 @@
+<ng-container *ngIf="stores.length" style="text-align: center;">
+
+  <div class="cartHolder container pt-xl-21 pb-xl-24 py-lg-20 py-md-16 py-10">
+      <div class="row">
+          <!-- table-responsive -->
+          <div class="col-12 table-responsive mb-xl-22 mb-lg-20 mb-md-16 mb-10">
+              <!-- cartTable -->
+              <table class="table cartTable">
+                  <thead>
+                      <tr>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">Name</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">Description</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">Image</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">Price</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">SaleValue</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">Quantity</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">PreparationDays</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">CategoryID</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">Edit My Product</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">Delete My Product</th>
+
+
+                      </tr>
+                  </thead>
+
+                  <tbody>
+                      <tr class="align-items-center" *ngFor="let item of stores; let i = index">
+                          <td>{{i+1}}</td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.Name}}</td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.Description}}</td>
+                          <td class="d-flex align-items-center border-top-0 border-bottom px-0 py-6">
+                              <div class="imgHolder"><img src="{{item.Image}}" alt="image description"
+                                      class="img-fluid"></div>
+                          </td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.Price|currency}}</td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.SaleValue|currency}}</td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.SaleValue}}</td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.Quantity}}</td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.PreparationDays}}</td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.CategoryID}}</td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6"><button mat-icon-button color="warn" (click)="removeItem(item)">
+                            <mat-icon>edit</mat-icon>
+                        </button></td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6"><button mat-icon-button color="warn" (click)="removeItem(item)">
+                            <mat-icon>delete_forever</mat-icon>
+                        </button></td>
+                      </tr>
+                      <tr>
+                          <td colspan="1"></td>
+                          <td><button (click)="emptystore()" mat-raised-button color="warn">Empty store</button>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+
+</ng-container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- <div *ngIf="listToggle" class="row">
 
   <div style="text-align: center; " *ngIf="!postList" class="col-12 col-sm-6 col-lg-4 featureCol mb-7 justify-content-center">

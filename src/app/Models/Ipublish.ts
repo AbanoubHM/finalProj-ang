@@ -7,9 +7,9 @@
 
 export interface PublishProduct {
   ID: number;
-  name: string;
-  description: string;
-  imag: string;
+  Name: string;
+  Description: string;
+  Image: string;
   Price: number;
   SaleValue: number;
   Quantity: number;

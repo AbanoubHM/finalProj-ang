@@ -29,13 +29,13 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'cart',component:CartsComponent},
-  
+
   {path: 'profile',
   component: ProfileComponent},
   {path:'logout',component:LogoutComponent},
   {path:'dashboard' , component:DashboardComponent},
   {path:'favorite' , component:FavoriteComponent},
-
+  {path:'AddProduct' , component:OrdersComponent},
   { path: 'products', component: ProductsComponent },
   { path: 'about', component: AboutComponent },
   {path:'MyProfile',component:DashComponent},
@@ -43,7 +43,7 @@ const routes: Routes = [
   { path: 'products/:id', component: ProductDetailsComponent },
   { path: 'MyStore', component: MystoreComponent },
   {path:'customers' , component:CustomersComponent},
-  {path:'AddProduct' , component:OrdersComponent},
+
   { path: '**', component: ErrorComponent }
 
 
