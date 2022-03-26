@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
@@ -10,9 +11,17 @@ import { AuthService } from '@auth0/auth0-angular';
 export class NavToLoginComponent implements OnInit {
   isCollapsed = true;
   
-  constructor(public auth:AuthService) { }
+  constructor(public auth:AuthService,
+    @Inject(DOCUMENT) private doc: Document) { }
 
   ngOnInit(): void {
+  }
+  loginWithRedirect() {
+    this.auth.loginWithRedirect();
+  }
+
+  logout() {
+    this.auth.logout({ returnTo: this.doc.location.origin });
   }
 
 }
