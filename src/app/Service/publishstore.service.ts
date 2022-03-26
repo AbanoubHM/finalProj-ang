@@ -17,6 +17,7 @@ export class PublishstoreService {
   addtostore(store : any){
     this.storeitemlist.push(store);
     this.storeList.next(this.storeitemlist);
+    
   }
 
 

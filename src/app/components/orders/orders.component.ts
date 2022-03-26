@@ -45,6 +45,16 @@ export class OrdersComponent implements OnInit {
   get ff(){
     return this.ordersForm.controls;
   }
+
+
+  uploadfile(event : any) {
+    console.log(event.target.files[0])
+    this.ff['image']=event.target.files[0]
+
+
+  }
+
+
   submitForm(item: any){
     console.log(this.ordersForm);
     this.publishstore.addtostore(item)

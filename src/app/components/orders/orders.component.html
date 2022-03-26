@@ -26,8 +26,10 @@
                 </mat-form-field>
 
                 <div   layout-margin layout-padding>
-                  <label for="input-file-id" class="md-button md-raised md-primary">image</label>
-                  <input formControlName="image" class="ng-hide" id="input-file-id" multiple type="file"  accept="image/*"/>
+                    <button id="uploadButton" class="md-fab md-mini" mat-icon-button (click)="imageupload.click()" >
+                    <mat-icon class="material-icons">attach_file</mat-icon>
+                  </button>
+                  <input formControlName="image"  (change)="uploadfile($event)" class="ng-hide" #imageupload id="imageupload" onclick="this.value=null" multiple type="file" hidden="true"  accept="image/*"/>
 
 
               </div>
