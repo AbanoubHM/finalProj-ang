@@ -16,6 +16,7 @@ import { DashComponent } from './components/dash/dash.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { MystoreComponent } from './components/mystore/mystore.component';
 import { CustomersComponent } from './customers/customers.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -28,7 +29,9 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'cart',component:CartsComponent},
-
+  
+  {path: 'profile',
+  component: ProfileComponent},
   {path:'logout',component:LogoutComponent},
   {path:'dashboard' , component:DashboardComponent},
   {path:'favorite' , component:FavoriteComponent},
