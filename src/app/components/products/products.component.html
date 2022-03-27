@@ -30,20 +30,30 @@
                     </ul>
                     <!-- sortGroup -->
                     <div class="sortGroup">
-                        <div class="d-flex flex-nowrap align-items-center">
+                        <label>Sorting Products</label>
+                        <!-- [(ndModel)]='SortByParam' -->
+                        <select>
+                            <option value="Name">Name</option>
+                            <option value="NameDesc">Name Desc</option>
+                            <option value="Price">Price</option>
+                            <option value="PriceDesc">Price Desc</option>
+                            
+                        </select>
+
+                        <!-- <div class="d-flex flex-nowrap align-items-center">
                             <strong class="groupTitle mr-2">Sort by:</strong>
                             <div class="dropdown">
                                 <button class="dropdown-toggle buttonReset" type="button" id="sortGroup"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Default
                                     sorting</button>
                                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="sortGroup">
-                                    <li><a style="text-decoration: none;">Default Order</a></li>
-                                    <li><a style="text-decoration: none;">Default Order</a></li>
+                                    <li><a style="text-decoration: none;">Name </a></li>
+                                    <li><a style="text-decoration: none;">Nmae A</a></li>
                                     <li><a style="text-decoration: none;">Default Order</a></li>
                                     <li><a style="text-decoration: none;">Default Order</a></li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </header>
 
@@ -55,8 +65,8 @@
                     <div style="text-align: center; " *ngIf="!postList" class="col-md-4">
                         <mat-spinner></mat-spinner>
                     </div>
-
-                    <div class="col-md-4" *ngFor="let item of postList"> <!-- featureCol -->
+                    <!-- |filter:'test':'city'|sorting:[SortByParam,'desc'] -->
+                    <div class="col-md-4" *ngFor="let item of postList "> <!-- featureCol -->
                         <div matRipple class="border col-md-12" style="margin-top: 20px; cursor: pointer;">
                             <div class="imgHolder position-relative w-100 overflow-hidden ">
 

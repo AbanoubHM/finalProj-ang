@@ -14,13 +14,21 @@ export class ProductService {
       return throwError(err.message||"Server Error")
     }))
   }
-
   getProductById(prodId:number):Observable<IProduct>{
-    //console.log(`${this._url}/${prodId}`);
-    
     return this.http.get<IProduct>(`${this._url}/${prodId}`).pipe(catchError((err)=>{
       return throwError(err.message||"Server Error")
     }))
   }
+  deleteProduct(categoryId: number, productId: number) {
+    
+      const urlById = `${this._url}/${categoryId}/products/${productId}`;
+      return this.http.delete<void>(urlById);
+  }
+
+  addProduct(categoryId: number, createProductDto: any): Observable<void> {
   
+      const urlById = `${this._url}/${categoryId}/products`;
+      return this.http.post<void>(urlById, createProductDto);
+  
+}
 }

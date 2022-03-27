@@ -1,3 +1,4 @@
+import { FilterPipe } from './pipes/filter.pipe';
 import { MaterialModule } from './../material/material.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -60,6 +61,7 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { MystoreComponent } from './components/mystore/mystore.component';
 import { CustomersComponent } from './customers/customers.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SortingPipe } from './pipes/sorting.pipe';
 
 
 
@@ -97,8 +99,9 @@ LogoutButtonComponent,
 LoadingComponent,
 MystoreComponent,
 CustomersComponent,
-ProfileComponent
-
+ProfileComponent,
+FilterPipe,
+SortingPipe
 
 
   ],

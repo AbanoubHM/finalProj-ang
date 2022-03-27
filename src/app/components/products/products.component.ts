@@ -1,3 +1,4 @@
+import { FilterPipe } from './../../pipes/filter.pipe';
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../Models/iproduct';
 import { ProductService } from '../../Service/product.service'
@@ -6,18 +7,22 @@ import { CartService } from 'src/app/Service/cart.service';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { FavoriteService } from 'src/app/Service/favorite.service';
 import { CustomersService } from 'src/app/Service/customers.service';
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  postList?:IProduct[]
+  postList:IProduct[]=[];
   public productList : any ;
   errMsg:string=''
   listToggle:boolean=true;
   numberOfProducts: number = 0;
   shows: boolean = false;
+  SortbyParam='';
+  SortDirection='asc';
+  SearchName='';
   constructor( private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private FavoriteService : FavoriteService, private snakeBar: MatSnackBar) { }
 
 
@@ -63,7 +68,9 @@ toggleList(){
 toggleGrid(){
   this.listToggle=true
 }
-
+// onNameFilter(){
+//   this.Search=this.productList
+// }
 
 }
 
