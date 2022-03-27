@@ -52,10 +52,10 @@
                     <div class="mb-3">
                         <del>{{prodDet.price*1.1 | number:'1.2-2'|currency}}</del>
                     </div>
-                    <p class="mb-5">{{prodDet.desce}}</p>
+                    <p class="mb-5">{{prodDet.description}}</p>
                     <ul class="list-unstyled productInfoDetail mb-5 overflow-hidden">
 
-                        <li style="font-size: 1.3em;" class="mb-2">Quantity: <span>{{prodDet.qnt}}</span></li>
+                        <li style="font-size: 1.3em;" class="mb-2">Quantity: <span>{{prodDet.quantity}}</span></li>
 
                     </ul>
 
@@ -64,7 +64,7 @@
                         <div class="col-12">
                             <mat-form-field class="mb-2" appearance="outline" floatLabel="always">
                                 <mat-label>Amount</mat-label>
-                                <input style="text-align: center; font-size: 1.5em;" max="{{prodDet?.qnt}}" matInput
+                                <input style="text-align: center; font-size: 1.5em;" max="{{prodDet?.quantity}}" matInput
                                     type="number" [(ngModel)]="count" placeholder="0">
                                 <button matPrefix mat-icon-button color="primary" (click)="decCount()">
                                     <mat-icon>remove</mat-icon>
@@ -83,13 +83,6 @@
                         </div>
                     </div>
                     <br>
-                    <ul class="list-unstyled productInfoDetail mb-3">
-                        <li class="mb-2">Categories: <a>Butter &amp; Eggs,</a> <a>Fruits,</a> <a>Milk &amp; Cream,</a>
-                            <a>Vegetables</a>
-                        </li>
-                        <li class="mb-2">Tags: <a>organic food,</a> <a>fruits,</a> <a>juice</a></li>
-
-                    </ul>
                 </div>
             </div>
         </div>
