@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
+import { CategoryType } from '../Models/Icategory';
 import { IProduct } from '../Models/Iproduct';
 import { PublishProduct } from '../Models/Ipublish';
 
@@ -11,8 +12,8 @@ export class GategoryService {
   private _url: string = "https://handmadeapi.azurewebsites.net/api/Categories"
   constructor(private http: HttpClient) { }
   //=============================GET ALL CATEGORIES=============================================================================
-  getAllGatogaries(): Observable<PublishProduct[]> {
-    return this.http.get<PublishProduct[]>(this._url).pipe(catchError((err) => {
+  getAllGatogaries(): Observable<CategoryType[]> {
+    return this.http.get<CategoryType[]>(this._url).pipe(catchError((err) => {
       return throwError(err.message || "Server Error")
     }))
   }
