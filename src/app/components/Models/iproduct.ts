@@ -1,9 +1,17 @@
 export interface IProduct {
-    prodectId:number
-    name:string
-    price:number
-    qnt:number
-    desce:string
-    category:string
-    image:string
+  "id": number,
+    "name": string,
+    "description":string,
+    "image": string,
+    "price": number,
+    "saleValue": number,
+    "quantity": number,
+    "preparationDays": number,
+    "categoryID": number,
+    "categoryName": string,
+    "category": string,
+    "storeID":string,
+    "store": string,
+    "orders": string,
+    "productRates": string
 }
