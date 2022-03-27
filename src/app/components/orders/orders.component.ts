@@ -14,7 +14,15 @@ export class OrdersComponent implements OnInit {
   constructor(private fb:FormBuilder , private publishstore:PublishstoreService ,private snakeBar: MatSnackBar , private store : StoreService ) { }
   postList?: PublishProduct[]
   numberofposts: number = 0;
-  errMsg:string=''
+  errMsg: string = '';
+
+
+  // isLinear = false;
+  // firstFormGroup?: FormGroup;
+  // secondFormGroup?: FormGroup;
+
+
+
   ordersForm: FormGroup = this.fb.group({
     Name:['',[Validators.required,Validators.pattern('^[a-zA-Z]+$'),Validators.minLength(5),Validators.maxLength(25)]],
     Description:['',[Validators.required]],
@@ -36,6 +44,16 @@ export class OrdersComponent implements OnInit {
       this.postList.forEach(element => {
         this.numberofposts++;
       });
+
+
+      // this.firstFormGroup = this.fb.group({
+      //   firstCtrl: ['', Validators.required],
+      // });
+      // this.secondFormGroup = this.fb.group({
+      //   secondCtrl: ['', Validators.required],
+      // });
+
+
     },
     error=>{
       this.errMsg=error

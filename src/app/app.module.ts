@@ -29,6 +29,7 @@ import { LogoutComponent } from './components/logout/logout.component'
 import { FavoriteComponent } from './components/favorite/favorite.component';
 
  import {AuthModule} from '@auth0/auth0-angular';
+ import {MatStepperModule} from '@angular/material/stepper';
 
 
 
@@ -123,6 +124,7 @@ SortingPipe
     MatSidenavModule,
     MatListModule,
     MatGridListModule,
+    MatStepperModule,
     MatCardModule,
     AuthModule.forRoot({
       ...env.auth,

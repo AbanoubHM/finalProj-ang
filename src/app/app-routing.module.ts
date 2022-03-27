@@ -30,15 +30,13 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'cart',component:CartsComponent},
 
-  {path: 'profile',
-  component: ProfileComponent},
+  {path: 'MyProfile',component: ProfileComponent},
   {path:'logout',component:LogoutComponent},
 
   {path:'favorite' , component:FavoriteComponent},
   {path:'AddProduct' , component:OrdersComponent},
   { path: 'products', component: ProductsComponent },
   { path: 'about', component: AboutComponent },
-  {path:'MyProfile',component:DashComponent},
   {path:'contact' , component:ContactComponent},
   { path: 'products/:id', component: ProductDetailsComponent },
   { path: 'MyStore', component: MystoreComponent },
