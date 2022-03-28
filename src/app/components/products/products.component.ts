@@ -42,19 +42,6 @@ export class ProductsComponent implements OnInit {
 
 
   constructor(public auth:AuthService, private gat : GategoryService, private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private FavoriteService : FavoriteService, private snakeBar: MatSnackBar) { }
-
-
-
-
-
-
-
-
-
-
-
-
-
   ngOnInit(): void {
     // this.postSrv.getProductsBySortName();
 
