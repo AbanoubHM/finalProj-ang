@@ -89,7 +89,7 @@
                             <div (click)="getProdDetails(item.id)" class="text-center py-3 px-4">
                                 <span class="title d-block mb-2"><a style="text-decoration: none;"
                                        >{{item.name}}</a></span>
-                                <span class="price d-block fwEbold"><del>{{item.price*1.1 | number:'1.2-2'}}
+                                <span class="price d-block fwEbold"><del  *ngIf="item.saleValue">{{item.price+item.saleValue | number:'1.2-2'}}
                                         $</del>{{item.price}} $</span>
                                     </div>
                                 </div>

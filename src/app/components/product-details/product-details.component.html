@@ -50,12 +50,16 @@
                     <strong style="font-size: 2em;"
                         class="price d-block mb-1 mt-2 text-green">{{prodDet.price|currency}}</strong>
                     <div class="mb-3">
-                        <del>{{prodDet.price*1.1 | number:'1.2-2'|currency}}</del>
+                      <del  *ngIf="prodDet.saleValue">{{prodDet.price+prodDet.saleValue | number:'1.2-2'}}
+                        $</del>
                     </div>
                     <p class="mb-5">{{prodDet.description}}</p>
                     <ul class="list-unstyled productInfoDetail mb-5 overflow-hidden">
-
                         <li style="font-size: 1.3em;" class="mb-2">Quantity: <span>{{prodDet.quantity}}</span></li>
+                        <li style="font-size: 1.3em;" class="mb-2">Description: <span>{{prodDet.description}}</span></li>
+                        <li style="font-size: 1.3em;" class="mb-2">preparationDays: <span>{{prodDet.preparationDays}}</span></li>
+                        <li style="font-size: 1.3em;" class="mb-2">categoryName: <span>{{prodDet.categoryName}}</span></li>
+
 
                     </ul>
 
@@ -75,7 +79,7 @@
                             </mat-form-field>
                         </div>
                         <div class="col-12">
-                            <button (click)="addtocart(prodDet)" style="font-size: 1.5em;" class="mb-3 " mat-raised-button color="primary">Add
+                            <button (click)="addtocart(prodDet)" style="font-size: 1.5em;" class="mb-3 " mat-raised-button color="primary" *ngIf="(auth.isAuthenticated$|async)">Add
                                 To Cart <mat-icon matSuffix>add_shopping_cart
 
                                 </mat-icon>

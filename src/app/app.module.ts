@@ -46,7 +46,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { OrdersTableComponent } from './components/orders-table/orders-table.component';
 import { OrdersComponent } from './components/orders/orders.component';
-
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -126,7 +126,8 @@ SortingPipe
     MatGridListModule,
     MatStepperModule,
     MatCardModule,
-        
+    MatSelectModule,
+
     AuthModule.forRoot({
       ...env.auth,
     }),
