@@ -10,6 +10,8 @@ import { CartService } from 'src/app/Service/cart.service';
 import { FavoriteService } from 'src/app/Service/favorite.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IProduct } from '../Models/iproduct';
+import { GategoryService } from 'src/app/Service/gategory.service';
+import { Icategory } from 'src/app/Models/Icategory';
 
 @Component({
   selector: 'app-home',
@@ -18,8 +20,7 @@ import { IProduct } from '../Models/iproduct';
 })
 export class HomeComponent implements OnInit {
 
-  longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
-  from Japan.`;
+
   postList:IProduct[]=[];
   public productList : any ;
   errMsg:string=''
@@ -28,22 +29,25 @@ export class HomeComponent implements OnInit {
   shows: boolean = false;
   SortbyParam='';
   SortDirection='asc';
-  SearchName='';
-  constructor(private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private favoriteService : FavoriteService, private snakeBar: MatSnackBar) {
-    
+  SearchName = '';
+  gatlist: Icategory[] = [];
 
-  }
+  constructor( private gat:GategoryService,private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private favoriteService : FavoriteService, private snakeBar: MatSnackBar) {}
 
-  // idfind = 2;
-  // prodlist: any;
-  // prod: any;
+
   ngOnInit(): void {
     this.postSrv.getAllPosts().subscribe(postData=>{
       this.postList=postData
       console.log(this.postList)
-    })    
-    
-  } 
+    })
+    this.gat.getAllGatogaries().subscribe(gatilist => {
+
+      this.gatlist=gatilist
+    })
+
+
+
+  }
   getProdDetails(id:number){
     this.router.navigate([id],{relativeTo:this.activatedRoute})
 
@@ -71,7 +75,7 @@ toggleList(){
 }
 toggleGrid(){
   this.listToggle=true
-} 
+}
     // this.products.GetAllProducts().subscribe(
     //   productdata => {
     //     this.prodlist = productdata;
@@ -84,7 +88,7 @@ toggleGrid(){
     //   }
     // )
   }
-  
+
 
 
 

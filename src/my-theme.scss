@@ -51,8 +51,8 @@ $grey-palette: (
   ),
 );
 
-$my-primary: mat.define-palette($green-palette, 500);
-$my-accent: mat.define-palette($grey-palette, 500);
+$my-primary: mat.define-palette($green-palette, 600);
+$my-accent: mat.define-palette($grey-palette, 700);
 $my-warn: mat.define-palette(mat.$red-palette);
 $my-theme: mat.define-light-theme(
   (

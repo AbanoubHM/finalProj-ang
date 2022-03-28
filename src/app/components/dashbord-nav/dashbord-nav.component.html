@@ -11,7 +11,14 @@
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon" >menu</mat-icon>
       </button>
-      <span>My-Dashboard</span>
+      <button mat-button  routerLink="/home" style="margin-right: 5px;">Home
+      </button>
+      <button mat-button routerLink="/products" style="margin-right: 5px;" >Products
+      </button>
+      <button mat-button routerLink="/about" style="margin-right: 5px;" >About
+      </button>
+      <button mat-button   routerLink="/contact" style="margin-right: 5px;">Contact
+      </button>
     </mat-toolbar>
     <router-outlet></router-outlet>
     <app-footer></app-footer>

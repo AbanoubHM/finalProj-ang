@@ -62,7 +62,6 @@
 <!-- Grid  -->
                 <div class="container">
                 <div *ngIf="listToggle" class="row">
-
                     <div style="text-align: center; " *ngIf="!postList" class="col-md-4">
                         <mat-spinner></mat-spinner>
                     </div>
@@ -70,13 +69,10 @@
                     <div class="col-md-4" *ngFor="let item of postList "> <!-- featureCol -->
                         <div matRipple class="border col-md-12" style="margin-top: 20px; cursor: pointer;">
                             <div class="imgHolder position-relative w-100 overflow-hidden ">
-
-
                                 <div  style="min-height:200px; max-height:250px;" class="text-center ">
                                     <img  (click)="getProdDetails(item.id)" style="min-width:200px; overflow:hidden; max-height:250px;" [src]="item.image">
                                 </div>
-
-                                <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
+                                <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0" *ngIf="(auth.isAuthenticated$|async)">
                                     <li class="mr-2 overflow-hidden"><button (click)=addtofavorite(item) mat-mini-fab color="primary">
                                             <mat-icon>favorite_border</mat-icon>
                                         </button></li>

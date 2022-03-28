@@ -10,6 +10,7 @@ import { CustomersService } from 'src/app/Service/customers.service';
 import { GategoryService } from 'src/app/Service/gategory.service';
 import { Icategory } from 'src/app/Models/Icategory';
 import { HttpParams } from '@angular/common/http';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-products',
@@ -28,10 +29,10 @@ export class ProductsComponent implements OnInit {
   SortDirection='asc';
 
   SearchName='';
-  constructor(private gat:GategoryService ,private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private FavoriteService : FavoriteService, private snakeBar: MatSnackBar) { }
+  constructor(public auth: AuthService,private gat:GategoryService ,private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private FavoriteService : FavoriteService, private snakeBar: MatSnackBar) { }
 
-  
- 
+
+
 
 
 
@@ -52,7 +53,7 @@ export class ProductsComponent implements OnInit {
       error => {
         this.errMsg = error
       })
-      
+
 
   }
   getProdDetails(id:number){
