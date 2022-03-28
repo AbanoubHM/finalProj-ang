@@ -25,6 +25,10 @@
 
         <mat-icon>login</mat-icon>      Log in
     </button>
+    <button mat-button routerLink="/register"  *ngIf="(auth.isAuthenticated$|async)===false">
+
+      <mat-icon>app_registration</mat-icon>      Register
+  </button>
     <button mat-button (click)="logout()"  *ngIf="(auth.isAuthenticated$|async)">
       <mat-icon>logout</mat-icon>      Log out
     </button>

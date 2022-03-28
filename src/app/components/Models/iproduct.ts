@@ -7,7 +7,8 @@ export interface IProduct {
     "saleValue": number,
     "quantity": number,
     "preparationDays": number,
-    "categoryID": number,
+  "categoryID": number,
+  
     "categoryName": string,
     "category": string,
     "storeID":string,

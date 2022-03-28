@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms';
+import { ProfileService } from 'src/app/Service/profile.service';
+import { Iprofile } from '../Models/Iprofile';
 import { match } from './confirmed.validator';
 
 
@@ -12,8 +14,10 @@ import { match } from './confirmed.validator';
 })
 export class RegisterComponent implements OnInit {
 
+   postuser?: Iprofile[]
+
   maxDate?:Date
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder , private postusers:ProfileService) { }
   registerForm:FormGroup=this.fb.group({
     username:['',[Validators.required,Validators.pattern('^[a-zA-Z]+$'),Validators.minLength(5),Validators.maxLength(25)]],
     email:['',[Validators.required,Validators.email]],
@@ -33,9 +37,9 @@ export class RegisterComponent implements OnInit {
   get ff(){
     return this.registerForm.controls;
   }
-  submitForm(){
+  submitForm(item:any){
     console.log(this.registerForm);
-    
+
   }
   register_validation_messages = {
     'username': [

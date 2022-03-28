@@ -4,6 +4,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { ProductService } from 'src/app/Service/product.service';
 import { CartService } from 'src/app/Service/cart.service';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-product-details',
@@ -31,7 +32,7 @@ export class ProductDetailsComponent implements OnInit {
     orders:'',
     productRates:''
   }
-  constructor(private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router,private cartService: CartService , private snakeBar: MatSnackBar) { }
+  constructor(public auth:AuthService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router,private cartService: CartService , private snakeBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((params:ParamMap)=>{

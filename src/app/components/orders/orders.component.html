@@ -1,9 +1,10 @@
 <div>
-  <div class="container d-flex justify-content-start">
-    <div class="">
-      <form method="post" [formGroup]="ordersForm" class="col-md-12"  style="margin-top: 15px; margin-left: 50px;">
-       <div class="col">
-        <mat-form-field class="form-control" appearance="outline">
+  <div class="container d-flex justify-content-start w-75">
+    <div class="row">
+      <div class="wrapper img">
+      <form method="post" [formGroup]="ordersForm" class="col-md-6 col-sm-12"  style="margin-top: 15px; margin-left: 50px;">
+       <div class="mb-3">
+        <mat-form-field class="mb-3" appearance="outline">
           <mat-label  class="form-label">Name</mat-label>
           <input matInput formControlName="Name" placeholder="product Name" class="form-label" />
           <mat-icon matSuffix>shop</mat-icon>
@@ -20,7 +21,7 @@
         </mat-form-field>
       </div>
       <div class="col">
-        <mat-form-field class="form-control" appearance="outline" style="margin-top: 15px;">
+        <mat-form-field lass="mb-3" appearance="outline" style="margin-top: 15px;">
           <mat-label >Description</mat-label>
           <textarea
             matInput
@@ -41,6 +42,7 @@
         </mat-form-field>
       </div>
         <div layout-margin layout-padding class="col" style="margin-top: 15px;">
+          <mat-label>Image :</mat-label>
           <button
             id="uploadButton"
             class="md-fab md-mini"
@@ -62,8 +64,8 @@
             accept="image/*"
           />
         </div>
-        <div class="col" style="margin-top: 15px;">
-        <mat-form-field class="form-control" appearance="outline">
+        <div class="mb-3" style="margin-top: 15px;">
+        <mat-form-field class="mb-3" appearance="outline">
           <mat-label>price</mat-label>
           <input matInput formControlName="price" />
           <mat-icon matSuffix>attach_money</mat-icon>
@@ -79,15 +81,15 @@
           </mat-error>
         </mat-form-field>
       </div>
-      <div class="col" style="margin-top: 15px;">
-        <mat-form-field class="form-control" appearance="outline">
+      <div class="mb-3" style="margin-top: 15px;">
+        <mat-form-field class="mb-3" appearance="outline">
           <mat-label>SaleValue</mat-label>
           <input matInput formControlName="SaleValue" />
           <mat-icon matSuffix>discount</mat-icon>
         </mat-form-field>
       </div>
-      <div  class="col" class="form-control" style="margin-top: 15px;">
-        <mat-form-field class="form-control" appearance="outline">
+      <div  class="mb-3" style="margin-top: 15px;">
+        <mat-form-field class="mb-3" appearance="outline">
           <mat-label>Quantity</mat-label>
           <input matInput formControlName="Quantity" />
           <mat-icon matSuffix>pin</mat-icon>
@@ -103,8 +105,8 @@
           </mat-error>
         </mat-form-field>
       </div>
-      <div class="col" style="margin-top: 15px;">
-        <mat-form-field class="form-control" appearance="outline">
+      <div class="mb-3" style="margin-top: 15px;">
+        <mat-form-field class="mb-3" appearance="outline">
           <mat-label>PreparationDays</mat-label>
           <input matInput formControlName="PreparationDays" />
           <mat-icon matSuffix>hourglass_top</mat-icon>
@@ -122,10 +124,14 @@
           </mat-error>
         </mat-form-field>
         </div>
-        <div  class="col-12" style="margin-top: 15px;">
-        <mat-form-field class="form-control" appearance="outline">
-          <mat-label>Category</mat-label>
-          <input matInput formControlName="Category" />
+        <!-- <div  class="mb-3" style="margin-top: 15px;">
+        <mat-form-field class="mb-3" appearance="outline" >
+          <mat-label>Select an option</mat-label>
+          <select  matInput formControlName="Category"  >
+            <option *ngFor="let item of gatlist" [ngValue]="item.name">{{item.name}}</option>
+          </select>
+
+
           <mat-icon matSuffix>category</mat-icon>
           <mat-error
             *ngFor="let validation of register_validation_messages.Category"
@@ -138,7 +144,7 @@
             </mat-error>
           </mat-error>
         </mat-form-field>
-      </div>
+      </div> -->
         <button
           style="width: 10em; border-radius: 20px ; margin-top: 15px;"
           (click)="submitForm(ordersForm)"
@@ -149,6 +155,7 @@
         </button>
       </form>
     </div>
+  </div>
   </div>
 </div>
 <!-- ===============================================my stben verison======================================
