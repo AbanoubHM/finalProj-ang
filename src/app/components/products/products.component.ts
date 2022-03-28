@@ -10,6 +10,7 @@ import { CustomersService } from 'src/app/Service/customers.service';
 import { GategoryService } from 'src/app/Service/gategory.service';
 import { Icategory } from 'src/app/Models/Icategory';
 import { HttpParams } from '@angular/common/http';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-products',
@@ -27,6 +28,7 @@ export class ProductsComponent implements OnInit {
   shows: boolean = false;
   SortbyParam='';
   SortDirection='asc';
+
   SearchName = '';
   sortname: IProduct[] = [];
   typeselect:any;
@@ -44,6 +46,14 @@ export class ProductsComponent implements OnInit {
   
 
 
+
+
+
+
+
+
+
+
   ngOnInit(): void {
     // this.postSrv.getProductsBySortName();
   
@@ -51,7 +61,7 @@ export class ProductsComponent implements OnInit {
 
       this.gatlist=gatilist
     })
-    this.postSrv.getAllPosts("NA").subscribe(postData => {
+    this.postSrv.getAllPosts().subscribe(postData => {
       this.postList = postData
       console.log(this.postList)
       this.postList.forEach(element => {
