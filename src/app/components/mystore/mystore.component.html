@@ -15,7 +15,7 @@
                           <th scope="col" class="text-uppercase fwEbold border-top-0">SaleValue</th>
                           <th scope="col" class="text-uppercase fwEbold border-top-0">Quantity</th>
                           <th scope="col" class="text-uppercase fwEbold border-top-0">PreparationDays</th>
-                          <th scope="col" class="text-uppercase fwEbold border-top-0">CategoryID</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">CategoryName</th>
                           <th scope="col" class="text-uppercase fwEbold border-top-0">Edit My Product</th>
                           <th scope="col" class="text-uppercase fwEbold border-top-0">Delete My Product</th>
 
@@ -34,10 +34,9 @@
                           </td>
                           <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.Price|currency}}</td>
                           <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.SaleValue|currency}}</td>
-                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.SaleValue}}</td>
                           <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.Quantity}}</td>
                           <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.PreparationDays}}</td>
-                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.CategoryID}}</td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.CategoryName}}</td>
                           <td class="fwEbold border-top-0 border-bottom px-0 py-6"><button mat-icon-button color="warn" (click)="removeItem(item)">
                             <mat-icon>edit</mat-icon>
                         </button></td>

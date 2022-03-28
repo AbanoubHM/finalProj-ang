@@ -6,15 +6,15 @@
 // }
 
 export interface PublishProduct {
-  ID: number;
+  id: number;
   Name: string;
-  Description: string;
-  Image: string;
-  Price: number;
-  SaleValue: number;
-  Quantity: number;
-  PreparationDays: number;
-  CategoryID: number;
-  StoreID:Number
+  description: string;
+  image: string;
+  price: number;
+  saleValue: number;
+  quantity: number;
+  preparationDays: number;
+  CacategoryID: number;
+  storeID:Number
 }
 
