@@ -1,11 +1,11 @@
-<div class="container " id="abouttext" style="margin-top: -100px;">
+<div class="container " id="abouttext" >
 
 
   <h1>Welcome to our simple store</h1>
   <ngb-carousel>
     <ng-template ngbSlide *ngFor="let image of images">
       <div class="wrapper">
-        <img [src]="image.src" alt="Random first slide">
+        <img class="w-100" [src]="image.src" alt="Random first slide">
       </div>
       <div class="carousel-caption">
         <h3>{{ image.title }}</h3>
@@ -113,26 +113,12 @@
   <section>
     <div class="container">
       <div *ngIf="listToggle" class="row">
-        <div style="text-align: center; " *ngIf="!postList" class="col-md-4">
-          <mat-spinner></mat-spinner>
-      </div>
-        <!-- <div class="col-md-4" *ngFor="let item of postList "> -->
-        <h1>Welcome to our simple store</h1>
-        <ngb-carousel>
-          <ng-template class="col-md-4" ngbSlide *ngFor="let product of postList">
-            <div class="wrapper">
-              <img [src]="product.image" alt="Random first slide">
-            </div>
-            <div class="carousel-caption">
-              <h3>{{ product.categoryName }}</h3>
-              <p>{{ product.description}}</p>
-            </div>
-          </ng-template>
-        </ngb-carousel>
-        <!-- <div matRipple class="border col-md-12" style="margin-top: 20px; cursor: pointer;">
+        <div class="col-md-4" *ngFor="let item of postList|slice: (page-1) * size : page * size ">
+          <!-- featureCol -->
+          <div matRipple class="border col-md-12" style="margin-top: 20px; cursor: pointer;">
             <div class="imgHolder position-relative w-100 overflow-hidden ">
               <div style="min-height:200px; max-height:250px;" class="text-center ">
-                <img (click)="getProdDetails(item.id)" style="min-width:200px; overflow:hidden; max-height:250px;"
+                <img class="w-100" (click)="getProdDetails(item.id)" style="min-width:200px; overflow:hidden; max-height:250px;"
                   [src]="item.image">
               </div>
               <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
@@ -143,13 +129,27 @@
               </ul>
             </div>
 
-          </div> -->
-        <!-- </div> -->
+          </div>
+
+        </div>
+        <div class="col-md-8 mx-auto" style="margin-top: 30px;" >
+          <div class="row">
+            <div class="col-md-9" style="padding-left: 30%">
+                <ngb-pagination  [(page)]="page"
+                                [pageSize]="size"
+                                [collectionSize]="postList.length"
+                                [boundaryLinks]="true"
+                                (pageChange)="Done()">
+                </ngb-pagination>
+            </div>
+          </div>
+        </div>
+
+
       </div>
-    
 
     </div>
- 
+
 
   </section>
 

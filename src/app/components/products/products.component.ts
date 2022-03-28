@@ -39,6 +39,8 @@ export class ProductsComponent implements OnInit {
     {value: 'PD', viewValue: 'PriceDescing'}
 
   ];
+  public hideLoadMoreBtn=false;
+ 
 
 
   constructor(public auth:AuthService, private gat : GategoryService, private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private FavoriteService : FavoriteService, private snakeBar: MatSnackBar) { }
@@ -112,6 +114,7 @@ onValueChanged(event:any){
   }
 
 }
+
 }
 
 

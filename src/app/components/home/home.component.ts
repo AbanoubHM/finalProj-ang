@@ -39,7 +39,9 @@ export class HomeComponent implements OnInit {
     {title: 'Third Slide', short: 'will make it for you with love', src: "https://picsum.photos/id/984/900/500"}
   ];
    
-
+  page: number = 1; 
+  size: number = 9;
+  // numElement: number = 10;
 
   constructor( config: NgbCarouselConfig, private gat:GategoryService,private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private favoriteService : FavoriteService, private snakeBar: MatSnackBar) {
     config.interval = 3000;
@@ -88,6 +90,9 @@ toggleList(){
 }
 toggleGrid(){
   this.listToggle=true
+}
+Done(){
+  this.postSrv.getAllPosts();
 }
     // this.products.GetAllProducts().subscribe(
     //   productdata => {
