@@ -62,6 +62,7 @@ import { MystoreComponent } from './components/mystore/mystore.component';
 import { CustomersComponent } from './customers/customers.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SortingPipe } from './pipes/sorting.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -128,7 +129,8 @@ SortingPipe
         
     AuthModule.forRoot({
       ...env.auth,
-    })
+    }),
+              NgbModule
 
     // [RouterModule.forRoot(routes)MatTableModuleMatPaginatorModuleMatSortModule]
   ],

@@ -26,7 +26,7 @@ export class ProductService {
       return throwError(err.message||"Server Error")
     }))
   }
-  getProductsBySortNameD():Observable<IProduct>{
+  getProductsBySortNameD(){
     let myparams=new HttpParams();
     myparams=myparams.set("sort","ND")
     return this.http.get<IProduct>("https://handmadeapi.azurewebsites.net/api/Products",{ params:myparams}).pipe(catchError((err)=>{

@@ -41,7 +41,7 @@ export class ProductsComponent implements OnInit {
   ];
 
 
-  constructor( private gat : GategoryService, private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private FavoriteService : FavoriteService, private snakeBar: MatSnackBar) { }
+  constructor( private gat : GategoryService, private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private FavoriteService : FavoriteService, private snakeBar: MatSnackBar ,public auth:AuthService) { }
  
   
 
@@ -112,8 +112,8 @@ onValueChanged(event:any){
   console.log(event);
   switch (event) {
     case 'NA':
-      // this.postSrv.getProductsBySortName(event).subscribe(postData => {
-      //   this.productsArray = postData});
+      // this.postSrv.getProductsBySortName(event).subscribe(POST:IProduct[]) => {
+      //   this.productsArray = POST});
       break;
       case 'NA':
       

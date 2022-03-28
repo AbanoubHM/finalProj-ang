@@ -12,14 +12,16 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { IProduct } from '../Models/iproduct';
 import { GategoryService } from 'src/app/Service/gategory.service';
 import { Icategory } from 'src/app/Models/Icategory';
-
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  providers: [NgbCarouselConfig]
 })
 export class HomeComponent implements OnInit {
-
+  
+ 
 
   postList:IProduct[]=[];
   public productList : any ;
@@ -31,8 +33,19 @@ export class HomeComponent implements OnInit {
   SortDirection='asc';
   SearchName = '';
   gatlist: Icategory[] = [];
+  images = [
+    {title: 'First Slide', short: 'For all your occasions', src: "https://picsum.photos/id/700/900/500"},
+    {title: 'Second Slide', short: 'we are with you and help you choose your gift and', src: "https://picsum.photos/id/1011/900/500"},
+    {title: 'Third Slide', short: 'will make it for you with love', src: "https://picsum.photos/id/984/900/500"}
+  ];
+   
 
-  constructor( private gat:GategoryService,private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private favoriteService : FavoriteService, private snakeBar: MatSnackBar) {}
+
+  constructor( config: NgbCarouselConfig, private gat:GategoryService,private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private favoriteService : FavoriteService, private snakeBar: MatSnackBar) {
+    config.interval = 3000;
+    config.keyboard = true;
+    config.pauseOnHover = true;
+  }
 
 
   ngOnInit(): void {

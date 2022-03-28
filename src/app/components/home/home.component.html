@@ -1,12 +1,28 @@
+<div class="container " id="abouttext" style="margin-top: -100px;">
 
-<div class="container m-5" id="abouttext">
-    A website to display beautiful handmade products to benefit from valuable and beautiful gifts suitable for all ages and help all people to choose very beautiful gifts. We are here to display beautiful handmade work buried in many places to show it to all people to buy beautiful handmade products.
+
+  <h1>Welcome to our simple store</h1>
+  <ngb-carousel>
+    <ng-template ngbSlide *ngFor="let image of images">
+      <div class="wrapper">
+        <img [src]="image.src" alt="Random first slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>{{ image.title }}</h3>
+        <p>{{ image.short }}</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+
+</div>
+<!-- A website to display beautiful handmade products to benefit from valuable and beautiful gifts suitable for all ages and help all people to choose very beautiful gifts. We are here to display beautiful handmade work buried in many places to show it to all people to buy beautiful handmade products.
      She has talents in making <span>products to showcase her talents to all people</span>
-    </div>
-<main class="mb-5">
+    </div> -->
+<main class="mb-5" style="margin-top: 350px;">
   <section class="chooseUs-sec container pt-xl-22 pt-lg-20 pt-md-16 pt-10 pb-xl-12 pb-md-7 pb-2">
     <!-- contactListBlock -->
-    <div class="contactListBlock container overflow-hidden pt-xl-8 pt-lg-10 pt-md-8 pt-4 pb-xl-12 pb-lg-10 pb-md-4 pb-1">
+    <div
+      class="contactListBlock container overflow-hidden pt-xl-8 pt-lg-10 pt-md-8 pt-4 pb-xl-12 pb-lg-10 pb-md-4 pb-1">
       <div class="row">
         <div class="col-12 col-sm-6 col-lg-3 mb-4 mb-lg-0">
           <!-- contactListColumn -->
@@ -50,78 +66,92 @@
         </div>
       </div>
     </div>
- </section>
+  </section>
 
 
-    <figure class="text-center">
-      <blockquote class="blockquote">
-        <p class="mb-0" style="font-size: 30px;">Start Selling Today</p>
-      </blockquote>
-      <figcaption class="blockquote-footer m-2" style="font-size:20px">
-        Thousands of Customers Around The Globe Are Waiting
-        to See What You Have in Stock
-      </figcaption>
-    </figure>
-    <div class="container my-3 ">
-      <div class="col-md-12 text-center">
-        <a [routerLink]="['/register']" class="btn btn-success" style="margin-top: 20px;">Become a vendor</a>
-      </div>
+  <figure class="text-center">
+    <blockquote class="blockquote">
+      <p class="mb-0" style="font-size: 30px;">Start Selling Today</p>
+    </blockquote>
+    <figcaption class="blockquote-footer m-2" style="font-size:20px">
+      Thousands of Customers Around The Globe Are Waiting
+      to See What You Have in Stock
+    </figcaption>
+  </figure>
+  <div class="container my-3 ">
+    <div class="col-md-12 text-center">
+      <a [routerLink]="['/register']" class="btn btn-success" style="margin-top: 20px;">Become a vendor</a>
     </div>
+  </div>
 
-    <div class="container" id="shownom">
-        <div class="row">
-            <div class="col-sm-6">
-               <a [routerLink]="['/products']"  class="btn btn-success" style="margin-left: 160px;
+  <div class="container" id="shownom">
+    <div class="row">
+      <div class="col-sm-6">
+        <a [routerLink]="['/products']" class="btn btn-success" style="margin-left: 160px;
                margin-top: 209px;">Shop Now</a>
-            </div>
-            <div class="col-sm-6 mt-5">
-                <a href="shop.html" class="w-100"><img src="assets/styles/images/home photo/ad1.jpg"
-                    alt="image description" class="img-fluid"></a>
-            </div>
-
-        </div>
-    </div>
-    <!-- dealSecHolder -->
-    <section class="dealSecHolder container-fluid overflow-hidden py-xl-12 py-lg-10 py-md-8 py-5">
-        <!-- mainHeader -->
-        <header class="col-12 mainHeader mb-7 text-center">
-            <h1 class="headingIV playfair fwEblod mb-5">Daily Deal</h1>
-            <span class="headerBorder d-block mb-md-5 mb-3"><img src="assets/styles/images/hbdr.png" alt="Header Border"
-                    class="img-fluid img-bdr"></span>
-            <p class="mb-6">There are many variations of passages of lorem ipsum available.</p>
-            <div id="defaultCountdown" class="comming-timer"></div>
-        </header>
-
-    </section>
-
-<section>
-  <div class="container">
-    <div *ngIf="listToggle" class="row">
-          <div class="col-md-4" *ngFor="let item of postList "> <!-- featureCol -->
-            <div matRipple class="border col-md-12" style="margin-top: 20px; cursor: pointer;">
-                <div class="imgHolder position-relative w-100 overflow-hidden ">
-                    <div  style="min-height:200px; max-height:250px;" class="text-center ">
-                        <img  (click)="getProdDetails(item.id)" style="min-width:200px; overflow:hidden; max-height:250px;" [src]="item.image">
-                    </div>
-                    <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-                        <li class="mr-2 overflow-hidden">
-                            <button mat-button   routerLink="/products" style="margin-right: 5px;">  <span id="shop">Shop Now</span>
-                            </button>
-                          </li>
-                    </ul>
-                </div>
-
-                    </div>
-
-        </div>
-
-
-        </div>
+      </div>
+      <div class="col-sm-6 mt-5">
+        <a href="shop.html" class="w-100"><img src="assets/styles/images/home photo/ad1.jpg" alt="image description"
+            class="img-fluid"></a>
+      </div>
 
     </div>
+  </div>
+  <!-- dealSecHolder -->
+  <section class="dealSecHolder container-fluid overflow-hidden py-xl-12 py-lg-10 py-md-8 py-5">
+    <!-- mainHeader -->
+    <header class="col-12 mainHeader mb-7 text-center">
+      <h1 class="headingIV playfair fwEblod mb-5">Daily Deal</h1>
+      <span class="headerBorder d-block mb-md-5 mb-3"><img src="assets/styles/images/hbdr.png" alt="Header Border"
+          class="img-fluid img-bdr"></span>
+      <p class="mb-6">There are many variations of passages of lorem ipsum available.</p>
+      <div id="defaultCountdown" class="comming-timer"></div>
+    </header>
 
+  </section>
 
-</section>
+  <section>
+    <div class="container">
+      <div *ngIf="listToggle" class="row">
+        <div style="text-align: center; " *ngIf="!postList" class="col-md-4">
+          <mat-spinner></mat-spinner>
+      </div>
+        <!-- <div class="col-md-4" *ngFor="let item of postList "> -->
+        <h1>Welcome to our simple store</h1>
+        <ngb-carousel>
+          <ng-template class="col-md-4" ngbSlide *ngFor="let product of postList">
+            <div class="wrapper">
+              <img [src]="product.image" alt="Random first slide">
+            </div>
+            <div class="carousel-caption">
+              <h3>{{ product.categoryName }}</h3>
+              <p>{{ product.description}}</p>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+        <!-- <div matRipple class="border col-md-12" style="margin-top: 20px; cursor: pointer;">
+            <div class="imgHolder position-relative w-100 overflow-hidden ">
+              <div style="min-height:200px; max-height:250px;" class="text-center ">
+                <img (click)="getProdDetails(item.id)" style="min-width:200px; overflow:hidden; max-height:250px;"
+                  [src]="item.image">
+              </div>
+              <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
+                <li class="mr-2 overflow-hidden">
+                  <button mat-button routerLink="/products" style="margin-right: 5px;"> <span id="shop">Shop Now</span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+          </div> -->
+        <!-- </div> -->
+      </div>
+    
+
+    </div>
+ 
+
+  </section>
 
 
 </main>
