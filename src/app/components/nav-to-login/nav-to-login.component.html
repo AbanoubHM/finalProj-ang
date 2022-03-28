@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container">
              <!-- <app-navbar></app-navbar>  -->
-             <app-navbar ></app-navbar>
+             <!-- <app-navbar ></app-navbar> -->
             <app-login-button *ngIf="(auth.isAuthenticated$|async)===false"></app-login-button>
             <app-logout-button *ngIf="(auth.isAuthenticated$|async)"></app-logout-button>
 
