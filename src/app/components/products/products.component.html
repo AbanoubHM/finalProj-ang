@@ -30,16 +30,13 @@
                     </ul>
                     <!-- sortGroup -->
                     <div class="sortGroup">
-                        <label>Sorting Products</label>
-                        <!-- [(ndModel)]='SortByParam' -->
-                        <select >
-                            <option >Defualt</option>
-                            <option >Name</option>
-                            <option   >Name Desc</option>
-                            <option >Price</option>
-                            <option >Price Desc</option>
-
-                        </select>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Sorting Products</mat-label>
+                            <mat-select (valueChange)="onValueChanged($event)" [(value)]="typeselect">
+                              <mat-option></mat-option>
+                              <mat-option [value]="option.value" *ngFor="let option of types">{{ option.viewValue }}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
 
                         <!-- <div class="d-flex flex-nowrap align-items-center">
                             <strong class="groupTitle mr-2">Sort by:</strong>

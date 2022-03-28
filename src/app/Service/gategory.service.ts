@@ -1,12 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
-
-
-// import { IProduct } from '../Models/Iproduct';
-
 import { Icategory } from '../Models/Icategory';
-
 import { PublishProduct } from '../Models/Ipublish';
 
 @Injectable({
