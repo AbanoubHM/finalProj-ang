@@ -4,11 +4,12 @@ import { Component, OnInit } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { ProductService } from 'src/app/Service/product.service';
 import { CustomersService } from 'src/app/Service/customers.service';
-import { IProduct } from '../Models/iproduct';
+
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/Service/cart.service';
 import { FavoriteService } from 'src/app/Service/favorite.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { IProduct } from '../Models/iproduct';
 
 @Component({
   selector: 'app-home',
