@@ -15,6 +15,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSelectModule} from '@angular/material/select';
 
 
 const MaterialComponents = [
@@ -34,7 +35,8 @@ const MaterialComponents = [
 
   MatTabsModule,
   MatSidenavModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatSelectModule
 
 
 ]

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { IProduct } from '../components/Models/iproduct';
 import { catchError, Observable, throwError } from 'rxjs';
 
@@ -9,11 +9,28 @@ import { catchError, Observable, throwError } from 'rxjs';
 export class ProductService {
   private _url:string="https://handmadeapi.azurewebsites.net/api/Products"
   constructor(private http:HttpClient) { }
+
+ 
   getAllPosts(): Observable<IProduct[]>{
+
     return this.http.get<IProduct[]>(this._url).pipe(catchError((err) => {
 
       return throwError(err.message || "Server Error")
 
+    }))
+  }
+  getProductsBySortName(filters:string):Observable<IProduct>{
+    let myparams=new HttpParams();
+    myparams=myparams.set("sort",filters)
+    return this.http.get<IProduct>("https://handmadeapi.azurewebsites.net/api/Products/",{ params:myparams}).pipe(catchError((err)=>{
+      return throwError(err.message||"Server Error")
+    }))
+  }
+  getProductsBySortNameD():Observable<IProduct>{
+    let myparams=new HttpParams();
+    myparams=myparams.set("sort","ND")
+    return this.http.get<IProduct>("https://handmadeapi.azurewebsites.net/api/Products",{ params:myparams}).pipe(catchError((err)=>{
+      return throwError(err.message||"Server Error")
     }))
   }
   getProductById(prodId:number):Observable<IProduct>{

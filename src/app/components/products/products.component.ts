@@ -20,6 +20,7 @@ import { AuthService } from '@auth0/auth0-angular';
 export class ProductsComponent implements OnInit {
   postList: IProduct[] = [];
   gatlist: Icategory[] = [];
+  public productsArray: IProduct[]=[];
   public productList : any ;
   errMsg:string=''
   listToggle:boolean=true;
@@ -28,8 +29,24 @@ export class ProductsComponent implements OnInit {
   SortbyParam='';
   SortDirection='asc';
 
-  SearchName='';
-  constructor(public auth: AuthService,private gat:GategoryService ,private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private FavoriteService : FavoriteService, private snakeBar: MatSnackBar) { }
+  SearchName = '';
+  sortname: IProduct[] = [];
+  typeselect:any;
+  types: any[] = [
+    {value: 'NA', viewValue: 'Names'},
+    {value: 'ND', viewValue: 'NamesDescing'},
+    {value: 'PA', viewValue: 'Price'},
+    {value: 'PD', viewValue: 'PriceDescing'}
+  
+  ];
+
+
+  constructor( private gat : GategoryService, private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private FavoriteService : FavoriteService, private snakeBar: MatSnackBar) { }
+ 
+  
+
+
+
 
 
 
@@ -38,6 +55,8 @@ export class ProductsComponent implements OnInit {
 
 
   ngOnInit(): void {
+    // this.postSrv.getProductsBySortName();
+  
     this.gat.getAllGatogaries().subscribe(gatilist => {
 
       this.gatlist=gatilist
@@ -53,6 +72,8 @@ export class ProductsComponent implements OnInit {
       error => {
         this.errMsg = error
       })
+     
+     
 
 
   }
@@ -84,10 +105,25 @@ toggleList(){
 toggleGrid(){
   this.listToggle=true
 }
-// onNameFilter(){
-//   this.Search=this.productList
-// }
+onNameFilter(){
+//  this.postSrv.getProductsBySortName()
+}
+onValueChanged(event:any){
+  console.log(event);
+  switch (event) {
+    case 'NA':
+      // this.postSrv.getProductsBySortName(event).subscribe(postData => {
+      //   this.productsArray = postData});
+      break;
+      case 'NA':
+      
+      break;
+  
+    default:
+      break;
+  }
 
+}
 }
 
 
