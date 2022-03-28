@@ -7,7 +7,7 @@ import { catchError, Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-  private _url:string="https://productsdb20220320050233.azurewebsites.net/api/Products"
+  private _url:string="https://handmadeapi.azurewebsites.net/api/Products"
   constructor(private http:HttpClient) { }
   getAllPosts():Observable<IProduct[]>{
     return this.http.get<IProduct[]>(this._url).pipe(catchError((err)=>{

@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit {
   SortbyParam='';
   SortDirection='asc';
   SearchName='';
-  constructor( private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private FavoriteService : FavoriteService, private snakeBar: MatSnackBar) { }
+  constructor(private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private FavoriteService : FavoriteService, private snakeBar: MatSnackBar) { }
 
 
 

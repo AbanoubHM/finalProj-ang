@@ -1,5 +1,9 @@
-<main>
 
+<div class="container m-5" id="abouttext"> 
+    A website to display beautiful handmade products to benefit from valuable and beautiful gifts suitable for all ages and help all people to choose very beautiful gifts. We are here to display beautiful handmade work buried in many places to show it to all people to buy beautiful handmade products.
+     She has talents in making <span>products to showcase her talents to all people</span> 
+    </div>
+<main class="mb-5">
   <section class="chooseUs-sec container pt-xl-22 pt-lg-20 pt-md-16 pt-10 pb-xl-12 pb-md-7 pb-2">
     <!-- contactListBlock -->
     <div class="contactListBlock container overflow-hidden pt-xl-8 pt-lg-10 pt-md-8 pt-4 pb-xl-12 pb-lg-10 pb-md-4 pb-1">
@@ -8,7 +12,7 @@
           <!-- contactListColumn -->
           <div class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-6 px-md-3 px-3 d-flex">
             <span class="icon icon-van"></span>
-            <div class="alignLeft pl-2">
+            <div class="alignLeft pl-2 m-2">
               <strong class="headingV fwEbold d-block mb-1">Free shipping order</strong>
               <p class="m-0">On orders over $100</p>
             </div>
@@ -18,7 +22,7 @@
           <!-- contactListColumn -->
           <div class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-6 px-md-3 px-3 d-flex">
             <span class="icon icon-gift"></span>
-            <div class="alignLeft pl-2">
+            <div class="alignLeft pl-2 m-2">
               <strong class="headingV fwEbold d-block mb-1">Special gift card</strong>
               <p class="m-0">The perfect gift idea</p>
 
@@ -30,9 +34,9 @@
           <!-- contactListColumn -->
           <div class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-4 px-md-2 px-3 d-flex">
             <span class="icon icon-recycle"></span>
-            <div class="alignLeft pl-2">
+            <div class="alignLeft pl-2 m-2">
               <strong class="headingV fwEbold d-block mb-1">Return &amp; exchange</strong>
-              <p class="m-0">Free return within 3 days</p>
+              <p class="m-0">Free return within </p>
             </div>
           </div>
         </div>
@@ -40,7 +44,7 @@
           <!-- contactListColumn -->
           <div class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-6 px-md-3 px-3 d-flex">
             <span class="icon icon-call"></span>
-            <div class="alignLeft pl-2">
+            <div class="alignLeft pl-2 m-2">
               <strong class="headingV fwEbold d-block mb-1">Support 24 / 7</strong>
               <p class="m-0">Customer support</p>
             </div>
@@ -146,16 +150,18 @@
 
     <figure class="text-center">
       <blockquote class="blockquote">
-        <p class="mb-0">Start Selling Today</p>
+        <p class="mb-0" style="font-size: 30px;">Start Selling Today</p>
       </blockquote>
-      <figcaption class="blockquote-footer">
+      <figcaption class="blockquote-footer m-2" style="font-size:20px">
         Thousands of Customers Around The Globe Are Waiting
         to See What You Have in Stock
       </figcaption>
     </figure>
     <div class="container my-3 ">
       <div class="col-md-12 text-center">
-        <button type="button" class="btn btn-success">Become a vendor</button>
+        
+        <a [routerLink]="['/register']" class="btn btn-success" style="margin-top: 20px;">Become a vendor</a>
+        
       </div>
     </div>
 
@@ -164,131 +170,168 @@
   <div class="container-fluid bg-light pt-5">
     <div class="container py-5">
       <div class="d-flex flex-column text-center mb-5">
-        <h1 class="display-4 m-0"><span class="text-primary">Product Categories On Focus</span> </h1>
+        <h1 class="display-4 m-0"><span class="text-primary" style="font-size: 40px;">Product Categories On Focus</span> </h1>
       </div>
 
-      <div class="row pb-3 ">
-        <div class="col-md-6 col-lg-4 mb-4 card " style="width: 18rem;">
+      <!-- <div class="row pb-3 ">
+        <div class="col-md-6 col-lg-4 m-4 card " style="width: 18rem;">
           <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5 bg-image hover-zoom">
             <img src="assets/styles/images/home photo/img04.jpg" class="card-img-top " alt="...">
             <a class="text-uppercase font-weight-bold" href="">Celebrations</a>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+        <div class="col-md-6 col-lg-4 m-4 card" style="width: 18rem;">
           <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
             <img src="assets/styles/images/home photo/img09.jpg" class="card-img-top" alt="...">
             <a class="text-uppercase font-weight-bold" href="">Home And Living</a>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+        <div class="col-md-6 col-lg-4 m-4 card" style="width: 18rem;">
           <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
             <img src="assets/styles/images/home photo/img07.jpg" class="card-img-top" alt="...">
             <a class="text-uppercase font-weight-bold" href="">Kids And Baby</a>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+        <div class="col-md-6 col-lg-4 m-4 card" style="width: 18rem;">
           <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
             <img src="assets/styles/images/home photo/img02.jpg" class="card-img-top" alt="...">
             <a class="text-uppercase font-weight-bold" href="">Art</a>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+        <div class="col-md-6 col-lg-4 m-4 card" style="width: 18rem;">
           <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
             <img src="assets/styles/images/home photo/img57.jpg" class="card-img-top" alt="...">
             <a class="text-uppercase font-weight-bold" href="">Bracelet</a>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+        <div class="col-md-6 col-lg-4 m-4 card" style="width: 18rem;">
           <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
             <img src="assets/styles/images/home photo/img06.jpg" class="card-img-top" alt="...">
             <a class="text-uppercase font-weight-bold" href="">Charms</a>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+        <div class="col-md-6 col-lg-4 m-4 card" style="width: 18rem;">
           <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
             <img src="assets/styles/images/home photo/img54.jpg" class="card-img-top" alt="...">
             <a class="text-uppercase font-weight-bold" href="">Wooden</a>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+        <div class="col-md-6 col-lg-4 m-4 card" style="width: 18rem;">
           <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
             <img src="assets/styles/images/home photo/img53.jpg" class="card-img-top" alt="...">
             <a class="text-uppercase font-weight-bold" href="">Materials And Tools</a>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+        <div class="col-md-6 col-lg-4 m-4 card" style="width: 18rem;">
           <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
             <img src="assets/styles/images/home photo/img10.jpg" class="card-img-top" alt="...">
             <a class="text-uppercase font-weight-bold" href="">Clothing</a>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+        <div class="col-md-6 col-lg-4 m-4 card" style="width: 18rem;">
           <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
             <img src="assets/styles/images/home photo/img11.jpg" class="card-img-top" alt="...">
             <a class="text-uppercase font-weight-bold" href="">Shoes</a>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+        <div class="col-md-6 col-lg-4 m-4 card" style="width: 18rem;">
           <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
             <img src="assets/styles/images/home photo/img03.jpg" class="card-img-top" alt="...">
             <a class="text-uppercase font-weight-bold" href="">Bags</a>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+        <div class="col-md-6 col-lg-4 m-4 card" style="width: 18rem;">
           <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
             <img src="assets/styles/images/home photo/img12.jpg" class="card-img-top" alt="...">
             <a class="text-uppercase font-weight-bold" href="">Carpets And Furniture</a>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+        <div class="col-md-6 col-lg-4 m-4 card" style="width: 18rem;">
           <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
             <img src="assets/styles/images/home photo/img13.jpg" class="card-img-top" alt="...">
             <a class="text-uppercase font-weight-bold" href="">Neckalces</a>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+        <div class="col-md-6 col-lg-4 m-4 card" style="width: 18rem;">
           <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
             <img src="assets/styles/images/home photo/img47.jpg" class="card-img-top" alt="...">
             <a class="text-uppercase font-weight-bold" href="">Earrings</a>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+        <div class="col-md-6 col-lg-4 m-4 card" style="width: 18rem;">
           <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
             <img src="assets/styles/images/home photo/img16.jpg" class="card-img-top" alt="...">
             <a class="text-uppercase font-weight-bold" href="">Paintings</a>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+        <div class="col-md-6 col-lg-4 m-4 card" style="width: 18rem;">
           <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
             <img src="assets/styles/images/home photo/img53.jpg" class="card-img-top" alt="...">
             <a class="text-uppercase font-weight-bold" href="">Oil Paintings</a>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+        <div class="col-md-6 col-lg-4 m-4 card" style="width: 18rem;">
           <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
             <img src="assets/styles/images/home photo/img11.jpg" class="card-img-top" alt="...">
             <a class="text-uppercase font-weight-bold" href="">Acrylic Paintings</a>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+        <div class="col-md-6 col-lg-4 m-4 card" style="width: 18rem;">
           <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
             <img src="assets/styles/images/home photo/img04.jpg" class="card-img-top" alt="...">
             <a class="text-uppercase font-weight-bold" href="">Mobile And Keychains</a>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+        <div class="col-md-6 col-lg-4 m-4 card" style="width: 18rem;">
           <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
             <img src="assets/styles/images/home photo/img03.jpg" class="card-img-top" alt="...">
             <a class="text-uppercase font-weight-bold" href="">Hats And Caps</a>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4 card" style="width: 18rem;">
+        <div class="col-md-6 col-lg-4 m-4 card" style="width: 18rem;">
           <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
             <img src="assets/styles/images/home photo/img10.jpg" class="card-img-top" alt="...">
             <a class="text-uppercase font-weight-bold" href="">Scarves</a>
           </div>
         </div>
-      </div>
+      </div> -->
+      <!-- ========================begin service================================= -->
+      <div class="col-md-4" *ngFor="let item of postList "> <!-- featureCol -->
+        <div matRipple class="border col-md-12" style="margin-top: 20px; cursor: pointer;">
+            <div class="imgHolder position-relative w-100 overflow-hidden ">
+
+
+                <div  style="min-height:200px; max-height:250px;" class="text-center ">
+                    <img  (click)="getProdDetails(item.prodectId)" style="min-width:200px; overflow:hidden; max-height:250px;" [src]="item.image">
+                </div>
+
+                <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
+                    <li class="mr-2 overflow-hidden"><button (click)=addtofavorite(item) mat-mini-fab color="primary">
+                            <mat-icon>favorite_border</mat-icon>
+                        </button></li>
+                    <li class="mr-2 overflow-hidden"><button (click)=addtocart(item) mat-mini-fab
+                            color="primary">
+                            <mat-icon>add_shopping_cart</mat-icon>
+                        </button>
+                    </li>
+                    <li class="mr-2 overflow-hidden"><button (click)="getProdDetails(item.prodectId)"
+                            mat-mini-fab color="primary">
+                            <mat-icon>visibility</mat-icon>
+                        </button>
+                    </li>
+
+                </ul>
+            </div>
+            <div (click)="getProdDetails(item.prodectId)" class="text-center py-3 px-4">
+                <span class="title d-block mb-2"><a style="text-decoration: none;"
+                       >{{item.name}}</a></span>
+                <span class="price d-block fwEbold"><del>{{item.price*1.1 | number:'1.2-2'}}
+                        $</del>{{item.price}} $</span>
+                    </div>
+                </div>
+
+    </div>
+      <!-- =============================end service=================================== -->
     </div>
   </div>
 
@@ -304,7 +347,7 @@
     <section class="chooseUs-sec container pt-xl-22 pt-lg-20 pt-md-16 pt-10 pb-xl-12 pb-md-7 pb-2">
         <div class="row">
             <header class="col-12 mainHeader mb-7 text-center">
-                <h1 class="headingIV playfair fwEblod mb-4">Featured Product</h1>
+                <h1 class="headingIV playfair fwEblod mb-4" style="font-size: 40px;">Featured Product</h1>
                 <span class="headerBorder d-block mb-md-5 mb-3"><img src="assets/styles/images/hbdr.png" alt="Header Border"
                         class="img-fluid img-bdr"></span>
                 <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -357,7 +400,7 @@
                                 </div>
                                 <div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
                                     <span class="title d-block mb-2"><a style="text-decoration: none;" href="shop-detail.html">Neque
-                                            Porro Quisquamest</a></span>
+                                            Porro </a></span>
                                     <span class="price d-block fwEbold">60.50 $</span>
                                     <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block"
                                         style="margin-top: 20px;">HOT</span>
@@ -438,7 +481,7 @@
                                 </div>
                                 <div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
                                     <span class="title d-block mb-2"><a style="text-decoration: none;" href="shop-detail.html">Sit
-                                            voluptatem</a></span>
+                                            </a></span>
                                     <span class="price d-block fwEbold">70.50 $</span>
                                 </div>
                             </div>
@@ -464,7 +507,7 @@
                                 </div>
                                 <div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
                                     <span class="title d-block mb-2"><a style="text-decoration: none;" href="shop-detail.html">Sint
-                                            Incidunt Utlabore</a></span>
+                                            Incidunt </a></span>
                                     <span class="price d-block fwEbold"><del>75.00 $</del>60.50 $</span>
                                     <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block"
                                         style="margin-top: 20px;">HOT</span>
@@ -492,7 +535,7 @@
                                 </div>
                                 <div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
                                     <span class="title d-block mb-2"><a style="text-decoration: none;"
-                                            href="shop-detail.html">Aliquam Quaerat Voluptem</a></span>
+                                            href="shop-detail.html">Aliquam Quaerat </a></span>
                                     <span class="price d-block fwEbold">58.00 $</span>
                                 </div>
                             </div>
@@ -518,7 +561,7 @@
                                 </div>
                                 <div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
                                     <span class="title d-block mb-2"><a style="text-decoration: none;" href="shop-detail.html">Neque
-                                            Porro Quisquam</a></span>
+                                            Porro </a></span>
                                     <span class="price d-block fwEbold"><del>60.00 $</del>48.00 $</span>
                                     <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block"
                                         style="margin-top: 20px;">Sale</span>
@@ -573,7 +616,7 @@
                                 <div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
                                     <span class="title d-block mb-2"><a style="text-decoration: none;"
                                             href="shop-detail.html">Aliquam Quaerat
-                                            Voluptatem</a></span>
+                                           </a></span>
                                     <span class="price d-block fwEbold">80.00 $</span>
                                     <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block"
                                         style="margin-top: 20px;">Hot</span>
@@ -634,7 +677,7 @@
                                 </div>
                                 <div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
                                     <span class="title d-block mb-2"><a style="text-decoration: none;" href="shop-detail.html">Neque
-                                            Porro Quisquamest</a></span>
+                                            Porro </a></span>
                                     <span class="price d-block fwEbold">60.50 $</span>
                                     <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block"
                                         style="margin-top: 20px;">HOT</span>
@@ -688,7 +731,7 @@
                                 </div>
                                 <div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
                                     <span class="title d-block mb-2"><a style="text-decoration: none;"
-                                            href="shop-detail.html">Aspetur Autodit Autfugit</a></span>
+                                            href="shop-detail.html">Aspetur Autodit </a></span>
                                     <span class="price d-block fwEbold"><del>80.00 $</del>66.00 $</span>
                                     <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block"
                                         style="margin-top: 20px;">Sale</span>
@@ -741,7 +784,7 @@
                                 </div>
                                 <div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
                                     <span class="title d-block mb-2"><a style="text-decoration: none;" href="shop-detail.html">Sint
-                                            Incidunt Utlabore</a></span>
+                                            Incidunt </a></span>
                                     <span class="price d-block fwEbold"><del>75.00 $</del>60.50 $</span>
                                     <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block"
                                         style="margin-top: 20px;">HOT</span>
@@ -770,7 +813,7 @@
                                 </div>
                                 <div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
                                     <span class="title d-block mb-2"><a style="text-decoration: none;"
-                                            href="shop-detail.html">Aliquam Quaerat Voluptem</a></span>
+                                            href="shop-detail.html">Aliquam Quaerat </a></span>
                                     <span class="price d-block fwEbold">58.00 $</span>
                                 </div>
                             </div>
@@ -796,7 +839,7 @@
                                 </div>
                                 <div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
                                     <span class="title d-block mb-2"><a style="text-decoration: none;" href="shop-detail.html">Neque
-                                            Porro Quisquam</a></span>
+                                            Porro </a></span>
                                     <span class="price d-block fwEbold"><del>60.00 $</del>48.00 $</span>
                                     <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block"
                                         style="margin-top: 20px;">Sale</span>
@@ -851,7 +894,7 @@
                                 <div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
                                     <span class="title d-block mb-2"><a style="text-decoration: none;"
                                             href="shop-detail.html">Aliquam Quaerat
-                                            Voluptatem</a></span>
+                                            </a></span>
                                     <span class="price d-block fwEbold">80.00 $</span>
                                     <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block"
                                         style="margin-top: 20px;">Hot</span>
@@ -910,7 +953,7 @@
                                 </div>
                                 <div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
                                     <span class="title d-block mb-2"><a style="text-decoration: none;" href="shop-detail.html">Neque
-                                            Porro Quisquamest</a></span>
+                                            Porro </a></span>
                                     <span class="price d-block fwEbold">60.50 $</span>
                                     <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block"
                                         style="margin-top: 20px;">HOT</span>
@@ -964,7 +1007,7 @@
                                 </div>
                                 <div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
                                     <span class="title d-block mb-2"><a style="text-decoration: none;"
-                                            href="shop-detail.html">Aspetur Autodit Autfugit</a></span>
+                                            href="shop-detail.html">Aspetur  Autfugit</a></span>
                                     <span class="price d-block fwEbold"><del>80.00 $</del>66.00 $</span>
                                     <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block"
                                         style="margin-top: 20px;">Sale</span>
@@ -991,7 +1034,7 @@
                                 </div>
                                 <div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
                                     <span class="title d-block mb-2"><a style="text-decoration: none;" href="shop-detail.html">Sit
-                                            voluptatem</a></span>
+                                            </a></span>
                                     <span class="price d-block fwEbold">70.50 $</span>
                                 </div>
                             </div>
@@ -1017,7 +1060,7 @@
                                 </div>
                                 <div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
                                     <span class="title d-block mb-2"><a style="text-decoration: none;" href="shop-detail.html">Sint
-                                            Incidunt Utlabore</a></span>
+                                            Incidunt </a></span>
                                     <span class="price d-block fwEbold"><del>75.00 $</del>60.50 $</span>
                                     <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block"
                                         style="margin-top: 20px;">HOT</span>
@@ -1046,7 +1089,7 @@
                                 </div>
                                 <div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
                                     <span class="title d-block mb-2"><a style="text-decoration: none;"
-                                            href="shop-detail.html">Aliquam Quaerat Voluptem</a></span>
+                                            href="shop-detail.html">Aliquam Quaerat </a></span>
                                     <span class="price d-block fwEbold">58.00 $</span>
                                 </div>
                             </div>
@@ -1127,7 +1170,7 @@
                                 <div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
                                     <span class="title d-block mb-2"><a style="text-decoration: none;"
                                             href="shop-detail.html">Aliquam Quaerat
-                                            Voluptatem</a></span>
+                                            </a></span>
                                     <span class="price d-block fwEbold">80.00 $</span>
                                     <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block"
                                         style="margin-top: 20px;">Hot</span>
@@ -1151,15 +1194,35 @@
 
 
     <!-- productOfferSec -->
-    <div class="productOfferSec container overflow-hidden py-xl-12 py-lg-10 py-md-8 py-5">
+    <!-- <div class="productOfferSec container overflow-hidden py-xl-12 py-lg-10 py-md-8 py-5">
         <div class="row">
-            <div class="col-12 col-sm-6 mb-sm-0 mb-2">
+            <div class="col">
                 <a href="shop.html" class="w-100"><img src="assets/styles/images/home photo/ad1.jpg"
                         alt="image description" class="img-fluid"></a>
             </div>
-            <div class="col-12 col-sm-6">
+            <div class="col">
                 <a href="shop.html" class="w-100"></a>
             </div>
+        </div>
+    </div> -->
+    <div class="container" id="shownom">
+        <div class="row">
+            <div class="col-sm-6">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <a [routerLink]="['/products']"  class="btn btn-success" style="margin-left: 280px;">Shop Now</a>
+            </div>
+            <div class="col-sm-6 mt-5">
+                <a href="shop.html" class="w-100"><img src="assets/styles/images/home photo/ad1.jpg"
+                    alt="image description" class="img-fluid"></a>
+            </div>
+            
         </div>
     </div>
     <!-- dealSecHolder -->
@@ -1194,7 +1257,7 @@
                         </div>
                         <div class="text-center py-5 px-2">
                             <span class="title d-block mb-2"><a href="shop-detail.html">Sint Incidunt
-                                    Utlabore</a></span>
+                                    </a></span>
                             <span class="price d-block fwEbold"><del>75.00 $</del>60.50 $</span>
                             <span
                                 class="hotOffer fwEbold text-uppercase text-white position-absolute d-block">HOT</span>
@@ -1224,7 +1287,7 @@
                         </div>
                         <div class="text-center py-5 px-2">
                             <span class="title d-block mb-2"><a href="shop-detail.html">Aliquam Quaerat
-                                    Voluptem</a></span>
+                                    </a></span>
                             <span class="price d-block fwEbold">58.00 $</span>
                         </div>
                     </div>
@@ -1249,7 +1312,7 @@
                             </ul>
                         </div>
                         <div class="text-center py-5 px-2">
-                            <span class="title d-block mb-2"><a href="shop-detail.html">Neque Porro Quisquam</a></span>
+                            <span class="title d-block mb-2"><a href="shop-detail.html">Neque Porro </a></span>
                             <span class="price d-block fwEbold"><del>60.00 $</del>48.00 $</span>
                             <span
                                 class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block">Sale</span>
@@ -1302,7 +1365,7 @@
                         </div>
                         <div class="text-center py-5 px-2">
                             <span class="title d-block mb-2"><a href="shop-detail.html">Aliquam Quaerat
-                                    Voluptatem</a></span>
+                                    </a></span>
                             <span class="price d-block fwEbold">80.00 $</span>
                             <span
                                 class="hotOffer fwEbold text-uppercase text-white position-absolute d-block">HOT</span>
@@ -1370,44 +1433,37 @@
                 <div class="partnerSlider d-flex flex-wrap">
                     <div>
                         <div class="logoColumn d-flex align-items-center justify-content-center">
-                            <a href="javascript:void(0);"><img src="assets\styles\images\home photo\p-logo1.png"
-                                    alt="Partner Logo" class="img-fluid"></a>
+                            <a href="javascript:void(0);"></a>
                         </div>
                     </div>
                     <div>
                         <div class="logoColumn d-flex align-items-center justify-content-center">
-                            <a href="javascript:void(0);"><img src="assets\styles\images\home photo\p-logo2.png"
-                                    alt="Partner Logo" class="img-fluid"></a>
+                            <a href="javascript:void(0);"></a>
                         </div>
                     </div>
                     <div>
                         <div class="logoColumn d-flex align-items-center justify-content-center">
-                            <a href="javascript:void(0);"><img src="assets\styles\images\home photo\p-logo3.png"
-                                    alt="Partner Logo" class="img-fluid"></a>
+                            <a href="javascript:void(0);"></a>
                         </div>
                     </div>
                     <div>
                         <div class="logoColumn d-flex align-items-center justify-content-center">
-                            <a href="javascript:void(0);"><img src="assets\styles\images\home photo\p-logo4.png"
-                                    alt="Partner Logo" class="img-fluid"></a>
+                            <a href="javascript:void(0);"></a>
                         </div>
                     </div>
                     <div>
                         <div class="logoColumn d-flex align-items-center justify-content-center">
-                            <a href="javascript:void(0);"><img src="assets\styles\images\home photo\p-logo5.png"
-                                    alt="Partner Logo" class="img-fluid"></a>
+                            <a href="javascript:void(0);"></a>
                         </div>
                     </div>
                     <div>
                         <div class="logoColumn d-flex align-items-center justify-content-center">
-                            <a href="javascript:void(0);"><img src="assets\styles\images\home photo\p-logo1.png"
-                                    alt="Partner Logo" class="img-fluid"></a>
+                            <a href="javascript:void(0);"></a>
                         </div>
                     </div>
                     <div>
                         <div class="logoColumn d-flex align-items-center justify-content-center">
-                            <a href="javascript:void(0);"><img src="assets\styles\images\home photo\p-logo4.png"
-                                    alt="Partner Logo" class="img-fluid"></a>
+                            <a href="javascript:void(0);"></a>
                         </div>
 
                     </div>

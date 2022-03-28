@@ -32,7 +32,6 @@ import { FavoriteComponent } from './components/favorite/favorite.component';
  import {MatStepperModule} from '@angular/material/stepper';
 
 
-
 import { DashbordNavComponent } from './components/dashbord-nav/dashbord-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -126,6 +125,7 @@ SortingPipe
     MatGridListModule,
     MatStepperModule,
     MatCardModule,
+        
     AuthModule.forRoot({
       ...env.auth,
     })
