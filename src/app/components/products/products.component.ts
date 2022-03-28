@@ -37,13 +37,13 @@ export class ProductsComponent implements OnInit {
     {value: 'ND', viewValue: 'NamesDescing'},
     {value: 'PA', viewValue: 'Price'},
     {value: 'PD', viewValue: 'PriceDescing'}
-  
+
   ];
 
 
-  constructor( private gat : GategoryService, private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private FavoriteService : FavoriteService, private snakeBar: MatSnackBar) { }
- 
-  
+  constructor(public auth:AuthService, private gat : GategoryService, private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private FavoriteService : FavoriteService, private snakeBar: MatSnackBar) { }
+
+
 
 
 
@@ -56,7 +56,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     // this.postSrv.getProductsBySortName();
-  
+
     this.gat.getAllGatogaries().subscribe(gatilist => {
 
       this.gatlist=gatilist
@@ -72,8 +72,8 @@ export class ProductsComponent implements OnInit {
       error => {
         this.errMsg = error
       })
-     
-     
+
+
 
 
   }
@@ -116,9 +116,9 @@ onValueChanged(event:any){
       //   this.productsArray = postData});
       break;
       case 'NA':
-      
+
       break;
-  
+
     default:
       break;
   }
