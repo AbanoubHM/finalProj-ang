@@ -124,27 +124,15 @@
           </mat-error>
         </mat-form-field>
         </div>
-        <!-- <div  class="mb-3" style="margin-top: 15px;">
-        <mat-form-field class="mb-3" appearance="outline" >
-          <mat-label>Select an option</mat-label>
-          <select  matInput formControlName="Category"  >
-            <option *ngFor="let item of gatlist" [ngValue]="item.name">{{item.name}}</option>
-          </select>
-
-
-          <mat-icon matSuffix>category</mat-icon>
-          <mat-error
-            *ngFor="let validation of register_validation_messages.Category"
-          >
-            <mat-error
-              class="error-message"
-              *ngIf="ff['Quantity'].hasError(validation.type)"
-            >
-              {{ validation.message }}
-            </mat-error>
-          </mat-error>
-        </mat-form-field>
-      </div> -->
+         <div  class="mb-3" style="margin-top: 15px;">
+          <mat-form-field appearance="outline">
+            <mat-label>category</mat-label>
+            <mat-select  formControlName="Category" >
+              <mat-option></mat-option>
+              <mat-option [value]="option.id" *ngFor="let option of gatlist">{{ option.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+      </div>
         <button
           style="width: 10em; border-radius: 20px ; margin-top: 15px;"
           (click)="submitForm(ordersForm)"
