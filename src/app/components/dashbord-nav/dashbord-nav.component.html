@@ -1,0 +1,57 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    mode="side" hasBackdrop="false">
+    <mat-toolbar id="menu">Menu</mat-toolbar>
+    <mat-nav-list>
+      <a *ngFor="let item of menuItems" mat-list-item [routerLink]="'/'+item" id="navmenu"> {{item | titlecase}} </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon" >menu</mat-icon>
+      </button>
+      <button mat-button  routerLink="/home" style="margin-right: 5px;">Home
+      </button>
+      <button mat-button routerLink="/products" style="margin-right: 5px;" >Products
+      </button>
+      <button mat-button routerLink="/about" style="margin-right: 5px;" >About
+      </button>
+      <button mat-button    routerLink="/contact" style="margin-right: 5px;">Contact
+      </button>
+
+      <div  class="d-flex flex-row-reverse  justify-content-end ">
+      <button mat-button (click)="loginWithRedirect()"  *ngIf="(auth.isAuthenticated$|async)===false">
+
+        <mat-icon>login</mat-icon>      Log in
+    </button>
+    <button mat-button routerLink="/register"  *ngIf="(auth.isAuthenticated$|async)===false">
+
+      <mat-icon>app_registration</mat-icon>      Register
+  </button>
+    <button mat-button (click)="logout()"  *ngIf="(auth.isAuthenticated$|async)">
+      <mat-icon>logout</mat-icon>      Log out
+    </button>
+
+    <button  mat-button routerLinkActive="active" routerLink="/favorite" *ngIf="(auth.isAuthenticated$|async)"
+              class=" position-relative" mat-icon-button style="color:#bdf0f1 ; margin-right: 5px;" #tooltip="matTooltip"
+              matTooltip="Add To Favorite" aria-label="Example icon-button with a heart icon">
+              <mat-icon matBadge="{{totalfavortit}}" [matBadgeHidden]="hidden1" matBadgeColor="accent">
+                  favorite</mat-icon>
+          </button>
+          <button  mat-button routerLinkActive="active" style="color:#bdf0f1 ; margin-right: 5px;" routerLink="/cart" class=" position-relative" *ngIf="(auth.isAuthenticated$|async)"
+          mat-icon-button color="warn" #tooltip="matTooltip" matTooltip="Add To Cart"
+          aria-label="Example icon-button with a heart icon">
+          <mat-icon matBadge="{{totalItem}}" [matBadgeHidden]="hidden" matBadgeColor="accent">
+              shopping_cart</mat-icon>
+      </button>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,117 @@
+<ng-container *ngIf="stores.length" style="text-align: center;">
+
+  <div class="cartHolder container pt-xl-21 pb-xl-24 py-lg-20 py-md-16 py-10">
+      <div class="row">
+          <!-- table-responsive -->
+          <div class="col-12 table-responsive mb-xl-22 mb-lg-20 mb-md-16 mb-10">
+              <!-- cartTable -->
+              <table class="table cartTable">
+                  <thead>
+                      <tr>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">Name</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">Description</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">Image</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">Price</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">SaleValue</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">Quantity</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">PreparationDays</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">CategoryName</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">Edit My Product</th>
+                          <th scope="col" class="text-uppercase fwEbold border-top-0">Delete My Product</th>
+
+
+                      </tr>
+                  </thead>
+
+                  <tbody>
+                      <tr class="align-items-center" *ngFor="let item of stores; let i = index">
+                          <td>{{i+1}}</td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.Name}}</td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.Description}}</td>
+                          <td class="d-flex align-items-center border-top-0 border-bottom px-0 py-6">
+                              <div class="imgHolder"><img src="{{item.Image}}" alt="image description"
+                                      class="img-fluid"></div>
+                          </td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.Price|currency}}</td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.SaleValue|currency}}</td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.Quantity}}</td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.PreparationDays}}</td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.CategoryName}}</td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6"><button mat-icon-button color="warn" (click)="removeItem(item)">
+                            <mat-icon>edit</mat-icon>
+                        </button></td>
+                          <td class="fwEbold border-top-0 border-bottom px-0 py-6"><button mat-icon-button color="warn" (click)="removeItem(item)">
+                            <mat-icon>delete_forever</mat-icon>
+                        </button></td>
+                      </tr>
+                      <tr>
+                          <td colspan="1"></td>
+                          <td><button (click)="emptystore()" mat-raised-button color="warn">Empty store</button>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+
+</ng-container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div *ngIf="listToggle" class="row">
+
+  <div style="text-align: center; " *ngIf="!postList" class="col-12 col-sm-6 col-lg-4 featureCol mb-7 justify-content-center">
+      <mat-spinner></mat-spinner>
+  </div>
+
+  <div class="col-12 col-sm-6 col-lg-4 featureCol mb-7" *ngFor="let item of postList">
+      <div matRipple class="border" style="margin-top: 20px; cursor: pointer;">
+          <div class="imgHolder position-relative w-100 overflow-hidden">
+
+
+              <div style="min-height:200px; overflow:hidden; max-height:250px;" class="text-center">
+                  <img  (click)="getstoreDetails(item.ID)" style="min-width:200px; overflow:hidden; max-height:250px;" [src]="item.image">
+              </div>
+
+              <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
+                  <li class="mr-2 overflow-hidden"><button (click)=addtostore(item) mat-mini-fab
+                          color="primary">
+                          <mat-icon>add_shopping_cart</mat-icon>
+                      </button>
+                  </li>
+                  <li class="mr-2 overflow-hidden"><button (click)="getstoreDetails(item.id)"
+                          mat-mini-fab color="primary">
+                          <mat-icon>visibility</mat-icon>
+                      </button>
+                  </li>
+
+              </ul>
+          </div>
+          <div (click)="getProdDetails(item.prodectId)" class="text-center py-3 px-4">
+              <span class="title d-block mb-2"><a style="text-decoration: none;"
+                     >{{item.name}}</a></span>
+              <span class="price d-block fwEbold"><del>{{item.price*1.1 | number:'1.2-2'}}
+                      $</del>{{item.price}} $</span>
+                  </div>
+              </div>
+
+  </div>
+
+</div>
+
+ -->

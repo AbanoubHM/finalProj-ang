@@ -1,7 +1,7 @@
-<section class="introBannerHolder bgCover d-flex w-100 " style="background-image: url(assets/styles/images/b-bg7.jpg);">
+<section class="introBannerHolder bgCover d-flex w-100 " style="background-image: url(assets/styles/images/250.jpg); background-size: cover;">
 
     <div class="container">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-12 pt-lg-23 pt-md-15 pt-sm-10 pt-5 text-center">
                 <h1 class="headingIV fwEbold playfair mb-4">Shop</h1>
                 <ul class="list-unstyled breadCrumbs d-flex justify-content-center">
@@ -10,7 +10,7 @@
                     <li class="active">Shop</li>
                 </ul>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 <br>
@@ -21,7 +21,7 @@
             <!-- content -->
             <article id="content">
                 <!-- show-head -->
-                <header class="show-head d-flex flex-wrap justify-content-between mb-7">
+                <header class="show-head d-flex flex-wrap justify-content-between  mb-7">
                     <ul class="list-unstyled viewFilterLinks d-flex flex-nowrap align-items-center">
                         <li (click)="toggleGrid()" class="mr-2"><a style="text-decoration: none;" class="active"><i
                                     class="fas fa-th-large"></i></a></li>
@@ -30,42 +30,47 @@
                     </ul>
                     <!-- sortGroup -->
                     <div class="sortGroup">
-                        <div class="d-flex flex-nowrap align-items-center">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Sorting Products</mat-label>
+                            <mat-select (valueChange)="onValueChanged($event)" [(value)]="typeselect">
+                              <mat-option></mat-option>
+                              <mat-option [value]="option.value" *ngFor="let option of types">{{ option.viewValue }}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+
+                        <!-- <div class="d-flex flex-nowrap align-items-center">
                             <strong class="groupTitle mr-2">Sort by:</strong>
                             <div class="dropdown">
                                 <button class="dropdown-toggle buttonReset" type="button" id="sortGroup"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Default
                                     sorting</button>
                                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="sortGroup">
-                                    <li><a style="text-decoration: none;">Default Order</a></li>
-                                    <li><a style="text-decoration: none;">Default Order</a></li>
+                                    <li><a style="text-decoration: none;">Name </a></li>
+                                    <li><a style="text-decoration: none;">Nmae A</a></li>
                                     <li><a style="text-decoration: none;">Default Order</a></li>
                                     <li><a style="text-decoration: none;">Default Order</a></li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </header>
 
 
 <!-- Grid  -->
+                <div class="container">
                 <div *ngIf="listToggle" class="row">
-
-                    <div style="text-align: center; " *ngIf="!postList" class="col-12 col-sm-6 col-lg-4 featureCol mb-7 justify-content-center">
+                    <div style="text-align: center; " *ngIf="!postList" class="col-md-4">
                         <mat-spinner></mat-spinner>
                     </div>
-
-                    <div class="col-12 col-sm-6 col-lg-4 featureCol mb-7" *ngFor="let item of postList">
-                        <div matRipple class="border" style="margin-top: 20px; cursor: pointer;">
-                            <div class="imgHolder position-relative w-100 overflow-hidden">
-
-
-                                <div style="min-height:200px; overflow:hidden; max-height:250px;" class="text-center">
-                                    <img  (click)="getProdDetails(item.prodectId)" style="min-width:200px; overflow:hidden; max-height:250px;" [src]="item.image">
+                    <!-- |filter:'te``  1 st':'city'|sorting:[SortByParam,'desc'] -->
+                    <div class="col-md-4" *ngFor="let item of postList "> <!-- featureCol -->
+                        <div matRipple class="border col-md-12" style="margin-top: 20px; cursor: pointer;">
+                            <div class="imgHolder position-relative w-100 overflow-hidden ">
+                                <div  style="min-height:200px; max-height:250px;" class="text-center ">
+                                    <img  (click)="getProdDetails(item.id)" style="min-width:200px; overflow:hidden; max-height:250px;" [src]="item.image">
                                 </div>
-
-                                <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-                                    <li class="mr-2 overflow-hidden"><button mat-mini-fab color="primary">
+                                <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0" *ngIf="(auth.isAuthenticated$|async)">
+                                    <li class="mr-2 overflow-hidden"><button (click)=addtofavorite(item) mat-mini-fab color="primary">
                                             <mat-icon>favorite_border</mat-icon>
                                         </button></li>
                                     <li class="mr-2 overflow-hidden"><button (click)=addtocart(item) mat-mini-fab
@@ -73,7 +78,7 @@
                                             <mat-icon>add_shopping_cart</mat-icon>
                                         </button>
                                     </li>
-                                    <li class="mr-2 overflow-hidden"><button (click)="getProdDetails(item.prodectId)"
+                                    <li class="mr-2 overflow-hidden"><button (click)="getProdDetails(item.id)"
                                             mat-mini-fab color="primary">
                                             <mat-icon>visibility</mat-icon>
                                         </button>
@@ -81,30 +86,31 @@
 
                                 </ul>
                             </div>
-                            <div (click)="getProdDetails(item.prodectId)" class="text-center py-3 px-4">
+                            <div (click)="getProdDetails(item.id)" class="text-center py-3 px-4">
                                 <span class="title d-block mb-2"><a style="text-decoration: none;"
                                        >{{item.name}}</a></span>
-                                <span class="price d-block fwEbold"><del>{{item.price*1.1 | number:'1.2-2'}}
+                                <span class="price d-block fwEbold"><del  *ngIf="item.saleValue">{{item.price+item.saleValue | number:'1.2-2'}}
                                         $</del>{{item.price}} $</span>
                                     </div>
                                 </div>
-                                <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block"
-                                    style="margin-top: 20px;"> &nbsp; HOT</span>
+
                     </div>
+                   
 
                 </div>
+              </div>
 <!-- List  -->
 <div *ngIf="!listToggle" >
 <div class="card mb-3" *ngFor="let i of postList" >
     <div class="row no-gutters" >
       <div class="col-md-4">
-        <img  (click)="getProdDetails(i.prodectId)" [src]="i.image" >
+        <img  (click)="getProdDetails(i.id)" [src]="i.image" >
     </div>
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">{{i.name}}</h5>
-          <p class="card-text x">{{i.desce}}</p>
-         
+          <p class="card-text x">{{i.description}}</p>
+
              <div class="py-3 px-4">
 
                 <span class="price d-block fwEbold"><del>{{i.price*1.1 | number:'1.2-2'}}$</del> {{i.price}} $</span>
@@ -140,34 +146,12 @@
                 <section class="widget overflow-hidden mb-9">
                     <h3 class="headingVII fwEbold text-uppercase mb-5 " style="margin-top: 40px;">PRODUCT CATEGORIES
                     </h3>
-                    <ul class="list-unstyled categoryList mb-0" style="margin-top: 20px;">
-                        <li class="mb-4 overflow-hidden"><a style="text-decoration: none;">Dried <span
-                                    class="num border float-right">6</span></a></li>
-                        <li class="mb-4 overflow-hidden"><a style="text-decoration: none;">Vegetables <span
-                                    class="num border float-right">8</span></a></li>
-                        <li class="mb-4 overflow-hidden"><a style="text-decoration: none;">Fruits <span
-                                    class="num border float-right">9</span></a></li>
-                        <li class="mb-4 overflow-hidden"><a style="text-decoration: none;">Juice <span
-                                    class="num border float-right">6</span></a></li>
-                        <li class="overflow-hidden"><a style="text-decoration: none;">Uncategorized <span
-                                    class="num border float-right">1</span></a></li>
+                    <ul class="list-unstyled categoryList mb-0" style="margin-top: 20px;" *ngFor="let item of gatlist">
+                        <li  class="overflow-hidden"><a style="text-decoration: none;"
+                          >{{item.name}} </a></li>
                     </ul>
                 </section>
                 <!-- widget -->
-                <section class="widget mb-9">
-                    <h3 class="headingVII fwEbold text-uppercase mb-6" style="margin-top: 40px;">Filter by price</h3>
-                    <!-- filter ranger form -->
-                    <form action="javascript:void(0);" class="filter-ranger-form">
-                        <div id="slider-range"></div>
-
-                        <input type="hidden" id="amount1" name="amount1">
-                        <input type="hidden" id="amount2" name="amount2">
-                        <div class="get-results-wrap d-flex align-items-center justify-content-between">
-                            <button mat-flat-button color="primary">Filter</button>
-                            <p id="amount" class="mb-0"></p>
-                        </div>
-                    </form>
-                </section>
 
 
             </aside>

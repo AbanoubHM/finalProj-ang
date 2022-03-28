@@ -7,7 +7,7 @@
 }
 .imgScale{
     //transform: scale(1);
-	
+
 	transition: .3s ease-in-out;
 }
 
@@ -58,7 +58,7 @@
     left: 0;
     z-index: 2;
     transition: all .5s ease;
-}   
+}
 .box:hover .box-content{ transform: translateY(-50%); }
 .box .title{
     font-size: 25px;
@@ -112,4 +112,29 @@
 }
 @media only screen and (max-width:990px){
     .box{ margin: 0 0 30px; }
+}
+#abouttext
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 80px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+    background-color: white;
+    height: 300px;
+
+}
+#shownom
+{
+
+
+}
+
+
+
+#shop
+{
+background-color: #70b524;
+border-radius: 10%;
 }
