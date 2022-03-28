@@ -7,6 +7,9 @@ import { CartService } from 'src/app/Service/cart.service';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { FavoriteService } from 'src/app/Service/favorite.service';
 import { CustomersService } from 'src/app/Service/customers.service';
+import { GategoryService } from 'src/app/Service/gategory.service';
+import { Icategory } from 'src/app/Models/Icategory';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-products',
@@ -14,7 +17,8 @@ import { CustomersService } from 'src/app/Service/customers.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  postList:IProduct[]=[];
+  postList: IProduct[] = [];
+  gatlist: Icategory[] = [];
   public productList : any ;
   errMsg:string=''
   listToggle:boolean=true;
@@ -22,23 +26,34 @@ export class ProductsComponent implements OnInit {
   shows: boolean = false;
   SortbyParam='';
   SortDirection='asc';
+
   SearchName='';
-  constructor(private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private FavoriteService : FavoriteService, private snakeBar: MatSnackBar) { }
+  constructor(private gat:GategoryService ,private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private FavoriteService : FavoriteService, private snakeBar: MatSnackBar) { }
+
+  
+ 
 
 
 
 
   ngOnInit(): void {
-    this.postSrv.getAllPosts().subscribe(postData=>{
-      this.postList=postData
+    this.gat.getAllGatogaries().subscribe(gatilist => {
+
+      this.gatlist=gatilist
+    })
+    this.postSrv.getAllPosts().subscribe(postData => {
+      this.postList = postData
       console.log(this.postList)
       this.postList.forEach(element => {
         this.numberOfProducts++;
+
       });
-    },
-    error=>{
-      this.errMsg=error
-    })
+    } ,
+      error => {
+        this.errMsg = error
+      })
+      
+
   }
   getProdDetails(id:number){
     this.router.navigate([id],{relativeTo:this.activatedRoute})

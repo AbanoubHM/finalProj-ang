@@ -1,7 +1,7 @@
-<section class="introBannerHolder bgCover d-flex w-100 " style="background-image: url(assets/styles/images/b-bg7.jpg);">
+<section class="introBannerHolder bgCover d-flex w-100 " style="background-image: url(assets/styles/images/250.jpg); background-size: cover;">
 
     <div class="container">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-12 pt-lg-23 pt-md-15 pt-sm-10 pt-5 text-center">
                 <h1 class="headingIV fwEbold playfair mb-4">Shop</h1>
                 <ul class="list-unstyled breadCrumbs d-flex justify-content-center">
@@ -10,7 +10,7 @@
                     <li class="active">Shop</li>
                 </ul>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 <br>
@@ -32,12 +32,13 @@
                     <div class="sortGroup">
                         <label>Sorting Products</label>
                         <!-- [(ndModel)]='SortByParam' -->
-                        <select>
-                            <option value="Name">Name</option>
-                            <option value="NameDesc">Name Desc</option>
-                            <option value="Price">Price</option>
-                            <option value="PriceDesc">Price Desc</option>
-                            
+                        <select >
+                            <option >Defualt</option>
+                            <option >Name</option>
+                            <option   >Name Desc</option>
+                            <option >Price</option>
+                            <option >Price Desc</option>
+
                         </select>
 
                         <!-- <div class="d-flex flex-nowrap align-items-center">
@@ -72,7 +73,7 @@
 
 
                                 <div  style="min-height:200px; max-height:250px;" class="text-center ">
-                                    <img  (click)="getProdDetails(item.prodectId)" style="min-width:200px; overflow:hidden; max-height:250px;" [src]="item.image">
+                                    <img  (click)="getProdDetails(item.id)" style="min-width:200px; overflow:hidden; max-height:250px;" [src]="item.image">
                                 </div>
 
                                 <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
@@ -84,7 +85,7 @@
                                             <mat-icon>add_shopping_cart</mat-icon>
                                         </button>
                                     </li>
-                                    <li class="mr-2 overflow-hidden"><button (click)="getProdDetails(item.prodectId)"
+                                    <li class="mr-2 overflow-hidden"><button (click)="getProdDetails(item.id)"
                                             mat-mini-fab color="primary">
                                             <mat-icon>visibility</mat-icon>
                                         </button>
@@ -92,7 +93,7 @@
 
                                 </ul>
                             </div>
-                            <div (click)="getProdDetails(item.prodectId)" class="text-center py-3 px-4">
+                            <div (click)="getProdDetails(item.id)" class="text-center py-3 px-4">
                                 <span class="title d-block mb-2"><a style="text-decoration: none;"
                                        >{{item.name}}</a></span>
                                 <span class="price d-block fwEbold"><del>{{item.price*1.1 | number:'1.2-2'}}
@@ -109,12 +110,12 @@
 <div class="card mb-3" *ngFor="let i of postList" >
     <div class="row no-gutters" >
       <div class="col-md-4">
-        <img  (click)="getProdDetails(i.prodectId)" [src]="i.image" >
+        <img  (click)="getProdDetails(i.id)" [src]="i.image" >
     </div>
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">{{i.name}}</h5>
-          <p class="card-text x">{{i.desce}}</p>
+          <p class="card-text x">{{i.description}}</p>
 
              <div class="py-3 px-4">
 
@@ -151,17 +152,9 @@
                 <section class="widget overflow-hidden mb-9">
                     <h3 class="headingVII fwEbold text-uppercase mb-5 " style="margin-top: 40px;">PRODUCT CATEGORIES
                     </h3>
-                    <ul class="list-unstyled categoryList mb-0" style="margin-top: 20px;">
-                        <li class="mb-4 overflow-hidden"><a style="text-decoration: none;">Dried <span
-                                    class="num border float-right">6</span></a></li>
-                        <li class="mb-4 overflow-hidden"><a style="text-decoration: none;">Vegetables <span
-                                    class="num border float-right">8</span></a></li>
-                        <li class="mb-4 overflow-hidden"><a style="text-decoration: none;">Fruits <span
-                                    class="num border float-right">9</span></a></li>
-                        <li class="mb-4 overflow-hidden"><a style="text-decoration: none;">Juice <span
-                                    class="num border float-right">6</span></a></li>
-                        <li class="overflow-hidden"><a style="text-decoration: none;">Uncategorized <span
-                                    class="num border float-right">1</span></a></li>
+                    <ul class="list-unstyled categoryList mb-0" style="margin-top: 20px;" *ngFor="let item of gatlist">
+                        <li  class="overflow-hidden"><a style="text-decoration: none;"
+                          >{{item.name}} </a></li>
                     </ul>
                 </section>
                 <!-- widget -->

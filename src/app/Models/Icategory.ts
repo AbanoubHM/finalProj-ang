@@ -1,6 +1,7 @@
-export enum CategoryType {
-  "electronics",
-  "jewelery",
-  "men's clothing",
-  "women's clothing"
+export interface Icategory {
+  "id": number,
+    "name": string,
+    "description": string,
+    "imageUrl":string,
+    "products": string
 }
