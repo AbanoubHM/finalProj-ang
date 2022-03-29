@@ -11,6 +11,7 @@ import { GategoryService } from 'src/app/Service/gategory.service';
 import { Icategory } from 'src/app/Models/Icategory';
 import { HttpParams } from '@angular/common/http';
 import { AuthService } from '@auth0/auth0-angular';
+import { MatChip, MatChipInputEvent } from '@angular/material/chips';
 
 @Component({
   selector: 'app-products',
@@ -99,13 +100,15 @@ export class ProductsComponent implements OnInit {
     this.listToggle = true;
   }
 
-  changeCat(id: any, i: number) {
-    this.activeCat = i;
+  changeCat(id: any, c: MatChip) {
+    //this.activeCat = i;
+    c.select();
     this.params = this.params.set('categoryid', id);
     this.postSrv.getProductsBySortName(this.params).subscribe((prods) => {
       this.postList = prods;
     });
   }
+
   onValueChanged(event: any) {
     this.params = this.params.set('sort', event);
 

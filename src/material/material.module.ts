@@ -13,10 +13,10 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatSelectModule} from '@angular/material/select';
-
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSelectModule } from '@angular/material/select';
+import { MatChipsModule } from '@angular/material/chips';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -36,18 +36,13 @@ const MaterialComponents = [
   MatTabsModule,
   MatSidenavModule,
   MatTooltipModule,
-  MatSelectModule
-
-
-]
+  MatSelectModule,
+  MatChipsModule,
+];
 
 @NgModule({
   declarations: [],
-  imports: [
-    MaterialComponents
-  ],
-  exports: [
-    MaterialComponents
-  ]
+  imports: [MaterialComponents],
+  exports: [MaterialComponents],
 })
-export class MaterialModule { }
+export class MaterialModule {}
