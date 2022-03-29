@@ -14,20 +14,21 @@
   position: sticky;
   top: 0;
   z-index: 1;
-
 }
-.menuItems{
-  background-color: rgb(255, 0, 0, 0.753)
+.menuItems {
+  background-color: rgb(255, 0, 0, 0.753);
 }
-#navmenu:hover
-{
-  color:#70b524;
+#navmenu:hover {
+  color: #70b524;
 }
-#navmenu
-{
-  border-bottom: .5px solid #70b524 ;
+#navmenu {
+  border-bottom: 0.5px solid #70b524;
 }
-#menu
-{
-  background-color:#70b524;
+#menu {
+  background-color: #70b524;
+}
+.fill-remaining-space {
+  /*This fills the remaining space, by using flexbox.  
+ Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
 }
