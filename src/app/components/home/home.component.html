@@ -12,32 +12,72 @@
    float: left; padding:1rem 3rem ;">Shop Now</a>
     </div>
     <div class="p-2">
-      <!-- <img src="/assets/styles/Mental health.gif"> -->
       <video autoplay muted loop id="myVideo">
         <source src="/assets/styles/video/Mental health.mp4" type="video/mp4">
       </video>
     </div>
   </div>
-
-
-
-  <!-- <h1>Welcome to our simple store</h1>
-  <ngb-carousel>
-    <ng-template ngbSlide *ngFor="let image of images">
-      <div class="wrapper">
-        <img class="w-100" [src]="image.src" alt="Random first slide">
-      </div>
-      <div class="carousel-caption">
-        <h3>{{ image.title }}</h3>
-        <p>{{ image.short }}</p>
-      </div>
-    </ng-template>
-  </ngb-carousel> -->
 </div>
-<!-- A website to display beautiful handmade products to benefit from valuable and beautiful gifts suitable for all ages and help all people to choose very beautiful gifts. We are here to display beautiful handmade work buried in many places to show it to all people to buy beautiful handmade products.
-     She has talents in making <span>products to showcase her talents to all people</span>
-    </div> -->
+
+
+
+
+<section>
+                 Product Categories On Focus
+  <div class="container">
+    <div *ngIf="listToggle" class="row">
+      <div class="col-md-4" *ngFor="let item of gatlist">
+        <!-- featureCol -->
+        <div matRipple class="border col-md-12" style="margin-top: 20px; cursor: pointer;">
+          <div class="imgHolder position-relative w-100 overflow-hidden ">
+            <div style="min-height:200px; max-height:250px;  " class="text-center bg-image hover-zoom ">
+              <img class="w-100" (click)="getProdDetails(item.id)"
+                style="height: 300px; object-fit: cover;" [src]="item.imageUrl">
+            </div>
+            <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
+              <li class="mr-2 overflow-hidden">
+                <button mat-button routerLink="/products" style="margin-right: 5px;"> <span id="shop" style="font-size: 1.5rem;">{{item.name}}</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+</section>
+
+
+
+
+
+
+
 <main class="mb-5">
+
+
+
+  <figure class="text-center">
+    <blockquote class="blockquote">
+      <p class="mb-0" style="font-size: 30px;">Start Selling Today</p>
+    </blockquote>
+    <figcaption class="blockquote-footer m-2" style="font-size:20px">
+      Thousands of Customers Around The Globe Are Waiting
+      to See What You Have in Stock
+    </figcaption>
+  </figure>
+  <div class="container my-3 ">
+    <div class="col-md-12 text-center">
+      <a [routerLink]="['/register']" class="btn btn-success" style="margin-top: 20px;">Become a vendor</a>
+    </div>
+  </div>
   <section class="chooseUs-sec container pt-xl-22 pt-lg-20 pt-md-16 pt-10 pb-xl-12 pb-md-7 pb-2">
     <!-- contactListBlock -->
     <div
@@ -86,36 +126,6 @@
       </div>
     </div>
   </section>
-
-
-  <figure class="text-center">
-    <blockquote class="blockquote">
-      <p class="mb-0" style="font-size: 30px;">Start Selling Today</p>
-    </blockquote>
-    <figcaption class="blockquote-footer m-2" style="font-size:20px">
-      Thousands of Customers Around The Globe Are Waiting
-      to See What You Have in Stock
-    </figcaption>
-  </figure>
-  <div class="container my-3 ">
-    <div class="col-md-12 text-center">
-      <a [routerLink]="['/register']" class="btn btn-success" style="margin-top: 20px;">Become a vendor</a>
-    </div>
-  </div>
-
-  <div class="container" id="shownom">
-    <div class="row">
-      <div class="col-sm-6">
-        <a [routerLink]="['/products']" class="btn btn-success" style="margin-left: 160px;
-               margin-top: 209px;">Shop Now</a>
-      </div>
-      <div class="col-sm-6 mt-5">
-        <a href="shop.html" class="w-100"><img src="assets/styles/images/home photo/ad1.jpg" alt="image description"
-            class="img-fluid"></a>
-      </div>
-
-    </div>
-  </div>
   <!-- dealSecHolder -->
   <section class="dealSecHolder container-fluid overflow-hidden py-xl-12 py-lg-10 py-md-8 py-5">
     <!-- mainHeader -->
@@ -130,6 +140,7 @@
   </section>
 
   <section>
+    Some of our product
     <div class="container">
       <div *ngIf="listToggle" class="row">
         <div class="col-md-4" *ngFor="let item of postList|slice: (page-1) * size : page * size ">
@@ -168,6 +179,5 @@
 
 
   </section>
-
 
 </main>
