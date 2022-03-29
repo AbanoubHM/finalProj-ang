@@ -20,17 +20,16 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatDividerModule} from '@angular/material/divider'
+import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { LogoutComponent } from './components/logout/logout.component'
+import { LogoutComponent } from './components/logout/logout.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
 
- import {AuthModule} from '@auth0/auth0-angular';
- import {MatStepperModule} from '@angular/material/stepper';
-
+import { AuthModule } from '@auth0/auth0-angular';
+import { MatStepperModule } from '@angular/material/stepper';
 
 import { DashbordNavComponent } from './components/dashbord-nav/dashbord-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -46,12 +45,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { OrdersTableComponent } from './components/orders-table/orders-table.component';
 import { OrdersComponent } from './components/orders/orders.component';
-import {MatSelectModule} from '@angular/material/select';
-
-
+import { MatSelectModule } from '@angular/material/select';
 
 const routes: Routes = [{ path: 'dashboard', component: DashComponent }];
-
 
 import { environment as env } from '../environments/environment';
 import { LoginButtonComponent } from './components/login-button/login-button.component';
@@ -63,8 +59,6 @@ import { CustomersComponent } from './customers/customers.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SortingPipe } from './pipes/sorting.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-
 
 @NgModule({
   exports: [RouterModule],
@@ -84,27 +78,22 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ToolbarComponent,
     LogoutComponent,
 
-
-
-
     FavoriteComponent,
 
     DashbordNavComponent,
     DashComponent,
     CardComponent,
-OrdersTableComponent,
-OrdersComponent,
-LoginButtonComponent,
-NavToLoginComponent,
-LogoutButtonComponent,
-LoadingComponent,
-MystoreComponent,
-CustomersComponent,
-ProfileComponent,
-FilterPipe,
-SortingPipe
-
-
+    OrdersTableComponent,
+    OrdersComponent,
+    LoginButtonComponent,
+    NavToLoginComponent,
+    LogoutButtonComponent,
+    LoadingComponent,
+    MystoreComponent,
+    CustomersComponent,
+    ProfileComponent,
+    FilterPipe,
+    SortingPipe,
   ],
   imports: [
     BrowserModule,
@@ -131,11 +120,11 @@ SortingPipe
     AuthModule.forRoot({
       ...env.auth,
     }),
-              NgbModule
+    NgbModule,
 
     // [RouterModule.forRoot(routes)MatTableModuleMatPaginatorModuleMatSortModule]
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
