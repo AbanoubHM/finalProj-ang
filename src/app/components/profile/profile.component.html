@@ -4,15 +4,9 @@
       <img [src]="user.picture" class="rounded-circle img-fluid profile-picture mb-3 mb-md-0" />
     </div>
     <div class="col-md">
-      <h2>{{ user.name }}</h2>
-      <p class="lead text-muted">{{ user.email }}</p>
+      <h1>Welcome {{ namefromdb[0] }} ....😎</h1>
     </div>
   </div>
-
-  <!-- صورة مكررة -->
-  <!-- <div class=" align-items-center">
-    <img [src]="user.picture" class="rounded-circle img-fluid profile-picture " />
-  </div> -->
 
   <form [formGroup]="updateProfile">
     <mat-form-field appearance="outline">
@@ -24,14 +18,8 @@
       <tr>
         <td>
           <mat-form-field appearance="outline">
-            <mat-label>First name</mat-label>
-            <input matInput formControlName="FirstName">
-          </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field appearance="outline">
-            <mat-label>Last Name</mat-label>
-            <input matInput formControlName="LastName">
+            <mat-label>Full Name</mat-label>
+            <input matInput formControlName="FirstName" [(ngModel)]="namefromdb[0]">
           </mat-form-field>
         </td>
       </tr>
@@ -40,56 +28,39 @@
 
       <mat-label>Phone</mat-label>
       <span matPrefix>+20 &nbsp; </span>
-      <input type="number" matInput formControlName="phone" placeholder="123-456-7890">
+      <input type="number" matInput formControlName="phone" [(ngModel)]="namefromdb[1]" placeholder="123-456-7890">
       <mat-icon matSuffix>phone</mat-icon>
 
     </mat-form-field>
     <br>
     <mat-form-field class="mb-3" appearance="outline">
 
-      <mat-label>Birthdate</mat-label>
-      <input matInput formControlName="birthdate" [matDatepicker]="picker">
-      <mat-datepicker-toggle matSuffix [for]="picker">
-        <mat-icon matDatepickerToggleIcon>cake</mat-icon>
-
-      </mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+      <mat-label>Age</mat-label>
+      <input placeholder="{{userDb.age}} Years Old 🎂" matInput formControlName="birthdate">
+        <mat-icon matSuffix>cake</mat-icon>
       <mat-error class="error-message" *ngIf="ff['birthdate'].hasError('required')">
-        Birthdate is Required
+        Age is Required
       </mat-error>
     </mat-form-field>
-    <p>
-      <mat-form-field appearance="outline">
-        <mat-label>Address</mat-label>
-        <textarea matInput placeholder="Ex. 100 Main St"></textarea>
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Address 2</mat-label>
-        <textarea matInput></textarea>
-      </mat-form-field>
-    </p>
-
     <table cellspacing="0">
       <tr>
         <td>
           <mat-form-field appearance="outline">
+            <mat-label>Address</mat-label>
+            <input  matInput formControlName="address" matInput placeholder="Ex. 11St khalafawy" [(ngModel)]="addressfromdb[0]">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field appearance="outline">
             <mat-label>City</mat-label>
-            <input matInput placeholder="Ex. San Francisco" [value]="userDb?.address">
+            <input  matInput formControlName="city" matInput placeholder="Ex. Cairo" [(ngModel)]="addressfromdb[1]">
           </mat-form-field>
         </td>
         <td>
           <mat-form-field appearance="outline">
             <mat-label>State</mat-label>
-            <input matInput placeholder="Ex. California">
+            <input  matInput formControlName="state" matInput placeholder="Ex. Shobra" [(ngModel)]="addressfromdb[2]">
           </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field appearance="outline">
-            <mat-label>Postal Code</mat-label>
-            <input matInput #postalCode maxlength="5" placeholder="Ex. 94105">
-            <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
-          </mat-form-field>
-          <br>
         </td>
       </tr>
     </table>
