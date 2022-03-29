@@ -28,7 +28,7 @@ export class ProductsComponent implements OnInit {
   shows: boolean = false;
   SortbyParam = '';
   SortDirection = 'asc';
-
+  searchvalues = '';
   SearchName = '';
   sortname: IProduct[] = [];
   typeselect: any;
@@ -106,6 +106,22 @@ export class ProductsComponent implements OnInit {
       this.postList = prods;
     });
   }
+  onKey(event: any) {
+    this.searchvalues = event.target.value;
+    try {
+      this.params = this.params.set('search', this.searchvalues);
+      this.postSrv.getProductsBySortName(this.params).subscribe((prods) => {
+        this.postList = prods;
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    this.params = this.params.set('search', this.searchvalues);
+    this.postSrv.getProductsBySortName(this.params).subscribe((prods) => {
+      this.postList = prods;
+    });
+  }
+
   onValueChanged(event: any) {
     this.params = this.params.set('sort', event);
 

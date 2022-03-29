@@ -40,20 +40,6 @@
                             </mat-select>
                         </mat-form-field>
 
-                        <!-- <div class="d-flex flex-nowrap align-items-center">
-                            <strong class="groupTitle mr-2">Sort by:</strong>
-                            <div class="dropdown">
-                                <button class="dropdown-toggle buttonReset" type="button" id="sortGroup"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Default
-                                    sorting</button>
-                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="sortGroup">
-                                    <li><a style="text-decoration: none;">Name </a></li>
-                                    <li><a style="text-decoration: none;">Nmae A</a></li>
-                                    <li><a style="text-decoration: none;">Default Order</a></li>
-                                    <li><a style="text-decoration: none;">Default Order</a></li>
-                                </ul>
-                            </div>
-                        </div> -->
                     </div>
                 </header>
 
@@ -137,15 +123,15 @@
 
             </article>
         </div>
-        <div class="col-12 col-lg-3 order-lg-1">
+        <div class="col-3 col-lg-3 order-lg-1">
             <!-- sidebar -->
             <aside id="sidebar">
                 <!-- widget -->
                 <section class="widget overflow-hidden mb-9">
                     <form action="javascript:void(0);" class="searchForm position-relative border">
                         <fieldset>
-                            <input style="box-shadow: 0 0 0 ;" type="search" class="form-control"
-                                placeholder="Search product...">
+                            <input style="box-shadow: 0 0 0 ;" (keyup)="onKey($event)" type="search" class="form-control"
+                                placeholder="Search">
                             <button class="position-absolute"><i class="icon-search"></i></button>
                         </fieldset>
                     </form>
@@ -154,8 +140,8 @@
                 <section class="widget overflow-hidden mb-9">
                     <h3 class="headingVII fwEbold text-uppercase mb-5 " style="margin-top: 40px;">PRODUCT CATEGORIES
                     </h3>
-                    <div [class.active]="activeCat === i" class="mt-2" *ngFor="let item of gatlist; let i= index;">
-                        <button disableRipple="true" mat-button (click)="changeCat(item.id,i)">{{item.name}}
+                    <div class="example-button-row" *ngFor="let item of gatlist; let i= index;">
+                        <button [class.active]="activeCat === i"  disableRipple="true" mat-button (click)="changeCat(item.id,i)">{{item.name}}
                         </button>
                     </div>
                 </section>
