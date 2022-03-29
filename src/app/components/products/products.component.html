@@ -50,10 +50,25 @@
                         <div style="text-align: center; " *ngIf="!postList" class="col-md-4">
                             <mat-spinner></mat-spinner>
                         </div>
-                        <!-- |filter:'te``  1 st':'city'|sorting:[SortByParam,'desc'] -->
                         <div class="col-md-4" *ngFor="let item of postList ">
                             <!-- featureCol -->
-                            <div matRipple class="border col-md-12" style="margin-top: 20px; cursor: pointer;">
+                            <div class=" h-100">
+                                <mat-card class="example-card my-2 ">
+                                    <img mat-card-image [src]="item.image">
+                                    <mat-card-content>
+                                        <mat-card-title>{{item.name}}</mat-card-title>
+
+                                        <p class="text-center">
+                                            {{item.price|currency}}
+                                        </p>
+                                    </mat-card-content>
+                                    <mat-card-actions>
+                                        <button mat-button>LIKE</button>
+                                        <button mat-button>SHARE</button>
+                                    </mat-card-actions>
+                                </mat-card>
+                            </div>
+                            <!-- <div matRipple class="border col-md-12" style="margin-top: 20px; cursor: pointer;">
                                 <div class="imgHolder position-relative w-100 overflow-hidden ">
                                     <div style="min-height:200px; max-height:250px;" class="text-center ">
                                         <img (click)="getProdDetails(item.id)"
@@ -86,7 +101,7 @@
                                             *ngIf="item.saleValue">{{item.price+item.saleValue | number:'1.2-2'}}
                                             $</del>{{item.price}} $</span>
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div>
 
@@ -140,10 +155,18 @@
                 <section class="widget overflow-hidden mb-9">
                     <h3 class="headingVII fwEbold text-uppercase mb-5 " style="margin-top: 40px;">PRODUCT CATEGORIES
                     </h3>
-                    <div class="example-button-row" *ngFor="let item of gatlist; let i= index;">
-                        <button [class.active]="activeCat === i"  disableRipple="true" mat-button (click)="changeCat(item.id,i)">{{item.name}}
+
+                    <mat-chip-list selectable>
+                        <mat-chip #c="matChip" (click)="changeCat(Cat.id ,c)"
+                            *ngFor="let Cat of gatlist; let i= index;">
+
+                            {{Cat.name}}
+                        </mat-chip>
+                    </mat-chip-list>
+                    <!-- <div [class.active]="activeCat === i" class="mt-2" *ngFor="let item of gatlist; let i= index;">
+                        <button disableRipple="true" mat-button (click)="changeCat(item.id,i)">{{item.name}}
                         </button>
-                    </div>
+                    </div> -->
                 </section>
                 <!-- widget -->
 
