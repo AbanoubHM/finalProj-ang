@@ -31,27 +31,27 @@ export class ProfileComponent implements OnInit {
     private fb: FormBuilder
   ) {}
   updateProfile: FormGroup = this.fb.group({
-    FirstName: [''],
+    FirstName: [this.userDb.name],
     LastName: [''],
-    phone: [
-      '',
-      [
-        Validators.minLength(10),
-        Validators.maxLength(11),
-        Validators.pattern('^[0-9]+$'),
-      ],
-    ],
-    birthdate: [Date.now()],
+    phone: ['', [Validators.minLength(10), Validators.maxLength(11)]],
+    birthdate:[''],
     address: [''],
+    city: [''],
+    state: [''],
   });
+
+namefromdb: string [] = [];
+addressfromdb: string [] = [];
 
   ngOnInit(): void {
     this.authService.user$.subscribe((profile) => {
       this.profileJson = JSON.stringify(profile, null, 2);
-      console.log(profile);
+      // console.log(profile);
       this.profServ.getClientData(profile?.sub).subscribe((data) => {
         this.userDb = data;
-        console.log(this.authService);
+        this.namefromdb = this.userDb.name.split(';');
+        this.addressfromdb = this.userDb.address.split(';');        
+        // console.log(this.authService);
       });
     });
   }
@@ -59,16 +59,17 @@ export class ProfileComponent implements OnInit {
     return this.updateProfile.controls;
   }
   sendToDb() {
-    this.userDb.name = `${this.ff['FirstName'].value} ${this.ff['LastName'].value}`;
-    this.userDb.address = this.ff['address'].value;
-    this.userDb.age = 2022 - this.ff['birthdate'].value.getFullYear();
-    console.log(this.userDb);
-    //console.log(this.updateProfile.value);
-    // this.profServ
-    //   .updateClientData(this.userDb.id, this.userDb)
-    //   .subscribe((dat) => {
-    //     console.log(dat);
-    //   });
+    this.userDb.name = `${this.ff['FirstName'].value};${this.ff['phone'].value}`;
+    this.userDb.address = `${this.ff['address'].value};${this.ff['city'].value};${this.ff['state'].value}`;
+    console.log(this.userDb.name);
+    console.log(this.userDb.address);
+    
+    this.userDb.age =this.ff['birthdate'].value;
+    this.profServ
+      .updateClientData(this.userDb.id, this.userDb)
+      .subscribe((dat) => {
+        console.log(dat);
+      });
   }
 
   onHighlight() {}
