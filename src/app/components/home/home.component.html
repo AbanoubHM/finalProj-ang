@@ -1,5 +1,27 @@
-<div class="container " id="abouttext" >
-  <h1>Welcome to our simple store</h1>
+<div class="container">
+
+  <div class="d-flex">
+
+
+    <div class="p-10 flex-grow-1 ">
+      <p class="pa"> <span class="HandSpan text-success">HandMade</span> is the first platform for buying and selling
+        hand
+        crafts. We create a link between the product of your dreams
+        found the best quality and the most appropriate price.</p>
+      <a [routerLink]="['/products']" class="btn btn-outline-success " style="margin-left: 160px;
+   float: left; padding:1rem 3rem ;">Shop Now</a>
+    </div>
+    <div class="p-2">
+      <!-- <img src="/assets/styles/Mental health.gif"> -->
+      <video autoplay muted loop id="myVideo">
+        <source src="/assets/styles/video/Mental health.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+
+
+  <!-- <h1>Welcome to our simple store</h1>
   <ngb-carousel>
     <ng-template ngbSlide *ngFor="let image of images">
       <div class="wrapper">
@@ -10,12 +32,12 @@
         <p>{{ image.short }}</p>
       </div>
     </ng-template>
-  </ngb-carousel>
+  </ngb-carousel> -->
 </div>
 <!-- A website to display beautiful handmade products to benefit from valuable and beautiful gifts suitable for all ages and help all people to choose very beautiful gifts. We are here to display beautiful handmade work buried in many places to show it to all people to buy beautiful handmade products.
      She has talents in making <span>products to showcase her talents to all people</span>
     </div> -->
-<main class="mb-5" style="margin-top: 500px;">
+<main class="mb-5">
   <section class="chooseUs-sec container pt-xl-22 pt-lg-20 pt-md-16 pt-10 pb-xl-12 pb-md-7 pb-2">
     <!-- contactListBlock -->
     <div
@@ -115,8 +137,8 @@
           <div matRipple class="border col-md-12" style="margin-top: 20px; cursor: pointer;">
             <div class="imgHolder position-relative w-100 overflow-hidden ">
               <div style="min-height:200px; max-height:250px;" class="text-center ">
-                <img class="w-100" (click)="getProdDetails(item.id)" style="min-width:200px; overflow:hidden; max-height:250px;"
-                  [src]="item.image">
+                <img class="w-100" (click)="getProdDetails(item.id)"
+                  style="min-width:200px; overflow:hidden; max-height:250px;" [src]="item.image">
               </div>
               <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
                 <li class="mr-2 overflow-hidden">
@@ -129,17 +151,12 @@
           </div>
 
         </div>
-        <div class="col-md-8 mx-auto" style="margin-top: 30px;" >
+        <div class="col-md-8 mx-auto" style="margin-top: 30px;">
           <div class="row">
             <div class="col-md-9" style="padding-left: 30%">
-                <ngb-pagination 
-                                showFirstLastButtons
-                                [(page)]="page"
-                                [pageSize]="size"
-                                [collectionSize]="postList.length"
-                                [boundaryLinks]="true"
-                                (pageChange)="Done()">
-                </ngb-pagination>
+              <ngb-pagination showFirstLastButtons [(page)]="page" [pageSize]="size" [collectionSize]="postList.length"
+                [boundaryLinks]="true" (pageChange)="Done()">
+              </ngb-pagination>
             </div>
           </div>
         </div>
