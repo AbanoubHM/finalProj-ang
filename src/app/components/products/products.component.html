@@ -53,19 +53,35 @@
                         <div class="col-md-4" *ngFor="let item of postList ">
                             <!-- featureCol -->
                             <div class=" h-100" style="display: flex;align-items: stretch;">
-                                <mat-card class="example-card my-2 ">
-                                    
-                                    <img class="card-img-top" class="img-responive image-resize" mat-card-image [src]="item.image">
+                                <mat-card class="example-card my-2 " style="width: 400px;">
+
+                                    <img class="card-img-top " style="height: 200px;"  mat-card-image [src]="item.image" (click)="getProdDetails(item.id)">
                                     <mat-card-content >
-                                        <mat-card-title>{{item.name}}</mat-card-title>
+                                        <mat-card-title style="text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 15px;">{{item.name}}</mat-card-title>
 
                                         <p class="text-center">
-                                            {{item.price|currency}}
+                                            <!-- {{item.price|currency}} -->
+                                            <span class="price d-block fwEbold"><del  *ngIf="item.saleValue">{{item.price+&nbsp;+item.saleValue | number:'1.2-2'}}
+                                              $</del> &nbsp;&nbsp;&nbsp;{{item.price}} $</span>
                                         </p>
                                     </mat-card-content>
                                     <mat-card-actions>
-                                        <button mat-button>LIKE</button>
-                                        <button mat-button>SHARE</button>
+                                      <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0"   *ngIf="(auth.isAuthenticated$|async)">
+                                        <li class="mr-2 overflow-hidden"><button (click)=addtofavorite(item) mat-mini-fab color="primary">
+                                                <mat-icon>favorite_border</mat-icon>
+                                            </button></li>
+                                        <li class="mr-2 overflow-hidden"><button (click)=addtocart(item) mat-mini-fab
+                                                color="primary">
+                                                <mat-icon>add_shopping_cart</mat-icon>
+                                            </button>
+                                        </li>
+                                        <li class="mr-2 overflow-hidden"><button (click)="getProdDetails(item.id)"
+                                                mat-mini-fab color="primary">
+                                                <mat-icon>visibility</mat-icon>
+                                            </button>
+                                        </li>
+
+                                    </ul>
                                     </mat-card-actions>
                                 </mat-card>
                             </div>
