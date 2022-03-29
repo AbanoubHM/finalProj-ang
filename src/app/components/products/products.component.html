@@ -45,17 +45,18 @@
 
 
                 <!-- Grid  -->
-                <div class="container">
-                    <div *ngIf="listToggle" class="row">
+                <div class="container" >
+                    <div *ngIf="listToggle" class="row " >
                         <div style="text-align: center; " *ngIf="!postList" class="col-md-4">
                             <mat-spinner></mat-spinner>
                         </div>
                         <div class="col-md-4" *ngFor="let item of postList ">
                             <!-- featureCol -->
-                            <div class=" h-100">
+                            <div class=" h-100" style="display: flex;align-items: stretch;">
                                 <mat-card class="example-card my-2 ">
-                                    <img mat-card-image [src]="item.image">
-                                    <mat-card-content>
+                                    
+                                    <img class="card-img-top" class="img-responive image-resize" mat-card-image [src]="item.image">
+                                    <mat-card-content >
                                         <mat-card-title>{{item.name}}</mat-card-title>
 
                                         <p class="text-center">

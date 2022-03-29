@@ -132,7 +132,9 @@
         <div class="col-md-8 mx-auto" style="margin-top: 30px;" >
           <div class="row">
             <div class="col-md-9" style="padding-left: 30%">
-                <ngb-pagination  [(page)]="page"
+                <ngb-pagination 
+                                showFirstLastButtons
+                                [(page)]="page"
                                 [pageSize]="size"
                                 [collectionSize]="postList.length"
                                 [boundaryLinks]="true"

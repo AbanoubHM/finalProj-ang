@@ -138,3 +138,8 @@
 background-color: #70b524;
 border-radius: 10%;
 }
+.image-resize{
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
