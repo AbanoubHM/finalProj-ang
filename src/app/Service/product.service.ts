@@ -4,50 +4,41 @@ import { IProduct } from '../components/Models/iproduct';
 import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
-  private _url:string="https://handmadeapi.azurewebsites.net/api/Products"
-  constructor(private http:HttpClient) { }
+  private _url: string = 'https://handmadeapi.azurewebsites.net/api/Products';
+  constructor(private http: HttpClient) {}
 
- 
-  getAllPosts(): Observable<IProduct[]>{
-
-    return this.http.get<IProduct[]>(this._url).pipe(catchError((err) => {
-
-      return throwError(err.message || "Server Error")
-
-    }))
+  getAllPosts(): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(this._url).pipe(
+      catchError((err) => {
+        return throwError(err.message || 'Server Error');
+      })
+    );
   }
-  getProductsBySortName(filters:string):Observable<IProduct>{
-    let myparams=new HttpParams();
-    myparams=myparams.set("sort",filters)
-    return this.http.get<IProduct>("https://handmadeapi.azurewebsites.net/api/Products/",{ params:myparams}).pipe(catchError((err)=>{
-      return throwError(err.message||"Server Error")
-    }))
+  getProductsBySortName(filters: HttpParams): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(this._url, { params: filters }).pipe(
+      catchError((err) => {
+        return throwError(err.message || 'Server Error');
+      })
+    );
   }
-  getProductsBySortNameD(){
-    let myparams=new HttpParams();
-    myparams=myparams.set("sort","ND")
-    return this.http.get<IProduct>("https://handmadeapi.azurewebsites.net/api/Products",{ params:myparams}).pipe(catchError((err)=>{
-      return throwError(err.message||"Server Error")
-    }))
-  }
-  getProductById(prodId:number):Observable<IProduct>{
-    return this.http.get<IProduct>(`${this._url}/${prodId}`).pipe(catchError((err)=>{
-      return throwError(err.message||"Server Error")
-    }))
+
+  getProductById(prodId: number): Observable<IProduct> {
+    return this.http.get<IProduct>(`${this._url}/${prodId}`).pipe(
+      catchError((err) => {
+        return throwError(err.message || 'Server Error');
+      })
+    );
   }
   deleteProduct(categoryId: number, productId: number) {
-
-      const urlById = `${this._url}/${categoryId}/products/${productId}`;
-      return this.http.delete<void>(urlById);
+    const urlById = `${this._url}/${categoryId}/products/${productId}`;
+    return this.http.delete<void>(urlById);
   }
 
   addProduct(categoryId: number, createProductDto: any): Observable<void> {
-
-      const urlById = `${this._url}/${categoryId}/products`;
-      return this.http.post<void>(urlById, createProductDto);
-
-}
+    const urlById = `${this._url}/${categoryId}/products`;
+    return this.http.post<void>(urlById, createProductDto);
+  }
 }
