@@ -16,7 +16,7 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { MystoreComponent } from './components/mystore/mystore.component';
 import { CustomersComponent } from './customers/customers.component';
 import { ProfileComponent } from './components/profile/profile.component';
-
+import {AuthGuard} from '@auth0/auth0-angular';
 
 
 
@@ -25,21 +25,21 @@ const routes: Routes = [
 
   {path:'',component:HomeComponent},
   {path:'home' , component:HomeComponent},
-  {path:'login',component:LoginComponent},
-  {path:'register',component:RegisterComponent},
-  {path:'cart',component:CartsComponent},
+  {path:'login',component:LoginComponent,canActivate: [AuthGuard]},
+  {path:'register',component:RegisterComponent,canActivate: [AuthGuard]},
+  {path:'cart',component:CartsComponent,canActivate: [AuthGuard]},
 
-  {path: 'MyProfile',component: ProfileComponent},
+  {path: 'MyProfile',component: ProfileComponent,canActivate: [AuthGuard]},
   {path:'logout',component:LogoutComponent},
 
-  {path:'favorite' , component:FavoriteComponent},
-  {path:'AddProduct' , component:OrdersComponent},
+  {path:'favorite' , component:FavoriteComponent,canActivate: [AuthGuard]},
+  {path:'AddProduct' , component:OrdersComponent,canActivate: [AuthGuard]},
   { path: 'products', component: ProductsComponent },
   { path: 'about', component: AboutComponent },
   {path:'contact' , component:ContactComponent},
   { path: 'products/:id', component: ProductDetailsComponent },
-  { path: 'MyStore', component: MystoreComponent },
-  {path:'customers' , component:CustomersComponent},
+  { path: 'MyStore', component: MystoreComponent,canActivate: [AuthGuard] },
+  {path:'customers' , component:CustomersComponent,canActivate: [AuthGuard]},
 
   { path: '**', component: ErrorComponent }
 
