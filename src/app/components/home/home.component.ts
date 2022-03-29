@@ -38,9 +38,7 @@ export class HomeComponent implements OnInit {
     {title: 'Second Slide', short: 'we are with you and help you choose your gift and', src: "https://picsum.photos/id/1011/900/500"},
     {title: 'Third Slide', short: 'will make it for you with love', src: "https://picsum.photos/id/984/900/500"}
   ];
-   
-  page: number = 1; 
-  size: number = 9;
+  
   // numElement: number = 10;
 
   constructor( config: NgbCarouselConfig, private gat:GategoryService,private custom:CustomersService,private activatedRoute:ActivatedRoute,private postSrv:ProductService,private router:Router ,private cartService: CartService,private favoriteService : FavoriteService, private snakeBar: MatSnackBar) {
@@ -49,11 +47,15 @@ export class HomeComponent implements OnInit {
     config.pauseOnHover = true;
   }
 
-
+  length:any;
+  page: number = 1; 
+  size: number = 9;
   ngOnInit(): void {
     this.postSrv.getAllPosts().subscribe(postData=>{
       this.postList=postData
+      this.length=postData.length;
       console.log(this.postList)
+     
     })
     this.gat.getAllGatogaries().subscribe(gatilist => {
 
