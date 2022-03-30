@@ -1,3 +1,5 @@
+
+
 <div class="container">
 
   <div class="d-flex">
@@ -5,18 +7,19 @@
 
     <div class="p-10 flex-grow-1 ">
 
-      <p class="pa"> <span class="HandSpan text-success">HandMade</span> is the first platform for buying  <br> and selling
-        hand
+      <p class="pa"> <span class="HandSpan text-success ">HandMade</span>
+        is the first platform for buying and sellinghand
         crafts. We create a link between the product of your dreams
         found the best quality and the most appropriate price.</p>
-      <a [routerLink]="['/products']" class="btn btn-outline-success " style="margin-left: 160px;
-   float: left; padding:0.5rem 2.2rem ;">Shop Now</a>
+      
+        <a [routerLink]="['/products']" class="btn btn-outline-success" style="margin-left: 160px;
+    padding:0.5rem 2.2rem ;">Shop Now</a>
+      
     </div>
 
     <div class="p-2">
-      <video autoplay muted  id="myVideo">
-
-        <source src="/assets/styles/video/Mental health.mp4" type="video/mp4">
+      <video autoplay muted  width="650" id="myVideo">
+        <source src="/assets/styles/video/Hand sewing (1).mp4" type="video/mp4">
       </video>
     </div>
   </div>
@@ -26,7 +29,7 @@
 
 
 <section>
-               <div class="pp1"> Product Categories On Focus </div>
+  <div class="pp1"> Product Categories On Focus </div>
   <div class="container">
     <div *ngIf="listToggle" class="row">
       <div class="col-md-4" *ngFor="let item of gatlist">
@@ -34,12 +37,13 @@
         <div matRipple class="border col-md-12" style="margin-top: 20px; cursor: pointer;">
           <div class="imgHolder position-relative w-100 overflow-hidden ">
             <div style="min-height:200px; max-height:250px;  " class="text-center bg-image hover-zoom ">
-              <img class="w-100"  *ngFor="let item1 of postList"(click)="get_Pro_Cat(item1.id)"
+              <img class="w-100" *ngFor="let item1 of postList" (click)="get_Pro_Cat(item1.id)"
                 style="height: 300px; object-fit: cover;" [src]="item.imageUrl">
             </div>
             <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
               <li class="mr-2 overflow-hidden">
-                <button mat-button routerLink="/products" style="margin-right: 5px;"> <span id="shop" style="font-size: 1.5rem;">{{item.name}}</span>
+                <button mat-button routerLink="/products" style="margin-right: 5px;"> <span id="shop"
+                    style="font-size: 1.5rem;">{{item.name}}</span>
                 </button>
               </li>
             </ul>
@@ -69,7 +73,7 @@
 
   <figure class="text-center">
     <blockquote class="blockquote">
-      <p class="pp4" >Start Selling Today</p>
+      <p class="pp4">Start Selling Today</p>
     </blockquote>
     <figcaption class="blockquote-footer m-2" style="font-size:20px">
       Thousands of Customers Around The Globe Are Waiting
@@ -143,7 +147,7 @@
   </section>
 
   <section>
-   <div class="pppp3">Some of our product</div>
+    <div class="pppp3">Some of our product</div>
     <div class="container">
       <div *ngIf="listToggle" class="row">
         <div class="col-md-4" *ngFor="let item of postList|slice: (page-1) * size : page * size ">
@@ -182,5 +186,15 @@
 
 
   </section>
+  <ngx-scrolltop
+  [size]="40"
+  backgroundColor="#33691e"
+  symbolColor="#fff"
+  symbol="↑"
+  mode="classic" 
+  position="right"
+  theme="pink" 
+>
+</ngx-scrolltop>
 
 </main>

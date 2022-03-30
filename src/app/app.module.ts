@@ -60,7 +60,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SortingPipe } from './pipes/sorting.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CategoryDetailsComponent } from './components/category-details/category-details.component';
-
+import { NgxScrollTopModule } from 'ngx-scrolltop';
 @NgModule({
   exports: [RouterModule],
   declarations: [
@@ -118,6 +118,7 @@ import { CategoryDetailsComponent } from './components/category-details/category
     MatStepperModule,
     MatCardModule,
     MatSelectModule,
+    NgxScrollTopModule,
 
     AuthModule.forRoot({
       ...env.auth,
