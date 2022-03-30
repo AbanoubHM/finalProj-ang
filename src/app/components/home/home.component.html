@@ -34,7 +34,7 @@
         <div matRipple class="border col-md-12" style="margin-top: 20px; cursor: pointer;">
           <div class="imgHolder position-relative w-100 overflow-hidden ">
             <div style="min-height:200px; max-height:250px;  " class="text-center bg-image hover-zoom ">
-              <img class="w-100"  *ngFor="let item1 of postList"(click)="getProdDetails(item1.id)"
+              <img class="w-100"  *ngFor="let item1 of postList"(click)="get_Pro_Cat(item1.id)"
                 style="height: 300px; object-fit: cover;" [src]="item.imageUrl">
             </div>
             <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">

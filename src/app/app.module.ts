@@ -59,6 +59,7 @@ import { CustomersComponent } from './customers/customers.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SortingPipe } from './pipes/sorting.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CategoryDetailsComponent } from './components/category-details/category-details.component';
 
 @NgModule({
   exports: [RouterModule],
@@ -94,6 +95,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProfileComponent,
     FilterPipe,
     SortingPipe,
+    CategoryDetailsComponent,
   ],
   imports: [
     BrowserModule,
