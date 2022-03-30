@@ -51,13 +51,13 @@ export class ProductsComponent implements OnInit {
     private router: Router,
     private cartService: CartService,
     private FavoriteService: FavoriteService,
-    private snakeBar: MatSnackBar
+    private snakeBar: MatSnackBar,
+    private activateroute:ActivatedRoute
   ) {
     this.show=false
   }
   ngOnInit(): void {
     // this.postSrv.getProductsBySortName();
-
     this.gat.getAllGatogaries().subscribe((gatilist) => {
       this.gatlist = gatilist;
     });

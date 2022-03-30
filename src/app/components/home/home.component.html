@@ -4,7 +4,7 @@
 
 
     <div class="p-10 flex-grow-1 ">
-      <p class="pa"> <span class="HandSpan text-success">HandMade</span> is the first platform for buying and selling
+      <p class="pa"> <span class="HandSpan text-success">HandMade</span> is the first platform for buying  <br> and selling
         hand
         crafts. We create a link between the product of your dreams
         found the best quality and the most appropriate price.</p>
@@ -23,7 +23,7 @@
 
 
 <section>
-                 Product Categories On Focus
+               <div class="pp1"> Product Categories On Focus </div>
   <div class="container">
     <div *ngIf="listToggle" class="row">
       <div class="col-md-4" *ngFor="let item of gatlist">
@@ -31,7 +31,7 @@
         <div matRipple class="border col-md-12" style="margin-top: 20px; cursor: pointer;">
           <div class="imgHolder position-relative w-100 overflow-hidden ">
             <div style="min-height:200px; max-height:250px;  " class="text-center bg-image hover-zoom ">
-              <img class="w-100" (click)="getProdDetails(item.id)"
+              <img class="w-100"  *ngFor="let item1 of postList"(click)="getProdDetails(item1.id)"
                 style="height: 300px; object-fit: cover;" [src]="item.imageUrl">
             </div>
             <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
@@ -66,7 +66,7 @@
 
   <figure class="text-center">
     <blockquote class="blockquote">
-      <p class="mb-0" style="font-size: 30px;">Start Selling Today</p>
+      <p class="pp4" >Start Selling Today</p>
     </blockquote>
     <figcaption class="blockquote-footer m-2" style="font-size:20px">
       Thousands of Customers Around The Globe Are Waiting
@@ -140,7 +140,7 @@
   </section>
 
   <section>
-    Some of our product
+   <div class="pppp3">Some of our product</div>
     <div class="container">
       <div *ngIf="listToggle" class="row">
         <div class="col-md-4" *ngFor="let item of postList|slice: (page-1) * size : page * size ">

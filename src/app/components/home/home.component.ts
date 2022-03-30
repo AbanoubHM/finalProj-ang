@@ -65,6 +65,9 @@ export class HomeComponent implements OnInit {
 
 
   }
+  getProdDetails1(id:number) {
+    this.router.navigate(["products/"+id],{relativeTo:this.activatedRoute})
+  }
   getProdDetails(id:number){
     this.router.navigate(["products/"+id],{relativeTo:this.activatedRoute.parent})
 
