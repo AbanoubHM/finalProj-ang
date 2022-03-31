@@ -5,22 +5,34 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class FavoriteService {
-  public favoriteItemList : any =[]
+  public x: any = localStorage.getItem('test');
+  public favoriteItemList: any = JSON.parse(this.x);
+
   public productList = new BehaviorSubject<any>([])
+
+
+
   constructor() { }
   getProducts(){
     return this.productList.asObservable();
+
   }
-  setProduct(product : any){
+  setProduct(product: any) {
+
     this.favoriteItemList.push(...product);
     this.productList.next(product);
   }
-  addtofavorite(product : any){
+  addtofavorite(product: any) {
+
     this.favoriteItemList.push(product);
     this.productList.next(this.favoriteItemList);
-    localStorage.setItem('myData', product)
+    localStorage.setItem('myData', product);
+    localStorage.setItem('test', JSON.stringify(this.favoriteItemList))
     this.getTotalPrice();
+    var  x :any = localStorage.getItem('test')
     console.log(this.favoriteItemList)
+    console.log(JSON.parse(x))
+
   }
   getTotalPrice() : number{
     let grandTotal = 0;

@@ -13,11 +13,16 @@ import { StoreService } from 'src/app/Service/store.service';
   styleUrls: ['./orders.component.scss']
 })
 export class OrdersComponent implements OnInit {
-  constructor(private gat : GategoryService,private fb:FormBuilder , private publishstore:PublishstoreService ,private snakeBar: MatSnackBar , private store : StoreService ) { }
+  constructor(private gat: GategoryService,
+    private fb: FormBuilder,
+    private publishstore: PublishstoreService,
+    private snakeBar: MatSnackBar,
+    private store: StoreService) { }
   postList?: PublishProduct[]
   numberofposts: number = 0;
   errMsg: string = '';
   gatlist: Icategory[] = [];
+  gategoryid: any;
 
   // isLinear = false;
   // firstFormGroup?: FormGroup;
@@ -40,11 +45,13 @@ export class OrdersComponent implements OnInit {
     // address:['']
   })
   ngOnInit(): void {
+
+    this.gategoryid=this.gatlist.find(x=>x.id)
     this.gat.getAllGatogaries().subscribe(gatilist => {
 
       this.gatlist=gatilist
     })
-    
+
     this.store.getAllVendorStore().subscribe(postData=>{
       this.postList=postData
       console.log(this.postList)
@@ -76,12 +83,11 @@ export class OrdersComponent implements OnInit {
   uploadfile(event : any) {
     console.log(event.target.files[0])
     this.ff['image']=event.target.files[0]
-
-
   }
 
 
-  submitForm(item: any){
+  submitForm(item: any) {
+    this.store.addProduct(this.gategoryid, item)
     console.log(this.ordersForm);
     this.publishstore.addtostore(item)
     this.snakeBar.open("Added","", {duration:1000, panelClass:["bg-success","text-center"]})

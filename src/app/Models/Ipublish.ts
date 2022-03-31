@@ -14,7 +14,6 @@ export interface PublishProduct {
   saleValue: number;
   quantity: number;
   preparationDays: number;
-  CacategoryID: number;
-  storeID:Number
+  categoryID: number;
 }
 

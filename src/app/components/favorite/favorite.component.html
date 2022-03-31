@@ -51,6 +51,7 @@
 
                               </td>
                           </tr>
+
                           <tr>
                               <td colspan="1"></td>
                               <td><button (click)="emptycart()" mat-raised-button color="warn">Empty favorite</button>
@@ -59,11 +60,13 @@
                           </tr>
                       </tbody>
                   </table>
+
               </div>
           </div>
       </div>
   </ng-container>
   <ng-container *ngIf="!products.length">
+    
       <div class="mt-3" style="text-align: center;">
           <h3> your favorite is empty</h3>
       </div>

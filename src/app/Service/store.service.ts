@@ -23,6 +23,9 @@ export class StoreService {
     }))
   }
 
-
+  addProduct(categoryId: number, createProductDto: any): Observable<PublishProduct> {
+    const urlById = `${this._url}/${categoryId}`;
+    return this.http.post<PublishProduct>(urlById, createProductDto);
+  }
 
 }
