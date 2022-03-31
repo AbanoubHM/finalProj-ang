@@ -19,6 +19,7 @@ import { MatChip, MatChipInputEvent } from '@angular/material/chips';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
+  show: boolean;
   postList: IProduct[] = [];
   gatlist: Icategory[] = [];
   public productsArray: IProduct[] = [];
@@ -26,7 +27,6 @@ export class ProductsComponent implements OnInit {
   errMsg: string = '';
   listToggle: boolean = true;
   numberOfProducts: number = 0;
-  shows: boolean = false;
   SortbyParam = '';
   SortDirection = 'asc';
   searchvalues = '';
@@ -51,11 +51,13 @@ export class ProductsComponent implements OnInit {
     private router: Router,
     private cartService: CartService,
     private FavoriteService: FavoriteService,
-    private snakeBar: MatSnackBar
-  ) {}
+    private snakeBar: MatSnackBar,
+    private activateroute:ActivatedRoute
+  ) {
+    this.show=false
+  }
   ngOnInit(): void {
     // this.postSrv.getProductsBySortName();
-
     this.gat.getAllGatogaries().subscribe((gatilist) => {
       this.gatlist = gatilist;
     });
@@ -92,7 +94,10 @@ export class ProductsComponent implements OnInit {
       panelClass: ['bg-success', 'text-center'],
     });
   }
+  showitem() {
+    this.show=!this.show
 
+  }
   toggleList() {
     this.listToggle = false;
   }

@@ -1,5 +1,5 @@
 <section class="introBannerHolder bgCover d-flex w-100 "
-    style="background-image: url(assets/styles/images/250.jpg); background-size: cover;">
+    style="background-image: url(/src/); background-size: cover;">
 
     <div class="container">
         <!-- <div class="row">
@@ -39,33 +39,51 @@
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
-
                     </div>
                 </header>
-
-
                 <!-- Grid  -->
-                <div class="container">
-                    <div *ngIf="listToggle" class="row">
+                <div class="container" >
+                    <div *ngIf="listToggle" class="row " >
                         <div style="text-align: center; " *ngIf="!postList" class="col-md-4">
                             <mat-spinner></mat-spinner>
                         </div>
                         <div class="col-md-4" *ngFor="let item of postList ">
                             <!-- featureCol -->
-                            <div class=" h-100">
-                                <mat-card class="example-card my-2 ">
-                                    <img mat-card-image [src]="item.image">
-                                    <mat-card-content>
-                                        <mat-card-title>{{item.name}}</mat-card-title>
+                            <div class=" h-100" style="display: flex;align-items: stretch;">
+                                <mat-card class="example-card my-2  hoverrr " style="width: 400px;">
+                                    <img class="card-img-top " style="height: 300px; object-fit: cover;"  mat-card-image [src]="item.image" (click)="getProdDetails(item.id)">
+                                    <mat-card-content  >
+                                        <mat-card-title style="text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 15px;"> {{item.name}}</mat-card-title>
 
                                         <p class="text-center">
-                                            {{item.price|currency}}
+                                            <!-- {{item.price|currency}} -->
+                                            <span class="price d-block fwEbold"><del  *ngIf="item.saleValue">{{item.price+&nbsp;+item.saleValue | number:'1.2-2'}}
+                                              $</del> &nbsp;&nbsp;&nbsp;{{item.price}} $</span>
                                         </p>
                                     </mat-card-content>
-                                    <mat-card-actions>
-                                        <button mat-button>LIKE</button>
-                                        <button mat-button>SHARE</button>
+                                    <div class="showDiv">
+                                      <ul  class="list-unstyled postHoverLinskList d-flex justify-content-evenly m-0"   *ngIf="(auth.isAuthenticated$|async)">
+                                        <li class="mr-2 overflow-hidden"><button (click)=addtofavorite(item) mat-mini-fab color="primary">
+                                                <mat-icon>favorite_border</mat-icon>
+                                            </button></li>
+                                        <li class="mr-2 overflow-hidden"><button (click)=addtocart(item) mat-mini-fab
+                                                color="primary">
+                                                <mat-icon>add_shopping_cart</mat-icon>
+                                            </button>
+                                        </li>
+                                        <li class="mr-2 overflow-hidden"><button (click)="getProdDetails(item.id)"
+                                                mat-mini-fab color="primary">
+                                                <mat-icon>visibility</mat-icon>
+                                            </button>
+                                        </li>
+
+                                    </ul>
+                                    </div>
+                                    <div class="hoverrr">
+                                    <mat-card-actions class="showDiv" >
+
                                     </mat-card-actions>
+                                </div>
                                 </mat-card>
                             </div>
                             <!-- <div matRipple class="border col-md-12" style="margin-top: 20px; cursor: pointer;">
@@ -173,5 +191,15 @@
 
             </aside>
         </div>
+        <ngx-scrolltop
+        [size]="40"
+        backgroundColor="#33691e"
+        symbolColor="#fff"
+        symbol="↑"
+        mode="classic" 
+        position="right"
+        theme="pink" 
+      >
+      </ngx-scrolltop>
     </div>
 </div>

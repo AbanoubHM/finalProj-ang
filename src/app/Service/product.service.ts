@@ -8,6 +8,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 })
 export class ProductService {
   private _url: string = 'https://handmadeapi.azurewebsites.net/api/Products';
+  // https://handmadeapi.azurewebsites.net/api/Categories/3/products
   constructor(private http: HttpClient) {}
 
   getAllPosts(): Observable<IProduct[]> {
@@ -16,6 +17,9 @@ export class ProductService {
         return throwError(err.message || 'Server Error');
       })
     );
+  }
+  getProductOfCat_X(){
+
   }
   getProductsBySortName(filters: HttpParams): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(this._url, { params: filters }).pipe(

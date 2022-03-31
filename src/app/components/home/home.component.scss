@@ -125,11 +125,7 @@
     height: 300px;
 
 }
-#shownom
-{
 
-
-}
 
 
 
@@ -138,3 +134,57 @@
 background-color: #70b524;
 border-radius: 10%;
 }
+.image-resize{
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+.pa{
+  
+    margin-top: 13rem;
+    text-align: center;
+    font-size: 2em;
+    font-family: 'Secular One', sans-serif;
+    text-justify: newspaper;
+    line-height: 2rem;
+}
+.pp1{
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 2em;
+  font-family:'Lobster', cursive;
+  text-justify: newspaper;
+  color: #70b524;
+
+}
+.pp4{
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 2em;
+  font-family:'Lobster', cursive;
+  text-justify: newspaper;
+  color: #70b524;
+}
+.pppp3{
+
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 2em;
+  font-family:'Lobster', cursive;
+  text-justify: newspaper;
+  color: #70b524;
+
+}
+// }'Lobster', cursive;
+.HandSpan{
+    color: #70b524;
+    // line-height: 1rem;
+    text-align: center;
+  font-size: 2em;
+    line-height: 1.5rem;
+}
+
+

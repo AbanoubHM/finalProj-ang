@@ -59,7 +59,8 @@ import { CustomersComponent } from './customers/customers.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SortingPipe } from './pipes/sorting.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { CategoryDetailsComponent } from './components/category-details/category-details.component';
+import { NgxScrollTopModule } from 'ngx-scrolltop';
 @NgModule({
   exports: [RouterModule],
   declarations: [
@@ -94,6 +95,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProfileComponent,
     FilterPipe,
     SortingPipe,
+    CategoryDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -116,6 +118,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatStepperModule,
     MatCardModule,
     MatSelectModule,
+    NgxScrollTopModule,
 
     AuthModule.forRoot({
       ...env.auth,
