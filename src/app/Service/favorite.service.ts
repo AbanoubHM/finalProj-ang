@@ -41,10 +41,10 @@ export class FavoriteService {
     })
     return grandTotal;
   }
-  removefavoriteItem(product: any){
-    this.favoriteItemList.map((a:any, index:any)=>{
+  removefavoriteItem(product: any) {
+    this.x.map((a:any, index:any)=>{
       if(product.id=== a.id){
-        this.favoriteItemList.splice(index,1);
+        this.x.splice(index,1);
       }
     })
     this.productList.next(this.favoriteItemList);
