@@ -67,6 +67,23 @@
       "store": null,
       "orders": null,
       "productRates": null
+    },
+    {
+      "id": 31,
+      "name": "sdds",
+      "description": "dds",
+      "image": "https://handmadestoragedb.blob.core.windows.net/test2/637839412315064941.png",
+      "price": 22,
+      "saleValue": 3,
+      "quantity": 2,
+      "preparationDays": 1,
+      "categoryID": 4,
+      "categoryName": null,
+      "category": null,
+      "storeID": "623fb9c08ffd8b0071895b05",
+      "store": null,
+      "orders": null,
+      "productRates": null
     }
   ],
   "cart": [
