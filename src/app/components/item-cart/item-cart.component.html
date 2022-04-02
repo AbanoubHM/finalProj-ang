@@ -1,0 +1,29 @@
+<main  class="container-sm" *ngFor="let item of product" >
+
+
+    <div class="card box">
+        <div class="row g-0">
+        <div class="col-md-3 img imgBox" >     
+            <img src={{item.image}}>
+        </div>
+
+        <div class="col-md-9">
+        <div class="card-body content">
+            <div class="title">
+                <h3 class="card-title col-9 "> {{item.name}}</h3>
+                <b class="card-title col-3 " > {{item.price}} $</b>
+            </div>
+
+            <p class="card-text">only <mark> {{item.quantity}} </mark> left in stock</p>
+            <button mat-raised-button color="primary">veiw details</button>
+            <button mat-stroked-button color="primary" (click)="deleteHandel(item.id)">cancel</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+</main>
+
+
+
+

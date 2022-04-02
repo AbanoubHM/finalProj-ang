@@ -19,21 +19,35 @@ export class ToolbarComponent implements OnInit {
   hidden = true;
   hidden1 = true;
   ngOnInit(): void {
+
     this.User.loginState.subscribe(
       st=>{this.islogged=st}
     );
-    this.cartService.getProducts().
-      subscribe(res => {
-        this.totalItem = res.length;
-        if (this.totalItem > 0) { this.hidden = false } else { this.hidden = true }
-      });
-      this.favoriteService.getProducts().
-      subscribe(res => {
-        this.totalfavortit = res.length;
-        if (this.totalfavortit > 0) { this.hidden1 = false } else { this.hidden1 = true }
-      });
-  }
+    }
+    // this.cartService.getProducts().
+      // subscribe(res => {
+      //   this.totalItem = res.length;
+      //   if (this.totalItem > 0) { this.hidden = false } else { this.hidden = true }
+      // });
+      // this.favoriteService.getProducts().subscribe(
+      //   data => {
+      //     console.log('fav', data);
+      //   },
+      //   error => {
+      //     console.log('server id down', error);
+      //   })
+
+
+      // subscribe(res => {
+      //   this.totalfavortit = res.length;
+      //   if (this.totalfavortit > 0) { this.hidden1 = false } else { this.hidden1 = true }
+      // });
+
+      
+  // }
   
+
+
   ToggleNavbar(){
     this.isOpen=!this.isOpen;
   }

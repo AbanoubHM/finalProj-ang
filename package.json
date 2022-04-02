@@ -30,6 +30,7 @@
     "chart.js": "^3.7.1",
     "highlight.js": "^11.5.0",
     "jquery": "^3.6.0",
+    "json-server": "^0.17.0",
     "ng2-charts": "^3.0.8",
     "ng2-file-upload": "^1.4.0",
     "ngx-bootstrap": "^8.0.0",

@@ -2,20 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { FavoriteService } from '../../Service/favorite.service';
 
 @Component({
-  selector: 'app-favorite',
-  templateUrl: './favorite.component.html',
-  styleUrls: ['./favorite.component.scss']
+  selector: 'app-item-cart',
+  templateUrl: './item-cart.component.html',
+  styleUrls: ['./item-cart.component.scss']
 })
-export class FavoriteComponent implements OnInit {
+export class ItemCartComponent implements OnInit {
 
   constructor(private FavoriteService : FavoriteService) { }
-  public products: any = [];
+  public product: any = [];
 
   ngOnInit(): void {
     this.FavoriteService.getProducts().subscribe(
       data => {
-        this.products = data ;
-        console.log('get p', );
+        this.product = data ;
+        console.log(this.product );
       },
       
       error => {
@@ -24,21 +24,17 @@ export class FavoriteComponent implements OnInit {
 
   }
 
-  
 
-  removeItem(item: any){
-    this.FavoriteService.removefavoriteItem("").subscribe(
+  deleteHandel(id:string) {
+    this.FavoriteService.removefavoriteItem(id).subscribe(
       data => {
-        console.log('Request is parent ', data   );
+       console.log(data)
+       this.ngOnInit()
+        
       },
       error => {
         console.log('server id down', error);
       })
   }
-  
-
-
-
-
 
 }

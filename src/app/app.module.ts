@@ -61,6 +61,7 @@ import { SortingPipe } from './pipes/sorting.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CategoryDetailsComponent } from './components/category-details/category-details.component';
 import { NgxScrollTopModule } from 'ngx-scrolltop';
+import { ItemCartComponent } from './components/item-cart/item-cart.component';
 @NgModule({
   exports: [RouterModule],
   declarations: [
@@ -96,6 +97,7 @@ import { NgxScrollTopModule } from 'ngx-scrolltop';
     FilterPipe,
     SortingPipe,
     CategoryDetailsComponent,
+    ItemCartComponent,
   ],
   imports: [
     BrowserModule,

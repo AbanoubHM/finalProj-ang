@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +14,10 @@ export class FavoriteService {
 
 
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
+
   getProducts(){
-    return this.productList.asObservable();
+    return this.http.get(`${environment.jsonServer}/favorite`)
 
   }
   setProduct(product: any) {
@@ -24,14 +27,15 @@ export class FavoriteService {
   }
   addtofavorite(product: any) {
 
-    this.favoriteItemList.push(product);
-    this.productList.next(this.favoriteItemList);
-    localStorage.setItem('myData', product);
-    localStorage.setItem('test', JSON.stringify(this.favoriteItemList))
-    this.getTotalPrice();
-    var  x :any = localStorage.getItem('test')
-    console.log(this.favoriteItemList)
-    console.log(JSON.parse(x))
+
+    this.http.post(`${environment.jsonServer}/favorite`, product).subscribe(
+      data => {
+        console.log('POST Request is successful ', data);
+      },
+      error => {
+        console.log('server id down', error);
+      })
+
 
   }
   getTotalPrice() : number{
@@ -41,16 +45,11 @@ export class FavoriteService {
     })
     return grandTotal;
   }
-  removefavoriteItem(product: any) {
-    this.x.map((a:any, index:any)=>{
-      if(product.id=== a.id){
-        this.x.splice(index,1);
-      }
-    })
-    this.productList.next(this.favoriteItemList);
+  removefavoriteItem(id: any) {
+
+     return   this.http.delete(`${environment.jsonServer}/favorite/${id}`)
   }
-  removeAllfavorite(){
-    this.favoriteItemList = []
-    this.productList.next(this.favoriteItemList);
+  removeAllfavorite(id :any){
+   console.log(id)
   }
 }

@@ -29,10 +29,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
   { path: 'cart', component: CartsComponent, canActivate: [AuthGuard] },
-
   { path: 'MyProfile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'logout', component: LogoutComponent },
-
   { path: 'favorite', component: FavoriteComponent, canActivate: [AuthGuard] },
   { path: 'AddProduct', component: OrdersComponent, canActivate: [AuthGuard] },
   { path: 'products', component: ProductsComponent },
@@ -43,9 +41,6 @@ const routes: Routes = [
   { path: 'customers', component: CustomersComponent, canActivate: [AuthGuard] },
   { path: ':Cateid/products', component: CategoryDetailsComponent },
   { path: '**', component: ErrorComponent }
-
-
-
 
 ];
 

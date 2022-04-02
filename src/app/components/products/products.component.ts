@@ -78,6 +78,12 @@ export class ProductsComponent implements OnInit {
     this.router.navigate([id], { relativeTo: this.activatedRoute });
   }
 
+  snakerbar(data:string , color:string){
+    this.snakeBar.open(data, '', {
+      duration: 1000,
+      panelClass: [color, 'text-center'],
+    });
+  }
   addtocart(item: any) {
     this.cartService.addtoCart(item);
     this.custom.addtocustomers(item);
@@ -88,11 +94,25 @@ export class ProductsComponent implements OnInit {
   }
 
   addtofavorite(item: any) {
-    this.FavoriteService.addtofavorite(item);
-    this.snakeBar.open('Added', '', {
-      duration: 1000,
-      panelClass: ['bg-success', 'text-center'],
-    });
+    this.FavoriteService.getProducts().subscribe(
+      res => {
+        let data:any = res ;
+        if(data.every((el:any)=>el.id !== item.id)){
+              console.log('new')
+              this.FavoriteService.addtofavorite(item);
+              this.snakerbar('added to the favorite' , `bg-success`)
+            }
+            else{
+
+              this.snakerbar('already in the favorite' , `bg-error`)
+            }
+      },
+      error => {
+        console.log('server is down', error);
+      })
+
+    
+   
   }
   showitem() {
     this.show=!this.show
