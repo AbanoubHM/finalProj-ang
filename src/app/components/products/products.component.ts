@@ -111,8 +111,8 @@ export class ProductsComponent implements OnInit {
         console.log('server is down', error);
       })
 
-    
-   
+
+
   }
   showitem() {
     this.show=!this.show
