@@ -46,7 +46,8 @@ addressfromdb: string [] = [];
   ngOnInit(): void {
     this.authService.user$.subscribe((profile) => {
       this.profileJson = JSON.stringify(profile, null, 2);
-      // console.log(profile);
+      //if(profile?.sub="google-oauth2|109273316103383643492")
+       console.log(profile?.sub);
       this.profServ.getClientData(profile?.sub).subscribe((data) => {
         this.userDb = data;
         this.namefromdb = this.userDb.name.split(';');
