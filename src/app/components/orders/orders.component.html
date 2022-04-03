@@ -2,148 +2,173 @@
   <div class="container d-flex justify-content-start w-75">
     <div class="row">
       <div class="wrapper img">
-      <form method="post" [formGroup]="ordersForm" class="col-md-6 col-sm-12"  style="margin-top: 15px; margin-left: 50px;">
-       <div class="mb-3">
-        <mat-form-field class="mb-3" appearance="outline">
-          <mat-label  class="form-label">Name</mat-label>
-          <input matInput formControlName="Name" placeholder="product Name" class="form-label" />
-          <mat-icon matSuffix>shop</mat-icon>
-          <mat-error
-            *ngFor="let validation of register_validation_messages.Name"
-          >
-            <mat-error
-              class="error-message"
-              *ngIf="ff['Name'].hasError(validation.type)"
-            >
-              {{ validation.message }}
-            </mat-error>
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <div class="col">
-        <mat-form-field lass="mb-3" appearance="outline" style="margin-top: 15px;">
-          <mat-label >Description</mat-label>
-          <textarea
-            matInput
-            formControlName="Description"
-            placeholder="your product information here"
-          ></textarea>
-          <mat-icon matSuffix>description</mat-icon>
-          <mat-error
-            *ngFor="let validation of register_validation_messages.Description"
-          >
-            <mat-error
-              class="error-message"
-              *ngIf="ff['Description'].hasError(validation.type)"
-            >
-              {{ validation.message }}
-            </mat-error>
-          </mat-error>
-        </mat-form-field>
-      </div>
-        <div layout-margin layout-padding class="col" style="margin-top: 15px;">
-          <mat-label>Image :</mat-label>
-          <button
-            id="uploadButton"
-            class="md-fab md-mini"
-            mat-icon-button
-            (click)="imageupload.click()"
-          >
-            <mat-icon class="material-icons">attach_file</mat-icon>
-          </button>
-          <input
-            formControlName="image"
-            (change)="uploadfile($event)"
-            class="ng-hide"
-            #imageupload
-            id="imageupload"
-            onclick="this.value=null"
-            multiple
-            type="file"
-            hidden="true"
-            accept="image/*"
-          />
-        </div>
-        <div class="mb-3" style="margin-top: 15px;">
-        <mat-form-field class="mb-3" appearance="outline">
-          <mat-label>price</mat-label>
-          <input matInput formControlName="price" />
-          <mat-icon matSuffix>attach_money</mat-icon>
-          <mat-error
-            *ngFor="let validation of register_validation_messages.price"
-          >
-            <mat-error
-              class="error-message"
-              *ngIf="ff['price'].hasError(validation.type)"
-            >
-              {{ validation.message }}
-            </mat-error>
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <div class="mb-3" style="margin-top: 15px;">
-        <mat-form-field class="mb-3" appearance="outline">
-          <mat-label>SaleValue</mat-label>
-          <input matInput formControlName="SaleValue" />
-          <mat-icon matSuffix>discount</mat-icon>
-        </mat-form-field>
-      </div>
-      <div  class="mb-3" style="margin-top: 15px;">
-        <mat-form-field class="mb-3" appearance="outline">
-          <mat-label>Quantity</mat-label>
-          <input matInput formControlName="Quantity" />
-          <mat-icon matSuffix>pin</mat-icon>
-          <mat-error
-            *ngFor="let validation of register_validation_messages.Quantity"
-          >
-            <mat-error
-              class="error-message"
-              *ngIf="ff['Quantity'].hasError(validation.type)"
-            >
-              {{ validation.message }}
-            </mat-error>
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <div class="mb-3" style="margin-top: 15px;">
-        <mat-form-field class="mb-3" appearance="outline">
-          <mat-label>PreparationDays</mat-label>
-          <input matInput formControlName="PreparationDays" />
-          <mat-icon matSuffix>hourglass_top</mat-icon>
-          <mat-error
-            *ngFor="
-              let validation of register_validation_messages.PreparationDays
-            "
-          >
-            <mat-error
-              class="error-message"
-              *ngIf="ff['Quantity'].hasError(validation.type)"
-            >
-              {{ validation.message }}
-            </mat-error>
-          </mat-error>
-        </mat-form-field>
-        </div>
-         <div  class="mb-3" style="margin-top: 15px;">
-          <mat-form-field appearance="outline">
-            <mat-label>category</mat-label>
-            <mat-select  formControlName="Category" >
-              <mat-option></mat-option>
-              <mat-option [value]="option.id" *ngFor="let option of gatlist">{{ option.name }}</mat-option>
-            </mat-select>
-          </mat-form-field>
-      </div>
-        <button
-          style="width: 10em; border-radius: 20px ; margin-top: 15px;"
-          (click)="submitForm(ordersForm)"
-          color="primary"
-          mat-raised-button
+        <form
+          method="post"
+          [formGroup]="ordersForm"
+          class="col-md-6 col-sm-12"
+          style="margin-top: 15px; margin-left: 50px"
         >
-          Submit
-        </button>
-      </form>
+          <div class="mb-3">
+            <mat-form-field class="mb-3" appearance="outline">
+              <mat-label class="form-label">Name</mat-label>
+              <input
+                matInput
+                formControlName="Name"
+                placeholder="product Name"
+                class="form-label"
+              />
+              <mat-icon matSuffix>shop</mat-icon>
+              <mat-error
+                *ngFor="let validation of register_validation_messages.Name"
+              >
+                <mat-error
+                  class="error-message"
+                  *ngIf="ff['Name'].hasError(validation.type)"
+                >
+                  {{ validation.message }}
+                </mat-error>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field
+              lass="mb-3"
+              appearance="outline"
+              style="margin-top: 15px"
+            >
+              <mat-label>Description</mat-label>
+              <textarea
+                matInput
+                formControlName="Description"
+                placeholder="your product information here"
+              ></textarea>
+              <mat-icon matSuffix>description</mat-icon>
+              <mat-error
+                *ngFor="
+                  let validation of register_validation_messages.Description
+                "
+              >
+                <mat-error
+                  class="error-message"
+                  *ngIf="ff['Description'].hasError(validation.type)"
+                >
+                  {{ validation.message }}
+                </mat-error>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div
+            layout-margin
+            layout-padding
+            class="col"
+            style="margin-top: 15px"
+          >
+            <mat-label>Image :</mat-label>
+            <button
+              id="uploadButton"
+              class="md-fab md-mini"
+              mat-icon-button
+              (click)="imageupload.click()"
+            >
+              <mat-icon class="material-icons">attach_file</mat-icon>
+            </button>
+            <input
+              formControlName="image"
+              (change)="uploadfile($event)"
+              class="ng-hide"
+              #imageupload
+              id="imageupload"
+              onclick="this.value=null"
+              multiple
+              type="file"
+              hidden="true"
+              accept="image/*"
+            />
+          </div>
+          <div class="mb-3" style="margin-top: 15px">
+            <mat-form-field class="mb-3" appearance="outline">
+              <mat-label>price</mat-label>
+              <input matInput formControlName="price" />
+              <mat-icon matSuffix>attach_money</mat-icon>
+              <mat-error
+                *ngFor="let validation of register_validation_messages.price"
+              >
+                <mat-error
+                  class="error-message"
+                  *ngIf="ff['price'].hasError(validation.type)"
+                >
+                  {{ validation.message }}
+                </mat-error>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="mb-3" style="margin-top: 15px">
+            <mat-form-field class="mb-3" appearance="outline">
+              <mat-label>SaleValue</mat-label>
+              <input matInput formControlName="SaleValue" />
+              <mat-icon matSuffix>discount</mat-icon>
+            </mat-form-field>
+          </div>
+          <div class="mb-3" style="margin-top: 15px">
+            <mat-form-field class="mb-3" appearance="outline">
+              <mat-label>Quantity</mat-label>
+              <input matInput formControlName="Quantity" />
+              <mat-icon matSuffix>pin</mat-icon>
+              <mat-error
+                *ngFor="let validation of register_validation_messages.Quantity"
+              >
+                <mat-error
+                  class="error-message"
+                  *ngIf="ff['Quantity'].hasError(validation.type)"
+                >
+                  {{ validation.message }}
+                </mat-error>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="mb-3" style="margin-top: 15px">
+            <mat-form-field class="mb-3" appearance="outline">
+              <mat-label>PreparationDays</mat-label>
+              <input matInput formControlName="PreparationDays" />
+              <mat-icon matSuffix>hourglass_top</mat-icon>
+              <mat-error
+                *ngFor="
+                  let validation of register_validation_messages.PreparationDays
+                "
+              >
+                <mat-error
+                  class="error-message"
+                  *ngIf="ff['Quantity'].hasError(validation.type)"
+                >
+                  {{ validation.message }}
+                </mat-error>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="mb-3" style="margin-top: 15px">
+            <mat-form-field appearance="outline">
+              <mat-label>category</mat-label>
+              <mat-select formControlName="Category">
+                <mat-option></mat-option>
+                <mat-option
+                  [value]="option.id"
+                  *ngFor="let option of gatlist"
+                  >{{ option.name }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <button
+            style="width: 10em; border-radius: 20px; margin-top: 15px"
+            (click)="submitForm(ordersForm)"
+            color="primary"
+            mat-raised-button
+          >
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
-  </div>
   </div>
 </div>
 <!-- ===============================================my stben verison======================================

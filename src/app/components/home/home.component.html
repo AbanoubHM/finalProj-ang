@@ -1,131 +1,158 @@
-
-
 <div class="container">
-
   <div class="d-flex">
+    <div class="p-10 flex-grow-1">
+      <p class="pa">
+        <span class="HandSpan text-success">HandMade</span> is the first
+        platform for buying and sellinghand crafts. We create a link between the
+        product of your dreams found the best quality and the most appropriate
+        price.
+      </p>
 
-
-    <div class="p-10 flex-grow-1 ">
-
-      <p class="pa"> <span class="HandSpan text-success ">HandMade</span>
-        is the first platform for buying and sellinghand
-        crafts. We create a link between the product of your dreams
-        found the best quality and the most appropriate price.</p>
-      
-        <a [routerLink]="['/products']" class="btn btn-outline-success" style="margin-left: 160px;
-    padding:0.5rem 2.2rem ;">Shop Now</a>
-      
+      <a
+        [routerLink]="['/products']"
+        class="btn btn-outline-success"
+        style="margin-left: 160px; padding: 0.5rem 2.2rem"
+        >Shop Now</a
+      >
     </div>
 
     <div class="p-2">
-      <video autoplay muted  width="650" id="myVideo">
-        <source src="/assets/styles/video/Hand sewing (1).mp4" type="video/mp4">
+      <video autoplay muted width="650" id="myVideo">
+        <source
+          src="/assets/styles/video/Hand sewing (1).mp4"
+          type="video/mp4"
+        />
       </video>
     </div>
   </div>
 </div>
 
-
-
-
 <section>
-  <div class="pp1"> Product Categories On Focus </div>
+  <div class="pp1">Product Categories On Focus</div>
   <div class="container">
     <div *ngIf="listToggle" class="row">
       <div class="col-md-4" *ngFor="let item of gatlist">
         <!-- featureCol -->
-        <div matRipple class="border col-md-12" style="margin-top: 20px; cursor: pointer;">
-          <div class="imgHolder position-relative w-100 overflow-hidden ">
-            <div style="min-height:200px; max-height:250px;  " class="text-center bg-image hover-zoom ">
-              <img class="w-100" *ngFor="let item1 of postList" (click)="get_Pro_Cat(item1.id)"
-                style="height: 300px; object-fit: cover;" [src]="item.imageUrl">
+        <div
+          matRipple
+          class="border col-md-12"
+          style="margin-top: 20px; cursor: pointer"
+        >
+          <div class="imgHolder position-relative w-100 overflow-hidden">
+            <div
+              style="min-height: 200px; max-height: 250px"
+              class="text-center bg-image hover-zoom"
+            >
+              <img
+                class="w-100"
+                *ngFor="let item1 of postList"
+                (click)="get_Pro_Cat(item1.id)"
+                style="height: 300px; object-fit: cover"
+                [src]="item.imageUrl"
+              />
             </div>
-            <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
+            <ul
+              class="list-unstyled postHoverLinskList d-flex justify-content-center m-0"
+            >
               <li class="mr-2 overflow-hidden">
-                <button mat-button routerLink="/products" style="margin-right: 5px;"> <span id="shop"
-                    style="font-size: 1.5rem;">{{item.name}}</span>
+                <button
+                  mat-button
+                  routerLink="/products"
+                  style="margin-right: 5px"
+                >
+                  <span id="shop" style="font-size: 1.5rem">{{
+                    item.name
+                  }}</span>
                 </button>
               </li>
             </ul>
           </div>
-
         </div>
-
       </div>
-
-
     </div>
-
   </div>
-
-
 </section>
 
-
-
-
-
-
-
 <main class="mb-5">
-
-
-
   <figure class="text-center">
     <blockquote class="blockquote">
       <p class="pp4">Start Selling Today</p>
     </blockquote>
-    <figcaption class="blockquote-footer m-2" style="font-size:20px">
-      Thousands of Customers Around The Globe Are Waiting
-      to See What You Have in Stock
+    <figcaption class="blockquote-footer m-2" style="font-size: 20px">
+      Thousands of Customers Around The Globe Are Waiting to See What You Have
+      in Stock
     </figcaption>
   </figure>
-  <div class="container my-3 ">
+  <div class="container my-3">
     <div class="col-md-12 text-center">
-      <a [routerLink]="['/register']" class="btn btn-success" style="margin-top: 20px;">Become a vendor</a>
+      <a
+        [routerLink]="['/register']"
+        class="btn btn-success"
+        style="margin-top: 20px"
+        >Become a vendor</a
+      >
     </div>
   </div>
-  <section class="chooseUs-sec container pt-xl-22 pt-lg-20 pt-md-16 pt-10 pb-xl-12 pb-md-7 pb-2">
+  <section
+    class="chooseUs-sec container pt-xl-22 pt-lg-20 pt-md-16 pt-10 pb-xl-12 pb-md-7 pb-2"
+  >
     <!-- contactListBlock -->
     <div
-      class="contactListBlock container overflow-hidden pt-xl-8 pt-lg-10 pt-md-8 pt-4 pb-xl-12 pb-lg-10 pb-md-4 pb-1">
+      class="contactListBlock container overflow-hidden pt-xl-8 pt-lg-10 pt-md-8 pt-4 pb-xl-12 pb-lg-10 pb-md-4 pb-1"
+    >
       <div class="row">
         <div class="col-12 col-sm-6 col-lg-3 mb-4 mb-lg-0">
           <!-- contactListColumn -->
-          <div class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-6 px-md-3 px-3 d-flex">
+          <div
+            class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-6 px-md-3 px-3 d-flex"
+          >
             <span class="icon icon-van"></span>
             <div class="alignLeft pl-2 m-2">
-              <strong class="headingV fwEbold d-block mb-1">Free shipping order</strong>
+              <strong class="headingV fwEbold d-block mb-1"
+                >Free shipping order</strong
+              >
               <p class="m-0">On orders over $100</p>
             </div>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-lg-3 mb-4 mb-lg-0">
           <!-- contactListColumn -->
-          <div class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-6 px-md-3 px-3 d-flex">
+          <div
+            class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-6 px-md-3 px-3 d-flex"
+          >
             <span class="icon icon-gift"></span>
             <div class="alignLeft pl-2 m-2">
-              <strong class="headingV fwEbold d-block mb-1">Special gift card</strong>
+              <strong class="headingV fwEbold d-block mb-1"
+                >Special gift card</strong
+              >
               <p class="m-0">The perfect gift idea</p>
             </div>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-lg-3 mb-4 mb-lg-0">
           <!-- contactListColumn -->
-          <div class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-4 px-md-2 px-3 d-flex">
+          <div
+            class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-4 px-md-2 px-3 d-flex"
+          >
             <span class="icon icon-recycle"></span>
             <div class="alignLeft pl-2 m-2">
-              <strong class="headingV fwEbold d-block mb-1">Return &amp; exchange</strong>
-              <p class="m-0">Free return within </p>
+              <strong class="headingV fwEbold d-block mb-1"
+                >Return &amp; exchange</strong
+              >
+              <p class="m-0">Free return within</p>
             </div>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-lg-3 mb-4 mb-lg-0">
           <!-- contactListColumn -->
-          <div class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-6 px-md-3 px-3 d-flex">
+          <div
+            class="contactListColumn border overflow-hidden py-xl-5 py-md-3 py-2 px-xl-6 px-md-3 px-3 d-flex"
+          >
             <span class="icon icon-call"></span>
             <div class="alignLeft pl-2 m-2">
-              <strong class="headingV fwEbold d-block mb-1">Support 24 / 7</strong>
+              <strong class="headingV fwEbold d-block mb-1"
+                >Support 24 / 7</strong
+              >
               <p class="m-0">Customer support</p>
             </div>
           </div>
@@ -134,67 +161,93 @@
     </div>
   </section>
   <!-- dealSecHolder -->
-  <section class="dealSecHolder container-fluid overflow-hidden py-xl-12 py-lg-10 py-md-8 py-5">
+  <section
+    class="dealSecHolder container-fluid overflow-hidden py-xl-12 py-lg-10 py-md-8 py-5"
+  >
     <!-- mainHeader -->
     <header class="col-12 mainHeader mb-7 text-center">
       <h1 class="headingIV playfair fwEblod mb-5">Daily Deal</h1>
-      <span class="headerBorder d-block mb-md-5 mb-3"><img src="assets/styles/images/hbdr.png" alt="Header Border"
-          class="img-fluid img-bdr"></span>
-      <p class="mb-6">There are many variations of passages of lorem ipsum available.</p>
+      <span class="headerBorder d-block mb-md-5 mb-3"
+        ><img
+          src="assets/styles/images/hbdr.png"
+          alt="Header Border"
+          class="img-fluid img-bdr"
+      /></span>
+      <p class="mb-6">
+        There are many variations of passages of lorem ipsum available.
+      </p>
       <div id="defaultCountdown" class="comming-timer"></div>
     </header>
-
   </section>
 
   <section>
     <div class="pppp3">Some of our product</div>
     <div class="container">
       <div *ngIf="listToggle" class="row">
-        <div class="col-md-4" *ngFor="let item of postList|slice: (page-1) * size : page * size ">
+        <div
+          class="col-md-4"
+          *ngFor="let item of postList | slice: (page - 1) * size:page * size"
+        >
           <!-- featureCol -->
-          <div matRipple class="border col-md-12" style="margin-top: 20px; cursor: pointer;">
-            <div class="imgHolder position-relative w-100 overflow-hidden ">
-              <div style="min-height:200px; max-height:250px;" class="text-center ">
-                <img class="w-100" (click)="getProdDetails(item.id)"
-                  style="min-width:200px; overflow:hidden; max-height:250px;" [src]="item.image">
+          <div
+            matRipple
+            class="border col-md-12"
+            style="margin-top: 20px; cursor: pointer"
+          >
+            <div class="imgHolder position-relative w-100 overflow-hidden">
+              <div
+                style="min-height: 200px; max-height: 250px"
+                class="text-center"
+              >
+                <img
+                  class="w-100"
+                  (click)="getProdDetails(item.id)"
+                  style="min-width: 200px; overflow: hidden; max-height: 250px"
+                  [src]="item.image"
+                />
               </div>
-              <ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
+              <ul
+                class="list-unstyled postHoverLinskList d-flex justify-content-center m-0"
+              >
                 <li class="mr-2 overflow-hidden">
-                  <button mat-button routerLink="/products" style="margin-right: 5px;"> <span id="shop">Shop Now</span>
+                  <button
+                    mat-button
+                    routerLink="/products"
+                    style="margin-right: 5px"
+                  >
+                    <span id="shop">Shop Now</span>
                   </button>
                 </li>
               </ul>
             </div>
-
           </div>
-
         </div>
-        <div class="col-md-8 mx-auto" style="margin-top: 30px;">
+        <div class="col-md-8 mx-auto" style="margin-top: 30px">
           <div class="row">
             <div class="col-md-9" style="padding-left: 30%">
-              <ngb-pagination showFirstLastButtons [(page)]="page" [pageSize]="size" [collectionSize]="postList.length"
-                [boundaryLinks]="true" (pageChange)="Done()">
+              <ngb-pagination
+                showFirstLastButtons
+                [(page)]="page"
+                [pageSize]="size"
+                [collectionSize]="postList.length"
+                [boundaryLinks]="true"
+                (pageChange)="Done()"
+              >
               </ngb-pagination>
             </div>
           </div>
         </div>
-
-
       </div>
-
     </div>
-
-
   </section>
   <ngx-scrolltop
-  [size]="40"
-  backgroundColor="#33691e"
-  symbolColor="#fff"
-  symbol="↑"
-  mode="classic" 
-  position="right"
-  theme="pink" 
->
-</ngx-scrolltop>
-
+    [size]="40"
+    backgroundColor="#33691e"
+    symbolColor="#fff"
+    symbol="↑"
+    mode="classic"
+    position="right"
+    theme="pink"
+  >
+  </ngx-scrolltop>
 </main>

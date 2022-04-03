@@ -1,61 +1,91 @@
 <div class="nav-container">
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" routerLinkActive="active" routerLink="home">HandMade</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
-                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" routerLinkActive="active" routerLink="home"
+        >HandMade</a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarColor01"
+        aria-controls="navbarColor01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              routerLinkActive="active"
+              routerLink="/home"
+              >Home
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="/about"
+              >about</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="/contact"
+              >contact</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="/products"
+              >products</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <button
+              routerLinkActive="active"
+              routerLink="/favorite"
+              *ngIf="auth.isAuthenticated$ | async"
+              class="position-relative"
+              mat-icon-button
+              color="primary"
+              #tooltip="matTooltip"
+              matTooltip="Add To Favorite"
+              aria-label="Example icon-button with a heart icon"
+            >
+              <mat-icon
+                matBadge="{{ totalfavortit }}"
+                [matBadgeHidden]="hidden1"
+                matBadgeColor="accent"
+              >
+                favorite</mat-icon
+              >
             </button>
-            <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" routerLinkActive="active" routerLink="/home">Home
-                            <span class="visually-hidden">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLinkActive="active" routerLink="/about">about</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLinkActive="active" routerLink="/contact">contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLinkActive="active" routerLink="/products">products</a>
-                    </li>
-                    <!-- <li *ngIf="islogged" class="nav-item"><button routerLink="/logout" class=" position-relative"
-                            mat-icon-button color="primary" #tooltip="matTooltip" matTooltip="Logout"
-                            aria-label="Example icon-button with a heart icon">
-                            <mat-icon>logout</mat-icon>
-                        </button>
-                    </li>
-                    <li *ngIf="!islogged" class="nav-item"><button routerLinkActive="active" routerLink="/login"
-                            class=" position-relative" mat-icon-button color="primary" #tooltip="matTooltip"
-                            matTooltip="Login" aria-label="Example icon-button with a heart icon">
-                            <mat-icon>login</mat-icon>
-                        </button>
-                    </li> -->
-                    <!-- <li class="nav-item"><button routerLinkActive="active" routerLink="/register"
-                            class=" position-relative" mat-icon-button color="primary" #tooltip="matTooltip"
-                            matTooltip="Register" aria-label="Example icon-button with a heart icon">
-                            <mat-icon>person_add_alt</mat-icon>
-                        </button>
-                    </li> -->
-                    <li class="nav-item"><button routerLinkActive="active" routerLink="/favorite" *ngIf="(auth.isAuthenticated$|async)"
-                            class=" position-relative" mat-icon-button color="primary" #tooltip="matTooltip"
-                            matTooltip="Add To Favorite" aria-label="Example icon-button with a heart icon">
-                            <mat-icon matBadge="{{totalfavortit}}" [matBadgeHidden]="hidden1" matBadgeColor="accent">
-                                favorite</mat-icon>
-                        </button>
-                    </li>
-                    <li class="nav-item"><button routerLinkActive="active" routerLink="/cart" class=" position-relative" *ngIf="(auth.isAuthenticated$|async)"
-                            mat-icon-button color="primary" #tooltip="matTooltip" matTooltip="Add To Cart"
-                            aria-label="Example icon-button with a heart icon">
-                            <mat-icon matBadge="{{totalItem}}" [matBadgeHidden]="hidden" matBadgeColor="accent">
-                                shopping_cart</mat-icon>
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+          </li>
+          <li class="nav-item">
+            <button
+              routerLinkActive="active"
+              routerLink="/cart"
+              class="position-relative"
+              *ngIf="auth.isAuthenticated$ | async"
+              mat-icon-button
+              color="primary"
+              #tooltip="matTooltip"
+              matTooltip="Add To Cart"
+              aria-label="Example icon-button with a heart icon"
+            >
+              <mat-icon
+                matBadge="{{ totalItem }}"
+                [matBadgeHidden]="hidden"
+                matBadgeColor="accent"
+              >
+                shopping_cart</mat-icon
+              >
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </div>
