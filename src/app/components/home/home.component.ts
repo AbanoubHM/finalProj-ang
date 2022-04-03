@@ -1,3 +1,4 @@
+import { AuthService } from '@auth0/auth0-angular';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -42,7 +43,7 @@ export class HomeComponent implements OnInit {
 
   // numElement: number = 10;
 
-  constructor(config: NgbCarouselConfig, private gat: GategoryService, private custom: CustomersService, private activatedRoute: ActivatedRoute, private postSrv: ProductService, private router: Router, private cartService: CartService, private favoriteService: FavoriteService, private snakeBar: MatSnackBar) {
+  constructor(config: NgbCarouselConfig, private gat: GategoryService, private custom: CustomersService, private activatedRoute: ActivatedRoute, private postSrv: ProductService, private router: Router, private cartService: CartService, private favoriteService: FavoriteService, private snakeBar: MatSnackBar,public auth:AuthService) {
     config.interval = 3000;
     config.keyboard = true;
     config.pauseOnHover = true;
