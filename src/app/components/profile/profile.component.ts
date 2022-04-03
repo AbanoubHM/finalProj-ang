@@ -37,30 +37,32 @@ export class ProfileComponent implements OnInit {
     FirstName: [this.userDb.name],
     LastName: [''],
     phone: ['', [Validators.minLength(10), Validators.maxLength(11)]],
-    birthdate:[''],
+    birthdate: [''],
     address: [''],
     city: [''],
     state: [''],
   });
-
-namefromdb: string [] = [];
-addressfromdb: string [] = [];
-
+  namefromdb: string[] = [];
+  addressfromdb: string[] = [];
+role:string="";
   ngOnInit(): void {
     this.authService.user$.subscribe((success: any) => {
       this.user = success;
     });
-   //this.authService.error$.subscribe((error) => console.log(error));
-   this.authService.idTokenClaims$.subscribe((claims) => console.log(claims));
+    this.authService.error$.subscribe((error) => console.log(error));
+    this.authService.idTokenClaims$.subscribe((claims) => 
+    
+    console.log(claims)
+  );
+    
     this.authService.user$.subscribe((profile) => {
-      this.profileJson = JSON.stringify(profile, null, 2);
-      //if(profile?.sub="google-oauth2|109273316103383643492")
-       console.log(profile?.sub);
+     console.log(profile?.['http://roletest.net/roles'])
+       this.profileJson = JSON.stringify(profile, null, 2);
       this.profServ.getClientData(profile?.sub).subscribe((data) => {
         this.userDb = data;
         this.namefromdb = this.userDb.name.split(';');
-        this.addressfromdb = this.userDb.address.split(';');        
-        // console.log(this.authService);
+        this.addressfromdb = this.userDb.address.split(';');
+        //console.log(this.authService);
       });
     });
   }
@@ -72,8 +74,8 @@ addressfromdb: string [] = [];
     this.userDb.address = `${this.ff['address'].value};${this.ff['city'].value};${this.ff['state'].value}`;
     console.log(this.userDb.name);
     console.log(this.userDb.address);
-    
-    this.userDb.age =this.ff['birthdate'].value;
+
+    this.userDb.age = this.ff['birthdate'].value;
     this.profServ
       .updateClientData(this.userDb.id, this.userDb)
       .subscribe((dat) => {
@@ -81,5 +83,5 @@ addressfromdb: string [] = [];
       });
   }
 
-  onHighlight() {}
+  onHighlight() { }
 }

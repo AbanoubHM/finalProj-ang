@@ -18,11 +18,14 @@ export class RegisterComponent implements OnInit {
   maxDate?:Date
   constructor(private fb:FormBuilder , private postusers:ProfileService) { }
   registerForm:FormGroup=this.fb.group({
-    username:['',[Validators.required,Validators.pattern('^[a-zA-Z]+$'),Validators.minLength(5),Validators.maxLength(25)]],
+    clientID:[''],
+    VendorName:['',[Validators.required,Validators.pattern('^[a-zA-Z]+$'),Validators.minLength(5),Validators.maxLength(25)]],
     phone:['',[Validators.required,Validators.minLength(10),Validators.maxLength(11),Validators.pattern('^[0-9]+$')]],
-
-    birthdate:['',Validators.required],
-    address:['']
+    StoreName:['',[Validators.required]],
+    StoreImg:[''],
+    Street:[''],
+    City:[''],
+    State:['']
   },{
   })
   ngOnInit(): void {
@@ -50,6 +53,9 @@ export class RegisterComponent implements OnInit {
       { type: 'maxlength', message: 'Invalid Phone Number' },
       { type: 'pattern', message: 'Only numbers allowed' }
 
+    ],
+    'StoreName':[
+      {type: 'required', message: 'Phone number is required'}
     ]}
 }
 
