@@ -1,4 +1,7 @@
 {
     "domain": "dev-vxrkxu-x.us.auth0.com",
-    "clientId": "i8fVcQjbbcHMJzi4uelRAgS2k2UFeC9m"
+    "clientId": "i8fVcQjbbcHMJzi4uelRAgS2k2UFeC9m",
+    "audience": "https://localhost:7263/",
+    "apiUri": "https://localhost:7202",
+    "appUri": "http://localhost:4200"
 }

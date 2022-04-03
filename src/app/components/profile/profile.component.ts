@@ -25,11 +25,14 @@ export class ProfileComponent implements OnInit {
     imageUrl: '',
     age: 25,
   };
+  user: any;
   constructor(
     public authService: AuthService,
     private profServ: ProfileService,
     private fb: FormBuilder
-  ) {}
+  ) {
+    this.user = {};
+  }
   updateProfile: FormGroup = this.fb.group({
     FirstName: [this.userDb.name],
     LastName: [''],
@@ -44,6 +47,11 @@ namefromdb: string [] = [];
 addressfromdb: string [] = [];
 
   ngOnInit(): void {
+    this.authService.user$.subscribe((success: any) => {
+      this.user = success;
+    });
+   //this.authService.error$.subscribe((error) => console.log(error));
+   this.authService.idTokenClaims$.subscribe((claims) => console.log(claims));
     this.authService.user$.subscribe((profile) => {
       this.profileJson = JSON.stringify(profile, null, 2);
       //if(profile?.sub="google-oauth2|109273316103383643492")
