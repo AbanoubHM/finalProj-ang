@@ -1,171 +1,233 @@
-<section class="introBannerHolder bgCover d-flex w-100 "
-    style="background-image: url(assets/styles/images/home.jpg); background-size: cover;">
- 
-    <div class="container">
-        <div class="row">
-            <div class="col-12 pt-lg-23 pt-md-15 pt-sm-10 pt-5 text-center">
-                <h1 class="headingIV fwEbold playfair mb-4">Shop</h1>
-                <ul class="list-unstyled breadCrumbs d-flex justify-content-center">
-                    <li class="mr-2"><a style="text-decoration: none;" routerLink="">Home</a></li>
-                    <li class="mr-2">/</li>
-                    <li class="active">Shop</li>
-                </ul>
-            </div>
-        </div>
+<section
+  class="introBannerHolder bgCover d-flex w-100"
+  style="
+    background-image: url(assets/styles/images/home.jpg);
+    background-size: cover;
+  "
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 pt-lg-23 pt-md-15 pt-sm-10 pt-5 text-center">
+        <h1 class="headingIV fwEbold playfair mb-4">Shop</h1>
+        <ul class="list-unstyled breadCrumbs d-flex justify-content-center">
+          <li class="mr-2">
+            <a style="text-decoration: none" routerLink="">Home</a>
+          </li>
+          <li class="mr-2">/</li>
+          <li class="active">Shop</li>
+        </ul>
+      </div>
     </div>
+  </div>
 </section>
-<br>
+<br />
 <!-- twoColumns -->
 <div class="twoColumns container pt-lg-23 pb-lg-20 pt-md-16 pb-md-4 pt-10 pb-4">
-    <div class="row">
-        <div class="col-12 col-lg-9 order-lg-3">
-            <!-- content -->
-            <article id="content">
-                <!-- show-head -->
-                <header class="show-head d-flex flex-wrap justify-content-between  mb-7">
-                    <ul class="list-unstyled viewFilterLinks d-flex flex-nowrap align-items-center">
-                        <li (click)="toggleGrid()" class="mr-2"><a style="text-decoration: none;" class="active"><i
-                                    class="fas fa-th-large"></i></a></li>
-                        <li (click)="toggleList()" class="mr-2"><a><i class="fas fa-list"></i></a></li>
-                        <li class="mr-2">Showing {{postList.length}} results</li>
+  <div class="row">
+    <div class="col-12 col-lg-9 order-lg-3">
+      <!-- content -->
+      <article id="content">
+        <!-- show-head -->
+        <header class="show-head d-flex flex-wrap justify-content-between mb-7">
+          <ul
+            class="list-unstyled viewFilterLinks d-flex flex-nowrap align-items-center"
+          >
+            <li (click)="toggleGrid()" class="mr-2">
+              <a style="text-decoration: none" class="active"
+                ><i class="fas fa-th-large"></i
+              ></a>
+            </li>
+            <li (click)="toggleList()" class="mr-2">
+              <a><i class="fas fa-list"></i></a>
+            </li>
+            <li class="mr-2">Showing {{ postList.length }} results</li>
+          </ul>
+          <!-- sortGroup -->
+          <div class="sortGroup">
+            <mat-form-field appearance="outline">
+              <mat-label>Sorting Products</mat-label>
+              <mat-select
+                (valueChange)="onValueChanged($event)"
+                [(value)]="typeselect"
+              >
+                <mat-option></mat-option>
+                <mat-option [value]="option.value" *ngFor="let option of types"
+                  >{{ option.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </header>
+        <!-- Grid  -->
+        <div class="container">
+          <div *ngIf="listToggle" class="row">
+            <div style="text-align: center" *ngIf="!postList" class="col-md-4">
+              <mat-spinner></mat-spinner>
+            </div>
+            <div class="col-md-4" *ngFor="let item of postList">
+              <!-- featureCol -->
+              <div class="h-100" style="display: flex; align-items: stretch">
+                <mat-card
+                  class="example-card my-2 hoverrr"
+                  style="width: 400px"
+                >
+                  <img
+                    class="card-img-top"
+                    style="height: 300px; object-fit: cover"
+                    mat-card-image
+                    [src]="item.image"
+                    (click)="getProdDetails(item.id)"
+                  />
+                  <mat-card-content>
+                    <mat-card-title
+                      style="
+                        text-align: center;
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-size: 15px;
+                      "
+                    >
+                      {{ item.name }}</mat-card-title
+                    >
+
+                    <p class="text-center">
+                      <!-- {{item.price|currency}} -->
+                      <span class="price d-block fwEbold"
+                        ><del *ngIf="item.saleValue"
+                          >{{item.price+&nbsp;+item.saleValue | number:'1.2-2'}}
+                          $</del
+                        >
+                        &nbsp;&nbsp;&nbsp;{{ item.price }} $</span
+                      >
+                    </p>
+                  </mat-card-content>
+                  <div class="showDiv">
+                    <ul
+                      class="list-unstyled postHoverLinskList d-flex justify-content-evenly m-0"
+                      *ngIf="auth.isAuthenticated$ | async"
+                    >
+                      <li class="mr-2 overflow-hidden">
+                        <button
+                          (click)="addtofavorite(item)"
+                          mat-mini-fab
+                          color="primary"
+                        >
+                          <mat-icon>favorite_border</mat-icon>
+                        </button>
+                      </li>
+                      <li class="mr-2 overflow-hidden">
+                        <button
+                          (click)="addtocart(item)"
+                          mat-mini-fab
+                          color="primary"
+                        >
+                          <mat-icon>add_shopping_cart</mat-icon>
+                        </button>
+                      </li>
+                      <li class="mr-2 overflow-hidden">
+                        <button
+                          (click)="getProdDetails(item.id)"
+                          mat-mini-fab
+                          color="primary"
+                        >
+                          <mat-icon>visibility</mat-icon>
+                        </button>
+                      </li>
                     </ul>
-                    <!-- sortGroup -->
-                    <div class="sortGroup">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Sorting Products</mat-label>
-                            <mat-select (valueChange)="onValueChanged($event)" [(value)]="typeselect">
-                                <mat-option></mat-option>
-                                <mat-option [value]="option.value" *ngFor="let option of types">{{ option.viewValue }}
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
-                    </div>
-                </header>
-                <!-- Grid  -->
-                <div class="container" >
-                    <div *ngIf="listToggle" class="row " >
-                        <div style="text-align: center; " *ngIf="!postList" class="col-md-4">
-                            <mat-spinner></mat-spinner>
-                        </div>
-                        <div class="col-md-4" *ngFor="let item of postList ">
-                            <!-- featureCol -->
-                            <div class=" h-100" style="display: flex;align-items: stretch;">
-                                <mat-card class="example-card my-2  hoverrr " style="width: 400px;">
-                                    <img class="card-img-top " style="height: 300px; object-fit: cover;"  mat-card-image [src]="item.image" (click)="getProdDetails(item.id)">
-                                    <mat-card-content  >
-                                        <mat-card-title style="text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 15px;"> {{item.name}}</mat-card-title>
-
-                                        <p class="text-center">
-                                            <!-- {{item.price|currency}} -->
-                                            <span class="price d-block fwEbold"><del  *ngIf="item.saleValue">{{item.price+&nbsp;+item.saleValue | number:'1.2-2'}}
-                                              $</del> &nbsp;&nbsp;&nbsp;{{item.price}} $</span>
-                                        </p>
-                                    </mat-card-content>
-                                    <div class="showDiv">
-                                      <ul  class="list-unstyled postHoverLinskList d-flex justify-content-evenly m-0"   *ngIf="(auth.isAuthenticated$|async)">
-                                        <li class="mr-2 overflow-hidden"><button (click)=addtofavorite(item) mat-mini-fab color="primary">
-                                                <mat-icon>favorite_border</mat-icon>
-                                            </button></li>
-                                        <li class="mr-2 overflow-hidden"><button (click)=addtocart(item) mat-mini-fab
-                                                color="primary">
-                                                <mat-icon>add_shopping_cart</mat-icon>
-                                            </button>
-                                        </li>
-                                        <li class="mr-2 overflow-hidden"><button (click)="getProdDetails(item.id)"
-                                                mat-mini-fab color="primary">
-                                                <mat-icon>visibility</mat-icon>
-                                            </button>
-                                        </li>
-
-                                    </ul>
-                                    </div>
-                                    <div class="hoverrr">
-                                    <mat-card-actions class="showDiv" >
-
-                                    </mat-card-actions>
-                                </div>
-                                </mat-card>
-                            </div>
-      
-                        </div>
-
-
-                    </div>
-                </div>
-                <!-- List  -->
-                <div *ngIf="!listToggle">
-                    <div class="card mb-3" *ngFor="let i of postList">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img (click)="getProdDetails(i.id)" [src]="i.image">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{i.name}}</h5>
-                                    <p class="card-text x">{{i.description}}</p>
-
-                                    <div class="py-3 px-4">
-
-                                        <span class="price d-block fwEbold"><del>{{i.price*1.1 | number:'1.2-2'}}$</del>
-                                            {{i.price}} $</span>
-                                        <button (click)=addtocart(i) mat-mini-fab color="primary">
-                                            <mat-icon>add_shopping_cart</mat-icon>
-                                        </button>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </article>
+                  </div>
+                  <div class="hoverrr">
+                    <mat-card-actions class="showDiv"> </mat-card-actions>
+                  </div>
+                </mat-card>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-3 col-lg-3 order-lg-1">
-            <!-- sidebar -->
-            <aside id="sidebar">
-                <!-- widget -->
-                <section class="widget overflow-hidden mb-9">
-                    <form action="javascript:void(0);" class="searchForm position-relative border">
-                        <fieldset>
-                            <input style="box-shadow: 0 0 0 ;" (keyup)="onKey($event)" type="search" class="form-control"
-                                placeholder="Search">
-                            <button class="position-absolute"><i class="icon-search"></i></button>
-                        </fieldset>
-                    </form>
-                </section>
-                <!-- widget -->
-                <section class="widget overflow-hidden mb-9">
-                    <h3 class="headingVII fwEbold text-uppercase mb-5 " style="margin-top: 40px;">PRODUCT CATEGORIES
-                    </h3>
+        <!-- List  -->
+        <div *ngIf="!listToggle">
+          <div class="card mb-3" *ngFor="let i of postList">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img (click)="getProdDetails(i.id)" [src]="i.image" />
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{ i.name }}</h5>
+                  <p class="card-text x">{{ i.description }}</p>
 
-                    <mat-chip-list selectable>
-                        <mat-chip #c="matChip" (click)="changeCat(Cat.id ,c)"
-                            *ngFor="let Cat of gatlist; let i= index;">
+                  <div class="py-3 px-4">
+                    <span class="price d-block fwEbold"
+                      ><del>{{ i.price * 1.1 | number: "1.2-2" }}$</del>
+                      {{ i.price }} $</span
+                    >
+                    <button (click)="addtocart(i)" mat-mini-fab color="primary">
+                      <mat-icon>add_shopping_cart</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="col-3 col-lg-3 order-lg-1">
+      <!-- sidebar -->
+      <aside id="sidebar">
+        <!-- widget -->
+        <section class="widget overflow-hidden mb-9">
+          <form
+            action="javascript:void(0);"
+            class="searchForm position-relative border"
+          >
+            <fieldset>
+              <input
+                style="box-shadow: 0 0 0"
+                (keyup)="onKey($event)"
+                type="search"
+                class="form-control"
+                placeholder="Search"
+              />
+              <button class="position-absolute">
+                <i class="icon-search"></i>
+              </button>
+            </fieldset>
+          </form>
+        </section>
+        <!-- widget -->
+        <section class="widget overflow-hidden mb-9">
+          <h3
+            class="headingVII fwEbold text-uppercase mb-5"
+            style="margin-top: 40px"
+          >
+            PRODUCT CATEGORIES
+          </h3>
 
-                            {{Cat.name}}
-                        </mat-chip>
-                    </mat-chip-list>
-                    <!-- <div [class.active]="activeCat === i" class="mt-2" *ngFor="let item of gatlist; let i= index;">
+          <mat-chip-list selectable>
+            <mat-chip
+              #c="matChip"
+              (click)="changeCat(Cat.id, c)"
+              *ngFor="let Cat of gatlist; let i = index"
+            >
+              {{ Cat.name }}
+            </mat-chip>
+          </mat-chip-list>
+          <!-- <div [class.active]="activeCat === i" class="mt-2" *ngFor="let item of gatlist; let i= index;">
                         <button disableRipple="true" mat-button (click)="changeCat(item.id,i)">{{item.name}}
                         </button>
                     </div> -->
-                </section>
-                <!-- widget -->
-
-
-            </aside>
-        </div>
-        <ngx-scrolltop
-        [size]="40"
-        backgroundColor="#33691e"
-        symbolColor="#fff"
-        symbol="↑"
-        mode="classic"
-        position="right"
-        theme="pink"
-      >
-      </ngx-scrolltop>
+        </section>
+        <!-- widget -->
+      </aside>
     </div>
+    <ngx-scrolltop
+      [size]="40"
+      backgroundColor="#33691e"
+      symbolColor="#fff"
+      symbol="↑"
+      mode="classic"
+      position="right"
+      theme="pink"
+    >
+    </ngx-scrolltop>
+  </div>
 </div>

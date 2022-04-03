@@ -1,7 +1,12 @@
 <div class="container mt-5" *ngIf="authService.user$ | async as user">
-  <div class="row align-items-center profile-header mb-5 text-center text-md-left">
+  <div
+    class="row align-items-center profile-header mb-5 text-center text-md-left"
+  >
     <div class="col-md-2">
-      <img [src]="user.picture" class="rounded-circle img-fluid profile-picture mb-3 mb-md-0" />
+      <img
+        [src]="user.picture"
+        class="rounded-circle img-fluid profile-picture mb-3 mb-md-0"
+      />
     </div>
     <div class="col-md">
       <h1>Welcome {{ namefromdb[0] }} ....😎</h1>
@@ -11,7 +16,7 @@
   <form [formGroup]="updateProfile">
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
-      <input matInput disabled value="{{ user.email }}">
+      <input matInput disabled value="{{ user.email }}" />
     </mat-form-field>
 
     <table cellspacing="0">
@@ -19,26 +24,40 @@
         <td>
           <mat-form-field appearance="outline">
             <mat-label>Full Name</mat-label>
-            <input matInput formControlName="FirstName" [(ngModel)]="namefromdb[0]">
+            <input
+              matInput
+              formControlName="FirstName"
+              [(ngModel)]="namefromdb[0]"
+            />
           </mat-form-field>
         </td>
       </tr>
     </table>
     <mat-form-field class="mb-3" appearance="outline">
-
       <mat-label>Phone</mat-label>
       <span matPrefix>+20 &nbsp; </span>
-      <input type="number" matInput formControlName="phone" [(ngModel)]="namefromdb[1]" placeholder="123-456-7890">
+      <input
+        type="number"
+        matInput
+        formControlName="phone"
+        [(ngModel)]="namefromdb[1]"
+        placeholder="123-456-7890"
+      />
       <mat-icon matSuffix>phone</mat-icon>
-
     </mat-form-field>
-    <br>
+    <br />
     <mat-form-field class="mb-3" appearance="outline">
-
       <mat-label>Age</mat-label>
-      <input placeholder="{{userDb.age}} Years Old 🎂" matInput formControlName="birthdate">
-        <mat-icon matSuffix>cake</mat-icon>
-      <mat-error class="error-message" *ngIf="ff['birthdate'].hasError('required')">
+      <input
+        placeholder="{{ userDb.age }} Years Old 🎂"
+        matInput
+        formControlName="birthdate"
+      />
+      <mat-icon matSuffix>cake</mat-icon>
+      <mat-error
+        class="error-message"
+        *ngIf="ff['birthdate'].hasError('required')"
+      >
         Age is Required
       </mat-error>
     </mat-form-field>
@@ -47,35 +66,49 @@
         <td>
           <mat-form-field appearance="outline">
             <mat-label>Address</mat-label>
-            <input  matInput formControlName="address" matInput placeholder="Ex. 11St khalafawy" [(ngModel)]="addressfromdb[0]">
+            <input
+              matInput
+              formControlName="address"
+              matInput
+              placeholder="Ex. 11St khalafawy"
+              [(ngModel)]="addressfromdb[0]"
+            />
           </mat-form-field>
         </td>
         <td>
           <mat-form-field appearance="outline">
             <mat-label>City</mat-label>
-            <input  matInput formControlName="city" matInput placeholder="Ex. Cairo" [(ngModel)]="addressfromdb[1]">
+            <input
+              matInput
+              formControlName="city"
+              matInput
+              placeholder="Ex. Cairo"
+              [(ngModel)]="addressfromdb[1]"
+            />
           </mat-form-field>
         </td>
         <td>
           <mat-form-field appearance="outline">
             <mat-label>State</mat-label>
-            <input  matInput formControlName="state" matInput placeholder="Ex. Shobra" [(ngModel)]="addressfromdb[2]">
+            <input
+              matInput
+              formControlName="state"
+              matInput
+              placeholder="Ex. Shobra"
+              [(ngModel)]="addressfromdb[2]"
+            />
           </mat-form-field>
         </td>
       </tr>
     </table>
-    <button mat-raised-button color="accent" (click)="sendToDb()">Update profile</button>
-
+    <button mat-raised-button color="accent" (click)="sendToDb()">
+      Update profile
+    </button>
   </form>
 
-
-
-
-
-
-
-
   <div class="row" *ngIf="profileJson">
-    <pre class="rounded"><code class="json" (highlight)="profileJson" ></code></pre>
+    <pre
+      class="rounded"
+    ><code class="json" (highlight)="profileJson" ></code></pre>
   </div>
 </div>

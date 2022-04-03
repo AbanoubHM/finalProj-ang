@@ -1,100 +1,140 @@
 <!-- main -->
 <main>
-    <!-- introBannerHolder -->
-    <section class="introBannerHolder d-flex w-100 bgCover"
-        style="background-image: url(assets/styles/images/Untitled-2.jpgل.jpg);">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 pt-lg-23 pt-md-15 pt-sm-10 pt-6 text-center " style="margin-top: 60px;">
-                    <h1 class="headingIV fwEbold playfair mb-4">Shop</h1>
-                    <ul class="list-unstyled breadCrumbs d-flex justify-content-center">
-                        <li class="mr-2"><a routerLink="">Home</a></li>
-                        <li class="mr-2">/</li>
-                        <li class="mr-2"><a routerLink="/products">Shop</a></li>
-                        <li class="mr-2">/</li>
-                        <li class="active">{{prodDet?.name}}</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- twoColumns -->
-    <div class="twoColumns container pt-xl-23 pb-xl-20 pt-lg-20 pb-lg-20 py-md-16 py-10 mt-5">
-        <div class="row mb-6">
-            <div class="col-12 col-lg-6 order-lg-1">
-                <!-- productSliderImage -->
-
-                <div>
-                    <img [src]="prodDet?.image" alt="image description" class="img-fluid w-100">
-                </div>
-
-
-            </div>
-            <div class="col-12 col-lg-6 order-lg-3">
-                <!-- productTextHolder -->
-                <div class=" overflow-hidden">
-                    <h2 class="fwEbold mb-2">{{prodDet?.name}}</h2>
-                    <div class="rate">
-                        <input type="radio" id="star5" name="rate" value="5" />
-                        <label for="star5" title="text">5 stars</label>
-                        <input type="radio" id="star4" name="rate" value="4" />
-                        <label for="star4" title="text">4 stars</label>
-                        <input type="radio" id="star3" name="rate" value="3" />
-                        <label for="star3" title="text">3 stars</label>
-                        <input type="radio" id="star2" name="rate" value="2" />
-                        <label for="star2" title="text">2 stars</label>
-                        <input type="radio" id="star1" name="rate" value="1" />
-                        <label for="star1" title="text">1 star</label>
-                    </div><br><br>
-
-                    <strong style="font-size: 2em;"
-                        class="price d-block mb-1 mt-2 text-green">{{prodDet.price|currency}}</strong>
-                    <div class="mb-3">
-                      <del  *ngIf="prodDet.saleValue">{{prodDet.price+prodDet.saleValue | number:'1.2-2'}}
-                        $</del>
-                    </div>
-                    <p class="mb-5">{{prodDet.description}}</p>
-                    <ul class="list-unstyled productInfoDetail mb-5 overflow-hidden">
-                        <li style="font-size: 1.3em;" class="mb-2">Quantity: <span>{{prodDet.quantity}}</span></li>
-                        <li style="font-size: 1.3em;" class="mb-2">Description: <span>{{prodDet.description}}</span></li>
-                        <li style="font-size: 1.3em;" class="mb-2">preparationDays: <span>{{prodDet.preparationDays}}</span></li>
-                        <li style="font-size: 1.3em;" class="mb-2">categoryName: <span>{{prodDet.categoryName}}</span></li>
-
-
-                    </ul>
-
-
-                    <div class="holder overflow-hidden d-flex flex-wrap mb-6">
-                        <div class="col-12">
-                            <mat-form-field class="mb-2" appearance="outline" floatLabel="always">
-                                <mat-label>Amount</mat-label>
-                                <input style="text-align: center; font-size: 1.5em;" max="{{prodDet?.quantity}}" matInput
-                                    type="number" [(ngModel)]="count" placeholder="0">
-                                <button matPrefix mat-icon-button color="primary" (click)="decCount()">
-                                    <mat-icon>remove</mat-icon>
-                                </button>
-                                <button matSuffix mat-icon-button color="primary" (click)="incCount()">
-                                    <mat-icon>add</mat-icon>
-                                </button>
-                            </mat-form-field>
-                        </div>
-                        <div class="col-12">
-                            <button (click)="addtocart(prodDet)" style="font-size: 1.5em;" class="mb-3 " mat-raised-button color="primary" *ngIf="(auth.isAuthenticated$|async)">Add
-                                To Cart <mat-icon matSuffix>add_shopping_cart
-
-                                </mat-icon>
-                            </button>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <br>
+  <!-- introBannerHolder -->
+  <section
+    class="introBannerHolder d-flex w-100 bgCover"
+    style="background-image: url(assets/styles/images/Untitled-2.jpgل.jpg)"
+  >
     <div class="container">
-
+      <div class="row">
+        <div
+          class="col-12 pt-lg-23 pt-md-15 pt-sm-10 pt-6 text-center"
+          style="margin-top: 60px"
+        >
+          <h1 class="headingIV fwEbold playfair mb-4">Shop</h1>
+          <ul class="list-unstyled breadCrumbs d-flex justify-content-center">
+            <li class="mr-2"><a routerLink="">Home</a></li>
+            <li class="mr-2">/</li>
+            <li class="mr-2"><a routerLink="/products">Shop</a></li>
+            <li class="mr-2">/</li>
+            <li class="active">{{ prodDet?.name }}</li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </section>
+  <!-- twoColumns -->
+  <div
+    class="twoColumns container pt-xl-23 pb-xl-20 pt-lg-20 pb-lg-20 py-md-16 py-10 mt-5"
+  >
+    <div class="row mb-6">
+      <div class="col-12 col-lg-6 order-lg-1">
+        <!-- productSliderImage -->
 
+        <div>
+          <img
+            [src]="prodDet?.image"
+            alt="image description"
+            class="img-fluid w-100"
+          />
+        </div>
+      </div>
+      <div class="col-12 col-lg-6 order-lg-3">
+        <!-- productTextHolder -->
+        <div class="overflow-hidden">
+          <h2 class="fwEbold mb-2">{{ prodDet?.name }}</h2>
+          <div class="rate">
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5" title="text">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4" title="text">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3" title="text">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="text">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="text">1 star</label>
+          </div>
+          <br /><br />
+
+          <strong
+            style="font-size: 2em"
+            class="price d-block mb-1 mt-2 text-green"
+            >{{ prodDet.price | currency }}</strong
+          >
+          <div class="mb-3">
+            <del *ngIf="prodDet.saleValue"
+              >{{ prodDet.price + prodDet.saleValue | number: "1.2-2" }} $</del
+            >
+          </div>
+          <p class="mb-5">{{ prodDet.description }}</p>
+          <ul class="list-unstyled productInfoDetail mb-5 overflow-hidden">
+            <li style="font-size: 1.3em" class="mb-2">
+              Quantity: <span>{{ prodDet.quantity }}</span>
+            </li>
+            <li style="font-size: 1.3em" class="mb-2">
+              Description: <span>{{ prodDet.description }}</span>
+            </li>
+            <li style="font-size: 1.3em" class="mb-2">
+              preparationDays: <span>{{ prodDet.preparationDays }}</span>
+            </li>
+            <li style="font-size: 1.3em" class="mb-2">
+              categoryName: <span>{{ prodDet.categoryName }}</span>
+            </li>
+          </ul>
+
+          <div class="holder overflow-hidden d-flex flex-wrap mb-6">
+            <div class="col-12">
+              <mat-form-field
+                class="mb-2"
+                appearance="outline"
+                floatLabel="always"
+              >
+                <mat-label>Amount</mat-label>
+                <input
+                  style="text-align: center; font-size: 1.5em"
+                  max="{{ prodDet?.quantity }}"
+                  matInput
+                  type="number"
+                  [(ngModel)]="count"
+                  placeholder="0"
+                />
+                <button
+                  matPrefix
+                  mat-icon-button
+                  color="primary"
+                  (click)="decCount()"
+                >
+                  <mat-icon>remove</mat-icon>
+                </button>
+                <button
+                  matSuffix
+                  mat-icon-button
+                  color="primary"
+                  (click)="incCount()"
+                >
+                  <mat-icon>add</mat-icon>
+                </button>
+              </mat-form-field>
+            </div>
+            <div class="col-12">
+              <button
+                (click)="addtocart(prodDet)"
+                style="font-size: 1.5em"
+                class="mb-3"
+                mat-raised-button
+                color="primary"
+                *ngIf="auth.isAuthenticated$ | async"
+              >
+                Add To Cart <mat-icon matSuffix>add_shopping_cart </mat-icon>
+              </button>
+            </div>
+          </div>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="container"></div>
 </main>
