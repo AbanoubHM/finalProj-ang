@@ -1,13 +1,7 @@
-import {
-  FormBuilder,
-  Validators,
-  FormGroup,
-  FormControl,
-} from '@angular/forms';
+import { FormBuilder,Validators, FormGroup, FormControl} from '@angular/forms';
 import { ProfileService } from 'src/app/Service/profile.service';
 import { IClient } from './../Models/IClient';
 import { Component, OnInit, TemplateRef } from '@angular/core';
-
 import { AuthService } from '@auth0/auth0-angular';
 import { NativeDateAdapter, NativeDateModule } from '@angular/material/core';
 
@@ -46,13 +40,11 @@ addressfromdb: string [] = [];
   ngOnInit(): void {
     this.authService.user$.subscribe((profile) => {
       this.profileJson = JSON.stringify(profile, null, 2);
-      //if(profile?.sub="google-oauth2|109273316103383643492")
-       console.log(profile?.sub);
+       console.log(profile);
       this.profServ.getClientData(profile?.sub).subscribe((data) => {
         this.userDb = data;
         this.namefromdb = this.userDb.name.split(';');
         this.addressfromdb = this.userDb.address.split(';');        
-        // console.log(this.authService);
       });
     });
   }
