@@ -14,7 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './components/products/products.component';
 import { LoginComponent } from './components/login/login.component';
 import { ErrorComponent } from './components/error/error.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
@@ -28,7 +28,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
 
-import { AuthModule } from '@auth0/auth0-angular';
+import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
 import { MatStepperModule } from '@angular/material/stepper';
 
 import { DashbordNavComponent } from './components/dashbord-nav/dashbord-nav.component';
@@ -79,9 +79,7 @@ import { ItemCartComponent } from './components/item-cart/item-cart.component';
     ProductDetailsComponent,
     ToolbarComponent,
     LogoutComponent,
-
     FavoriteComponent,
-
     DashbordNavComponent,
     DashComponent,
     CardComponent,
@@ -129,7 +127,9 @@ import { ItemCartComponent } from './components/item-cart/item-cart.component';
 
     // [RouterModule.forRoot(routes)MatTableModuleMatPaginatorModuleMatSortModule]
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

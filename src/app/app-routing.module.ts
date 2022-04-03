@@ -27,17 +27,23 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
-  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
+  { path: 'become_Vendor', component: RegisterComponent, canActivate: [AuthGuard] },
   { path: 'cart', component: CartsComponent, canActivate: [AuthGuard] },
   { path: 'MyProfile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'logout', component: LogoutComponent },
   { path: 'favorite', component: FavoriteComponent, canActivate: [AuthGuard] },
-  { path: 'AddProduct', component: OrdersComponent, canActivate: [AuthGuard] },
+  { path: 'AddProduct', component: OrdersComponent, canActivate: [AuthGuard], 
+  data: {
+    role: 'ROLE_ADMIN'
+  } },
   { path: 'products', component: ProductsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'products/:id', component: ProductDetailsComponent },
-  { path: 'MyStore', component: MystoreComponent, canActivate: [AuthGuard] },
+  { path: 'MyStore', component: MystoreComponent, canActivate: [AuthGuard] , 
+  data: {
+    role: 'ROLE_ADMIN'
+  }},
   { path: 'customers', component: CustomersComponent, canActivate: [AuthGuard] },
   { path: ':Cateid/products', component: CategoryDetailsComponent },
   { path: '**', component: ErrorComponent }

@@ -1,7 +1,10 @@
+// import {audience,appUri} from '../auth_config.json'
 import * as config from '../auth_config.json';
-const { domain,clientId }=config as {
+const { domain,clientId,audience,appUri }=config as {
   domain:string
   clientId:string
+  audience:string,
+  appUri:string
 }
 export const environment = {
   production: false,
@@ -9,8 +12,11 @@ export const environment = {
   auth:{
     domain,
     clientId,
-    redirectUri:window.location.origin
+    redirectUri:window.location.origin,
+    audience
+  },
+  dev:{
+    appUri
   }
 };
-
 

@@ -4,5 +4,6 @@ export interface Iprofile {
     "password":string,
     "address": string,
     "birthdate": string,
-    "phone": number
+    "phone": number,
+    
 }
