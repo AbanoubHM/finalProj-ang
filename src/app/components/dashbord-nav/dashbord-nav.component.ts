@@ -20,20 +20,35 @@ export class DashbordNavComponent {
       map(result => result.matches),
       shareReplay()
     );
+  profileJson: string="";
 
   constructor(private breakpointObserver: BreakpointObserver, public auth: AuthService,
    private cartService: CartService , private FavoriteService : FavoriteService,private User:UserService ,
     @Inject(DOCUMENT) private doc: Document) { }
 // nav.component.ts
+menuItemsClients=['MyProfile']
+menuItems=[""];
+roles:string="";
 
-  menuItems = ['MyProfile', 'AddProduct', 'customers', 'MyStore'];
+  menuItemsVendor = ['MyProfile', 'AddProduct', 'customers', 'MyStore'];
   public totalItem: number = 0;
   public totalfavortit: number = 0;
   islogged=false;
   hidden = true;
   hidden1 = true;
   ngOnInit(): void {
+    this.auth.user$.subscribe((profile) => {
 
+      console.log(profile?.['http://roletest.net/roles'])
+      this.roles=profile?.['http://roletest.net/roles'];
+      if(this.roles.length==2){
+        this.menuItems=['MyProfile', 'AddProduct', 'customers', 'MyStore'];
+      }
+      else 
+      {
+        this.menuItems=['MyProfile'];
+      }
+      this.profileJson = JSON.stringify(profile, null, 2)});
     this.User.loginState.subscribe(
       st=>{this.islogged=st}
     );

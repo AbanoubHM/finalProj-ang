@@ -1,107 +1,77 @@
+<br>
+<br>
 <div>
+
+
+
   <div class="container d-flex justify-content-start w-75">
     <div class="row">
       <div class="wrapper img">
-        <img
-          class="col-md-6 col-sm-12"
-          style="float: right"
-          alt=""
-          src="assets/styles/images/5360844.jpg"
-        />
-        <form
-          method="post"
-          [formGroup]="registerForm"
-          class="col-md-6 col-sm-12"
-        >
+        <img class="col-md-6 col-sm-12" style="float: right" alt="" src="assets/styles/images/5360844.jpg" />
+        <form enctype="multipart/form-data" method="post" [formGroup]="registerForm" class="col-md-6 col-sm-12">
+          <mat-form-field hidden="true" class="mb-3" appearance="outline">
+            <mat-label>Client ID</mat-label>
+            <input matInput formControlName="id" value="{{IDOfVendor}}" />
+          </mat-form-field>
           <mat-form-field class="mb-3" appearance="outline">
-            <mat-label>User Name</mat-label>
-            <input
-              matInput
-              formControlName="username"
-              placeholder="User Name"
-            />
+            <mat-label>Vendor Name</mat-label>
+            <input matInput formControlName="vendorName" placeholder="Vendor Name" />
             <mat-icon matSuffix>person</mat-icon>
-            <mat-error
-              *ngFor="let validation of register_validation_messages.username"
-            >
-              <mat-error
-                class="error-message"
-                *ngIf="ff['username'].hasError(validation.type)"
-              >
+            <mat-error *ngFor="let validation of register_validation_messages.username">
+              <mat-error class="error-message" *ngIf="ff['vendorName'].hasError(validation.type)">
                 {{ validation.message }}
               </mat-error>
             </mat-error>
           </mat-form-field>
           <mat-form-field class="mb-3" appearance="outline">
-            <mat-label>Address</mat-label>
-            <textarea
-              matInput
-              formControlName="address"
-              placeholder="Ex. 100 Main St"
-            ></textarea>
-            <mat-icon matSuffix>person_pin_circle</mat-icon>
-          </mat-form-field>
-
-          <mat-form-field class="mb-3" appearance="outline">
-            <mat-label>Birthdate</mat-label>
-            <input
-              matInput
-              formControlName="birthdate"
-              [max]="maxDate"
-              [matDatepicker]="picker"
-            />
-            <mat-datepicker-toggle matSuffix [for]="picker">
-              <mat-icon matDatepickerToggleIcon>cake</mat-icon>
-            </mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-            <mat-error
-              class="error-message"
-              *ngIf="ff['birthdate'].hasError('required')"
-            >
-              Birthdate is Required
+            <mat-label>Store Name</mat-label>
+            <input matInput formControlName="storeName" placeholder="Store Name"  />
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngFor="let validation of register_validation_messages.StoreName">
+              <mat-error class="error-message" *ngIf="ff['storeName'].hasError(validation.type)">
+                {{ validation.message }}
+              </mat-error>
             </mat-error>
           </mat-form-field>
-
           <mat-form-field class="mb-3" appearance="outline">
             <mat-label>Phone</mat-label>
             <span matPrefix>+20 &nbsp;</span>
-            <input
-              type="tel"
-              matInput
-              formControlName="phone"
-              placeholder="123-456-7890"
-            />
+            <input type="tel" matInput formControlName="phone" placeholder="123-456-7890" />
             <mat-icon matSuffix>phone</mat-icon>
-            <mat-error
-              *ngFor="let validation of register_validation_messages.phone"
-            >
-              <mat-error
-                class="error-message"
-                *ngIf="ff['phone'].hasError(validation.type)"
-              >
+            <mat-error *ngFor="let validation of register_validation_messages.phone">
+              <mat-error class="error-message" *ngIf="ff['phone'].hasError(validation.type)">
                 {{ validation.message }}
               </mat-error>
             </mat-error>
           </mat-form-field>
-          <button
-            style="width: 10em; border-radius: 20px !important"
-            (click)="submitForm(registerForm)"
-            color="primary"
-            mat-raised-button
-          >
+          <mat-form-field class="mb-3" appearance="outline">
+            <mat-label>StoreImg</mat-label>
+            <input matInput formControlName="storeImg" />
+          </mat-form-field>
+          <mat-form-field class="mb-3" appearance="outline">
+            <mat-label>Street</mat-label>
+            <input matInput formControlName="street" />
+          </mat-form-field>
+          <mat-form-field class="mb-3" appearance="outline">
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city" />
+          </mat-form-field>
+          <mat-form-field class="mb-3" appearance="outline">
+            <mat-label>State</mat-label>
+            <input matInput formControlName="state" />
+          </mat-form-field>
+          <button style="width: 10em; border-radius: 20px !important" (click)="submitForm(registerForm)" color="primary"
+            mat-raised-button>
             Register
           </button>
         </form>
-        <div
-          class="col-6"
-          style="
+        <div class="col-6" style="
             background-image: url(assets/styles/images/5360844.jpg);
             background-repeat: no-repeat;
             background-size: 65% 80%;
             background-position: right center;
             margin-top: 70px;
-          "
-        ></div>
+          "></div>
       </div>
     </div>
   </div>

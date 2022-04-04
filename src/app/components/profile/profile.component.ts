@@ -1,4 +1,4 @@
-import { FormBuilder,Validators, FormGroup, FormControl} from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 import { ProfileService } from 'src/app/Service/profile.service';
 import { IClient } from './../Models/IClient';
 import { Component, OnInit, TemplateRef } from '@angular/core';
@@ -31,48 +31,57 @@ export class ProfileComponent implements OnInit {
     FirstName: [this.userDb.name],
     LastName: [''],
     phone: ['', [Validators.minLength(10), Validators.maxLength(11)]],
-    birthdate:[''],
+    birthdate: [''],
     address: [''],
     city: [''],
     state: [''],
   });
-
-namefromdb: string [] = [];
-addressfromdb: string [] = [];
-
+  namefromdb: string[] = [];
+  addressfromdb: string[] = [];
+  // role: string = "";
   ngOnInit(): void {
     this.authService.user$.subscribe((success: any) => {
       this.user = success;
     });
-   //this.authService.error$.subscribe((error) => console.log(error));
-   this.authService.idTokenClaims$.subscribe((claims) => console.log(claims));
-   
+    this.authService.error$.subscribe((error) => console.log(error));
+    this.authService.idTokenClaims$.subscribe((claims) =>
+    console.log(claims)
+    );
     this.authService.user$.subscribe((profile) => {
-      this.profileJson = JSON.stringify(profile, null, 2);
-       console.log(profile);
-      this.profServ.getClientData(profile?.sub).subscribe((data) => {
-        this.userDb = data;
-        this.namefromdb = this.userDb.name.split(';');
-        this.addressfromdb = this.userDb.address.split(';');        
-      });
-    });
-  }
-  get ff() {
-    return this.updateProfile.controls;
-  }
-  sendToDb() {
-    this.userDb.name = `${this.ff['FirstName'].value};${this.ff['phone'].value}`;
-    this.userDb.address = `${this.ff['address'].value};${this.ff['city'].value};${this.ff['state'].value}`;
-    console.log(this.userDb.name);
-    console.log(this.userDb.address);
-    
-    this.userDb.age =this.ff['birthdate'].value;
-    this.profServ
-      .updateClientData(this.userDb.id, this.userDb)
-      .subscribe((dat) => {
-        console.log(dat);
-      });
-  }
+      console.log(profile?.['http://roletest.net/roles'])
+        this.profileJson = JSON.stringify(profile, null, 2);
+        this.profServ.getClientData(profile?.sub).subscribe((data) => {
+         this.userDb = data;
+         this.namefromdb = this.userDb.name.split(';');
+         this.addressfromdb = this.userDb.address.split(';');
+         //console.log(this.authService);
+ 
+       this.profileJson = JSON.stringify(profile, null, 2);
+        console.log(profile);
+       this.profServ.getClientData(profile?.sub).subscribe((data) => {
+         this.userDb = data;
+         this.namefromdb = this.userDb.name.split(';');
+         this.addressfromdb = this.userDb.address.split(';');        
+ 
+       });
+     });
+   })  } 
+ 
+  get ff(){
+      return this.updateProfile.controls;
+    }
+    sendToDb(){
+      this.userDb.name = `${this.ff['FirstName'].value};${this.ff['phone'].value}`;
+      this.userDb.address = `${this.ff['address'].value};${this.ff['city'].value};${this.ff['state'].value}`;
+      console.log(this.userDb.name);
+      console.log(this.userDb.address);
+      this.userDb.age = this.ff['birthdate'].value;
+      this.profServ
+        .updateClientData(this.userDb.id, this.userDb)
+        .subscribe((dat) => {
+          console.log(dat);
+        });
+    }
 
-  onHighlight() {}
-}
+    onHighlight() { }
+  }
