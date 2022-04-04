@@ -28,9 +28,9 @@
 
           <mat-icon>login</mat-icon> Log in
         </button>
-        <button mat-button routerLink="/register" *ngIf="(auth.isAuthenticated$|async)===false">
+        <button mat-button routerLink="/register" *ngIf="(auth.isAuthenticated$|async)">
 
-          <mat-icon>app_registration</mat-icon> Register
+          <mat-icon>app_registration</mat-icon> Became a Vendor
         </button>
         <span class="fill-remaining-space"></span>
         <button mat-button (click)="logout()" *ngIf="(auth.isAuthenticated$|async)">
@@ -69,7 +69,7 @@
       </button>
       <button mat-menu-item routerLink="/contact" style="margin-right: 5px;">Contact
       </button>
-      <button mat-menu-item routerLink="/register" style="margin-right: 5px;">Register
+      <button mat-menu-item routerLink="/register" style="margin-right: 5px;" *ngIf="(auth.isAuthenticated$|async)">Became a Vendor
       </button>
       <button mat-menu-item routerLink="/login" style="margin-right: 5px;">Log in
       </button>
