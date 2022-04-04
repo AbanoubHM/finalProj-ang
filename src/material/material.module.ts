@@ -17,6 +17,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -38,6 +39,7 @@ const MaterialComponents = [
   MatTooltipModule,
   MatSelectModule,
   MatChipsModule,
+  MatPaginatorModule,
 ];
 
 @NgModule({

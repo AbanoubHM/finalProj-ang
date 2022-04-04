@@ -12,6 +12,7 @@ import { Icategory } from 'src/app/Models/Icategory';
 import { HttpParams } from '@angular/common/http';
 import { AuthService } from '@auth0/auth0-angular';
 import { MatChip, MatChipInputEvent } from '@angular/material/chips';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-products',
@@ -19,6 +20,11 @@ import { MatChip, MatChipInputEvent } from '@angular/material/chips';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
+  length: number = 100;
+  pageSize: number = 12;
+  pageSizeOptions: number[] = [12, 24, 48, 96];
+  pageEvent?: PageEvent;
+
   show: boolean;
   postList: IProduct[] = [];
   gatlist: Icategory[] = [];
@@ -52,9 +58,9 @@ export class ProductsComponent implements OnInit {
     private cartService: CartService,
     private FavoriteService: FavoriteService,
     private snakeBar: MatSnackBar,
-    private activateroute:ActivatedRoute
+    private activateroute: ActivatedRoute
   ) {
-    this.show=false
+    this.show = false;
   }
   ngOnInit(): void {
     // this.postSrv.getProductsBySortName();
@@ -78,7 +84,7 @@ export class ProductsComponent implements OnInit {
     this.router.navigate([id], { relativeTo: this.activatedRoute });
   }
 
-  snakerbar(data:string , color:string){
+  snakerbar(data: string, color: string) {
     this.snakeBar.open(data, '', {
       duration: 1000,
       panelClass: [color, 'text-center'],
@@ -95,34 +101,37 @@ export class ProductsComponent implements OnInit {
 
   addtofavorite(item: any) {
     this.FavoriteService.getProducts().subscribe(
-      res => {
-        let data:any = res ;
-        if(data.every((el:any)=>el.id !== item.id)){
-              console.log('new')
-              this.FavoriteService.addtofavorite(item);
-              this.snakerbar('added to the favorite' , `bg-success`)
-            }
-            else{
-
-              this.snakerbar('already in the favorite' , `bg-error`)
-            }
+      (res) => {
+        let data: any = res;
+        if (data.every((el: any) => el.id !== item.id)) {
+          console.log('new');
+          this.FavoriteService.addtofavorite(item);
+          this.snakerbar('added to the favorite', `bg-success`);
+        } else {
+          this.snakerbar('already in the favorite', `bg-error`);
+        }
       },
-      error => {
+      (error) => {
         console.log('server is down', error);
-      })
-
-
-
+      }
+    );
   }
   showitem() {
-    this.show=!this.show
-
+    this.show = !this.show;
   }
   toggleList() {
     this.listToggle = false;
   }
   toggleGrid() {
     this.listToggle = true;
+  }
+  changePage(event: PageEvent) {
+    this.params = this.params.set('pagesize', event.pageSize);
+    this.params = this.params.set('pagenumber', event.pageIndex + 1);
+    this.postSrv.getProductsBySortName(this.params).subscribe((prods) => {
+      this.postList = prods;
+    });
+    return event;
   }
 
   changeCat(id: any, c: MatChip) {
