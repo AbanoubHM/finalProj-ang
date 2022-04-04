@@ -9,6 +9,7 @@ const { domain,clientId,audience,appUri,apiUri }=config as {
 }
 export const environment = {
   production: false,
+  API : "https://handmadeapi.azurewebsites.net/api",
   jsonServer : "http://localhost:3000",
   auth:{
     domain,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FavoriteService } from '../../Service/favorite.service';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-favorite',
@@ -8,23 +9,31 @@ import { FavoriteService } from '../../Service/favorite.service';
 })
 export class FavoriteComponent implements OnInit {
 
-  constructor(private FavoriteService : FavoriteService) { }
-  public products: any = [];
+  constructor(private FavoriteService : FavoriteService  ,
+              public authService: AuthService, ) { }
 
-  ngOnInit(): void {
-    this.FavoriteService.getProducts().subscribe(
+ products: any = [];
+
+userId :any ;              
+ 
+ngOnInit(): void {
+  
+  this.authService.user$.subscribe((profile) => {
+    
+    this.FavoriteService.getfevProducts(profile?.sub).subscribe(
       data => {
         this.products = data ;
-        console.log('get p', );
+        console.log('get items', data);
       },
       
       error => {
         console.log('server id down', error);
       })    
 
-  }
+  })
 
-  
+} 
+
 
   removeItem(item: any){
     this.FavoriteService.removefavoriteItem("").subscribe(

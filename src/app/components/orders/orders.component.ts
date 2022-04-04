@@ -19,9 +19,14 @@ import { StoreService } from 'src/app/Service/store.service';
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.scss'],
 })
+<<<<<<< HEAD
+export class OrdersComponent  {
+  constructor(private gat: GategoryService,
+=======
 export class OrdersComponent implements OnInit {
   constructor(
     private gat: GategoryService,
+>>>>>>> 18c1139fc6719d422cee3e92bcd2337fd247720d
     private fb: FormBuilder,
     private publishstore: PublishstoreService,
     private snakeBar: MatSnackBar,
@@ -31,8 +36,13 @@ export class OrdersComponent implements OnInit {
   ) {}
   errMsg: string = '';
   gatlist: Icategory[] = [];
+<<<<<<< HEAD
+  gategoryid: any;
+
+=======
   public progress?: any;
   public message?: string;
+>>>>>>> 18c1139fc6719d422cee3e92bcd2337fd247720d
 
   ordersForm: FormGroup = this.fb.group({
     name: [
@@ -46,6 +56,36 @@ export class OrdersComponent implements OnInit {
     ],
     description: ['', [Validators.required]],
     image: ['', [Validators.required]],
+<<<<<<< HEAD
+    price: ['', [Validators.required]],
+    SaleValue: [''],
+    Quantity: ['', Validators.required],
+    PreparationDays: ['', Validators.required],
+    Category:['',Validators.required]
+  })
+
+
+  ngOnInit(): void {
+
+    this.gategoryid=this.gatlist.find(x=>x.id)
+    this.gat.getAllGatogaries().subscribe(gatilist => {
+
+      this.gatlist=gatilist
+    })
+
+    this.store.getAllVendorStore().subscribe(postData=>{
+      this.postList=postData
+      console.log(this.postList)
+      this.postList.forEach(element => {
+        this.numberofposts++;
+      });
+
+
+    },
+    error=>{
+      this.errMsg=error
+    })
+=======
     price: [0, [Validators.required]],
     saleValue: [0],
     quantity: [1, Validators.required],
@@ -60,12 +100,20 @@ export class OrdersComponent implements OnInit {
     this.auth.user$.subscribe((prof) => {
       this.ff['storeID'].setValue(prof?.sub);
     });
+>>>>>>> 18c1139fc6719d422cee3e92bcd2337fd247720d
   }
 
   get ff() {
     return this.ordersForm.controls;
   }
 
+<<<<<<< HEAD
+   photo:any = "";
+  uploadfile(event : any) {
+   
+    // console.log(event.target)
+    // this.photo =event.target.files[0]
+=======
   uploadfile(files: any) {
     // console.log(this.ff['image'].value);
     if (files.length === 0) {
@@ -97,16 +145,36 @@ export class OrdersComponent implements OnInit {
           this.ff['image'].setValue(any);
         }
       });
+>>>>>>> 18c1139fc6719d422cee3e92bcd2337fd247720d
   }
 
   submitForm() {
     // console.log(this.ordersForm);
 
+<<<<<<< HEAD
+  submitForm(product: any) {
+    const dataNewProduct = { ...product.value ,  storeID: '6241565db3867e006b59d661' , 
+    // image : this.photo
+   }
+    console.log(dataNewProduct );
+    this.publishstore.setNewProduct(dataNewProduct).subscribe(
+      data => {
+        console.log('POST Request is successful ', data);
+      },
+      error => {
+        console.log('server id down', error);
+      })
+
+    this.publishstore.addtostore(product)
+    this.snakeBar.open("Added","", {duration:1000, panelClass:["bg-success","text-center"]})
+
+=======
     this.store.AddProduct(this.ordersForm.value as PublishProduct);
     this.snakeBar.open('Added', '', {
       duration: 1000,
       panelClass: ['bg-success', 'text-center'],
     });
+>>>>>>> 18c1139fc6719d422cee3e92bcd2337fd247720d
   }
   register_validation_messages = {
     Name: [{ type: 'required', message: 'your ptoduct Name is required' }],

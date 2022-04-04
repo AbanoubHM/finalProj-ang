@@ -10,9 +10,12 @@ import { CustomersService } from 'src/app/Service/customers.service';
 import { GategoryService } from 'src/app/Service/gategory.service';
 import { Icategory } from 'src/app/Models/Icategory';
 import { HttpParams } from '@angular/common/http';
-import { AuthService } from '@auth0/auth0-angular';
 import { MatChip, MatChipInputEvent } from '@angular/material/chips';
+<<<<<<< HEAD
+import { AuthService } from '@auth0/auth0-angular';
+=======
 import { PageEvent } from '@angular/material/paginator';
+>>>>>>> 18c1139fc6719d422cee3e92bcd2337fd247720d
 
 @Component({
   selector: 'app-products',
@@ -63,14 +66,12 @@ export class ProductsComponent implements OnInit {
     this.show = false;
   }
   ngOnInit(): void {
-    // this.postSrv.getProductsBySortName();
     this.gat.getAllGatogaries().subscribe((gatilist) => {
       this.gatlist = gatilist;
     });
     this.postSrv.getAllPosts().subscribe(
       (postData) => {
         this.postList = postData;
-        //console.log(this.postList);
         this.postList.forEach((element) => {
           this.numberOfProducts++;
         });
@@ -79,7 +80,12 @@ export class ProductsComponent implements OnInit {
         this.errMsg = error;
       }
     );
+    this.auth.user$.subscribe((profile) => {
+    this.userId= profile?.sub
+})
   }
+
+  userId:any ;
   getProdDetails(id: number) {
     this.router.navigate([id], { relativeTo: this.activatedRoute });
   }
@@ -90,8 +96,9 @@ export class ProductsComponent implements OnInit {
       panelClass: [color, 'text-center'],
     });
   }
+
   addtocart(item: any) {
-    this.cartService.addtoCart(item);
+    this.cartService.addtoCart(item );
     this.custom.addtocustomers(item);
     this.snakeBar.open('Added', '', {
       duration: 1000,
@@ -99,6 +106,29 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+<<<<<<< HEAD
+  addtofavorite(item: any  ) {
+    this.FavoriteService.getfevProducts(this.userId).subscribe(
+      res => {
+        let data:any = res ;
+        if(data.every((el:any)=>el.id !== item.id)){
+              console.log('new')
+              this.FavoriteService.addtofavorite(item , this.userId).subscribe(
+                data => {
+                  console.log('POST Request is successful ', data);
+                  this.snakerbar('added to the favorite' , `bg-success`)
+                },
+                error => {
+                  console.log('server id down', error);
+                  this.snakerbar('already in the favorite' , `bg-error`)
+                });
+
+            }  
+            else{
+
+              this.snakerbar('already in the favorite' , `bg-error`)
+            }
+=======
   addtofavorite(item: any) {
     this.FavoriteService.getProducts().subscribe(
       (res) => {
@@ -110,6 +140,7 @@ export class ProductsComponent implements OnInit {
         } else {
           this.snakerbar('already in the favorite', `bg-error`);
         }
+>>>>>>> 18c1139fc6719d422cee3e92bcd2337fd247720d
       },
       (error) => {
         console.log('server is down', error);

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { User } from '../Models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -16,28 +17,28 @@ export class FavoriteService {
 
   constructor(private http:HttpClient) { }
 
-  getProducts(){
-    return this.http.get(`${environment.jsonServer}/favorite`)
-
+  getfevProducts(userId:any){
+    console.log( `${environment.API}/Clients/Favourite/${userId}`)
+    return this.http.get(`${environment.API}/Clients/Favourite/${userId}`)
   }
-  setProduct(product: any) {
-
-    this.favoriteItemList.push(...product);
-    this.productList.next(product);
-  }
-  addtofavorite(product: any) {
 
 
-    this.http.post(`${environment.jsonServer}/favorite`, product).subscribe(
-      data => {
-        console.log('POST Request is successful ', data);
-      },
-      error => {
-        console.log('server id down', error);
-      })
+  addtofavorite(product: any , userId:any) {
+    console.log(userId)
+   const newProduct =  {
+    productID : product.id,
+      name: product.name,
+      image:product.image,
+      price : product.price,
+      quantity: product.quantity,
+    }
+
+   console.log(product , userId)
+
+      return  this.http.post(`${environment.API}/Favourite?clientid=${userId}&productid=${product.id}`,{})
+   }
 
 
-  }
   getTotalPrice() : number{
     let grandTotal = 0;
     this.favoriteItemList.map((a:any)=>{

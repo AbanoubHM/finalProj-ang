@@ -33,17 +33,13 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'favorite', component: FavoriteComponent, canActivate: [AuthGuard] },
   { path: 'AddProduct', component: OrdersComponent, canActivate: [AuthGuard], 
-  data: {
-    role: 'ROLE_ADMIN'
-  } },
+    data: {  role: 'ROLE_ADMIN' } },
   { path: 'products', component: ProductsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'products/:id', component: ProductDetailsComponent },
   { path: 'MyStore', component: MystoreComponent, canActivate: [AuthGuard] , 
-  data: {
-    role: 'ROLE_ADMIN'
-  }},
+    data: {role: 'ROLE_ADMIN'}},
   { path: 'customers', component: CustomersComponent, canActivate: [AuthGuard] },
   { path: ':Cateid/products', component: CategoryDetailsComponent },
   { path: '**', component: ErrorComponent }
