@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms';
 import { ProfileService } from 'src/app/Service/profile.service';
 import { Iprofile } from '../Models/Iprofile';
 import {BecomeVendor} from '../../Models/become-vendor'
+import { BecomeVenderService } from 'src/app/Service/become-vender.service';
 
 
 
@@ -16,7 +17,7 @@ export class RegisterComponent implements OnInit {
    postuser?: Iprofile[]
 
   maxDate?:Date
-  constructor(private fb:FormBuilder , private postusers:ProfileService) { }
+  constructor(private fb:FormBuilder , private postusers:ProfileService ,private vand:BecomeVenderService) { }
   registerForm:FormGroup=this.fb.group({
     clientID:[''],
     VendorName:['',[Validators.required,Validators.pattern('^[a-zA-Z]+$'),Validators.minLength(5),Validators.maxLength(25)]],
@@ -37,6 +38,12 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.controls;
   }
   submitForm(item:any){
+    
+  //  var formData:FormGroup=this.registerForm
+  //   this.vand.postVendor(this.registerForm.value).subscribe({
+  //       next: (response) => console.log(response),
+  //       error: (error) => console.log(error),
+  //     });
     console.log(this.registerForm);
 
   }
