@@ -118,6 +118,22 @@
       "store": null,
       "orders": null,
       "productRates": null
+    },
+    {
+      "id": 2,
+      "name": "Makeup is my art ",
+      "description": "Makeup is my art ",
+      "image": "https://handmadestoragedb.blob.core.windows.net/test2/637840847825019205.jpg",
+      "price": 300,
+      "saleValue": 0,
+      "quantity": 5,
+      "preparationDays": 5,
+      "categoryID": 3,
+      "categoryName": null,
+      "category": null,
+      "storeID": "623fb8ee4d8440006fc91274",
+      "store": null,
+      "productRates": null
     }
   ],
   "cart": [

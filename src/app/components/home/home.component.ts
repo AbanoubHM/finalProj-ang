@@ -82,7 +82,7 @@ export class HomeComponent implements OnInit {
 
 
   addtofavorite(item: any) {
-    this.favoriteService.addtofavorite(item)
+    // this.favoriteService.addtofavorite(item .use)
     this.snakeBar.open("Added", "", { duration: 1000, panelClass: ["bg-success", "text-center"] })
   }
 get_Pro_Cat(ID:number){

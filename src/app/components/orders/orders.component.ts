@@ -12,7 +12,7 @@ import { StoreService } from 'src/app/Service/store.service';
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.scss']
 })
-export class OrdersComponent implements OnInit {
+export class OrdersComponent  {
   constructor(private gat: GategoryService,
     private fb: FormBuilder,
     private publishstore: PublishstoreService,
@@ -24,11 +24,6 @@ export class OrdersComponent implements OnInit {
   gatlist: Icategory[] = [];
   gategoryid: any;
 
-  // isLinear = false;
-  // firstFormGroup?: FormGroup;
-  // secondFormGroup?: FormGroup;
-
-
 
   ordersForm: FormGroup = this.fb.group({
     Name:['',[Validators.required,Validators.pattern('^[a-zA-Z]+$'),Validators.minLength(5),Validators.maxLength(25)]],
@@ -39,11 +34,9 @@ export class OrdersComponent implements OnInit {
     Quantity: ['', Validators.required],
     PreparationDays: ['', Validators.required],
     Category:['',Validators.required]
-    // confirm_password:['',Validators.required],
-    // password:['',[Validators.required,Validators.minLength(6)]],
-    // birthdate:['',Validators.required],
-    // address:['']
   })
+
+
   ngOnInit(): void {
 
     this.gategoryid=this.gatlist.find(x=>x.id)
@@ -60,15 +53,6 @@ export class OrdersComponent implements OnInit {
       });
 
 
-
-      // this.firstFormGroup = this.fb.group({
-      //   firstCtrl: ['', Validators.required],
-      // });
-      // this.secondFormGroup = this.fb.group({
-      //   secondCtrl: ['', Validators.required],
-      // });
-
-
     },
     error=>{
       this.errMsg=error
@@ -79,17 +63,28 @@ export class OrdersComponent implements OnInit {
     return this.ordersForm.controls;
   }
 
-
+   photo:any = "";
   uploadfile(event : any) {
-    console.log(event.target.files[0])
-    this.ff['image']=event.target.files[0]
+   
+    // console.log(event.target)
+    // this.photo =event.target.files[0]
   }
 
 
-  submitForm(item: any) {
-    this.store.addProduct(this.gategoryid, item)
-    console.log(this.ordersForm);
-    this.publishstore.addtostore(item)
+  submitForm(product: any) {
+    const dataNewProduct = { ...product.value ,  storeID: '6241565db3867e006b59d661' , 
+    // image : this.photo
+   }
+    console.log(dataNewProduct );
+    this.publishstore.setNewProduct(dataNewProduct).subscribe(
+      data => {
+        console.log('POST Request is successful ', data);
+      },
+      error => {
+        console.log('server id down', error);
+      })
+
+    this.publishstore.addtostore(product)
     this.snakeBar.open("Added","", {duration:1000, panelClass:["bg-success","text-center"]})
 
   }

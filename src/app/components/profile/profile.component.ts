@@ -46,6 +46,7 @@ addressfromdb: string [] = [];
     });
    //this.authService.error$.subscribe((error) => console.log(error));
    this.authService.idTokenClaims$.subscribe((claims) => console.log(claims));
+   
     this.authService.user$.subscribe((profile) => {
       this.profileJson = JSON.stringify(profile, null, 2);
        console.log(profile);
