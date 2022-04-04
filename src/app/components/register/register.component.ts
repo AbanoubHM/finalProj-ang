@@ -4,6 +4,7 @@ import { ProfileService } from 'src/app/Service/profile.service';
 import { Iprofile } from '../Models/Iprofile';
 import {BecomeVendor} from '../../Models/become-vendor'
 import { BecomeVenderService } from 'src/app/Service/become-vender.service';
+import { AuthService } from '@auth0/auth0-angular';
 
 
 
@@ -17,28 +18,39 @@ export class RegisterComponent implements OnInit {
    postuser?: Iprofile[]
 
   maxDate?:Date
-  constructor(private fb:FormBuilder , private postusers:ProfileService ,private vand:BecomeVenderService) { }
+  profileJson: string="";
+  
+  IDOfVendor?:string="";
+  constructor(private fb:FormBuilder , private postusers:ProfileService ,private vand:BecomeVenderService,public authService:AuthService) { }
   registerForm:FormGroup=this.fb.group({
-    clientID:[''],
-    VendorName:['',[Validators.required,Validators.pattern('^[a-zA-Z]+$'),Validators.minLength(5),Validators.maxLength(25)]],
+    id:[''],
+    vendorName:['',[Validators.required,Validators.pattern('^[a-zA-Z]+$'),Validators.minLength(5),Validators.maxLength(25)]],
     phone:['',[Validators.required,Validators.minLength(10),Validators.maxLength(11),Validators.pattern('^[0-9]+$')]],
-    StoreName:['',[Validators.required]],
-    StoreImg:[''],
-    Street:[''],
-    City:[''],
-    State:['']
+    storeName:['',[Validators.required]],
+    storeImg:[''],
+    street:[''],
+    city:[''],
+    state:['']
   },{
   })
   ngOnInit(): void {
     const currentYear = new Date().getFullYear();
     this.maxDate = new Date(currentYear - 14, 0, 1);
+    this.authService.user$.subscribe((profile) => {
+      this.ff['id'].setValue(profile?.sub)
+      console.log(this.IDOfVendor);
+     
+      console.log(profile?.['http://roletest.net/roles'])
+        this.profileJson = JSON.stringify(profile, null, 2);})
   }
 
   get ff(){
     return this.registerForm.controls;
   }
   submitForm(item:any){
-    
+    this.vand.postVendor(this.registerForm.value as BecomeVendor).subscribe({
+
+    })
   //  var formData:FormGroup=this.registerForm
   //   this.vand.postVendor(this.registerForm.value).subscribe({
   //       next: (response) => console.log(response),

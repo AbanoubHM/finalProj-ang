@@ -6,13 +6,11 @@ import {BecomeVendor} from '../Models/become-vendor'
   providedIn: 'root'
 })
 export class BecomeVenderService {
-
+  private _url: string = 'https://handmadeapi.azurewebsites.net/api/Stores';
   constructor(private http:HttpClient) {
 
   }
- // postVendor(vandor:any):Observable<BecomeVendor>{
- //var vendor:any;
-   //var url="https://handmadeapi.azurewebsites.net/api/Stores";
-   //return this.http.post(url,vendor).subscribe(d=>vandor=d);
- // }
+ postVendor(vandorData:any){
+   return this.http.post(this._url,vandorData);
+ }
 }

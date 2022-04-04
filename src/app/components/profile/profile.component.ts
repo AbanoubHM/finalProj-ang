@@ -38,18 +38,16 @@ export class ProfileComponent implements OnInit {
   });
   namefromdb: string[] = [];
   addressfromdb: string[] = [];
-  role: string = "";
+  // role: string = "";
   ngOnInit(): void {
     this.authService.user$.subscribe((success: any) => {
       this.user = success;
     });
     this.authService.error$.subscribe((error) => console.log(error));
     this.authService.idTokenClaims$.subscribe((claims) =>
-
-      console.log(claims)
+    console.log(claims)
     );
     this.authService.user$.subscribe((profile) => {
-
       console.log(profile?.['http://roletest.net/roles'])
         this.profileJson = JSON.stringify(profile, null, 2);
         this.profServ.getClientData(profile?.sub).subscribe((data) => {

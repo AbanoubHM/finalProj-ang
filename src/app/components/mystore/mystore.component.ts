@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService, AuthState } from '@auth0/auth0-angular';
 import { PublishstoreService } from 'src/app/Service/publishstore.service';
 import { StoreService } from 'src/app/Service/store.service';
 @Component({
@@ -9,7 +10,7 @@ import { StoreService } from 'src/app/Service/store.service';
 export class MystoreComponent implements OnInit {
   public stores : any = [];
 
-  constructor(private publshstor : PublishstoreService ,private storepublish : StoreService) { }
+  constructor(private publshstor : PublishstoreService ,private storepublish : StoreService ,public auth:AuthService) { }
 
 
   ngOnInit(): void {

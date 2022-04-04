@@ -85,7 +85,7 @@
   </figure>
   <div class="container my-3">
     <div class="col-md-12 text-center">
-      <a *ngIf="(auth.isAuthenticated$|async)===false"
+      <a 
         [routerLink]="['/become_Vendor']"
         class="btn btn-success"
         style="margin-top: 20px"
