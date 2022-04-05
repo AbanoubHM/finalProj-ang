@@ -114,8 +114,9 @@
               </mat-select>
             </mat-form-field>
           </div>
-          <button class="mb-2" [disabled]="!ordersForm.valid" style="width: 10em; border-radius: 20px; margin-top: 15px"
-            (click)="submitForm()" color="primary" mat-raised-button>
+          <button class="mb-2" [disabled]="!ordersForm.valid && message"
+            style="width: 10em; border-radius: 20px; margin-top: 15px" (click)="submitForm()" color="primary"
+            mat-raised-button>
 
             Submit
           </button>

@@ -14,7 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './components/products/products.component';
 import { LoginComponent } from './components/login/login.component';
 import { ErrorComponent } from './components/error/error.component';
-import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
@@ -121,31 +121,9 @@ import { ItemCartComponent } from './components/item-cart/item-cart.component';
     NgxScrollTopModule,
 
     AuthModule.forRoot({
-      // The domain and clientId were configured in the previous chapter
-      domain: 'dev-vxrkxu-x.us.auth0.com',
-      clientId: 'i8fVcQjbbcHMJzi4uelRAgS2k2UFeC9m',
-
-      // Request this audience at user authentication time
-      audience: 'https://localhost:7263/',
-
-      // Request this scope at user authentication time
-      scope: 'read:current_user',
-
-      // Specify configuration for the interceptor
+      ...env.auth,
       httpInterceptor: {
-        allowedList: [
-          {
-            // Match any request that starts 'https://dev-vxrkxu-x.us.auth0.com/api/v2/' (note the asterisk)
-            uri: 'https://handmadeapi.azurewebsites.net/*',
-            tokenOptions: {
-              // The attached token should target this audience
-              audience: 'https://localhost:7263/',
-
-              // The attached token should have these scopes
-              scope: 'read:current_user',
-            },
-          },
-        ],
+        ...env.httpInterceptor,
       },
     }),
     NgbModule,
