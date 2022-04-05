@@ -63,6 +63,8 @@ import { CategoryDetailsComponent } from './components/category-details/category
 import { NgxScrollTopModule } from 'ngx-scrolltop';
 import { ItemCartComponent } from './components/item-cart/item-cart.component';
 import { ItemFavouriteComponent } from './item-favourite/item-favourite.component';
+import { SubmitOrderComponent } from './components/submit-order/submit-order.component';
+import { AddOrderComponent } from './components/add-order/add-order.component';
 @NgModule({
   exports: [RouterModule],
   declarations: [
@@ -99,6 +101,8 @@ import { ItemFavouriteComponent } from './item-favourite/item-favourite.componen
     ItemCartComponent,
     AppComponent,
     ItemFavouriteComponent,
+    SubmitOrderComponent,
+    AddOrderComponent,
   ],
   imports: [
     BrowserModule,

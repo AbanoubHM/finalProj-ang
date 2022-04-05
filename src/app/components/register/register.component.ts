@@ -5,6 +5,7 @@ import { Iprofile } from '../Models/Iprofile';
 import {BecomeVendor} from '../../Models/become-vendor'
 import { BecomeVenderService } from 'src/app/Service/become-vender.service';
 import { AuthService } from '@auth0/auth0-angular';
+import { HttpEventType, HttpClient } from '@angular/common/http';
 
 
 
@@ -21,13 +22,15 @@ export class RegisterComponent implements OnInit {
   profileJson: string="";
   
   IDOfVendor?:string="";
-  constructor(private fb:FormBuilder , private postusers:ProfileService ,private vand:BecomeVenderService,public authService:AuthService) { }
+  public progress?: any;
+  public message?: string;
+  constructor(private fb:FormBuilder , private postusers:ProfileService ,private vand:BecomeVenderService,public authService:AuthService,private http:HttpClient) { }
   registerForm:FormGroup=this.fb.group({
     id:[''],
     vendorName:['',[Validators.required,Validators.pattern('^[a-zA-Z]+$'),Validators.minLength(5),Validators.maxLength(25)]],
     phone:['',[Validators.required,Validators.minLength(10),Validators.maxLength(11),Validators.pattern('^[0-9]+$')]],
     storeName:['',[Validators.required]],
-    storeImg:[''],
+    image:[''],
     street:[''],
     city:[''],
     state:['']
@@ -46,6 +49,38 @@ export class RegisterComponent implements OnInit {
 
   get ff(){
     return this.registerForm.controls;
+  }
+  uploadfile(files: any) {
+    // console.log(this.ff['image'].value);
+    if (files.length === 0) {
+      return;
+    }
+    let fileToUpload = <File>files[0];
+    const formData = new FormData();
+    formData.append('file', fileToUpload, fileToUpload.name);
+    this.http
+      .post('https://handmadeapi.azurewebsites.net/upload', formData, {
+        reportProgress: true,
+        observe: 'events',
+      })
+      .subscribe((event) => {
+        if (event.type === HttpEventType.UploadProgress)
+          this.progress = Math.round(
+            (100 * event.loaded) / (event.total || 1000)
+          );
+        else if (event.type === HttpEventType.Response) {
+          this.message = 'Upload success.';
+          // this.onUploadFinished.emit(event.body);
+          console.log(event.body);
+          let btata = JSON.stringify(event.body);
+          // console.log(btata);
+          let any = btata.slice(13, 89);
+
+          // console.log(any);
+
+          this.ff['image'].setValue(any);
+        }
+      });
   }
   submitForm(){
     this.vand.postVendor(this.registerForm.value as BecomeVendor).subscribe({

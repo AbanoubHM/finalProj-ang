@@ -1,9 +1,6 @@
 <br>
 <br>
 <div>
-
-
-
   <div class="container d-flex justify-content-start w-75">
     <div class="row">
       <div class="wrapper img">
@@ -44,10 +41,14 @@
               </mat-error>
             </mat-error>
           </mat-form-field>
-          <mat-form-field class="mb-3" appearance="outline">
-            <mat-label>StoreImg</mat-label>
-            <input matInput formControlName="storeImg" />
-          </mat-form-field>
+          <!-- <div layout-margin layout-padding class="col" style="margin-top: 15px"> -->
+            <mat-label>Image :</mat-label>
+            <button id="uploadButton" class="md-fab md-mini" mat-icon-button (click)="file.click()">
+              <mat-icon class="material-icons">attach_file</mat-icon>
+            </button>
+            <input formControlName="image" #file (change)="uploadfile(file.files)" class="ng-hide" id="imageupload"
+              multiple type="file" hidden="true" accept="image/*" />
+         
           <mat-form-field class="mb-3" appearance="outline">
             <mat-label>Street</mat-label>
             <input matInput formControlName="street" />

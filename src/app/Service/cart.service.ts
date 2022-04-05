@@ -21,10 +21,11 @@ getCartProducts(userId:any){
 }
 
 addtoCart(productId: any , userId:any) {
+   console.log( productId , userId )
     const newProduct = { 
       "clientId": userId,
-      "productId":33,
-      "quantity": 1
+      "productId": productId,
+      "quantity": 1,
     } 
     return  this.http.post(`${environment.API}/Cart`, newProduct)
  }

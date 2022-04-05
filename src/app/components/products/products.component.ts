@@ -95,7 +95,7 @@ export class ProductsComponent implements OnInit {
   addtocart(item: any) {
 
           console.log('new  at cart');
-          this.FavoriteService.addtofavorite(item.id , this.userId).subscribe(
+          this.cartService.addtoCart(item.id , this.userId).subscribe(
             (res)=>{      console.log(res)
               this.snakerbar('added to the cart', `bg-success`);
             

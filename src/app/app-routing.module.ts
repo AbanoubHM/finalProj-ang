@@ -1,3 +1,4 @@
+import { SubmitOrderComponent } from './components/submit-order/submit-order.component';
 import { CategoryDetailsComponent } from './components/category-details/category-details.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ErrorComponent } from './components/error/error.component';
@@ -18,6 +19,7 @@ import { MystoreComponent } from './components/mystore/mystore.component';
 import { CustomersComponent } from './customers/customers.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from '@auth0/auth0-angular';
+import { AddOrderComponent } from './components/add-order/add-order.component';
 
 
 
@@ -42,7 +44,10 @@ const routes: Routes = [
     data: {role: 'ROLE_ADMIN'}},
   { path: 'customers', component: CustomersComponent, canActivate: [AuthGuard] },
   { path: ':Cateid/products', component: CategoryDetailsComponent },
+  {path:'makeOrder',component:SubmitOrderComponent},
+  {path:'addOrder',component:AddOrderComponent},
   { path: '**', component: ErrorComponent }
+  
 
 ];
 

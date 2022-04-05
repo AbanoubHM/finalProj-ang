@@ -1,0 +1,33 @@
+<div class="cartHolder container pt-xl-21 pb-xl-24 py-lg-20 py-md-16 py-10">
+    <div class="row">
+        <!-- table-responsive -->
+        <div class="col-12 table-responsive mb-xl-22 mb-lg-20 mb-md-16 mb-10">
+            <!-- cartTable -->
+            <table class="table cartTable">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-uppercase fwEbold border-top-0">orderDateTime</th>
+                        <th scope="col" class="text-uppercase fwEbold border-top-0">state</th>
+                        <th scope="col" class="text-uppercase fwEbold border-top-0">street</th>
+                        <th scope="col" class="text-uppercase fwEbold border-top-0">phone</th>
+                    </tr>
+                </thead> 
+
+                 <tbody>
+                    <tr class="align-items-center" *ngFor="let item of orders;">
+
+                        <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.orderDateTime}}</td>
+                        <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.state}}</td>
+                        <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.street}}</td>
+                        <td class="fwEbold border-top-0 border-bottom px-0 py-6">{{item.phone}}</td>
+                       
+                     </tr>
+
+                </tbody>
+            </table> 
+        </div>
+    </div>
+</div>
+<a routerLink="/addOrder"> 
+    <button>Add order</button>
+</a>
