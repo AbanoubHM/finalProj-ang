@@ -53,17 +53,33 @@
             <div style="text-align: center" *ngIf="!postList" class="col-md-4">
               <mat-spinner></mat-spinner>
             </div>
-            <div class="col-md-4" *ngFor="let item of postList">
+            <!-- cart box -->
+            <div class="col-md-4 card" *ngFor="let item of postList">
               <!-- featureCol -->
               <div class="h-100" style="display: flex; align-items: stretch">
                 <mat-card class="example-card my-2 hoverrr" style="width: 400px">
-                  <img class="card-img-top" style="height: 300px; object-fit: cover" mat-card-image [src]="item.image"
-                    (click)="getProdDetails(item.id)" />
-                  <mat-card-content>
+                  <section class="card-img-top deteilsCart"  mat-card-image 
+                   style="background-image: url({{item.image}}) ; "  >
+                  <main class="iconArea">
+                          <button (click)="addtofavorite(item)" mat-mini-fab color="primary">
+                            <mat-icon>favorite_border</mat-icon>
+                          </button>
+                          <button (click)="addtocart(item)" mat-mini-fab color="primary">
+                            <mat-icon>add_shopping_cart</mat-icon>
+                          </button>
+                          <button (click)="getProdDetails(item.id)" mat-mini-fab color="primary">
+                            <mat-icon>visibility</mat-icon>
+                          </button>
+                  </main>
+                  
+                  </section>
+                  
+                  <mat-card-content   (click)="getProdDetails(item.id)" >
                     <mat-card-title style="
                         text-align: center;
                         font-family: Arial, Helvetica, sans-serif;
                         font-size: 15px;
+                        padding: 10px 0 15px;
                       ">
                       {{ item.name }}</mat-card-title>
 
@@ -75,29 +91,7 @@
                         &nbsp;&nbsp;&nbsp;{{ item.price }} $</span>
                     </p>
                   </mat-card-content>
-                  <div class="showDiv">
-                    <ul class="list-unstyled postHoverLinskList d-flex justify-content-evenly m-0"
-                      *ngIf="auth.isAuthenticated$ | async">
-                      <li class="mr-2 overflow-hidden">
-                        <button (click)="addtofavorite(item)" mat-mini-fab color="primary">
-                          <mat-icon>favorite_border</mat-icon>
-                        </button>
-                      </li>
-                      <li class="mr-2 overflow-hidden">
-                        <button (click)="addtocart(item)" mat-mini-fab color="primary">
-                          <mat-icon>add_shopping_cart</mat-icon>
-                        </button>
-                      </li>
-                      <li class="mr-2 overflow-hidden">
-                        <button (click)="getProdDetails(item.id)" mat-mini-fab color="primary">
-                          <mat-icon>visibility</mat-icon>
-                        </button>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="hoverrr">
-                    <mat-card-actions class="showDiv"> </mat-card-actions>
-                  </div>
+
                 </mat-card>
               </div>
             </div>

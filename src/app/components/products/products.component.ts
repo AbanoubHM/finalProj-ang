@@ -27,7 +27,7 @@ export class ProductsComponent implements OnInit {
   pageEvent?: PageEvent;
 
   show: boolean;
-  postList: IProduct[] = [];
+  postList: any;
   gatlist: Icategory[] = [];
   public productsArray: IProduct[] = [];
   public productList: any;
@@ -54,7 +54,7 @@ export class ProductsComponent implements OnInit {
     private gat: GategoryService,
     private custom: CustomersService,
     private activatedRoute: ActivatedRoute,
-    private postSrv: ProductService,
+    private productService: ProductService,
     private router: Router,
     private cartService: CartService,
     private FavoriteService: FavoriteService,
@@ -67,17 +67,15 @@ export class ProductsComponent implements OnInit {
     this.gat.getAllGatogaries().subscribe((gatilist) => {
       this.gatlist = gatilist;
     });
-    this.postSrv.getAllPosts().subscribe(
-      (postData) => {
-        this.postList = postData;
-        this.postList.forEach((element) => {
-          this.numberOfProducts++;
-        });
+
+    this.productService.getAllProuduct().subscribe(
+      (res)=>{console.log(res)
+        this.postList = res
       },
-      (error) => {
-        this.errMsg = error;
+      err=>{console.log(err);
       }
-    );
+    )
+
     this.auth.user$.subscribe((profile) => {
     this.userId= profile?.sub
 })
@@ -105,16 +103,23 @@ export class ProductsComponent implements OnInit {
   }
 
   addtofavorite(item: any) {
+ 
     this.FavoriteService.getfevProducts(this.userId).subscribe(
       (res) => {
         let data: any = res;
-        if (data.every((el: any) => el.id !== item.id)) {
+         
+        if (data.every((el: any) => el.productID !== item.id)) {
           console.log('new');
-          this.FavoriteService.addtofavorite(item , this.userId);
-          this.snakerbar('added to the favorite', `bg-success`);
-        } else {
-          this.snakerbar('already in the favorite', `bg-error`);
-        }
+          this.FavoriteService.addtofavorite(item.id , this.userId).subscribe(
+            (res)=>{    
+              this.snakerbar('added to the favorite', `bg-success`);
+            
+            } ,
+            (err)=>{
+              this.snakerbar('some thing wrong', `bg-error`);
+            }
+          );
+        } else { this.snakerbar('already in the favorite', `bg-error`);  }
       },
       (error) => {
         console.log('server is down', error);
@@ -133,17 +138,16 @@ export class ProductsComponent implements OnInit {
   changePage(event: PageEvent) {
     this.params = this.params.set('pagesize', event.pageSize);
     this.params = this.params.set('pagenumber', event.pageIndex + 1);
-    this.postSrv.getProductsBySortName(this.params).subscribe((prods) => {
+    this.productService.getProductsBySortName(this.params).subscribe((prods) => {
       this.postList = prods;
     });
     return event;
   }
 
   changeCat(id: any, c: MatChip) {
-    //this.activeCat = i;
     c.select();
     this.params = this.params.set('categoryid', id);
-    this.postSrv.getProductsBySortName(this.params).subscribe((prods) => {
+    this.productService.getProductsBySortName(this.params).subscribe((prods) => {
       this.postList = prods;
     });
   }
@@ -151,21 +155,21 @@ export class ProductsComponent implements OnInit {
     this.searchvalues = event.target.value;
     try {
       this.params = this.params.set('search', this.searchvalues);
-      this.postSrv.getProductsBySortName(this.params).subscribe((prods) => {
+      this.productService.getProductsBySortName(this.params).subscribe((prods) => {
         this.postList = prods;
       });
     } catch (error) {
       console.log(error);
     }
     this.params = this.params.set('search', this.searchvalues);
-    this.postSrv.getProductsBySortName(this.params).subscribe((prods) => {
+    this.productService.getProductsBySortName(this.params).subscribe((prods) => {
       this.postList = prods;
     });
   }
   onValueChanged(event: any) {
     this.params = this.params.set('sort', event);
 
-    this.postSrv.getProductsBySortName(this.params).subscribe((prods) => {
+    this.productService.getProductsBySortName(this.params).subscribe((prods) => {
       this.postList = prods;
     });
   }
