@@ -49,7 +49,6 @@ export class AddOrderComponent implements OnInit {
           { type: 'minlength', message: 'Invalid Phone Number' },
           { type: 'maxlength', message: 'Invalid Phone Number' },
           { type: 'pattern', message: 'Only numbers allowed' }
-    
         ]}
     }
     
