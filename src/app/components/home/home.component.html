@@ -27,56 +27,33 @@
   </div>
 </div>
 
-<section>
+<section style="margin :40px" >
   <div class="pp1">Product Categories On Focus</div>
   <div class="container">
-    <div *ngIf="listToggle" class="row">
-      <div class="col-md-4" *ngFor="let item of gatlist">
+    <div *ngIf="listToggle" style="margin :40px" class="row .d-md-flex justify-content-evenly">
+      <div class="col-md-4"   *ngFor="let item of gatlist">
+      
         <!-- featureCol -->
         <div
           matRipple
           class="border col-md-12"
           style="margin-top: 20px; cursor: pointer"
         >
-          <div class="imgHolder position-relative w-100 overflow-hidden">
-            <div
-              style="min-height: 200px; max-height: 250px"
-              class="text-center bg-image hover-zoom"
-            >
-              <img
-                class="w-100"
-                *ngFor="let item1 of postList"
-                (click)="get_Pro_Cat(item1.id)"
-                style="height: 300px; object-fit: cover"
-                [src]="item.imageUrl"
-              />
+          <div style=" background-image: url({{item.imageUrl}})  " class="imgContant ">
+            <div  class="text-center  bg-image hover-zoom cardContent"  >
+                {{item.name}}
             </div>
-            <ul
-              class="list-unstyled postHoverLinskList d-flex justify-content-center m-0"
-            >
-              <li class="mr-2 overflow-hidden">
-                <button
-                  mat-button
-                  routerLink="/products"
-                  style="margin-right: 5px"
-                >
-                  <span id="shop" style="font-size: 1.5rem">{{
-                    item.name
-                  }}</span>
-                </button>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
-
+</section>     
+   
 <main class="mb-5">
   <figure class="text-center">
     <blockquote class="blockquote">
-      <p class="pp4">Start Selling Today</p>
+      <p class="pp4" style="margin :30px" >Start Selling Today</p>
     </blockquote>
     <figcaption class="blockquote-footer m-2" style="font-size: 20px">
       Thousands of Customers Around The Globe Are Waiting to See What You Have
@@ -180,66 +157,8 @@
     </header>
   </section>
 
-  <section>
-    <div class="pppp3">Some of our product</div>
-    <div class="container">
-      <div *ngIf="listToggle" class="row">
-        <div
-          class="col-md-4"
-          *ngFor="let item of postList | slice: (page - 1) * size:page * size"
-        >
-          <!-- featureCol -->
-          <div
-            matRipple
-            class="border col-md-12"
-            style="margin-top: 20px; cursor: pointer"
-          >
-            <div class="imgHolder position-relative w-100 overflow-hidden">
-              <div
-                style="min-height: 200px; max-height: 250px"
-                class="text-center"
-              >
-                <img
-                  class="w-100"
-                  (click)="getProdDetails(item.id)"
-                  style="min-width: 200px; overflow: hidden; max-height: 250px"
-                  [src]="item.image"
-                />
-              </div>
-              <ul
-                class="list-unstyled postHoverLinskList d-flex justify-content-center m-0"
-              >
-                <li class="mr-2 overflow-hidden">
-                  <button
-                    mat-button
-                    routerLink="/products"
-                    style="margin-right: 5px"
-                  >
-                    <span id="shop">Shop Now</span>
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-8 mx-auto" style="margin-top: 30px">
-          <div class="row">
-            <div class="col-md-9" style="padding-left: 30%">
-              <ngb-pagination
-                showFirstLastButtons
-                [(page)]="page"
-                [pageSize]="size"
-                [collectionSize]="postList.length"
-                [boundaryLinks]="true"
-                (pageChange)="Done()"
-              >
-              </ngb-pagination>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+ 
+  
   <ngx-scrolltop
     [size]="40"
     backgroundColor="#33691e"

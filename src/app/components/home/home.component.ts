@@ -20,8 +20,6 @@ import { numbers } from '@material/tooltip';
 })
 export class HomeComponent implements OnInit {
 
-
-
   postList: IProduct[] = [];
   public productList: any;
   errMsg: string = ''
@@ -57,6 +55,7 @@ export class HomeComponent implements OnInit {
  
       this.gat.getAllGatogaries().subscribe(gatilist => {
       this.gatlist = gatilist
+      console.log(this.gatlist)
     })
   }
   getProdDetails1(id: number) {

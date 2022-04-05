@@ -21,6 +21,7 @@ export class ItemCartComponent implements OnInit {
 
 product: any = [];
 userId : any ;
+count:number=1;
 
   ngOnInit(): void {
     console.log('cart') 
@@ -55,6 +56,7 @@ userId : any ;
       })
     }
 
+    
    
 
 }
