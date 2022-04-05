@@ -25,7 +25,6 @@ export class ProductsComponent implements OnInit {
   pageSize: number = 12;
   pageSizeOptions: number[] = [12, 24, 48, 96];
   pageEvent?: PageEvent;
-
   show: boolean;
   postList: any;
   gatlist: Icategory[] = [];
@@ -54,8 +53,8 @@ export class ProductsComponent implements OnInit {
     private gat: GategoryService,
     private custom: CustomersService,
     private activatedRoute: ActivatedRoute,
-    private productService: ProductService,
     private router: Router,
+    private productService: ProductService,
     private cartService: CartService,
     private FavoriteService: FavoriteService,
     private snakeBar: MatSnackBar,

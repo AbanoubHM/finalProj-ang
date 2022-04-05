@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FavoriteService } from '../../Service/favorite.service';
 import { AuthService } from '@auth0/auth0-angular';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-item-cart',
@@ -11,12 +12,16 @@ import { AuthService } from '@auth0/auth0-angular';
 
 export class ItemCartComponent implements OnInit {
 
+
   constructor(private FavoriteService : FavoriteService,
-              public authService: AuthService,   ) { }
-              public product: any = [];
+              public authService: AuthService,   
+              public activatedRoute: ActivatedRoute,
+              public router: Router,
+              ) { }
 
-
+product: any = [];
 userId : any ;
+
   ngOnInit(): void {
     
       this.authService.user$.subscribe((profile) => {   
@@ -47,6 +52,10 @@ userId : any ;
         console.log('server id down', error);
       })
     }
+
+    // getProdDetails(id: number) {
+    //   this.router.navigate( [id], { relativeTo: this.activatedRoute });
+    // }
 
 }
 
