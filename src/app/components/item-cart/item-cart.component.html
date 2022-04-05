@@ -2,14 +2,13 @@
  <!-- <ng-container  *ngIf="!product.length"> -->
 <main class="container-sm"  
  *ngFor="let item of product">
-  test
   <div class="card box">
     <div class="row g-0">
       <div class="col-md-3 img imgBox"> 
         <img src="{{ item.product.image }}" />
       </div>
 
-      <div class="col-md-9">  
+      <div class="col-md-9" style="display: flex;" >  
         <div class="card-body content">
           <div class="title">
             <h3 class="card-title col-9">{{ item.product.name }}</h3>
@@ -17,8 +16,9 @@
           </div>
 
           <p class="card-text">
-            only <mark> {{ item.product.quantity }} </mark> left in stock
+            quantity :    <mark> {{ item.quantity}} </mark> 
           </p>
+
           <a  class="link"  routerLink="/products/{{item.product.id}}"
           >
             <button mat-raised-button color="primary" >
@@ -42,9 +42,14 @@
           </button>
         </a>
         </div>
+     
       </div>
+
+      
     </div>
+    
   </div>
+  
 </main>
 <!-- </ng-container> -->
 <ng-container *ngIf="!product.length">
