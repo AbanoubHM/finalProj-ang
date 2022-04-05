@@ -52,4 +52,4 @@ jobs:
           app-name: 'HandMadestore'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3F6983F7C21044D4B5F13FEDC7AFF179 }}
-          package: .
+          package: ./dist/ecommerce-angular
