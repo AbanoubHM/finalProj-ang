@@ -53,11 +53,9 @@ export class HomeComponent implements OnInit {
   page: number = 1;
   size: number = 9;
   ngOnInit(): void {
-    this.productService.getAllProuduct()
+      this.productService.getAllProuduct()
  
-    // })
-    this.gat.getAllGatogaries().subscribe(gatilist => {
-
+      this.gat.getAllGatogaries().subscribe(gatilist => {
       this.gatlist = gatilist
     })
   }
@@ -69,24 +67,9 @@ export class HomeComponent implements OnInit {
 
   }
 
-  addtocart(item: any) {
-    this.cartService.addtoCart(item)
-    this.custom.addtocustomers(item)
-    this.snakeBar.open("Added", "", { duration: 1000, panelClass: ["bg-success", "text-center"] })
+  get_Pro_Cat(ID:number){
+    this.gat.getCategoryProducts(1).pipe();
   }
-
-
-
-
-  addtofavorite(item: any) {
-    // this.favoriteService.addtofavorite(item .use)
-    this.snakeBar.open("Added", "", { duration: 1000, panelClass: ["bg-success", "text-center"] })
-  }
-get_Pro_Cat(ID:number){
-  this.gat.getCategoryProducts(1).pipe();
-}
-
-
 
   toggleList() {
     this.listToggle = false

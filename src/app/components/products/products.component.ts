@@ -68,7 +68,7 @@ export class ProductsComponent implements OnInit {
     });
 
     this.productService.getAllProuduct().subscribe(
-      (res)=>{console.log(res)
+      (res)=>{
         this.postList = res
       },
       err=>{console.log(err);
@@ -93,16 +93,21 @@ export class ProductsComponent implements OnInit {
   }
 
   addtocart(item: any) {
-    this.cartService.addtoCart(item );
-    this.custom.addtocustomers(item);
-    this.snakeBar.open('Added', '', {
-      duration: 1000,
-      panelClass: ['bg-success', 'text-center'],
-    });
-  }
+
+          console.log('new  at cart');
+          this.FavoriteService.addtofavorite(item.id , this.userId).subscribe(
+            (res)=>{      console.log(res)
+              this.snakerbar('added to the cart', `bg-success`);
+            
+            } ,
+            (err)=>{
+              this.snakerbar('some thing wrong', `bg-error`);
+            }
+          );
+    
+      }
 
   addtofavorite(item: any) {
- 
     this.FavoriteService.getfevProducts(this.userId).subscribe(
       (res) => {
         let data: any = res;
@@ -125,6 +130,7 @@ export class ProductsComponent implements OnInit {
       }
     );
   }
+
   showitem() {
     this.show = !this.show;
   }

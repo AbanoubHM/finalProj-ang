@@ -52,16 +52,13 @@ roles:string="";
     this.User.loginState.subscribe(
       st=>{this.islogged=st}
     );
-    this.cartService.getProducts().
-      subscribe(res => {
-        this.totalItem = res.length;
-        if (this.totalItem > 0) { this.hidden = false } else { this.hidden = true }
-      });
-    //   this.FavoriteService.getProducts().
+
+    // this.cartService.getCartProducts("").
     //   subscribe(res => {
-    //     this.totalfavortit = res.length;
-    //     if (this.totalfavortit > 0) { this.hidden1 = false } else { this.hidden1 = true }
+    //     this.totalItem = res.length;
+    //     if (this.totalItem > 0) { this.hidden = false } else { this.hidden = true }
     //   });
+  
   }
   loginWithRedirect():void{
     this.auth.loginWithRedirect();

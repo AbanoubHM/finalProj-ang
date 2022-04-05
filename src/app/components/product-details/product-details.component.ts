@@ -57,9 +57,10 @@ export class ProductDetailsComponent implements OnInit {
       this.count--;
     }
   }
+
   addtocart(item: any){
-    this.cartService.addtoCart(item)
-    this.snakeBar.open("Added","", {duration:1000, panelClass:["bg-success","text-center"]})
+    
+       this.snakeBar.open("Added","", {duration:1000, panelClass:["bg-success","text-center"]})
       }
 
 }
