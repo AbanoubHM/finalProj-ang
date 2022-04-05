@@ -47,15 +47,6 @@ export class DashbordNavComponent {
       else {
         this.menuItems = ['MyProfile'];
       }
-      // this.cartService.getCartProducts().
-      //   subscribe(res => {
-      //     this.totalItem = res.length;
-      //     if (this.totalItem > 0) { this.hidden = false } else { this.hidden = true }
-      //   });
-      // //   this.FavoriteService.getProducts().
-      //   subscribe(res => {
-      //     this.totalfavortit = res.length;
-      //     if (this.totalfavortit > 0) { this.hidden1 = false } else { this.hidden1 = true }
     });
   }
   loginWithRedirect(): void {

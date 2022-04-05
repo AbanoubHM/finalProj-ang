@@ -11,7 +11,6 @@
                       <div class="col-md-3 img img-rounded">
                         <img src="{{ item.image }}" class="col-md-12 img img-rounded"/>
                       </div>
-
                       <div class="col-md-9">
                         <div class="card-body content">
                           <div class="title">
@@ -23,9 +22,6 @@
                             <h3 class="card-title col-9">PreparationDays : {{ item.preparationDays }}</h3>
                             <h3 class="card-title col-9">CategoryName : {{ item.category.name}}</h3>
                           </div>
-
-
-
                           <button (click)="removeItem(item.id)"
                             mat-stroked-button
                             color="primary"

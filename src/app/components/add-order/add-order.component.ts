@@ -12,7 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class AddOrderComponent implements OnInit {
   profileJson: string="";
-  
+  orders?:any;
   
   constructor(private order:OrderService,private fb:FormBuilder,private auth:AuthService , private snakeBar: MatSnackBar) { }
   registerForm:FormGroup=this.fb.group({
@@ -37,7 +37,9 @@ export class AddOrderComponent implements OnInit {
   
   }
   makeOrder(){
-    this.order.AddOrder(this.registerForm.value as Order);
+    this.order.AddOrder(this.registerForm.value as Order).subscribe(
+data=>{this.orders=data}
+    );
     this.snakeBar.open('Added Successfully', '', {
       duration: 1000,
       panelClass: ['bg-success', 'text-center'],
