@@ -16,10 +16,9 @@
             only <mark> {{ item.quantity }} </mark> left in stock
           </p>
           <button mat-raised-button color="primary">veiw details</button>
-          <button
+          <button (click)="deleteHandel(item.productID)"
             mat-stroked-button
             color="primary"
-            (click)="deleteHandel(item.id)"
           >
             cancel
           </button>

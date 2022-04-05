@@ -16,15 +16,15 @@ export class ItemCartComponent implements OnInit {
               public product: any = [];
 
 
-
+userId : any ;
   ngOnInit(): void {
     
-      this.authService.user$.subscribe((profile) => {    
+      this.authService.user$.subscribe((profile) => {   
+        this.userId= profile?.sub
       this.FavoriteService.getfevProducts(profile?.sub).subscribe(
 
       data => {
         this.product = data ;
-        console.log("p" , this.product );
       },
       
       error => {
@@ -35,8 +35,9 @@ export class ItemCartComponent implements OnInit {
   })}
   
 
-  deleteHandel(id:string) {
-    this.FavoriteService.removefavoriteItem(id).subscribe(
+  deleteHandel(ProductId:string) {
+    console.log(ProductId , this.userId)
+    this.FavoriteService.removefavoriteItem( this.userId , ProductId ).subscribe(
       data => {
        console.log(data)
        this.ngOnInit()

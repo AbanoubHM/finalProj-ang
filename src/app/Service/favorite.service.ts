@@ -23,19 +23,12 @@ export class FavoriteService {
   }
 
 
-  addtofavorite(product: any , userId:any) {
-    console.log(userId)
-   const newProduct =  {
-    productID : product.id,
-      name: product.name,
-      image:product.image,
-      price : product.price,
-      quantity: product.quantity,
-    }
+  addtofavorite(productId: any , userId:any) {
+    const newProduct = { userID: userId, productID :productId}
+ 
+     console.log( "s" , productId , userId)
 
-   console.log(product , userId)
-
-      return  this.http.post(`${environment.API}/Favourite?clientid=${userId}&productid=${product.id}`,{})
+      return  this.http.post(`${environment.API}/Clients/Favourite`, newProduct)
    }
 
 
@@ -46,11 +39,14 @@ export class FavoriteService {
     })
     return grandTotal;
   }
-  removefavoriteItem(id: any) {
 
-     return   this.http.delete(`${environment.jsonServer}/favorite/${id}`)
-  }
-  removeAllfavorite(id :any){
-   console.log(id)
+
+  removefavoriteItem( userId:any, productId: any ) {
+
+    const deleteItem = { userID: userId, productID :productId}
+ 
+    console.log( "s" , productId , userId)
+   
+     return  this.http.delete(`${environment.API}/Clients/Favourite`, {body : deleteItem}  )
   }
 }

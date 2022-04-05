@@ -103,16 +103,23 @@ export class ProductsComponent implements OnInit {
   }
 
   addtofavorite(item: any) {
+ 
     this.FavoriteService.getfevProducts(this.userId).subscribe(
       (res) => {
         let data: any = res;
-        if (data.every((el: any) => el.id !== item.id)) {
+         
+        if (data.every((el: any) => el.productID !== item.id)) {
           console.log('new');
-          this.FavoriteService.addtofavorite(item , this.userId);
-          this.snakerbar('added to the favorite', `bg-success`);
-        } else {
-          this.snakerbar('already in the favorite', `bg-error`);
-        }
+          this.FavoriteService.addtofavorite(item.id , this.userId).subscribe(
+            (res)=>{    
+              this.snakerbar('added to the favorite', `bg-success`);
+            
+            } ,
+            (err)=>{
+              this.snakerbar('some thing wrong', `bg-error`);
+            }
+          );
+        } else { this.snakerbar('already in the favorite', `bg-error`);  }
       },
       (error) => {
         console.log('server is down', error);

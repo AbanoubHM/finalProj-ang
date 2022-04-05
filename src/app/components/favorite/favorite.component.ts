@@ -33,20 +33,7 @@ ngOnInit(): void {
   })
 
 } 
-
-
-  removeItem(item: any){
-    this.FavoriteService.removefavoriteItem("").subscribe(
-      data => {
-        console.log('Request is parent ', data   );
-      },
-      error => {
-        console.log('server id down', error);
-      })
-  }
-  
-
-
+    
 
 
 
