@@ -19,6 +19,7 @@ import { MystoreComponent } from './components/mystore/mystore.component';
 import { CustomersComponent } from './customers/customers.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from '@auth0/auth0-angular';
+import { AddOrderComponent } from './components/add-order/add-order.component';
 
 
 
@@ -44,6 +45,7 @@ const routes: Routes = [
   { path: 'customers', component: CustomersComponent, canActivate: [AuthGuard] },
   { path: ':Cateid/products', component: CategoryDetailsComponent },
   {path:'makeOrder',component:SubmitOrderComponent},
+  {path:'addOrder',component:AddOrderComponent},
   { path: '**', component: ErrorComponent }
   
 

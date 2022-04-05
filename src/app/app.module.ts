@@ -63,6 +63,7 @@ import { CategoryDetailsComponent } from './components/category-details/category
 import { NgxScrollTopModule } from 'ngx-scrolltop';
 import { ItemCartComponent } from './components/item-cart/item-cart.component';
 import { SubmitOrderComponent } from './components/submit-order/submit-order.component';
+import { AddOrderComponent } from './components/add-order/add-order.component';
 @NgModule({
   exports: [RouterModule],
   declarations: [
@@ -98,6 +99,7 @@ import { SubmitOrderComponent } from './components/submit-order/submit-order.com
     CategoryDetailsComponent,
     ItemCartComponent,
     SubmitOrderComponent,
+    AddOrderComponent,
   ],
   imports: [
     BrowserModule,
