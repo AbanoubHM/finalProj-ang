@@ -15,11 +15,17 @@
           <p class="card-text">
             only <mark> {{ item.quantity }} </mark> left in stock
           </p>
-          <button mat-raised-button color="primary">veiw details</button>
+          <a  class="link"  routerLink="/products/{{item.productID}}"
+          >
+            <button mat-raised-button color="primary" >
+              show more
+            </button>
+            </a>
           <button (click)="deleteHandel(item.productID)"
             mat-stroked-button
             color="primary"
           >
+          
             cancel
           </button>
         </div>
