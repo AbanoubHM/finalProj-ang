@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
     vendorName:['',[Validators.required,Validators.pattern('^[a-zA-Z]+$'),Validators.minLength(5),Validators.maxLength(25)]],
     phone:['',[Validators.required,Validators.minLength(10),Validators.maxLength(11),Validators.pattern('^[0-9]+$')]],
     storeName:['',[Validators.required]],
-    storeImg:[''],
+    image:[''],
     street:[''],
     city:[''],
     state:['']

@@ -1,3 +1,4 @@
+import { SubmitOrderComponent } from './components/submit-order/submit-order.component';
 import { CategoryDetailsComponent } from './components/category-details/category-details.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ErrorComponent } from './components/error/error.component';
@@ -42,7 +43,9 @@ const routes: Routes = [
     data: {role: 'ROLE_ADMIN'}},
   { path: 'customers', component: CustomersComponent, canActivate: [AuthGuard] },
   { path: ':Cateid/products', component: CategoryDetailsComponent },
+  {path:'makeOrder',component:SubmitOrderComponent},
   { path: '**', component: ErrorComponent }
+  
 
 ];
 

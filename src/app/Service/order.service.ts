@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +10,16 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
   GetUserOrders(id: any) {
-    this.http.get(`${this.url}/${id}`)
+   return this.http.get(`${this.url}/${id}`).pipe(
+    catchError((err) => {
+      return throwError(err.message || 'Server Error');
+    })
+   )
   }
   AddOrder(item: any) {
-    this.http.post(`${this.url}`, item);
+    return  this.http.post(`${this.url}`, item);
   }
   GetOrderDetails(orderid: any) {
-    this.http.get(`${this.url}/details/${orderid}`)
+    return  this.http.get(`${this.url}/details/${orderid}`)
   }
 }
