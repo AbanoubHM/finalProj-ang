@@ -20,14 +20,14 @@ export class RegisterComponent implements OnInit {
 
   maxDate?:Date
   profileJson: string="";
-  
+
   IDOfVendor?:string="";
   public progress?: any;
   public message?: string;
   constructor(private fb:FormBuilder , private postusers:ProfileService ,private vand:BecomeVenderService,public authService:AuthService,private http:HttpClient) { }
   registerForm:FormGroup=this.fb.group({
     id:[''],
-    vendorName:['',[Validators.required,Validators.pattern('^[a-zA-Z]+$'),Validators.minLength(5),Validators.maxLength(25)]],
+    vendorName:['',[Validators.required,Validators.pattern('^[a-z0-9_-]{8,15}$'),Validators.minLength(5),Validators.maxLength(25)]],
     phone:['',[Validators.required,Validators.minLength(10),Validators.maxLength(11),Validators.pattern('^[0-9]+$')]],
     storeName:['',[Validators.required]],
     image:[''],
@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit {
     this.authService.user$.subscribe((profile) => {
       this.ff['id'].setValue(profile?.sub)
       console.log(this.IDOfVendor);
-     
+
       console.log(profile?.['http://roletest.net/roles'])
         this.profileJson = JSON.stringify(profile, null, 2);})
   }
@@ -86,7 +86,7 @@ export class RegisterComponent implements OnInit {
     this.vand.postVendor(this.registerForm.value as BecomeVendor).subscribe({
 
     })
- 
+
     console.log(this.registerForm);
     location.reload()
 

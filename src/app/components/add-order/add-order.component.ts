@@ -38,19 +38,17 @@ export class AddOrderComponent implements OnInit {
   }
   makeOrder(){
     this.order.AddOrder(this.registerForm.value as Order);
-    this.snakeBar.open('Added', '', {
+    this.snakeBar.open('Added Successfully', '', {
       duration: 1000,
       panelClass: ['bg-success', 'text-center'],
     });
       }
       register_validation_messages = {
-        
         'phone': [
           { type: 'required', message: 'Phone number is required' },
           { type: 'minlength', message: 'Invalid Phone Number' },
           { type: 'maxlength', message: 'Invalid Phone Number' },
           { type: 'pattern', message: 'Only numbers allowed' }
-    
         ]}
     }
     
