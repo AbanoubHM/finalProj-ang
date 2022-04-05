@@ -47,16 +47,13 @@ export class RegisterComponent implements OnInit {
   get ff(){
     return this.registerForm.controls;
   }
-  submitForm(item:any){
+  submitForm(){
     this.vand.postVendor(this.registerForm.value as BecomeVendor).subscribe({
 
     })
-  //  var formData:FormGroup=this.registerForm
-  //   this.vand.postVendor(this.registerForm.value).subscribe({
-  //       next: (response) => console.log(response),
-  //       error: (error) => console.log(error),
-  //     });
+ 
     console.log(this.registerForm);
+    location.reload()
 
   }
   register_validation_messages = {
