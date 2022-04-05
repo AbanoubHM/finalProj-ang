@@ -26,7 +26,6 @@ export class MystoreComponent implements OnInit {
   }
  
 
-
   removeItem(item:any){
     console.log(item);
     this.vand.DeleteProduct(item).subscribe(() => {
