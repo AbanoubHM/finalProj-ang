@@ -21,6 +21,7 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
+  quantity: number = 1;
   length: number = 100;
   pageSize: number = 12;
   pageSizeOptions: number[] = [12, 24, 48, 96];
@@ -95,7 +96,7 @@ export class ProductsComponent implements OnInit {
   addtocart(item: any) {
 
           console.log('new  at cart');
-          this.cartService.addtoCart(item.id , this.userId).subscribe(
+          this.cartService.addtoCart(item.id , this.userId, this.quantity).subscribe(
             (res)=>{      console.log(res)
               this.snakerbar('added to the cart', `bg-success`);
             
