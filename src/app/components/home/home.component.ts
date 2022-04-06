@@ -16,13 +16,12 @@ import { numbers } from '@material/tooltip';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [NgbCarouselConfig]
+  providers: [NgbCarouselConfig],
 })
 export class HomeComponent implements OnInit {
-
   postList: IProduct[] = [];
   public productList: any;
-  errMsg: string = ''
+  errMsg: string = '';
   listToggle: boolean = true;
   numberOfProducts: number = 0;
   shows: boolean = false;
@@ -30,18 +29,19 @@ export class HomeComponent implements OnInit {
   SortDirection = 'asc';
   SearchName = '';
   gatlist: Icategory[] = [];
-  images = [
-    { title: 'First Slide', short: 'For all your occasions', src: "https://picsum.photos/id/700/900/500" },
-    { title: 'Second Slide', short: 'we are with you and help you choose your gift and', src: "https://picsum.photos/id/1011/900/500" },
-    { title: 'Third Slide', short: 'will make it for you with love', src: "https://picsum.photos/id/984/900/500" }
-  ];
 
-  constructor(config: NgbCarouselConfig, 
+  constructor(
+    config: NgbCarouselConfig,
     private gat: GategoryService,
     private custom: CustomersService,
-    private activatedRoute: ActivatedRoute, 
-    private productService: ProductService, 
-    private router: Router, private cartService: CartService, private favoriteService: FavoriteService, private snakeBar: MatSnackBar,public auth:AuthService) {
+    private activatedRoute: ActivatedRoute,
+    private productService: ProductService,
+    private router: Router,
+    private cartService: CartService,
+    private favoriteService: FavoriteService,
+    private snakeBar: MatSnackBar,
+    public auth: AuthService
+  ) {
     config.interval = 3000;
     config.keyboard = true;
     config.pauseOnHover = true;
@@ -51,36 +51,33 @@ export class HomeComponent implements OnInit {
   page: number = 1;
   size: number = 9;
   ngOnInit(): void {
-      this.productService.getAllProuduct()
- 
-      this.gat.getAllGatogaries().subscribe(gatilist => {
-      this.gatlist = gatilist
-    })
+    this.productService.getAllProuduct();
+    this.gat.getAllGatogaries().subscribe((gatilist) => {
+      this.gatlist = gatilist;
+    });
   }
   getProdDetails1(id: number) {
-    this.router.navigate(["products/" + id], { relativeTo: this.activatedRoute })
+    this.router.navigate(['products/' + id], {
+      relativeTo: this.activatedRoute,
+    });
   }
   getProdDetails(id: number) {
-    this.router.navigate(["products/" + id], { relativeTo: this.activatedRoute.parent })
-
+    this.router.navigate(['products/' + id], {
+      relativeTo: this.activatedRoute.parent,
+    });
   }
 
-  get_Pro_Cat(ID:number){
+  get_Pro_Cat(ID: number) {
     this.gat.getCategoryProducts(1).pipe();
   }
 
   toggleList() {
-    this.listToggle = false
+    this.listToggle = false;
   }
   toggleGrid() {
-    this.listToggle = true
+    this.listToggle = true;
   }
   Done() {
     this.productService.getAllProuduct();
   }
-
 }
-
-
-
-

@@ -1,14 +1,12 @@
-
- <!-- <ng-container  *ngIf="!product.length"> -->
-<main class="container-sm"  
- *ngFor="let item of product">
+<!-- <ng-container  *ngIf="!product.length"> -->
+<main class="container-sm" *ngFor="let item of product">
   <div class="card box">
     <div class="row g-0">
-      <div class="col-md-3 img imgBox"> 
+      <div class="col-md-3 img imgBox">
         <img src="{{ item.product.image }}" />
       </div>
 
-      <div class="col-md-9" style="display: flex;" >  
+      <div class="col-md-9" style="display: flex;">
         <div class="card-body content">
           <div class="title">
             <h3 class="card-title col-9">{{ item.product.name }}</h3>
@@ -16,46 +14,39 @@
           </div>
 
           <p class="card-text">
-            quantity :    <mark> {{ item.quantity}} </mark> 
+            quantity : <mark> {{ item.quantity}} </mark>
           </p>
 
-          <a  class="link"  routerLink="/products/{{item.product.id}}"
-          >
-            <button mat-raised-button color="primary" >
+          <a class="link" routerLink="/products/{{item.product.id}}">
+            <button mat-raised-button color="primary">
               show more
             </button>
-            </a>
-          <button (click)="deleteHandel(item.product.id)"
-            mat-stroked-button
-            color="primary"
-          >
-          
+          </a>
+          <button (click)="deleteHandel(item.product.id)" mat-stroked-button color="primary">
+
             cancel
           </button>
           <a routerLink="/addOrder">
-          <button 
-            mat-stroked-button
-            color="primary"
-          >
-          
-            buy Now
-          </button>
-        </a>
+            <button mat-stroked-button color="primary">
+
+              buy Now
+            </button>
+          </a>
         </div>
-     
+
       </div>
 
-      
+
     </div>
-    
+
   </div>
-  
+
 </main>
 <!-- </ng-container> -->
 <ng-container *ngIf="!product.length">
   <div class="mt-3" style="text-align: center;">
-      <h3> your cart is empty</h3>
+    <h3> your cart is empty</h3>
   </div>
-  <div style="text-align: center;"><img src="assets/emptyCart.jpg" width="35%"></div>
+  <div style="text-align: center;"><img src="assets/svg/cart-empty.svg" width="35%"></div>
   <img src="" alt="">
 </ng-container>

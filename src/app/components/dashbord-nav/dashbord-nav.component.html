@@ -25,7 +25,8 @@
         <button mat-button (click)="loginWithRedirect()" *ngIf="(auth.isAuthenticated$|async)===false">
           <mat-icon>login</mat-icon> Log in
         </button>
-        <button mat-button  [routerLink]="['/become_Vendor']" *ngIf="(auth.isAuthenticated$|async)">
+
+        <button mat-button [routerLink]="['/become_Vendor']" *ngIf="(auth.isAuthenticated$|async)&&(roles.length!==2)">
           <mat-icon>app_registration</mat-icon> Become a Vendor
         </button>
         <span class="fill-remaining-space"></span>
@@ -34,16 +35,16 @@
         </button>
 
         <button mat-button routerLinkActive="active" routerLink="/favorite" *ngIf="(auth.isAuthenticated$|async)"
-        matBadge="!" matBadgePosition="after" matBadgeSize="small" matBadgeColor="accent" [matBadgeHidden]="favbagdge"
-        class=" position-relative" mat-icon-button style="color:#bdf0f1 ; margin-right: 5px;" #tooltip="matTooltip"
+          matBadge="!" matBadgePosition="after" matBadgeSize="small" matBadgeColor="accent" [matBadgeHidden]="favbagdge"
+          class=" position-relative" mat-icon-button style="color:#bdf0f1 ; margin-right: 5px;" #tooltip="matTooltip"
           matTooltip="Favorite" aria-label="Example icon-button with a heart icon">
-          <mat-icon >favorite</mat-icon>
+          <mat-icon>favorite</mat-icon>
         </button>
 
         <button mat-button routerLinkActive="active" style="color:#bdf0f1 ; margin-right: 5px;" routerLink="/cart"
-        matBadge="{{cartcount}}" matBadgePosition="after" matBadgeSize="small" matBadgeColor="accent" [matBadgeHidden]="cartbagdge"
-          class=" position-relative" *ngIf="(auth.isAuthenticated$|async)" mat-icon-button color="warn"
-          #tooltip="matTooltip" matTooltip="Cart" aria-label="Example icon-button with a heart icon">
+          matBadge="{{cartcount}}" matBadgePosition="after" matBadgeSize="small" matBadgeColor="accent"
+          [matBadgeHidden]="cartbagdge" class=" position-relative" *ngIf="(auth.isAuthenticated$|async)" mat-icon-button
+          color="warn" #tooltip="matTooltip" matTooltip="Cart" aria-label="Example icon-button with a heart icon">
           <mat-icon>shopping_cart</mat-icon>
         </button>
 
@@ -70,7 +71,8 @@
 
         <mat-icon>login</mat-icon> Log in
       </button>
-      <button mat-button [routerLink]="['/become_Vendor']" >
+
+      <button mat-button *ngIf="(auth.isAuthenticated$|async)&&(roles.length!==2)" [routerLink]="['/become_Vendor']">
         <mat-icon>app_registration</mat-icon> Become a Vendor
       </button>
       <span class="fill-remaining-space"></span>

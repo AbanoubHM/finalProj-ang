@@ -1,5 +1,5 @@
 import { FilterPipe } from './../../pipes/filter.pipe';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IProduct } from '../Models/iproduct';
 import { ProductService } from '../../Service/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -47,7 +47,8 @@ export class ProductsComponent implements OnInit {
   ];
   public hideLoadMoreBtn = false;
   params = new HttpParams();
-  activeCat: number = -1;
+  @Input() params2 = new HttpParams();
+  activeCat: number = -1; //delete
   constructor(
     public auth: AuthService,
     private gat: GategoryService,
@@ -139,8 +140,12 @@ export class ProductsComponent implements OnInit {
   }
 
   changeCat(id: any, c: MatChip) {
-    c.select();
-    this.params = this.params.set('categoryid', id);
+    c.toggleSelected();
+    if (!c.selected) {
+      this.params = this.params.delete('categoryid');
+    } else {
+      this.params = this.params.set('categoryid', id);
+    }
     this.productService
       .getProductsBySortName(this.params)
       .subscribe((prods) => {
@@ -156,7 +161,10 @@ export class ProductsComponent implements OnInit {
         .subscribe((prods) => {
           this.postList = prods;
         });
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
+
     this.params = this.params.set('search', this.searchvalues);
     this.productService
       .getProductsBySortName(this.params)
