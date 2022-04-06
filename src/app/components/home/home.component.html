@@ -28,7 +28,7 @@
 
         <!-- featureCol -->
 
-        <div matRipple class="border col-md-12" style="margin-top: 20px; cursor: pointer">
+        <div matRipple (click)="selectCat(item.id)" class="border col-md-12" style="margin-top: 20px; cursor: pointer">
           <div style=" background-image: url({{item.imageUrl}})  " class="imgContant ">
             <div class="text-center  bg-image hover-zoom cardContent">
               {{item.name}}
