@@ -10,6 +10,7 @@ export class OrderService {
   // https://handmadeapi.azurewebsites.net/api/Orders
   constructor(private http: HttpClient) { }
   GetUserOrders(id: any) {
+    console.log(id)
    return this.http.get(`${this.url}/${id}`).pipe(
     catchError((err) => {
       return throwError(err.message || 'Server Error');
