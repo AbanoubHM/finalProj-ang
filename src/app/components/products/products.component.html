@@ -32,7 +32,6 @@
             <li (click)="toggleList()" class="mr-2">
               <a><i class="fas fa-list"></i></a>
             </li>
-            <li class="mr-2">Showing {{ postList.length }} results</li>
           </ul>
           <!-- sortGroup -->
           <div class="sortGroup">
@@ -57,23 +56,23 @@
               <!-- featureCol -->
               <div class="h-100" style="display: flex; align-items: stretch">
                 <mat-card class="example-card my-2 hoverrr" style="width: 400px">
-                  <section class="card-img-top deteilsCart"  mat-card-image 
-                   style="background-image: url({{item.image}}) ; "  >
-                  <main class="iconArea">
-                          <button (click)="addtofavorite(item)" mat-mini-fab color="primary">
-                            <mat-icon>favorite_border</mat-icon>
-                          </button>
-                          <button (click)="addtocart(item)" mat-mini-fab color="primary">
-                            <mat-icon>add_shopping_cart</mat-icon>
-                          </button>
-                          <button (click)="getProdDetails(item.id)" mat-mini-fab color="primary">
-                            <mat-icon>visibility</mat-icon>
-                          </button>
-                  </main>
-                  
+                  <section class="card-img-top deteilsCart" mat-card-image
+                    style="background-image: url({{item.image}}) ; ">
+                    <main class="iconArea">
+                      <button (click)="addtofavorite(item)" mat-mini-fab color="primary">
+                        <mat-icon>favorite_border</mat-icon>
+                      </button>
+                      <button (click)="addtocart(item)" mat-mini-fab color="primary">
+                        <mat-icon>add_shopping_cart</mat-icon>
+                      </button>
+                      <button (click)="getProdDetails(item.id)" mat-mini-fab color="primary">
+                        <mat-icon>visibility</mat-icon>
+                      </button>
+                    </main>
+
                   </section>
-                  
-                  <mat-card-content   (click)="getProdDetails(item.id)" >
+
+                  <mat-card-content (click)="getProdDetails(item.id)">
                     <mat-card-title style="
                         text-align: center;
                         font-family: Arial, Helvetica, sans-serif;
@@ -120,7 +119,7 @@
           </div>
         </div>
       </article>
-      <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+      <mat-paginator length="{{length}}" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
         (page)="pageEvent = changePage($event)">
       </mat-paginator>
     </div>
@@ -131,8 +130,8 @@
         <section class="widget overflow-hidden mb-9">
           <form action="javascript:void(0);" class="searchForm position-relative border">
             <fieldset>
-              <input style="box-shadow: 0 0 0" (keyup)="onKey($event)" type="search" class="form-control"
-                placeholder="Search" />
+              <input style="box-shadow: 0 0 0" (search)="onKey($event)" (keyup)="onKey($event)" type="search"
+                class="form-control" placeholder="Search" />
               <button class="position-absolute">
                 <i class="icon-search"></i>
               </button>
@@ -155,7 +154,7 @@
         <!-- widget -->
       </aside>
     </div>
-    <ngx-scrolltop [size]="40" backgroundColor="#33691e" symbolColor="#fff" symbol="↑" mode="classic" position="right"
+    <ngx-scrolltop [size]="40" backgroundColor="#33691e" symbolColor="#fff"  mode="classic" position="right"
       theme="pink">
     </ngx-scrolltop>
   </div>

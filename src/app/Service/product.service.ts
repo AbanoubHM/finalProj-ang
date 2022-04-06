@@ -15,18 +15,16 @@ export class ProductService {
   constructor(private http: HttpClient, handler: HttpBackend) {
     this.httpClient = new HttpClient(handler);
   }
- 
-  getAllProuduct(){
-      return this.httpClient.get<IProduct[]>(this._url).pipe(
+
+  getAllProuduct() {
+    return this.httpClient.get<IProduct[]>(this._url).pipe(
       catchError((err) => {
         return throwError(err.message || 'Server Error');
       })
     );
   }
 
-
-
-  getProductsBySortName(filters: HttpParams): Observable<IProduct[]> {
+  getProductsBySortName(filters?: HttpParams): Observable<IProduct[]> {
     return this.httpClient.get<IProduct[]>(this._url, { params: filters }).pipe(
       catchError((err) => {
         return throwError(err.message || 'Server Error');

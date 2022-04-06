@@ -1,5 +1,5 @@
 import { FilterPipe } from './../../pipes/filter.pipe';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IProduct } from '../Models/iproduct';
 import { ProductService } from '../../Service/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -14,14 +14,14 @@ import { MatChip, MatChipInputEvent } from '@angular/material/chips';
 import { PageEvent } from '@angular/material/paginator';
 import { AuthService } from '@auth0/auth0-angular';
 
-
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
-  length: number = 100;
+  quantity: number = 1;
+  length: number = 93;
   pageSize: number = 12;
   pageSizeOptions: number[] = [12, 24, 48, 96];
   pageEvent?: PageEvent;
@@ -47,7 +47,8 @@ export class ProductsComponent implements OnInit {
   ];
   public hideLoadMoreBtn = false;
   params = new HttpParams();
-  activeCat: number = -1;
+  @Input() params2 = new HttpParams();
+  activeCat: number = -1; //delete
   constructor(
     public auth: AuthService,
     private gat: GategoryService,
@@ -67,20 +68,16 @@ export class ProductsComponent implements OnInit {
       this.gatlist = gatilist;
     });
 
-    this.productService.getAllProuduct().subscribe(
-      (res)=>{
-        this.postList = res
-      },
-      err=>{console.log(err);
-      }
-    )
+    this.productService.getAllProuduct().subscribe((res) => {
+      this.postList = res;
+    });
 
     this.auth.user$.subscribe((profile) => {
-    this.userId= profile?.sub
-})
+      this.userId = profile?.sub;
+    });
   }
 
-  userId:any ;
+  userId: any;
   getProdDetails(id: number) {
     this.router.navigate([id], { relativeTo: this.activatedRoute });
   }
@@ -93,42 +90,33 @@ export class ProductsComponent implements OnInit {
   }
 
   addtocart(item: any) {
-
-          console.log('new  at cart');
-          this.cartService.addtoCart(item.id , this.userId).subscribe(
-            (res)=>{      console.log(res)
-              this.snakerbar('added to the cart', `bg-success`);
-            
-            } ,
-            (err)=>{
-              this.snakerbar('some thing wrong', `bg-error`);
-            }
-          );
-    
-      }
-
-  addtofavorite(item: any) {
-    this.FavoriteService.getfevProducts(this.userId).subscribe(
+    this.cartService.addtoCart(item.id, this.userId, this.quantity).subscribe(
       (res) => {
-        let data: any = res;
-         
-        if (data.every((el: any) => el.productID !== item.id)) {
-          console.log('new');
-          this.FavoriteService.addtofavorite(item.id , this.userId).subscribe(
-            (res)=>{    
-              this.snakerbar('added to the favorite', `bg-success`);
-            
-            } ,
-            (err)=>{
-              this.snakerbar('some thing wrong', `bg-error`);
-            }
-          );
-        } else { this.snakerbar('already in the favorite', `bg-error`);  }
+        this.snakerbar('added to the cart', `bg-success`);
       },
-      (error) => {
-        console.log('server is down', error);
+      (err) => {
+        this.snakerbar('some thing wrong', `bg-error`);
       }
     );
+  }
+
+  addtofavorite(item: any) {
+    this.FavoriteService.getfevProducts(this.userId).subscribe((res) => {
+      let data: any = res;
+
+      if (data.every((el: any) => el.productID !== item.id)) {
+        this.FavoriteService.addtofavorite(item.id, this.userId).subscribe(
+          (res) => {
+            this.snakerbar('added to the favorite', `bg-success`);
+          },
+          (err) => {
+            this.snakerbar('some thing wrong', `bg-error`);
+          }
+        );
+      } else {
+        this.snakerbar('already in the favorite', `bg-error`);
+      }
+    });
   }
 
   showitem() {
@@ -143,39 +131,54 @@ export class ProductsComponent implements OnInit {
   changePage(event: PageEvent) {
     this.params = this.params.set('pagesize', event.pageSize);
     this.params = this.params.set('pagenumber', event.pageIndex + 1);
-    this.productService.getProductsBySortName(this.params).subscribe((prods) => {
-      this.postList = prods;
-    });
+    this.productService
+      .getProductsBySortName(this.params)
+      .subscribe((prods) => {
+        this.postList = prods;
+      });
     return event;
   }
 
   changeCat(id: any, c: MatChip) {
-    c.select();
-    this.params = this.params.set('categoryid', id);
-    this.productService.getProductsBySortName(this.params).subscribe((prods) => {
-      this.postList = prods;
-    });
+    c.toggleSelected();
+    if (!c.selected) {
+      this.params = this.params.delete('categoryid');
+    } else {
+      this.params = this.params.set('categoryid', id);
+    }
+    this.productService
+      .getProductsBySortName(this.params)
+      .subscribe((prods) => {
+        this.postList = prods;
+      });
   }
   onKey(event: any) {
     this.searchvalues = event.target.value;
     try {
       this.params = this.params.set('search', this.searchvalues);
-      this.productService.getProductsBySortName(this.params).subscribe((prods) => {
-        this.postList = prods;
-      });
+      this.productService
+        .getProductsBySortName(this.params)
+        .subscribe((prods) => {
+          this.postList = prods;
+        });
     } catch (error) {
       console.log(error);
     }
+
     this.params = this.params.set('search', this.searchvalues);
-    this.productService.getProductsBySortName(this.params).subscribe((prods) => {
-      this.postList = prods;
-    });
+    this.productService
+      .getProductsBySortName(this.params)
+      .subscribe((prods) => {
+        this.postList = prods;
+      });
   }
   onValueChanged(event: any) {
     this.params = this.params.set('sort', event);
 
-    this.productService.getProductsBySortName(this.params).subscribe((prods) => {
-      this.postList = prods;
-    });
+    this.productService
+      .getProductsBySortName(this.params)
+      .subscribe((prods) => {
+        this.postList = prods;
+      });
   }
 }

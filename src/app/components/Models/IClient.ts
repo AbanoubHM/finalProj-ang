@@ -1,7 +1,9 @@
 export interface IClient {
-    id:string
-    name:string
-    imageUrl:string
-    age:number
-    address:string
+  id: string;
+  name: string;
+  imageUrl: string;
+  street: string;
+  city: string;
+  state: string;
+  phone: string;
 }
