@@ -6,38 +6,43 @@ import { Order } from 'src/app/Models/Order';
 @Component({
   selector: 'app-submit-order',
   templateUrl: './submit-order.component.html',
-  styleUrls: ['./submit-order.component.scss']
+  styleUrls: ['./submit-order.component.scss'],
 })
 export class SubmitOrderComponent implements OnInit {
   id?: string;
   orders?: any;
-  constructor(private suborder: OrderService, private authService: AuthService) { }
+  constructor(
+    private suborder: OrderService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.authService.user$.subscribe((profile) => {
-      this.id = profile?.sub
+      this.id = profile?.sub;
       this.get();
     });
   }
   get() {
-    this.suborder.GetUserOrders(this.id).subscribe(data => {
-      this.orders = data
-    console.log(this.orders);
-    }, erorr => {
-      console.log(erorr);
-    })
-
+    this.suborder.GetUserOrders(this.id).subscribe(
+      (data) => {
+        this.orders = data;
+        console.log(this.orders);
+      },
+      (erorr) => {
+        console.log(erorr);
+      }
+    );
   }
-  showOrderDetails(id:number){
-    this.id=this.orders.id;
+  showOrderDetails(id: number) {
+    this.id = this.orders.id;
     console.log(id);
     this.suborder.CancelOrder(id).subscribe(
-      data => {
-      console.log(this.orders);
-      }, erorr => {
+      (data) => {
+        console.log(data);
+      },
+      (erorr) => {
         console.log(erorr);
-      })
-    
+      }
+    );
   }
-  
 }
