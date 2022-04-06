@@ -86,7 +86,7 @@ export class ProductDetailsComponent implements OnInit {
         this.snakerbar('added to the cart', `bg-success`);
       },
       (err) => {
-        this.snakerbar('some thing wrong', `bg-error`);
+        this.snakerbar('You must login first', `bg-error`);
       }
     );
   }
