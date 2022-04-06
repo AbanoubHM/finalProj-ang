@@ -1,5 +1,5 @@
 import { FilterPipe } from './../../pipes/filter.pipe';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IProduct } from '../Models/iproduct';
 import { ProductService } from '../../Service/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -46,7 +46,8 @@ export class ProductsComponent implements OnInit {
   ];
   public hideLoadMoreBtn = false;
   params = new HttpParams();
-  activeCat: number = -1;
+  @Input() params2 = new HttpParams();
+  activeCat: number = -1; //delete
   constructor(
     public auth: AuthService,
     private gat: GategoryService,
@@ -66,7 +67,7 @@ export class ProductsComponent implements OnInit {
       this.gatlist = gatilist;
     });
 
-    this.productService.getAllProuduct().subscribe(
+    this.productService.getProductsBySortName(this.params2).subscribe(
       (res) => {
         this.postList = res;
       },
