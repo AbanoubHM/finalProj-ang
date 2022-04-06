@@ -188,3 +188,24 @@ border-radius: 10%;
 }
 
 
+.cardContent { background-color: rgba(14, 14, 14, 0.499); 
+    height: 200px; max-height: 250px ;
+     display: flex; 
+     justify-content: center;
+      align-items: center;
+      font-size: 1.6rem;
+      color: #81bf3e;
+      margin: 10px 0  ;
+      border-radius: 15px;
+      font-weight: 600;
+
+}
+
+
+.imgContant {
+    background-position: center;
+    background-size: cover;
+    padding: 0%;
+    margin: 0% 10px;
+    border-radius: 15px;
+  }

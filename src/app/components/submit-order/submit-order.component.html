@@ -1,0 +1,41 @@
+
+<ng-container *ngIf="orders.length" style="text-align: center; margin: 30px;">
+
+    <div class="cartHolder container pt-xl-21 pb-xl-24 py-lg-20 py-md-16 py-10">
+        <div class="row">
+            <!-- table-responsive -->
+            <div class="col-12 table-responsive mb-xl-22 mb-lg-20 mb-md-16 mb-10" style=" margin: 30px;">
+
+                <main class="container-sm" *ngFor="let item of orders">
+                  <div class="card box">
+                    <div class="row g-0">
+                      
+                      <div class="col-md-9">
+                        <div class="card-body content">
+                          <div class="title">
+                            <h3 class="card-title col-9">order DateTime : {{ item.orderDateTime }}</h3>
+                            <h3 class="card-title col-9">state : {{ item.state }}</h3>
+                            <b class="card-title col-3">street : {{ item.street}} </b>
+                            <h3 class="card-title col-9">phone : {{ item.phone}}</h3>
+                          </div>
+                          <button (click)="showOrderDetails(item.id)"
+                            mat-stroked-button
+                            color="primary"
+                          >
+
+                            Delete
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </main>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+</ng-container>

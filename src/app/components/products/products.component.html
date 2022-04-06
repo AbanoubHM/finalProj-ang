@@ -1,7 +1,4 @@
-<section class="introBannerHolder bgCover d-flex w-100" style="
-    background-image: url(assets/styles/images/home.jpg);
-    background-size: cover;
-  ">
+<section class="jumbotron jumbotron-fluid bgCover d-flex w-100">
   <div class="container">
     <div class="row">
       <div class="col-12 pt-lg-23 pt-md-15 pt-sm-10 pt-5 text-center">
@@ -18,6 +15,8 @@
   </div>
 </section>
 <br />
+
+
 <!-- twoColumns -->
 <div class="twoColumns container pt-lg-23 pb-lg-20 pt-md-16 pb-md-4 pt-10 pb-4">
   <div class="row">
@@ -33,7 +32,6 @@
             <li (click)="toggleList()" class="mr-2">
               <a><i class="fas fa-list"></i></a>
             </li>
-            <li class="mr-2">Showing {{ postList.length }} results</li>
           </ul>
           <!-- sortGroup -->
           <div class="sortGroup">
@@ -53,51 +51,44 @@
             <div style="text-align: center" *ngIf="!postList" class="col-md-4">
               <mat-spinner></mat-spinner>
             </div>
-            <div class="col-md-4" *ngFor="let item of postList">
+            <!-- cart box -->
+            <div class="col-md-4 card" *ngFor="let item of postList">
               <!-- featureCol -->
               <div class="h-100" style="display: flex; align-items: stretch">
                 <mat-card class="example-card my-2 hoverrr" style="width: 400px">
-                  <img class="card-img-top" style="height: 300px; object-fit: cover" mat-card-image [src]="item.image"
-                    (click)="getProdDetails(item.id)" />
-                  <mat-card-content>
+                  <section class="card-img-top deteilsCart" mat-card-image
+                    style="background-image: url({{item.image}}) ; ">
+                    <main class="iconArea">
+                      <button (click)="addtofavorite(item)" mat-mini-fab color="primary">
+                        <mat-icon>favorite_border</mat-icon>
+                      </button>
+                      <button (click)="addtocart(item)" mat-mini-fab color="primary">
+                        <mat-icon>add_shopping_cart</mat-icon>
+                      </button>
+                      <button (click)="getProdDetails(item.id)" mat-mini-fab color="primary">
+                        <mat-icon>visibility</mat-icon>
+                      </button>
+                    </main>
+
+                  </section>
+
+                  <mat-card-content (click)="getProdDetails(item.id)">
                     <mat-card-title style="
                         text-align: center;
                         font-family: Arial, Helvetica, sans-serif;
                         font-size: 15px;
+                        padding: 10px 0 15px;
                       ">
                       {{ item.name }}</mat-card-title>
 
                     <p class="text-center">
-                      <!-- {{item.price|currency}} -->
                       <span class="price d-block fwEbold"><del *ngIf="item.saleValue">{{item.price+&nbsp;+item.saleValue
                           | number:'1.2-2'}}
                           $</del>
                         &nbsp;&nbsp;&nbsp;{{ item.price }} $</span>
                     </p>
                   </mat-card-content>
-                  <div class="showDiv">
-                    <ul class="list-unstyled postHoverLinskList d-flex justify-content-evenly m-0"
-                      *ngIf="auth.isAuthenticated$ | async">
-                      <li class="mr-2 overflow-hidden">
-                        <button (click)="addtofavorite(item)" mat-mini-fab color="primary">
-                          <mat-icon>favorite_border</mat-icon>
-                        </button>
-                      </li>
-                      <li class="mr-2 overflow-hidden">
-                        <button (click)="addtocart(item)" mat-mini-fab color="primary">
-                          <mat-icon>add_shopping_cart</mat-icon>
-                        </button>
-                      </li>
-                      <li class="mr-2 overflow-hidden">
-                        <button (click)="getProdDetails(item.id)" mat-mini-fab color="primary">
-                          <mat-icon>visibility</mat-icon>
-                        </button>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="hoverrr">
-                    <mat-card-actions class="showDiv"> </mat-card-actions>
-                  </div>
+
                 </mat-card>
               </div>
             </div>
@@ -128,7 +119,7 @@
           </div>
         </div>
       </article>
-      <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+      <mat-paginator length="{{length}}" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
         (page)="pageEvent = changePage($event)">
       </mat-paginator>
     </div>
@@ -139,8 +130,8 @@
         <section class="widget overflow-hidden mb-9">
           <form action="javascript:void(0);" class="searchForm position-relative border">
             <fieldset>
-              <input style="box-shadow: 0 0 0" (keyup)="onKey($event)" type="search" class="form-control"
-                placeholder="Search" />
+              <input style="box-shadow: 0 0 0" (search)="onKey($event)" (keyup)="onKey($event)" type="search"
+                class="form-control" placeholder="Search" />
               <button class="position-absolute">
                 <i class="icon-search"></i>
               </button>
@@ -158,15 +149,12 @@
               {{ Cat.name }}
             </mat-chip>
           </mat-chip-list>
-          <!-- <div [class.active]="activeCat === i" class="mt-2" *ngFor="let item of gatlist; let i= index;">
-                        <button disableRipple="true" mat-button (click)="changeCat(item.id,i)">{{item.name}}
-                        </button>
-                    </div> -->
+
         </section>
         <!-- widget -->
       </aside>
     </div>
-    <ngx-scrolltop [size]="40" backgroundColor="#33691e" symbolColor="#fff" symbol="↑" mode="classic" position="right"
+    <ngx-scrolltop [size]="40" backgroundColor="#33691e" symbolColor="#fff"  mode="classic" position="right"
       theme="pink">
     </ngx-scrolltop>
   </div>

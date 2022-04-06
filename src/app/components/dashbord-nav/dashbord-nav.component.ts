@@ -11,49 +11,64 @@ import { UserService } from 'src/app/Service/user.service';
 @Component({
   selector: 'app-dashbord-nav',
   templateUrl: './dashbord-nav.component.html',
-  styleUrls: ['./dashbord-nav.component.scss']
+  styleUrls: ['./dashbord-nav.component.scss'],
 })
 export class DashbordNavComponent {
-
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
     .pipe(
-      map(result => result.matches),
+      map((result) => result.matches),
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, public auth: AuthService,
-   private cartService: CartService , private FavoriteService : FavoriteService,private User:UserService ,
-    @Inject(DOCUMENT) private doc: Document) { }
-// nav.component.ts
-
-  menuItems = ['MyProfile', 'AddProduct', 'customers', 'MyStore'];
-  public totalItem: number = 0;
-  public totalfavortit: number = 0;
-  islogged=false;
-  hidden = true;
-  hidden1 = true;
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    public auth: AuthService,
+    private cartService: CartService,
+    private FavoriteService: FavoriteService,
+    private User: UserService,
+    @Inject(DOCUMENT) private doc: Document
+  ) {}
+  // nav.component.ts
+  menuItemsClients = ['MyProfile'];
+  menuItems = [''];
+  roles: string = '';
+  userId: any = '';
+  menuItemsVendor = ['MyProfile', 'AddProduct', 'customers', 'MyStore'];
+  islogged = false;
+  cartbagdge = true;
+  favbagdge = true;
+  product: any = [];
+  cartitems: any =[];
+  cartcount: any;
   ngOnInit(): void {
+    this.auth.user$.subscribe((profile) => {
+      this.userId = profile?.sub;
+      console.log(profile?.['http://roletest.net/roles']);
+      this.roles = profile?.['http://roletest.net/roles'];
 
-    this.User.loginState.subscribe(
-      st=>{this.islogged=st}
-    );
-    this.cartService.getProducts().
-      subscribe(res => {
-        this.totalItem = res.length;
-        if (this.totalItem > 0) { this.hidden = false } else { this.hidden = true }
+      if (this.roles.length == 2) {
+        this.menuItems = ['MyProfile', 'AddProduct', 'customers', 'MyStore'];
+      } else {
+        this.menuItems = ['MyProfile'];
+      }
+
+      this.cartService.getCartProducts(this.userId).subscribe((data) => {
+        this.cartitems = data;
+        this.cartcount = this.cartitems.length;
+        if (this.cartcount != 0) {
+          this.cartbagdge = false;
+        } else {
+          this.cartbagdge = true;
+        }
       });
-    //   this.FavoriteService.getProducts().
-    //   subscribe(res => {
-    //     this.totalfavortit = res.length;
-    //     if (this.totalfavortit > 0) { this.hidden1 = false } else { this.hidden1 = true }
-    //   });
+    });
   }
-  loginWithRedirect():void{
+  loginWithRedirect(): void {
     this.auth.loginWithRedirect();
   }
 
-  logout(){
-    this.auth.logout({returnTo :this.doc.location.origin});
+  logout() {
+    this.auth.logout({ returnTo: this.doc.location.origin });
   }
-
 }

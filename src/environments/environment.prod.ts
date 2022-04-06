@@ -8,6 +8,7 @@ const { domain, clientId, audience, apiUri, errorPath } = config as {
   errorPath: string;
 };
 export const environment = {
+
   production: false,
   jsonServer: 'http://localhost:3000',
   auth: {
@@ -20,4 +21,3 @@ export const environment = {
   httpInterceptor: {
     allowedList: [`${apiUri}/*`],
   },
-};

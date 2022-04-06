@@ -9,6 +9,8 @@ const { domain, clientId, audience, apiUri, errorPath } = config as {
 };
 export const environment = {
   production: false,
+
+  API: 'https://handmadeapi.azurewebsites.net/api',
   jsonServer: 'http://localhost:3000',
   auth: {
     domain: 'dev-vxrkxu-x.us.auth0.com',
@@ -17,6 +19,7 @@ export const environment = {
     redirectUri: window.location.origin,
     errorPath: '/error',
   },
+
   httpInterceptor: {
     allowedList: [`${apiUri}/*`],
   },

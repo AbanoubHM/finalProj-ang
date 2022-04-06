@@ -1,11 +1,8 @@
 import { AuthService } from '@auth0/auth0-angular';
 import { Component, OnInit } from '@angular/core';
-
-
 import { TestBed } from '@angular/core/testing';
 import { ProductService } from 'src/app/Service/product.service';
 import { CustomersService } from 'src/app/Service/customers.service';
-
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/Service/cart.service';
 import { FavoriteService } from 'src/app/Service/favorite.service';
@@ -19,15 +16,12 @@ import { numbers } from '@material/tooltip';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [NgbCarouselConfig]
+  providers: [NgbCarouselConfig],
 })
 export class HomeComponent implements OnInit {
-
-
-
   postList: IProduct[] = [];
   public productList: any;
-  errMsg: string = ''
+  errMsg: string = '';
   listToggle: boolean = true;
   numberOfProducts: number = 0;
   shows: boolean = false;
@@ -35,15 +29,19 @@ export class HomeComponent implements OnInit {
   SortDirection = 'asc';
   SearchName = '';
   gatlist: Icategory[] = [];
-  images = [
-    { title: 'First Slide', short: 'For all your occasions', src: "https://picsum.photos/id/700/900/500" },
-    { title: 'Second Slide', short: 'we are with you and help you choose your gift and', src: "https://picsum.photos/id/1011/900/500" },
-    { title: 'Third Slide', short: 'will make it for you with love', src: "https://picsum.photos/id/984/900/500" }
-  ];
 
-  // numElement: number = 10;
-
-  constructor(config: NgbCarouselConfig, private gat: GategoryService, private custom: CustomersService, private activatedRoute: ActivatedRoute, private postSrv: ProductService, private router: Router, private cartService: CartService, private favoriteService: FavoriteService, private snakeBar: MatSnackBar,public auth:AuthService) {
+  constructor(
+    config: NgbCarouselConfig,
+    private gat: GategoryService,
+    private custom: CustomersService,
+    private activatedRoute: ActivatedRoute,
+    private productService: ProductService,
+    private router: Router,
+    private cartService: CartService,
+    private favoriteService: FavoriteService,
+    private snakeBar: MatSnackBar,
+    public auth: AuthService
+  ) {
     config.interval = 3000;
     config.keyboard = true;
     config.pauseOnHover = true;
@@ -53,66 +51,33 @@ export class HomeComponent implements OnInit {
   page: number = 1;
   size: number = 9;
   ngOnInit(): void {
-    this.postSrv.getAllPosts().subscribe(postData => {
-      this.postList = postData
-      this.length = postData.length;
-      console.log(this.postList)
-
-    })
-    this.gat.getAllGatogaries().subscribe(gatilist => {
-
-      this.gatlist = gatilist
-    })
+    this.productService.getAllProuduct();
+    this.gat.getAllGatogaries().subscribe((gatilist) => {
+      this.gatlist = gatilist;
+    });
   }
   getProdDetails1(id: number) {
-    this.router.navigate(["products/" + id], { relativeTo: this.activatedRoute })
+    this.router.navigate(['products/' + id], {
+      relativeTo: this.activatedRoute,
+    });
   }
   getProdDetails(id: number) {
-    this.router.navigate(["products/" + id], { relativeTo: this.activatedRoute.parent })
-
+    this.router.navigate(['products/' + id], {
+      relativeTo: this.activatedRoute.parent,
+    });
   }
 
-  addtocart(item: any) {
-    this.cartService.addtoCart(item)
-    this.custom.addtocustomers(item)
-    this.snakeBar.open("Added", "", { duration: 1000, panelClass: ["bg-success", "text-center"] })
+  get_Pro_Cat(ID: number) {
+    this.gat.getCategoryProducts(1).pipe();
   }
-
-
-
-
-  addtofavorite(item: any) {
-    this.favoriteService.addtofavorite(item)
-    this.snakeBar.open("Added", "", { duration: 1000, panelClass: ["bg-success", "text-center"] })
-  }
-get_Pro_Cat(ID:number){
-  this.gat.getCategoryProducts(1).pipe();
-}
-
-
 
   toggleList() {
-    this.listToggle = false
+    this.listToggle = false;
   }
   toggleGrid() {
-    this.listToggle = true
+    this.listToggle = true;
   }
   Done() {
-    this.postSrv.getAllPosts();
+    this.productService.getAllProuduct();
   }
-  // this.products.GetAllProducts().subscribe(
-  //   productdata => {
-  //     this.prodlist = productdata;
-  //     console.log(this.prodlist)
-  //   }
-  // )
-  // this.products.GetProductById(this.idfind).subscribe(
-  //   product => {
-  //     this.prod = product[this.idfind - 1]
-  //   }
-  // )
 }
-
-
-
-

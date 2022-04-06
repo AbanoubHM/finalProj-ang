@@ -37,12 +37,7 @@ export class OrdersComponent implements OnInit {
   ordersForm: FormGroup = this.fb.group({
     name: [
       '',
-      [
-        Validators.required,
-        Validators.pattern('^[a-zA-Z]+$'),
-        Validators.minLength(5),
-        Validators.maxLength(25),
-      ],
+      [Validators.required, Validators.minLength(5), Validators.maxLength(25)],
     ],
     description: ['', [Validators.required]],
     image: ['', [Validators.required]],

@@ -40,8 +40,8 @@
             <button id="uploadButton" class="md-fab md-mini" mat-icon-button (click)="file.click()">
               <mat-icon class="material-icons">attach_file</mat-icon>
             </button>
-            <input formControlName="image" #file (change)="uploadfile(file.files)" class="ng-hide" id="imageupload"
-              multiple type="file" hidden="true" accept="image/*" />
+            <input #file (change)="uploadfile(file.files)" class="ng-hide" id="imageupload" multiple type="file"
+              hidden="true" accept="image/*" />
           </div>
           <div>
             <span class="upload" *ngIf="progress > 0 && !message">
@@ -114,9 +114,8 @@
               </mat-select>
             </mat-form-field>
           </div>
-          <button class="mb-2" [disabled]="!ordersForm.valid && message"
-            style="width: 10em; border-radius: 20px; margin-top: 15px" (click)="submitForm()" color="primary"
-            mat-raised-button>
+          <button class="mb-2" [disabled]="!ordersForm.valid" style="width: 10em; border-radius: 20px; margin-top: 15px"
+            (click)="submitForm()" color="primary" mat-raised-button>
 
             Submit
           </button>

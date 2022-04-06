@@ -12,17 +12,8 @@ export class CartsComponent implements OnInit {
   public products : any = [];
   public grandTotal !: number;
   ngOnInit(): void {
-    this.cartService.getProducts()
-    .subscribe(res=>{
-      this.products = res;
-      this.grandTotal=this.cartService.getTotalPrice();
-    })
+ 
   }
 
-  removeItem(item: any){
-    this.cartService.removeCartItem(item);
-  }
-  emptycart(){
-    this.cartService.removeAllCart();
-  }
+ 
 }

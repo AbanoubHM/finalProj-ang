@@ -1,4 +1,9 @@
-import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
+import {
+  FormBuilder,
+  Validators,
+  FormGroup,
+  FormControl,
+} from '@angular/forms';
 import { ProfileService } from 'src/app/Service/profile.service';
 import { IClient } from './../Models/IClient';
 import { Component, OnInit, TemplateRef } from '@angular/core';
@@ -15,9 +20,11 @@ export class ProfileComponent implements OnInit {
   userDb: IClient = {
     id: '',
     name: '',
-    address: '',
     imageUrl: '',
-    age: 25,
+    street: '',
+    city: '',
+    state: '',
+    phone: '',
   };
   user: any;
   constructor(
@@ -38,52 +45,34 @@ export class ProfileComponent implements OnInit {
   });
   namefromdb: string[] = [];
   addressfromdb: string[] = [];
-  role: string = "";
+  // role: string = "";
   ngOnInit(): void {
     this.authService.user$.subscribe((success: any) => {
       this.user = success;
+
+      this.profServ.getClientData(success.sub).subscribe((data) => {
+        this.userDb = data;
+        this.ff['city'].setValue(this.userDb.city);
+      });
     });
-    this.authService.error$.subscribe((error) => console.log(error));
-    this.authService.idTokenClaims$.subscribe((claims) =>
-
-      console.log(claims)
-    );
-    this.authService.user$.subscribe((profile) => {
-
-      console.log(profile?.['http://roletest.net/roles'])
-        this.profileJson = JSON.stringify(profile, null, 2);
-        this.profServ.getClientData(profile?.sub).subscribe((data) => {
-         this.userDb = data;
-         this.namefromdb = this.userDb.name.split(';');
-         this.addressfromdb = this.userDb.address.split(';');
-         //console.log(this.authService);
- 
-       this.profileJson = JSON.stringify(profile, null, 2);
-        console.log(profile);
-       this.profServ.getClientData(profile?.sub).subscribe((data) => {
-         this.userDb = data;
-         this.namefromdb = this.userDb.name.split(';');
-         this.addressfromdb = this.userDb.address.split(';');        
- 
-       });
-     });
-   })  } 
- 
-  get ff(){
-      return this.updateProfile.controls;
-    }
-    sendToDb(){
-      this.userDb.name = `${this.ff['FirstName'].value};${this.ff['phone'].value}`;
-      this.userDb.address = `${this.ff['address'].value};${this.ff['city'].value};${this.ff['state'].value}`;
-      console.log(this.userDb.name);
-      console.log(this.userDb.address);
-      this.userDb.age = this.ff['birthdate'].value;
-      this.profServ
-        .updateClientData(this.userDb.id, this.userDb)
-        .subscribe((dat) => {
-          console.log(dat);
-        });
-    }
-
-    onHighlight() { }
   }
+
+  get ff() {
+    return this.updateProfile.controls;
+  }
+  sendToDb() {
+    this.userDb.name = this.ff['FirstName'].value;
+    this.userDb.street = this.ff['address'].value;
+    this.userDb.phone = this.ff['phone'].value;
+    this.userDb.city = this.ff['city'].value;
+    this.userDb.state = this.ff['state'].value;
+
+    this.profServ
+      .updateClientData(this.userDb.id, this.userDb)
+      .subscribe((dat) => {
+        console.log(dat);
+      });
+  }
+
+  onHighlight() {}
+}

@@ -1,19 +1,27 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class PublishstoreService {
   public storeitemlist : any =[]
   public storeList = new BehaviorSubject<any>([])
-  constructor() { }
+  
+  constructor(private http:HttpClient) { }
+
+  setNewProduct(product : any){
+    return  this.http.post(`${environment.API}/Products`, product)
+
+
+ 
+  }
   getstores(){
     return this.storeList.asObservable();
   }
-  setProduct(store : any){
-    this.storeitemlist.push(...store);
-    this.storeList.next(store);
-  }
+  
   addtostore(store : any){
     this.storeitemlist.push(store);
     this.storeList.next(this.storeitemlist);

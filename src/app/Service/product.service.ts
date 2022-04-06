@@ -2,28 +2,29 @@ import { Injectable } from '@angular/core';
 import { HttpBackend, HttpClient, HttpParams } from '@angular/common/http';
 import { IProduct } from '../components/Models/iproduct';
 import { catchError, Observable, throwError } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
   private _url: string = 'https://handmadeapi.azurewebsites.net/api/Products';
-  // https://handmadeapi.azurewebsites.net/api/Categories/3/products
+
   private httpClient: HttpClient;
 
   constructor(private http: HttpClient, handler: HttpBackend) {
     this.httpClient = new HttpClient(handler);
   }
 
-  getAllPosts(): Observable<IProduct[]> {
+  getAllProuduct() {
     return this.httpClient.get<IProduct[]>(this._url).pipe(
       catchError((err) => {
         return throwError(err.message || 'Server Error');
       })
     );
   }
-  getProductOfCat_X() {}
-  getProductsBySortName(filters: HttpParams): Observable<IProduct[]> {
+
+  getProductsBySortName(filters?: HttpParams): Observable<IProduct[]> {
     return this.httpClient.get<IProduct[]>(this._url, { params: filters }).pipe(
       catchError((err) => {
         return throwError(err.message || 'Server Error');

@@ -1,36 +1,35 @@
 <main>
-  <!-- introBannerHolder -->
-  <section class="introBannerHolder d-flex w-100 bgCover"
-      style="background-image: url(assets/styles/images/Untitled-;.jpg);">
-      <div class="container">
-          <div class="row">
-              <div class="col-12 pt-lg-23 pt-md-15 pt-sm-10 pt-6 text-center">
-                  <h1 class="headingIV fwEbold playfair pt-5 mb-4">My Favorite</h1>
-                  <ul class="list-unstyled breadCrumbs d-flex justify-content-center">
-                      <li class="mr-sm-2 mr-1"><a routerLink="">Home</a></li>
-                      <li class="mr-sm-2 mr-1">/</li>
-                      <li class="active">My favorite</li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-  </section>
-  <!-- cartHolder -->
+    <!-- introBannerHolder -->
+    <section class="jumbotron jumbotron-fluid bgCover d-flex w-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 pt-lg-23 pt-md-15 pt-sm-10 pt-6 text-center">
+                    <h1 class="headingIV fwEbold playfair pt-5 mb-4">My Favorite</h1>
+                    <ul class="list-unstyled breadCrumbs d-flex justify-content-center">
+                        <li class="mr-sm-2 mr-1"><a routerLink="">Home</a></li>
+                        <li class="mr-sm-2 mr-1">/</li>
+                        <li class="active">My favorite</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- cartHolder -->
 
 
-  <ng-container *ngIf="products.length" style="text-align: center;">
-          <div class="row">
-                   <app-item-cart> </app-item-cart>
-          </div>
-  </ng-container>
+    <ng-container *ngIf="products.length" style="text-align: center;">
+        <div class="row">
+            <app-item-favourite></app-item-favourite>
+        </div>
+    </ng-container>
 
-  <ng-container *ngIf="!products.length">
-      <div class="mt-3" style="text-align: center;">
-          <h3> your favorite is empty</h3>
-      </div>
-      <div style="text-align: center;"><img src="assets/emptyCart.jpg" width="35%"></div>
-      <img src="" alt="">
-  </ng-container>
+    <ng-container *ngIf="!products.length">
+        <div class="mt-3" style="text-align: center;">
+            <h3> your favorite is empty</h3>
+        </div>
+        <div style="text-align: center;"><img src="assets/svg/cart-empty.svg" width="35%"></div>
+        <img src="" alt="">
+    </ng-container>
 
 
 </main>
