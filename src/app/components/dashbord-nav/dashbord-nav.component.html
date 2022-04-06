@@ -25,8 +25,8 @@
         <button mat-button (click)="loginWithRedirect()" *ngIf="(auth.isAuthenticated$|async)===false">
           <mat-icon>login</mat-icon> Log in
         </button>
-        <button mat-button  [routerLink]="['/become_Vendor']" *ngIf="(auth.isAuthenticated$|async)">
-          <mat-icon>app_registration</mat-icon> Became a Vendor
+        <button mat-button [routerLink]="['/become_Vendor']" *ngIf="(auth.isAuthenticated$|async)&&(roles.length!==2)">
+          <mat-icon>app_registration</mat-icon> Become a Vendor
         </button>
         <span class="fill-remaining-space"></span>
         <button mat-button (click)="logout()" *ngIf="(auth.isAuthenticated$|async)">
@@ -68,7 +68,7 @@
 
         <mat-icon>login</mat-icon> Log in
       </button>
-      <button mat-button [routerLink]="['/become_Vendor']" >
+      <button mat-button [routerLink]="['/become_Vendor']">
         <mat-icon>app_registration</mat-icon> Became a Vendor
       </button>
       <span class="fill-remaining-space"></span>

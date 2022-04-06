@@ -1,6 +1,9 @@
 <br>
 <br>
-<div>
+<div class="container text-center fs-2 fw-bold my-3" *ngIf="profileJson.length==2">
+  You are already a Vendor
+</div>
+<div *ngIf="profileJson.length!==2">
   <div class="container d-flex justify-content-start w-75">
     <div class="row">
       <div class="wrapper img">
@@ -46,8 +49,17 @@
           <button id="uploadButton" class="md-fab md-mini" mat-icon-button (click)="file.click()">
             <mat-icon class="material-icons">attach_file</mat-icon>
           </button>
-          <input formControlName="image" #file (change)="uploadfile(file.files)" class="ng-hide" id="imageupload"
-            multiple type="file" hidden="true" accept="image/*" />
+          <input #file (change)="uploadfile(file.files)" class="ng-hide" id="imageupload" multiple type="file"
+            hidden="true" accept="image/*" />
+          <div>
+            <span class="upload" *ngIf="progress > 0 && !message">
+              Loading...
+            </span>
+            <span class="upload" *ngIf="message">
+              {{message}}
+            </span>
+
+          </div>
 
           <mat-form-field class="mb-3" appearance="outline">
             <mat-label>Street</mat-label>
@@ -62,8 +74,8 @@
             <input matInput formControlName="state" />
           </mat-form-field>
 
-          <button style="width: 10em; border-radius: 20px !important" (click)="submitForm()" color="primary"
-            mat-raised-button>
+          <button [disabled]="!registerForm.valid" style="width: 10em; border-radius: 20px !important"
+            (click)="submitForm()" color="primary" mat-raised-button>
             Register
           </button>
         </form>

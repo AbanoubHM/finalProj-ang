@@ -1,6 +1,5 @@
-import { HttpParams } from '@angular/common/http';
 import { AuthService } from '@auth0/auth0-angular';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { ProductService } from 'src/app/Service/product.service';
 import { CustomersService } from 'src/app/Service/customers.service';
@@ -13,7 +12,6 @@ import { GategoryService } from 'src/app/Service/gategory.service';
 import { Icategory } from 'src/app/Models/Icategory';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { numbers } from '@material/tooltip';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -32,8 +30,6 @@ export class HomeComponent implements OnInit {
   SearchName = '';
   gatlist: Icategory[] = [];
 
-  @Output() newItemEvent = new EventEmitter<HttpParams>();
-  params = new HttpParams();
   constructor(
     config: NgbCarouselConfig,
     private gat: GategoryService,
@@ -55,11 +51,8 @@ export class HomeComponent implements OnInit {
   page: number = 1;
   size: number = 9;
   ngOnInit(): void {
-    this.productService.getAllProuduct();
-
     this.gat.getAllGatogaries().subscribe((gatilist) => {
       this.gatlist = gatilist;
-      console.log(this.gatlist);
     });
   }
   getProdDetails1(id: number) {
@@ -85,9 +78,5 @@ export class HomeComponent implements OnInit {
   }
   Done() {
     this.productService.getAllProuduct();
-  }
-  selectCat(id: any) {
-    console.log(id);
-    this.newItemEvent.emit(this.params);
   }
 }
