@@ -28,5 +28,10 @@ export class SubmitOrderComponent implements OnInit {
     })
 
   }
+  showOrderDetails(id:number){
+    this.id=this.orders.id;
+    console.log(id);
+    this.suborder.GetOrderDetails(id).subscribe();
+  }
   
 }
