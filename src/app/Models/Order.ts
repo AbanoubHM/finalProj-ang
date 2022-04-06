@@ -7,7 +7,7 @@ export interface Order {
   city: string;
   state: string;
   note: string;
-  paid: boolean;
+  
 }
 
 

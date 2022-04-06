@@ -16,7 +16,7 @@ export class SubmitOrderComponent implements OnInit {
   ngOnInit(): void {
     this.authService.user$.subscribe((profile) => {
       this.id = profile?.sub
-      this.get()
+      this.get();
     });
   }
   get() {
