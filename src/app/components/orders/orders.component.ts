@@ -39,7 +39,7 @@ export class OrdersComponent implements OnInit {
       '',
       [
         Validators.required,
-        Validators.pattern('^[a-zA-Z]+$'),
+        Validators.pattern('^[a-z0-9_-]{8,15}$'),
         Validators.minLength(5),
         Validators.maxLength(25),
       ],

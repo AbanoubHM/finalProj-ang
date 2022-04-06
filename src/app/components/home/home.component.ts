@@ -1,11 +1,8 @@
 import { AuthService } from '@auth0/auth0-angular';
 import { Component, OnInit } from '@angular/core';
-
-
 import { TestBed } from '@angular/core/testing';
 import { ProductService } from 'src/app/Service/product.service';
 import { CustomersService } from 'src/app/Service/customers.service';
-
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/Service/cart.service';
 import { FavoriteService } from 'src/app/Service/favorite.service';
@@ -23,8 +20,6 @@ import { numbers } from '@material/tooltip';
 })
 export class HomeComponent implements OnInit {
 
-
-
   postList: IProduct[] = [];
   public productList: any;
   errMsg: string = ''
@@ -41,9 +36,12 @@ export class HomeComponent implements OnInit {
     { title: 'Third Slide', short: 'will make it for you with love', src: "https://picsum.photos/id/984/900/500" }
   ];
 
-  // numElement: number = 10;
-
-  constructor(config: NgbCarouselConfig, private gat: GategoryService, private custom: CustomersService, private activatedRoute: ActivatedRoute, private postSrv: ProductService, private router: Router, private cartService: CartService, private favoriteService: FavoriteService, private snakeBar: MatSnackBar,public auth:AuthService) {
+  constructor(config: NgbCarouselConfig, 
+    private gat: GategoryService,
+    private custom: CustomersService,
+    private activatedRoute: ActivatedRoute, 
+    private productService: ProductService, 
+    private router: Router, private cartService: CartService, private favoriteService: FavoriteService, private snakeBar: MatSnackBar,public auth:AuthService) {
     config.interval = 3000;
     config.keyboard = true;
     config.pauseOnHover = true;
@@ -53,15 +51,11 @@ export class HomeComponent implements OnInit {
   page: number = 1;
   size: number = 9;
   ngOnInit(): void {
-    this.postSrv.getAllPosts().subscribe(postData => {
-      this.postList = postData
-      this.length = postData.length;
-      console.log(this.postList)
-
-    })
-    this.gat.getAllGatogaries().subscribe(gatilist => {
-
+      this.productService.getAllProuduct()
+ 
+      this.gat.getAllGatogaries().subscribe(gatilist => {
       this.gatlist = gatilist
+      console.log(this.gatlist)
     })
   }
   getProdDetails1(id: number) {
@@ -72,24 +66,9 @@ export class HomeComponent implements OnInit {
 
   }
 
-  addtocart(item: any) {
-    this.cartService.addtoCart(item)
-    this.custom.addtocustomers(item)
-    this.snakeBar.open("Added", "", { duration: 1000, panelClass: ["bg-success", "text-center"] })
+  get_Pro_Cat(ID:number){
+    this.gat.getCategoryProducts(1).pipe();
   }
-
-
-
-
-  addtofavorite(item: any) {
-    this.favoriteService.addtofavorite(item)
-    this.snakeBar.open("Added", "", { duration: 1000, panelClass: ["bg-success", "text-center"] })
-  }
-get_Pro_Cat(ID:number){
-  this.gat.getCategoryProducts(1).pipe();
-}
-
-
 
   toggleList() {
     this.listToggle = false
@@ -98,19 +77,9 @@ get_Pro_Cat(ID:number){
     this.listToggle = true
   }
   Done() {
-    this.postSrv.getAllPosts();
+    this.productService.getAllProuduct();
   }
-  // this.products.GetAllProducts().subscribe(
-  //   productdata => {
-  //     this.prodlist = productdata;
-  //     console.log(this.prodlist)
-  //   }
-  // )
-  // this.products.GetProductById(this.idfind).subscribe(
-  //   product => {
-  //     this.prod = product[this.idfind - 1]
-  //   }
-  // )
+
 }
 
 

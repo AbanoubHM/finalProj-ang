@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService  } from '../../Service/cart.service';
+import { FavoriteService } from '../Service/favorite.service';
 import { AuthService } from '@auth0/auth0-angular';
 import { Router, ActivatedRoute } from '@angular/router';
 
+
 @Component({
-  selector: 'app-item-cart',
-  templateUrl: './item-cart.component.html',
-  styleUrls: ['./item-cart.component.scss']
+  selector: 'app-item-favourite',
+  templateUrl: './item-favourite.component.html',
+  styleUrls: ['./item-favourite.component.scss']
 })
+export class ItemFavouriteComponent implements OnInit {
+
+  
 
 
-export class ItemCartComponent implements OnInit {
-
-
-  constructor(private CartService : CartService,
+  constructor(private FavoriteService : FavoriteService,
               public authService: AuthService,   
               public activatedRoute: ActivatedRoute,
               public router: Router,
@@ -21,18 +22,15 @@ export class ItemCartComponent implements OnInit {
 
 product: any = [];
 userId : any ;
-count:number=1;
 
   ngOnInit(): void {
-    console.log('cart') 
-
-       this.authService.user$.subscribe((profile) => {   
+    
+      this.authService.user$.subscribe((profile) => {   
         this.userId= profile?.sub
-        this.CartService.getCartProducts(profile?.sub).subscribe(
+      this.FavoriteService.getfevProducts(profile?.sub).subscribe(
 
       data => {
         this.product = data ;
-        console.log(data)
       },
       
       error => {
@@ -45,9 +43,8 @@ count:number=1;
 
   deleteHandel(ProductId:string) {
     console.log(ProductId , this.userId)
-    this.CartService.removeCartItem( this.userId , ProductId ).subscribe(
+    this.FavoriteService.removefavoriteItem( this.userId , ProductId ).subscribe(
       data => {
-       console.log(data)
        this.ngOnInit()
         
       },
@@ -56,8 +53,8 @@ count:number=1;
       })
     }
 
-    
    
 
 }
+
 

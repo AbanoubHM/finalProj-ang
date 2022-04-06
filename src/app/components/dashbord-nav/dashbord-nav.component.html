@@ -22,21 +22,16 @@
         </button>
         <button mat-button routerLink="/contact" style="margin-right: 5px;">Contact
         </button>
-
-
         <button mat-button (click)="loginWithRedirect()" *ngIf="(auth.isAuthenticated$|async)===false">
-
           <mat-icon>login</mat-icon> Log in
         </button>
-        <button mat-button routerLink="/register" *ngIf="(auth.isAuthenticated$|async)===false">
-
-          <mat-icon>app_registration</mat-icon> Register
+        <button mat-button  [routerLink]="['/become_Vendor']" *ngIf="(auth.isAuthenticated$|async)">
+          <mat-icon>app_registration</mat-icon> Became a Vendor
         </button>
         <span class="fill-remaining-space"></span>
         <button mat-button (click)="logout()" *ngIf="(auth.isAuthenticated$|async)">
           <mat-icon>logout</mat-icon> Log out
         </button>
-
         <button mat-button routerLinkActive="active" routerLink="/favorite" *ngIf="(auth.isAuthenticated$|async)"
           class=" position-relative" mat-icon-button style="color:#bdf0f1 ; margin-right: 5px;" #tooltip="matTooltip"
           matTooltip="Add To Favorite" aria-label="Example icon-button with a heart icon">
@@ -69,9 +64,16 @@
       </button>
       <button mat-menu-item routerLink="/contact" style="margin-right: 5px;">Contact
       </button>
-      <button mat-menu-item routerLink="/register" style="margin-right: 5px;">Register
+      <button mat-button (click)="loginWithRedirect()" *ngIf="(auth.isAuthenticated$|async)===false">
+
+        <mat-icon>login</mat-icon> Log in
       </button>
-      <button mat-menu-item routerLink="/login" style="margin-right: 5px;">Log in
+      <button mat-button [routerLink]="['/become_Vendor']" >
+        <mat-icon>app_registration</mat-icon> Became a Vendor
+      </button>
+      <span class="fill-remaining-space"></span>
+      <button mat-button (click)="logout()" *ngIf="(auth.isAuthenticated$|async)">
+        <mat-icon>logout</mat-icon> Log out
       </button>
       <!--<button mat-menu-item>Help</button>-->
     </mat-menu>

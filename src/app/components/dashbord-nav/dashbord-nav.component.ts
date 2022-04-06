@@ -21,39 +21,40 @@ export class DashbordNavComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, public auth: AuthService,
-   private cartService: CartService , private FavoriteService : FavoriteService,private User:UserService ,
-    @Inject(DOCUMENT) private doc: Document) { }
-// nav.component.ts
 
-  menuItems = ['MyProfile', 'AddProduct', 'customers', 'MyStore'];
+  constructor(private breakpointObserver: BreakpointObserver, public auth: AuthService,
+    private cartService: CartService, private FavoriteService: FavoriteService, private User: UserService,
+    @Inject(DOCUMENT) private doc: Document) { }
+  // nav.component.ts
+  menuItemsClients = ['MyProfile']
+  menuItems = [""];
+  roles: string = "";
+
+  menuItemsVendor = ['MyProfile', 'AddProduct', 'customers', 'MyStore'];
   public totalItem: number = 0;
   public totalfavortit: number = 0;
-  islogged=false;
+  islogged = false;
   hidden = true;
   hidden1 = true;
   ngOnInit(): void {
+    this.auth.user$.subscribe((profile) => {
 
-    this.User.loginState.subscribe(
-      st=>{this.islogged=st}
-    );
-    this.cartService.getProducts().
-      subscribe(res => {
-        this.totalItem = res.length;
-        if (this.totalItem > 0) { this.hidden = false } else { this.hidden = true }
-      });
-    //   this.FavoriteService.getProducts().
-    //   subscribe(res => {
-    //     this.totalfavortit = res.length;
-    //     if (this.totalfavortit > 0) { this.hidden1 = false } else { this.hidden1 = true }
-    //   });
+      console.log(profile?.['http://roletest.net/roles'])
+      this.roles = profile?.['http://roletest.net/roles'];
+      if (this.roles.length == 2) {
+        this.menuItems = ['MyProfile', 'AddProduct', 'customers', 'MyStore'];
+      }
+      else {
+        this.menuItems = ['MyProfile'];
+      }
+    });
   }
-  loginWithRedirect():void{
+  loginWithRedirect(): void {
     this.auth.loginWithRedirect();
   }
 
-  logout(){
-    this.auth.logout({returnTo :this.doc.location.origin});
+  logout() {
+    this.auth.logout({ returnTo: this.doc.location.origin });
   }
 
 }
