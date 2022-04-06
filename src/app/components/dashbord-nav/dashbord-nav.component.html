@@ -68,7 +68,7 @@
 
         <mat-icon>login</mat-icon> Log in
       </button>
-      <button mat-button [routerLink]="['/become_Vendor']">
+      <button mat-button *ngIf="(auth.isAuthenticated$|async)&&(roles.length!==2)" [routerLink]="['/become_Vendor']">
         <mat-icon>app_registration</mat-icon> Became a Vendor
       </button>
       <span class="fill-remaining-space"></span>
