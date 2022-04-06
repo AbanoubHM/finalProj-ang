@@ -44,8 +44,8 @@ const routes: Routes = [
     data: {role: 'ROLE_ADMIN'}},
   { path: 'customers', component: CustomersComponent, canActivate: [AuthGuard] },
   { path: ':Cateid/products', component: CategoryDetailsComponent },
-  {path:'makeOrder',component:SubmitOrderComponent},
-  {path:'addOrder',component:AddOrderComponent},
+  {path:'makeOrder',component:SubmitOrderComponent , canActivate: [AuthGuard]},
+  {path:'addOrder',component:AddOrderComponent , canActivate: [AuthGuard]},
   { path: '**', component: ErrorComponent }
   
 
