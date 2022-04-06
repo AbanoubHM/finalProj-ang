@@ -32,4 +32,11 @@ export class OrderService {
       })
      )
   }
+  CancelOrder(id:number){
+    return this.http.delete(`${this.url}/${id}`).pipe(
+      catchError((err) => {
+        return throwError(err.message || 'Server Error');
+      })
+     )
+  }
 }

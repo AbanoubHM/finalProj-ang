@@ -31,7 +31,13 @@ export class SubmitOrderComponent implements OnInit {
   showOrderDetails(id:number){
     this.id=this.orders.id;
     console.log(id);
-    this.suborder.GetOrderDetails(id).subscribe();
+    this.suborder.CancelOrder(id).subscribe(
+      data => {
+      console.log(this.orders);
+      }, erorr => {
+        console.log(erorr);
+      })
+    
   }
   
 }

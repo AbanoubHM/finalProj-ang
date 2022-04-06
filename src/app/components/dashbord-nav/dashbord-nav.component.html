@@ -22,6 +22,8 @@
         </button>
         <button mat-button routerLink="/contact" style="margin-right: 5px;">Contact
         </button>
+        <button mat-button routerLink="/makeOrder" style="margin-right: 5px;">My Orders
+        </button>
         <button mat-button (click)="loginWithRedirect()" *ngIf="(auth.isAuthenticated$|async)===false">
           <mat-icon>login</mat-icon> Log in
         </button>
