@@ -55,7 +55,6 @@ export class HomeComponent implements OnInit {
  
       this.gat.getAllGatogaries().subscribe(gatilist => {
       this.gatlist = gatilist
-      console.log(this.gatlist)
     })
   }
   getProdDetails1(id: number) {
