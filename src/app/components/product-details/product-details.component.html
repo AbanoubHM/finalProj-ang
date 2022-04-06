@@ -81,7 +81,7 @@
             </div>
             <div class="col-12">
               <button [disabled]="count>prodDet.quantity" (click)="addtocart(prodDet)" style="font-size: 1.5em"
-                class="mb-3" mat-raised-button color="primary" *ngIf="auth.isAuthenticated$ | async">
+                class="mb-3" mat-raised-button color="primary">
                 Add To Cart <mat-icon matSuffix>add_shopping_cart </mat-icon>
               </button>
             </div>
