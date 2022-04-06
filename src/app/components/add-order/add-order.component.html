@@ -40,7 +40,7 @@
         <mat-icon matSuffix>notes</mat-icon>
       </mat-form-field>
      
-    <button   style="width: 10em; border-radius: 20px ;margin-right: 20px !important" (click)="makeOrder()" color="primary"
+    <button   style="width: 10em; border-radius: 20px ;margin-right: 20px !important" [disabled]="!registerForm.valid" (click)="makeOrder()" color="primary"
       mat-raised-button>
       Place Order
     </button>
