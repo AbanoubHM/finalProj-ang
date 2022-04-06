@@ -55,7 +55,7 @@ export class RegisterComponent implements OnInit {
         ],
       ],
       storeName: ['', [Validators.required]],
-      image: [''],
+      image: ['',Validators.required],
       street: [''],
       city: [''],
       state: [''],
@@ -112,10 +112,18 @@ export class RegisterComponent implements OnInit {
       });
   }
   submitForm() {
-    this.vand.postVendor(this.registerForm.value as BecomeVendor).subscribe({});
-
-    console.log(this.registerForm);
+    this.vand.postVendor(this.registerForm.value as BecomeVendor).subscribe(data=>{
+      console.log(data);
     location.reload();
+
+    },
+      ER => {
+      console.log(ER);
+    // location.reload();
+
+    });
+
+    // console.log(this.registerForm);
   }
   register_validation_messages = {
     username: [
