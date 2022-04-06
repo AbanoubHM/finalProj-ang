@@ -20,7 +20,8 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
-  length: number = 100;
+  quantity: number = 1;
+  length: number = 93;
   pageSize: number = 12;
   pageSizeOptions: number[] = [12, 24, 48, 96];
   pageEvent?: PageEvent;
@@ -67,14 +68,9 @@ export class ProductsComponent implements OnInit {
       this.gatlist = gatilist;
     });
 
-    this.productService.getProductsBySortName(this.params2).subscribe(
-      (res) => {
-        this.postList = res;
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+    this.productService.getAllProuduct().subscribe((res) => {
+      this.postList = res;
+    });
 
     this.auth.user$.subscribe((profile) => {
       this.userId = profile?.sub;
@@ -94,10 +90,8 @@ export class ProductsComponent implements OnInit {
   }
 
   addtocart(item: any) {
-    console.log('new  at cart');
-    this.cartService.addtoCart(item.id, this.userId).subscribe(
+    this.cartService.addtoCart(item.id, this.userId, this.quantity).subscribe(
       (res) => {
-        console.log(res);
         this.snakerbar('added to the cart', `bg-success`);
       },
       (err) => {
@@ -107,28 +101,22 @@ export class ProductsComponent implements OnInit {
   }
 
   addtofavorite(item: any) {
-    this.FavoriteService.getfevProducts(this.userId).subscribe(
-      (res) => {
-        let data: any = res;
+    this.FavoriteService.getfevProducts(this.userId).subscribe((res) => {
+      let data: any = res;
 
-        if (data.every((el: any) => el.productID !== item.id)) {
-          console.log('new');
-          this.FavoriteService.addtofavorite(item.id, this.userId).subscribe(
-            (res) => {
-              this.snakerbar('added to the favorite', `bg-success`);
-            },
-            (err) => {
-              this.snakerbar('some thing wrong', `bg-error`);
-            }
-          );
-        } else {
-          this.snakerbar('already in the favorite', `bg-error`);
-        }
-      },
-      (error) => {
-        console.log('server is down', error);
+      if (data.every((el: any) => el.productID !== item.id)) {
+        this.FavoriteService.addtofavorite(item.id, this.userId).subscribe(
+          (res) => {
+            this.snakerbar('added to the favorite', `bg-success`);
+          },
+          (err) => {
+            this.snakerbar('some thing wrong', `bg-error`);
+          }
+        );
+      } else {
+        this.snakerbar('already in the favorite', `bg-error`);
       }
-    );
+    });
   }
 
   showitem() {
@@ -176,6 +164,7 @@ export class ProductsComponent implements OnInit {
     } catch (error) {
       console.log(error);
     }
+
     this.params = this.params.set('search', this.searchvalues);
     this.productService
       .getProductsBySortName(this.params)

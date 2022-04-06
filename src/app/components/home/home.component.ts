@@ -51,6 +51,7 @@ export class HomeComponent implements OnInit {
   page: number = 1;
   size: number = 9;
   ngOnInit(): void {
+    this.productService.getAllProuduct();
     this.gat.getAllGatogaries().subscribe((gatilist) => {
       this.gatlist = gatilist;
     });

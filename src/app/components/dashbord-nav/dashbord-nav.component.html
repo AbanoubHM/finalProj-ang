@@ -27,6 +27,7 @@
         <button mat-button (click)="loginWithRedirect()" *ngIf="(auth.isAuthenticated$|async)===false">
           <mat-icon>login</mat-icon> Log in
         </button>
+
         <button mat-button [routerLink]="['/become_Vendor']" *ngIf="(auth.isAuthenticated$|async)&&(roles.length!==2)">
           <mat-icon>app_registration</mat-icon> Become a Vendor
         </button>
@@ -34,17 +35,19 @@
         <button mat-button (click)="logout()" *ngIf="(auth.isAuthenticated$|async)">
           <mat-icon>logout</mat-icon> Log out
         </button>
+
         <button mat-button routerLinkActive="active" routerLink="/favorite" *ngIf="(auth.isAuthenticated$|async)"
+          matBadge="!" matBadgePosition="after" matBadgeSize="small" matBadgeColor="accent" [matBadgeHidden]="favbagdge"
           class=" position-relative" mat-icon-button style="color:#bdf0f1 ; margin-right: 5px;" #tooltip="matTooltip"
-          matTooltip="Add To Favorite" aria-label="Example icon-button with a heart icon">
-          <mat-icon matBadge="{{totalfavortit}}" [matBadgeHidden]="hidden1" matBadgeColor="accent">
-            favorite</mat-icon>
+          matTooltip="Favorite" aria-label="Example icon-button with a heart icon">
+          <mat-icon>favorite</mat-icon>
         </button>
+
         <button mat-button routerLinkActive="active" style="color:#bdf0f1 ; margin-right: 5px;" routerLink="/cart"
-          class=" position-relative" *ngIf="(auth.isAuthenticated$|async)" mat-icon-button color="warn"
-          #tooltip="matTooltip" matTooltip="Add To Cart" aria-label="Example icon-button with a heart icon">
-          <mat-icon matBadge="{{totalItem}}" [matBadgeHidden]="hidden" matBadgeColor="accent">
-            shopping_cart</mat-icon>
+          matBadge="{{cartcount}}" matBadgePosition="after" matBadgeSize="small" matBadgeColor="accent"
+          [matBadgeHidden]="cartbagdge" class=" position-relative" *ngIf="(auth.isAuthenticated$|async)" mat-icon-button
+          color="warn" #tooltip="matTooltip" matTooltip="Cart" aria-label="Example icon-button with a heart icon">
+          <mat-icon>shopping_cart</mat-icon>
         </button>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
@@ -70,8 +73,9 @@
 
         <mat-icon>login</mat-icon> Log in
       </button>
+
       <button mat-button *ngIf="(auth.isAuthenticated$|async)&&(roles.length!==2)" [routerLink]="['/become_Vendor']">
-        <mat-icon>app_registration</mat-icon> Became a Vendor
+        <mat-icon>app_registration</mat-icon> Become a Vendor
       </button>
       <span class="fill-remaining-space"></span>
       <button mat-button (click)="logout()" *ngIf="(auth.isAuthenticated$|async)">

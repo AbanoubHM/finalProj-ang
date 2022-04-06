@@ -33,22 +33,35 @@ export class DashbordNavComponent {
   menuItemsClients = ['MyProfile'];
   menuItems = [''];
   roles: string = '';
-
+  userId: any = '';
   menuItemsVendor = ['MyProfile', 'AddProduct', 'customers', 'MyStore'];
-  public totalItem: number = 0;
-  public totalfavortit: number = 0;
   islogged = false;
-  hidden = true;
-  hidden1 = true;
+  cartbagdge = true;
+  favbagdge = true;
+  product: any = [];
+  cartitems: any =[];
+  cartcount: any;
   ngOnInit(): void {
     this.auth.user$.subscribe((profile) => {
-      //console.log(profile?.['http://roletest.net/roles'])
+      this.userId = profile?.sub;
+      console.log(profile?.['http://roletest.net/roles']);
       this.roles = profile?.['http://roletest.net/roles'];
+
       if (this.roles.length == 2) {
         this.menuItems = ['MyProfile', 'AddProduct', 'customers', 'MyStore'];
       } else {
         this.menuItems = ['MyProfile'];
       }
+
+      this.cartService.getCartProducts(this.userId).subscribe((data) => {
+        this.cartitems = data;
+        this.cartcount = this.cartitems.length;
+        if (this.cartcount != 0) {
+          this.cartbagdge = false;
+        } else {
+          this.cartbagdge = true;
+        }
+      });
     });
   }
   loginWithRedirect(): void {

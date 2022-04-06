@@ -50,19 +50,18 @@
           <div class="mb-3">
             <del *ngIf="prodDet.saleValue">{{ prodDet.price + prodDet.saleValue | number: "1.2-2" }} $</del>
           </div>
-          <p class="mb-5">{{ prodDet.description }}</p>
           <ul class="list-unstyled productInfoDetail mb-5 overflow-hidden">
             <li style="font-size: 1.3em" class="mb-2">
-              Quantity: <span>{{ prodDet.quantity }}</span>
+              <h2> Description: <span>{{ prodDet.description }}</span></h2>
             </li>
             <li style="font-size: 1.3em" class="mb-2">
-              Description: <span>{{ prodDet.description }}</span>
+              <span>Only {{ prodDet.quantity }} left in stock - order soon.</span>
             </li>
             <li style="font-size: 1.3em" class="mb-2">
-              preparationDays: <span>{{ prodDet.preparationDays }}</span>
+              <span>Will be shipped withen {{ prodDet.preparationDays }} Days</span>
             </li>
             <li style="font-size: 1.3em" class="mb-2">
-              categoryName: <span>{{ prodDet.categoryName }}</span>
+              Category: <span>{{ prodDet.categoryName }}</span>
             </li>
           </ul>
 

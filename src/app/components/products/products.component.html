@@ -32,7 +32,6 @@
             <li (click)="toggleList()" class="mr-2">
               <a><i class="fas fa-list"></i></a>
             </li>
-            <li class="mr-2">Showing {{ postList.length }} results</li>
           </ul>
           <!-- sortGroup -->
           <div class="sortGroup">
@@ -120,7 +119,7 @@
           </div>
         </div>
       </article>
-      <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+      <mat-paginator length="{{length}}" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
         (page)="pageEvent = changePage($event)">
       </mat-paginator>
     </div>
@@ -155,7 +154,7 @@
         <!-- widget -->
       </aside>
     </div>
-    <ngx-scrolltop [size]="40" backgroundColor="#33691e" symbolColor="#fff" symbol="↑" mode="classic" position="right"
+    <ngx-scrolltop [size]="40" backgroundColor="#33691e" symbolColor="#fff"  mode="classic" position="right"
       theme="pink">
     </ngx-scrolltop>
   </div>

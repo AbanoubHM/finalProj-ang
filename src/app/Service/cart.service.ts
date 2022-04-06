@@ -20,12 +20,11 @@ getCartProducts(userId:any){
   return this.http.get(`${environment.API}/Cart/${userId}`)
 }
 
-addtoCart(productId: any , userId:any) {
-   console.log( productId , userId )
+addtoCart(productId: any , userId:any, quantity:any) {
     const newProduct = { 
       "clientId": userId,
       "productId": productId,
-      "quantity": 1,
+      "quantity": quantity,
     } 
     return  this.http.post(`${environment.API}/Cart`, newProduct)
  }
