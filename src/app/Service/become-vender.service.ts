@@ -7,8 +7,8 @@ import { BecomeVendor } from '../Models/become-vendor'
   providedIn: 'root'
 })
 export class BecomeVenderService {
-  private _url: string = 'https://handmadeapi.azurewebsites.net/api/Stores';
-  private url = 'https://handmadeapi.azurewebsites.net/api/Products';
+  private _url: string = 'https://localhost:7020/api/Stores';
+  private url = 'https://localhost:7020/api/Products';
   constructor(private http: HttpClient, private auth: AuthService) {
 
   }

@@ -86,7 +86,7 @@ export class RegisterComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
     this.http
-      .post('https://handmadeapi.azurewebsites.net/upload', formData, {
+      .post('https://localhost:7020/upload', formData, {
         reportProgress: true,
         observe: 'events',
       })

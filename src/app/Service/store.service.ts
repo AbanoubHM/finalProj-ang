@@ -8,7 +8,7 @@ import { PublishProduct } from 'src/app/Models/Ipublish';
   providedIn: 'root',
 })
 export class StoreService {
-  private _url: string = 'https://handmadeapi.azurewebsites.net/api/Products';
+  private _url: string = 'https://localhost:7020/api/Products';
   constructor(private http: HttpClient) {}
   getAllVendorStore(): Observable<PublishProduct[]> {
     return this.http.get<PublishProduct[]>(this._url).pipe(

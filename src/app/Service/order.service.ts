@@ -6,7 +6,7 @@ import { catchError, throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class OrderService {
-  private url = 'https://handmadeapi.azurewebsites.net/api/Orders';
+  private url = 'https://localhost:7020/api/Orders';
   // https://handmadeapi.azurewebsites.net/api/Orders
   constructor(private http: HttpClient) {}
   GetUserOrders(id: any) {

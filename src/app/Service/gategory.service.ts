@@ -8,9 +8,9 @@ import { PublishProduct } from '../Models/Ipublish';
   providedIn: 'root',
 })
 export class GategoryService {
-  private _url: string = 'https://handmadeapi.azurewebsites.net/api/Categories';
+  private _url: string = 'https://localhost:7020/api/Categories';
   private url =
-    ' https://handmadeapi.azurewebsites.net/api/Categories/3/products';
+    ' https://localhost:7020/api/Categories/3/products';
   private httpClient: HttpClient;
 
   constructor(private http: HttpClient, handler: HttpBackend) {

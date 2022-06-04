@@ -2,7 +2,7 @@
     "domain": "dev-vxrkxu-x.us.auth0.com",
     "clientId": "i8fVcQjbbcHMJzi4uelRAgS2k2UFeC9m",
     "audience": "https://localhost:7263/",
-    "apiUri": "https://handmadeapi.azurewebsites.net",
+    "apiUri": "https://localhost:7020",
     "appUri": "http://localhost:4200",
     "errorPath": "/error"
   }

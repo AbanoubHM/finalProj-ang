@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ProfileService {
-  private _url: string = 'https://handmadeapi.azurewebsites.net/api/Clients';
+  private _url: string = 'https://localhost:7020/api/Clients';
 
   constructor(private http: HttpClient) {}
   getClientData(id?: string): Observable<IClient> {

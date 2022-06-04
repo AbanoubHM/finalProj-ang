@@ -10,7 +10,7 @@ const { domain, clientId, audience, apiUri, errorPath } = config as {
 export const environment = {
   production: false,
 
-  API: 'https://handmadeapi.azurewebsites.net/api',
+  API: 'https://localhost:7020/api',
   jsonServer: 'http://localhost:3000',
   auth: {
     domain: 'dev-vxrkxu-x.us.auth0.com',

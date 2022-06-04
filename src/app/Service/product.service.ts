@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class ProductService {
-  private _url: string = 'https://handmadeapi.azurewebsites.net/api/Products';
+  private _url: string = 'https://localhost:7020/api/Products';
 
   private httpClient: HttpClient;
 
